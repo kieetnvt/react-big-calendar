@@ -1,15 +1,19 @@
 ;(function(global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined'
-    ? (module.exports = factory(require('react'), require('react-dom')))
+    ? factory(exports, require('react'), require('react-dom'))
     : typeof define === 'function' && define.amd
-    ? define(['react', 'react-dom'], factory)
+    ? define(['exports', 'react', 'react-dom'], factory)
     : ((global = global || self),
-      (global.ReactBigCalendar = factory(global.React, global.ReactDOM)))
-})(this, function(React, reactDom) {
+      factory((global.ReactBigCalendar = {}), global.React, global.ReactDOM))
+})(this, function(exports, React, reactDom) {
   'use strict'
 
   var React__default = 'default' in React ? React['default'] : React
   var reactDom__default = 'default' in reactDom ? reactDom['default'] : reactDom
+
+  function NoopWrapper(props) {
+    return props.children
+  }
 
   function _extends() {
     _extends =
@@ -53,7 +57,9 @@
   }
 
   var commonjsGlobal =
-    typeof window !== 'undefined'
+    typeof globalThis !== 'undefined'
+      ? globalThis
+      : typeof window !== 'undefined'
       ? window
       : typeof global !== 'undefined'
       ? global
@@ -65,7 +71,7 @@
     return x &&
       x.__esModule &&
       Object.prototype.hasOwnProperty.call(x, 'default')
-      ? x.default
+      ? x['default']
       : x
   }
 
@@ -74,6 +80,469 @@
       (module = { exports: {} }), fn(module, module.exports), module.exports
     )
   }
+
+  var reactIs_production_min = createCommonjsModule(function(module, exports) {
+    Object.defineProperty(exports, '__esModule', { value: !0 })
+    var b = 'function' === typeof Symbol && Symbol.for,
+      c = b ? Symbol.for('react.element') : 60103,
+      d = b ? Symbol.for('react.portal') : 60106,
+      e = b ? Symbol.for('react.fragment') : 60107,
+      f = b ? Symbol.for('react.strict_mode') : 60108,
+      g = b ? Symbol.for('react.profiler') : 60114,
+      h = b ? Symbol.for('react.provider') : 60109,
+      k = b ? Symbol.for('react.context') : 60110,
+      l = b ? Symbol.for('react.async_mode') : 60111,
+      m = b ? Symbol.for('react.concurrent_mode') : 60111,
+      n = b ? Symbol.for('react.forward_ref') : 60112,
+      p = b ? Symbol.for('react.suspense') : 60113,
+      q = b ? Symbol.for('react.memo') : 60115,
+      r = b ? Symbol.for('react.lazy') : 60116
+    function t(a) {
+      if ('object' === typeof a && null !== a) {
+        var u = a.$$typeof
+        switch (u) {
+          case c:
+            switch (((a = a.type), a)) {
+              case l:
+              case m:
+              case e:
+              case g:
+              case f:
+              case p:
+                return a
+              default:
+                switch (((a = a && a.$$typeof), a)) {
+                  case k:
+                  case n:
+                  case h:
+                    return a
+                  default:
+                    return u
+                }
+            }
+          case r:
+          case q:
+          case d:
+            return u
+        }
+      }
+    }
+    function v(a) {
+      return t(a) === m
+    }
+    exports.typeOf = t
+    exports.AsyncMode = l
+    exports.ConcurrentMode = m
+    exports.ContextConsumer = k
+    exports.ContextProvider = h
+    exports.Element = c
+    exports.ForwardRef = n
+    exports.Fragment = e
+    exports.Lazy = r
+    exports.Memo = q
+    exports.Portal = d
+    exports.Profiler = g
+    exports.StrictMode = f
+    exports.Suspense = p
+    exports.isValidElementType = function(a) {
+      return (
+        'string' === typeof a ||
+        'function' === typeof a ||
+        a === e ||
+        a === m ||
+        a === g ||
+        a === f ||
+        a === p ||
+        ('object' === typeof a &&
+          null !== a &&
+          (a.$$typeof === r ||
+            a.$$typeof === q ||
+            a.$$typeof === h ||
+            a.$$typeof === k ||
+            a.$$typeof === n))
+      )
+    }
+    exports.isAsyncMode = function(a) {
+      return v(a) || t(a) === l
+    }
+    exports.isConcurrentMode = v
+    exports.isContextConsumer = function(a) {
+      return t(a) === k
+    }
+    exports.isContextProvider = function(a) {
+      return t(a) === h
+    }
+    exports.isElement = function(a) {
+      return 'object' === typeof a && null !== a && a.$$typeof === c
+    }
+    exports.isForwardRef = function(a) {
+      return t(a) === n
+    }
+    exports.isFragment = function(a) {
+      return t(a) === e
+    }
+    exports.isLazy = function(a) {
+      return t(a) === r
+    }
+    exports.isMemo = function(a) {
+      return t(a) === q
+    }
+    exports.isPortal = function(a) {
+      return t(a) === d
+    }
+    exports.isProfiler = function(a) {
+      return t(a) === g
+    }
+    exports.isStrictMode = function(a) {
+      return t(a) === f
+    }
+    exports.isSuspense = function(a) {
+      return t(a) === p
+    }
+  })
+
+  unwrapExports(reactIs_production_min)
+  var reactIs_production_min_1 = reactIs_production_min.typeOf
+  var reactIs_production_min_2 = reactIs_production_min.AsyncMode
+  var reactIs_production_min_3 = reactIs_production_min.ConcurrentMode
+  var reactIs_production_min_4 = reactIs_production_min.ContextConsumer
+  var reactIs_production_min_5 = reactIs_production_min.ContextProvider
+  var reactIs_production_min_6 = reactIs_production_min.Element
+  var reactIs_production_min_7 = reactIs_production_min.ForwardRef
+  var reactIs_production_min_8 = reactIs_production_min.Fragment
+  var reactIs_production_min_9 = reactIs_production_min.Lazy
+  var reactIs_production_min_10 = reactIs_production_min.Memo
+  var reactIs_production_min_11 = reactIs_production_min.Portal
+  var reactIs_production_min_12 = reactIs_production_min.Profiler
+  var reactIs_production_min_13 = reactIs_production_min.StrictMode
+  var reactIs_production_min_14 = reactIs_production_min.Suspense
+  var reactIs_production_min_15 = reactIs_production_min.isValidElementType
+  var reactIs_production_min_16 = reactIs_production_min.isAsyncMode
+  var reactIs_production_min_17 = reactIs_production_min.isConcurrentMode
+  var reactIs_production_min_18 = reactIs_production_min.isContextConsumer
+  var reactIs_production_min_19 = reactIs_production_min.isContextProvider
+  var reactIs_production_min_20 = reactIs_production_min.isElement
+  var reactIs_production_min_21 = reactIs_production_min.isForwardRef
+  var reactIs_production_min_22 = reactIs_production_min.isFragment
+  var reactIs_production_min_23 = reactIs_production_min.isLazy
+  var reactIs_production_min_24 = reactIs_production_min.isMemo
+  var reactIs_production_min_25 = reactIs_production_min.isPortal
+  var reactIs_production_min_26 = reactIs_production_min.isProfiler
+  var reactIs_production_min_27 = reactIs_production_min.isStrictMode
+  var reactIs_production_min_28 = reactIs_production_min.isSuspense
+
+  var reactIs_development = createCommonjsModule(function(module, exports) {
+    {
+      ;(function() {
+        Object.defineProperty(exports, '__esModule', { value: true })
+
+        // The Symbol used to tag the ReactElement-like types. If there is no native Symbol
+        // nor polyfill, then a plain number is used for performance.
+        var hasSymbol = typeof Symbol === 'function' && Symbol.for
+
+        var REACT_ELEMENT_TYPE = hasSymbol
+          ? Symbol.for('react.element')
+          : 0xeac7
+        var REACT_PORTAL_TYPE = hasSymbol ? Symbol.for('react.portal') : 0xeaca
+        var REACT_FRAGMENT_TYPE = hasSymbol
+          ? Symbol.for('react.fragment')
+          : 0xeacb
+        var REACT_STRICT_MODE_TYPE = hasSymbol
+          ? Symbol.for('react.strict_mode')
+          : 0xeacc
+        var REACT_PROFILER_TYPE = hasSymbol
+          ? Symbol.for('react.profiler')
+          : 0xead2
+        var REACT_PROVIDER_TYPE = hasSymbol
+          ? Symbol.for('react.provider')
+          : 0xeacd
+        var REACT_CONTEXT_TYPE = hasSymbol
+          ? Symbol.for('react.context')
+          : 0xeace
+        var REACT_ASYNC_MODE_TYPE = hasSymbol
+          ? Symbol.for('react.async_mode')
+          : 0xeacf
+        var REACT_CONCURRENT_MODE_TYPE = hasSymbol
+          ? Symbol.for('react.concurrent_mode')
+          : 0xeacf
+        var REACT_FORWARD_REF_TYPE = hasSymbol
+          ? Symbol.for('react.forward_ref')
+          : 0xead0
+        var REACT_SUSPENSE_TYPE = hasSymbol
+          ? Symbol.for('react.suspense')
+          : 0xead1
+        var REACT_MEMO_TYPE = hasSymbol ? Symbol.for('react.memo') : 0xead3
+        var REACT_LAZY_TYPE = hasSymbol ? Symbol.for('react.lazy') : 0xead4
+
+        function isValidElementType(type) {
+          return (
+            typeof type === 'string' ||
+            typeof type === 'function' ||
+            // Note: its typeof might be other than 'symbol' or 'number' if it's a polyfill.
+            type === REACT_FRAGMENT_TYPE ||
+            type === REACT_CONCURRENT_MODE_TYPE ||
+            type === REACT_PROFILER_TYPE ||
+            type === REACT_STRICT_MODE_TYPE ||
+            type === REACT_SUSPENSE_TYPE ||
+            (typeof type === 'object' &&
+              type !== null &&
+              (type.$$typeof === REACT_LAZY_TYPE ||
+                type.$$typeof === REACT_MEMO_TYPE ||
+                type.$$typeof === REACT_PROVIDER_TYPE ||
+                type.$$typeof === REACT_CONTEXT_TYPE ||
+                type.$$typeof === REACT_FORWARD_REF_TYPE))
+          )
+        }
+
+        /**
+         * Forked from fbjs/warning:
+         * https://github.com/facebook/fbjs/blob/e66ba20ad5be433eb54423f2b097d829324d9de6/packages/fbjs/src/__forks__/warning.js
+         *
+         * Only change is we use console.warn instead of console.error,
+         * and do nothing when 'console' is not supported.
+         * This really simplifies the code.
+         * ---
+         * Similar to invariant but only logs a warning if the condition is not met.
+         * This can be used to log issues in development environments in critical
+         * paths. Removing the logging code for production environments will keep the
+         * same logic and follow the same code paths.
+         */
+
+        var lowPriorityWarning = function() {}
+
+        {
+          var printWarning = function(format) {
+            for (
+              var _len = arguments.length,
+                args = Array(_len > 1 ? _len - 1 : 0),
+                _key = 1;
+              _key < _len;
+              _key++
+            ) {
+              args[_key - 1] = arguments[_key]
+            }
+
+            var argIndex = 0
+            var message =
+              'Warning: ' +
+              format.replace(/%s/g, function() {
+                return args[argIndex++]
+              })
+            if (typeof console !== 'undefined') {
+              console.warn(message)
+            }
+            try {
+              // --- Welcome to debugging React ---
+              // This error was thrown as a convenience so that you can use this stack
+              // to find the callsite that caused this warning to fire.
+              throw new Error(message)
+            } catch (x) {}
+          }
+
+          lowPriorityWarning = function(condition, format) {
+            if (format === undefined) {
+              throw new Error(
+                '`lowPriorityWarning(condition, format, ...args)` requires a warning ' +
+                  'message argument'
+              )
+            }
+            if (!condition) {
+              for (
+                var _len2 = arguments.length,
+                  args = Array(_len2 > 2 ? _len2 - 2 : 0),
+                  _key2 = 2;
+                _key2 < _len2;
+                _key2++
+              ) {
+                args[_key2 - 2] = arguments[_key2]
+              }
+
+              printWarning.apply(undefined, [format].concat(args))
+            }
+          }
+        }
+
+        var lowPriorityWarning$1 = lowPriorityWarning
+
+        function typeOf(object) {
+          if (typeof object === 'object' && object !== null) {
+            var $$typeof = object.$$typeof
+            switch ($$typeof) {
+              case REACT_ELEMENT_TYPE:
+                var type = object.type
+
+                switch (type) {
+                  case REACT_ASYNC_MODE_TYPE:
+                  case REACT_CONCURRENT_MODE_TYPE:
+                  case REACT_FRAGMENT_TYPE:
+                  case REACT_PROFILER_TYPE:
+                  case REACT_STRICT_MODE_TYPE:
+                  case REACT_SUSPENSE_TYPE:
+                    return type
+                  default:
+                    var $$typeofType = type && type.$$typeof
+
+                    switch ($$typeofType) {
+                      case REACT_CONTEXT_TYPE:
+                      case REACT_FORWARD_REF_TYPE:
+                      case REACT_PROVIDER_TYPE:
+                        return $$typeofType
+                      default:
+                        return $$typeof
+                    }
+                }
+              case REACT_LAZY_TYPE:
+              case REACT_MEMO_TYPE:
+              case REACT_PORTAL_TYPE:
+                return $$typeof
+            }
+          }
+
+          return undefined
+        }
+
+        // AsyncMode is deprecated along with isAsyncMode
+        var AsyncMode = REACT_ASYNC_MODE_TYPE
+        var ConcurrentMode = REACT_CONCURRENT_MODE_TYPE
+        var ContextConsumer = REACT_CONTEXT_TYPE
+        var ContextProvider = REACT_PROVIDER_TYPE
+        var Element = REACT_ELEMENT_TYPE
+        var ForwardRef = REACT_FORWARD_REF_TYPE
+        var Fragment = REACT_FRAGMENT_TYPE
+        var Lazy = REACT_LAZY_TYPE
+        var Memo = REACT_MEMO_TYPE
+        var Portal = REACT_PORTAL_TYPE
+        var Profiler = REACT_PROFILER_TYPE
+        var StrictMode = REACT_STRICT_MODE_TYPE
+        var Suspense = REACT_SUSPENSE_TYPE
+
+        var hasWarnedAboutDeprecatedIsAsyncMode = false
+
+        // AsyncMode should be deprecated
+        function isAsyncMode(object) {
+          {
+            if (!hasWarnedAboutDeprecatedIsAsyncMode) {
+              hasWarnedAboutDeprecatedIsAsyncMode = true
+              lowPriorityWarning$1(
+                false,
+                'The ReactIs.isAsyncMode() alias has been deprecated, ' +
+                  'and will be removed in React 17+. Update your code to use ' +
+                  'ReactIs.isConcurrentMode() instead. It has the exact same API.'
+              )
+            }
+          }
+          return (
+            isConcurrentMode(object) || typeOf(object) === REACT_ASYNC_MODE_TYPE
+          )
+        }
+        function isConcurrentMode(object) {
+          return typeOf(object) === REACT_CONCURRENT_MODE_TYPE
+        }
+        function isContextConsumer(object) {
+          return typeOf(object) === REACT_CONTEXT_TYPE
+        }
+        function isContextProvider(object) {
+          return typeOf(object) === REACT_PROVIDER_TYPE
+        }
+        function isElement(object) {
+          return (
+            typeof object === 'object' &&
+            object !== null &&
+            object.$$typeof === REACT_ELEMENT_TYPE
+          )
+        }
+        function isForwardRef(object) {
+          return typeOf(object) === REACT_FORWARD_REF_TYPE
+        }
+        function isFragment(object) {
+          return typeOf(object) === REACT_FRAGMENT_TYPE
+        }
+        function isLazy(object) {
+          return typeOf(object) === REACT_LAZY_TYPE
+        }
+        function isMemo(object) {
+          return typeOf(object) === REACT_MEMO_TYPE
+        }
+        function isPortal(object) {
+          return typeOf(object) === REACT_PORTAL_TYPE
+        }
+        function isProfiler(object) {
+          return typeOf(object) === REACT_PROFILER_TYPE
+        }
+        function isStrictMode(object) {
+          return typeOf(object) === REACT_STRICT_MODE_TYPE
+        }
+        function isSuspense(object) {
+          return typeOf(object) === REACT_SUSPENSE_TYPE
+        }
+
+        exports.typeOf = typeOf
+        exports.AsyncMode = AsyncMode
+        exports.ConcurrentMode = ConcurrentMode
+        exports.ContextConsumer = ContextConsumer
+        exports.ContextProvider = ContextProvider
+        exports.Element = Element
+        exports.ForwardRef = ForwardRef
+        exports.Fragment = Fragment
+        exports.Lazy = Lazy
+        exports.Memo = Memo
+        exports.Portal = Portal
+        exports.Profiler = Profiler
+        exports.StrictMode = StrictMode
+        exports.Suspense = Suspense
+        exports.isValidElementType = isValidElementType
+        exports.isAsyncMode = isAsyncMode
+        exports.isConcurrentMode = isConcurrentMode
+        exports.isContextConsumer = isContextConsumer
+        exports.isContextProvider = isContextProvider
+        exports.isElement = isElement
+        exports.isForwardRef = isForwardRef
+        exports.isFragment = isFragment
+        exports.isLazy = isLazy
+        exports.isMemo = isMemo
+        exports.isPortal = isPortal
+        exports.isProfiler = isProfiler
+        exports.isStrictMode = isStrictMode
+        exports.isSuspense = isSuspense
+      })()
+    }
+  })
+
+  unwrapExports(reactIs_development)
+  var reactIs_development_1 = reactIs_development.typeOf
+  var reactIs_development_2 = reactIs_development.AsyncMode
+  var reactIs_development_3 = reactIs_development.ConcurrentMode
+  var reactIs_development_4 = reactIs_development.ContextConsumer
+  var reactIs_development_5 = reactIs_development.ContextProvider
+  var reactIs_development_6 = reactIs_development.Element
+  var reactIs_development_7 = reactIs_development.ForwardRef
+  var reactIs_development_8 = reactIs_development.Fragment
+  var reactIs_development_9 = reactIs_development.Lazy
+  var reactIs_development_10 = reactIs_development.Memo
+  var reactIs_development_11 = reactIs_development.Portal
+  var reactIs_development_12 = reactIs_development.Profiler
+  var reactIs_development_13 = reactIs_development.StrictMode
+  var reactIs_development_14 = reactIs_development.Suspense
+  var reactIs_development_15 = reactIs_development.isValidElementType
+  var reactIs_development_16 = reactIs_development.isAsyncMode
+  var reactIs_development_17 = reactIs_development.isConcurrentMode
+  var reactIs_development_18 = reactIs_development.isContextConsumer
+  var reactIs_development_19 = reactIs_development.isContextProvider
+  var reactIs_development_20 = reactIs_development.isElement
+  var reactIs_development_21 = reactIs_development.isForwardRef
+  var reactIs_development_22 = reactIs_development.isFragment
+  var reactIs_development_23 = reactIs_development.isLazy
+  var reactIs_development_24 = reactIs_development.isMemo
+  var reactIs_development_25 = reactIs_development.isPortal
+  var reactIs_development_26 = reactIs_development.isProfiler
+  var reactIs_development_27 = reactIs_development.isStrictMode
+  var reactIs_development_28 = reactIs_development.isSuspense
+
+  var reactIs = createCommonjsModule(function(module) {
+    {
+      module.exports = reactIs_development
+    }
+  })
 
   /*
   object-assign
@@ -186,6 +655,7 @@
   {
     var ReactPropTypesSecret$1 = ReactPropTypesSecret_1
     var loggedTypeFailures = {}
+    var has = Function.call.bind(Object.prototype.hasOwnProperty)
 
     printWarning = function(text) {
       var message = 'Warning: ' + text
@@ -221,7 +691,7 @@
   ) {
     {
       for (var typeSpecName in typeSpecs) {
-        if (typeSpecs.hasOwnProperty(typeSpecName)) {
+        if (has(typeSpecs, typeSpecName)) {
           var error
           // Prop type validation may throw. In case they do, we don't want to
           // fail the render phase where it didn't fail before. So we log it.
@@ -294,8 +764,20 @@
     }
   }
 
+  /**
+   * Resets warning cache when testing.
+   *
+   * @private
+   */
+  checkPropTypes.resetWarningCache = function() {
+    {
+      loggedTypeFailures = {}
+    }
+  }
+
   var checkPropTypes_1 = checkPropTypes
 
+  var has$1 = Function.call.bind(Object.prototype.hasOwnProperty)
   var printWarning$1 = function() {}
 
   {
@@ -409,6 +891,7 @@
       any: createAnyTypeChecker(),
       arrayOf: createArrayOfTypeChecker,
       element: createElementTypeChecker(),
+      elementType: createElementTypeTypeChecker(),
       instanceOf: createInstanceTypeChecker,
       node: createNodeChecker(),
       objectOf: createObjectOfTypeChecker,
@@ -661,6 +1144,35 @@
       return createChainableTypeChecker(validate)
     }
 
+    function createElementTypeTypeChecker() {
+      function validate(
+        props,
+        propName,
+        componentName,
+        location,
+        propFullName
+      ) {
+        var propValue = props[propName]
+        if (!reactIs.isValidElementType(propValue)) {
+          var propType = getPropType(propValue)
+          return new PropTypeError(
+            'Invalid ' +
+              location +
+              ' `' +
+              propFullName +
+              '` of type ' +
+              ('`' +
+                propType +
+                '` supplied to `' +
+                componentName +
+                '`, expected a single ReactElement type.')
+          )
+        }
+        return null
+      }
+      return createChainableTypeChecker(validate)
+    }
+
     function createInstanceTypeChecker(expectedClass) {
       function validate(
         props,
@@ -693,9 +1205,20 @@
 
     function createEnumTypeChecker(expectedValues) {
       if (!Array.isArray(expectedValues)) {
-        printWarning$1(
-          'Invalid argument supplied to oneOf, expected an instance of array.'
-        )
+        {
+          if (arguments.length > 1) {
+            printWarning$1(
+              'Invalid arguments supplied to oneOf, expected an array, got ' +
+                arguments.length +
+                ' arguments. ' +
+                'A common mistake is to write oneOf(x, y, z) instead of oneOf([x, y, z]).'
+            )
+          } else {
+            printWarning$1(
+              'Invalid argument supplied to oneOf, expected an array.'
+            )
+          }
+        }
         return emptyFunctionThatReturnsNull
       }
 
@@ -713,14 +1236,23 @@
           }
         }
 
-        var valuesString = JSON.stringify(expectedValues)
+        var valuesString = JSON.stringify(expectedValues, function replacer(
+          key,
+          value
+        ) {
+          var type = getPreciseType(value)
+          if (type === 'symbol') {
+            return String(value)
+          }
+          return value
+        })
         return new PropTypeError(
           'Invalid ' +
             location +
             ' `' +
             propFullName +
             '` of value `' +
-            propValue +
+            String(propValue) +
             '` ' +
             ('supplied to `' +
               componentName +
@@ -766,7 +1298,7 @@
           )
         }
         for (var key in propValue) {
-          if (propValue.hasOwnProperty(key)) {
+          if (has$1(propValue, key)) {
             var error = typeChecker(
               propValue,
               key,
@@ -1025,6 +1557,11 @@
         return true
       }
 
+      // falsy value can't be a Symbol
+      if (!propValue) {
+        return false
+      }
+
       // 19.4.3.5 Symbol.prototype[@@toStringTag] === 'Symbol'
       if (propValue['@@toStringTag'] === 'Symbol') {
         return true
@@ -1099,6 +1636,7 @@
     }
 
     ReactPropTypes.checkPropTypes = checkPropTypes_1
+    ReactPropTypes.resetWarningCache = checkPropTypes_1.resetWarningCache
     ReactPropTypes.PropTypes = ReactPropTypes
 
     return ReactPropTypes
@@ -1113,29 +1651,58 @@
      */
 
     {
-      var REACT_ELEMENT_TYPE =
-        (typeof Symbol === 'function' &&
-          Symbol.for &&
-          Symbol.for('react.element')) ||
-        0xeac7
-
-      var isValidElement = function(object) {
-        return (
-          typeof object === 'object' &&
-          object !== null &&
-          object.$$typeof === REACT_ELEMENT_TYPE
-        )
-      }
+      var ReactIs = reactIs
 
       // By explicitly using `prop-types` you are opting into new development behavior.
       // http://fb.me/prop-types-in-prod
       var throwOnDirectAccess = true
       module.exports = factoryWithTypeCheckers(
-        isValidElement,
+        ReactIs.isElement,
         throwOnDirectAccess
       )
     }
   })
+
+  function _extends$1() {
+    _extends$1 =
+      Object.assign ||
+      function(target) {
+        for (var i = 1; i < arguments.length; i++) {
+          var source = arguments[i]
+
+          for (var key in source) {
+            if (Object.prototype.hasOwnProperty.call(source, key)) {
+              target[key] = source[key]
+            }
+          }
+        }
+
+        return target
+      }
+
+    return _extends$1.apply(this, arguments)
+  }
+
+  function _objectWithoutPropertiesLoose$1(source, excluded) {
+    if (source == null) return {}
+    var target = {}
+    var sourceKeys = Object.keys(source)
+    var key, i
+
+    for (i = 0; i < sourceKeys.length; i++) {
+      key = sourceKeys[i]
+      if (excluded.indexOf(key) >= 0) continue
+      target[key] = source[key]
+    }
+
+    return target
+  }
+
+  function _inheritsLoose$1(subClass, superClass) {
+    subClass.prototype = Object.create(superClass.prototype)
+    subClass.prototype.constructor = subClass
+    subClass.__proto__ = superClass
+  }
 
   /**
    * Copyright (c) 2013-present, Facebook, Inc.
@@ -1144,7 +1711,7 @@
    * LICENSE file in the root directory of this source tree.
    */
 
-  var invariant$1 = function(condition, format, a, b, c, d, e, f) {
+  var invariant = function(condition, format, a, b, c, d, e, f) {
     {
       if (format === undefined) {
         throw new Error('invariant requires an error message argument')
@@ -1174,397 +1741,277 @@
     }
   }
 
-  var invariant_1 = invariant$1
+  var invariant_1 = invariant
 
-  var utils = createCommonjsModule(function(module, exports) {
-    exports.__esModule = true
-    exports.uncontrolledPropTypes = uncontrolledPropTypes
-    exports.isProp = isProp
-    exports.defaultKey = defaultKey
-    exports.canAcceptRef = canAcceptRef
+  var noop = function noop() {}
 
-    var _invariant = _interopRequireDefault(invariant_1)
-
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj }
-    }
-
-    var noop = function noop() {}
-
-    function readOnlyPropType(handler, name) {
-      return function(props, propName) {
-        if (props[propName] !== undefined) {
-          if (!props[handler]) {
-            return new Error(
-              'You have provided a `' +
-                propName +
-                '` prop to `' +
-                name +
-                '` ' +
-                ('without an `' +
-                  handler +
-                  '` handler prop. This will render a read-only field. ') +
-                ('If the field should be mutable use `' +
-                  defaultKey(propName) +
-                  '`. ') +
-                ('Otherwise, set `' + handler + '`.')
-            )
-          }
-        }
-      }
-    }
-
-    function uncontrolledPropTypes(controlledValues, displayName) {
-      var propTypes = {}
-      Object.keys(controlledValues).forEach(function(prop) {
-        // add default propTypes for folks that use runtime checks
-        propTypes[defaultKey(prop)] = noop
-
-        {
-          var handler = controlledValues[prop]
-          !(typeof handler === 'string' && handler.trim().length)
-            ? (0, _invariant.default)(
-                false,
-                'Uncontrollable - [%s]: the prop `%s` needs a valid handler key name in order to make it uncontrollable',
-                displayName,
-                prop
-              )
-            : void 0
-          propTypes[prop] = readOnlyPropType(handler, displayName)
-        }
-      })
-      return propTypes
-    }
-
-    function isProp(props, prop) {
-      return props[prop] !== undefined
-    }
-
-    function defaultKey(key) {
-      return 'default' + key.charAt(0).toUpperCase() + key.substr(1)
-    }
-    /**
-     * Copyright (c) 2013-present, Facebook, Inc.
-     * All rights reserved.
-     *
-     * This source code is licensed under the BSD-style license found in the
-     * LICENSE file in the root directory of this source tree. An additional grant
-     * of patent rights can be found in the PATENTS file in the same directory.
-     */
-
-    function canAcceptRef(component) {
-      return (
-        !!component &&
-        (typeof component !== 'function' ||
-          (component.prototype && component.prototype.isReactComponent))
-      )
-    }
-  })
-
-  unwrapExports(utils)
-  var utils_1 = utils.uncontrolledPropTypes
-  var utils_2 = utils.isProp
-  var utils_3 = utils.defaultKey
-  var utils_4 = utils.canAcceptRef
-
-  var lib = createCommonjsModule(function(module, exports) {
-    exports.__esModule = true
-    exports.default = uncontrollable
-
-    var _react = _interopRequireDefault(React__default)
-
-    var _invariant = _interopRequireDefault(invariant_1)
-
-    var Utils = _interopRequireWildcard(utils)
-
-    var _jsxFileName = 'src/index.js'
-
-    function _interopRequireWildcard(obj) {
-      if (obj && obj.__esModule) {
-        return obj
-      } else {
-        var newObj = {}
-        if (obj != null) {
-          for (var key in obj) {
-            if (Object.prototype.hasOwnProperty.call(obj, key)) {
-              var desc =
-                Object.defineProperty && Object.getOwnPropertyDescriptor
-                  ? Object.getOwnPropertyDescriptor(obj, key)
-                  : {}
-              if (desc.get || desc.set) {
-                Object.defineProperty(newObj, key, desc)
-              } else {
-                newObj[key] = obj[key]
-              }
-            }
-          }
-        }
-        newObj.default = obj
-        return newObj
-      }
-    }
-
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj }
-    }
-
-    function _extends() {
-      _extends =
-        Object.assign ||
-        function(target) {
-          for (var i = 1; i < arguments.length; i++) {
-            var source = arguments[i]
-            for (var key in source) {
-              if (Object.prototype.hasOwnProperty.call(source, key)) {
-                target[key] = source[key]
-              }
-            }
-          }
-          return target
-        }
-      return _extends.apply(this, arguments)
-    }
-
-    function _objectWithoutProperties(source, excluded) {
-      if (source == null) return {}
-      var target = {}
-      var sourceKeys = Object.keys(source)
-      var key, i
-      for (i = 0; i < sourceKeys.length; i++) {
-        key = sourceKeys[i]
-        if (excluded.indexOf(key) >= 0) continue
-        target[key] = source[key]
-      }
-      if (Object.getOwnPropertySymbols) {
-        var sourceSymbolKeys = Object.getOwnPropertySymbols(source)
-        for (i = 0; i < sourceSymbolKeys.length; i++) {
-          key = sourceSymbolKeys[i]
-          if (excluded.indexOf(key) >= 0) continue
-          if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue
-          target[key] = source[key]
-        }
-      }
-      return target
-    }
-
-    function _inheritsLoose(subClass, superClass) {
-      subClass.prototype.__proto__ = superClass && superClass.prototype
-      subClass.__proto__ = superClass
-    }
-
-    function uncontrollable(Component, controlledValues, methods) {
-      if (methods === void 0) {
-        methods = []
-      }
-
-      var displayName = Component.displayName || Component.name || 'Component'
-      var canAcceptRef = Utils.canAcceptRef(Component)
-      var controlledProps = Object.keys(controlledValues)
-      var PROPS_TO_OMIT = controlledProps.map(Utils.defaultKey)
-      !(canAcceptRef || !methods.length)
-        ? (0, _invariant.default)(
-            false,
-            '[uncontrollable] stateless function components cannot pass through methods ' +
-              'because they have no associated instances. Check component: ' +
-              displayName +
-              ', ' +
-              'attempting to pass through methods: ' +
-              methods.join(', ')
+  function readOnlyPropType(handler, name) {
+    return function(props, propName) {
+      if (props[propName] !== undefined) {
+        if (!props[handler]) {
+          return new Error(
+            'You have provided a `' +
+              propName +
+              '` prop to `' +
+              name +
+              '` ' +
+              ('without an `' +
+                handler +
+                '` handler prop. This will render a read-only field. ') +
+              ('If the field should be mutable use `' +
+                defaultKey(propName) +
+                '`. ') +
+              ('Otherwise, set `' + handler + '`.')
           )
-        : void 0
+        }
+      }
+    }
+  }
 
-      var UncontrolledComponent =
-        /*#__PURE__*/
-        (function(_React$Component) {
-          _inheritsLoose(UncontrolledComponent, _React$Component)
+  function uncontrolledPropTypes(controlledValues, displayName) {
+    var propTypes = {}
+    Object.keys(controlledValues).forEach(function(prop) {
+      // add default propTypes for folks that use runtime checks
+      propTypes[defaultKey(prop)] = noop
 
-          function UncontrolledComponent() {
-            var _this
+      {
+        var handler = controlledValues[prop]
+        !(typeof handler === 'string' && handler.trim().length)
+          ? invariant_1(
+              false,
+              'Uncontrollable - [%s]: the prop `%s` needs a valid handler key name in order to make it uncontrollable',
+              displayName,
+              prop
+            )
+          : void 0
+        propTypes[prop] = readOnlyPropType(handler, displayName)
+      }
+    })
+    return propTypes
+  }
+  function isProp(props, prop) {
+    return props[prop] !== undefined
+  }
+  function defaultKey(key) {
+    return 'default' + key.charAt(0).toUpperCase() + key.substr(1)
+  }
+  /**
+   * Copyright (c) 2013-present, Facebook, Inc.
+   * All rights reserved.
+   *
+   * This source code is licensed under the BSD-style license found in the
+   * LICENSE file in the root directory of this source tree. An additional grant
+   * of patent rights can be found in the PATENTS file in the same directory.
+   */
 
-            for (
-              var _len = arguments.length, args = new Array(_len), _key = 0;
-              _key < _len;
-              _key++
-            ) {
-              args[_key] = arguments[_key]
-            }
+  function canAcceptRef(component) {
+    return (
+      !!component &&
+      (typeof component !== 'function' ||
+        (component.prototype && component.prototype.isReactComponent))
+    )
+  }
 
-            _this =
-              _React$Component.call.apply(
-                _React$Component,
-                [this].concat(args)
-              ) || this
-            _this.handlers = Object.create(null)
-            controlledProps.forEach(function(propName) {
-              var handlerName = controlledValues[propName]
+  function uncontrollable(Component, controlledValues, methods) {
+    if (methods === void 0) {
+      methods = []
+    }
 
-              var handleChange = function handleChange(value) {
-                if (_this.props[handlerName]) {
-                  var _this$props
+    var displayName = Component.displayName || Component.name || 'Component'
+    var canAcceptRef$1 = canAcceptRef(Component)
+    var controlledProps = Object.keys(controlledValues)
+    var PROPS_TO_OMIT = controlledProps.map(defaultKey)
+    !(canAcceptRef$1 || !methods.length)
+      ? invariant_1(
+          false,
+          '[uncontrollable] stateless function components cannot pass through methods ' +
+            'because they have no associated instances. Check component: ' +
+            displayName +
+            ', ' +
+            'attempting to pass through methods: ' +
+            methods.join(', ')
+        )
+      : void 0
 
-                  _this._notifying = true
+    var UncontrolledComponent =
+      /*#__PURE__*/
+      (function(_React$Component) {
+        _inheritsLoose$1(UncontrolledComponent, _React$Component)
 
-                  for (
-                    var _len2 = arguments.length,
-                      args = new Array(_len2 > 1 ? _len2 - 1 : 0),
-                      _key2 = 1;
-                    _key2 < _len2;
-                    _key2++
-                  ) {
-                    args[_key2 - 1] = arguments[_key2]
-                  }
+        function UncontrolledComponent() {
+          var _this
 
-                  ;(_this$props = _this.props)[handlerName].apply(
-                    _this$props,
-                    [value].concat(args)
-                  )
+          for (
+            var _len = arguments.length, args = new Array(_len), _key = 0;
+            _key < _len;
+            _key++
+          ) {
+            args[_key] = arguments[_key]
+          }
 
-                  _this._notifying = false
+          _this =
+            _React$Component.call.apply(
+              _React$Component,
+              [this].concat(args)
+            ) || this
+          _this.handlers = Object.create(null)
+          controlledProps.forEach(function(propName) {
+            var handlerName = controlledValues[propName]
+
+            var handleChange = function handleChange(value) {
+              if (_this.props[handlerName]) {
+                var _this$props
+
+                _this._notifying = true
+
+                for (
+                  var _len2 = arguments.length,
+                    args = new Array(_len2 > 1 ? _len2 - 1 : 0),
+                    _key2 = 1;
+                  _key2 < _len2;
+                  _key2++
+                ) {
+                  args[_key2 - 1] = arguments[_key2]
                 }
 
-                _this._values[propName] = value
-                if (!_this.unmounted) _this.forceUpdate()
+                ;(_this$props = _this.props)[handlerName].apply(
+                  _this$props,
+                  [value].concat(args)
+                )
+
+                _this._notifying = false
               }
 
-              _this.handlers[handlerName] = handleChange
+              _this._values[propName] = value
+              if (!_this.unmounted) _this.forceUpdate()
+            }
+
+            _this.handlers[handlerName] = handleChange
+          })
+          if (methods.length)
+            _this.attachRef = function(ref) {
+              _this.inner = ref
+            }
+          return _this
+        }
+
+        var _proto = UncontrolledComponent.prototype
+
+        _proto.shouldComponentUpdate = function shouldComponentUpdate() {
+          //let the forceUpdate trigger the update
+          return !this._notifying
+        }
+
+        _proto.componentWillMount = function componentWillMount() {
+          var _this2 = this
+
+          var props = this.props
+          this._values = Object.create(null)
+          controlledProps.forEach(function(key) {
+            _this2._values[key] = props[defaultKey(key)]
+          })
+        }
+
+        _proto.componentWillReceiveProps = function componentWillReceiveProps(
+          nextProps
+        ) {
+          var _this3 = this
+
+          var props = this.props
+          controlledProps.forEach(function(key) {
+            /**
+             * If a prop switches from controlled to Uncontrolled
+             * reset its value to the defaultValue
+             */
+            if (!isProp(nextProps, key) && isProp(props, key)) {
+              _this3._values[key] = nextProps[defaultKey(key)]
+            }
+          })
+        }
+
+        _proto.componentWillUnmount = function componentWillUnmount() {
+          this.unmounted = true
+        }
+
+        _proto.render = function render() {
+          var _this4 = this
+
+          var _this$props2 = this.props,
+            innerRef = _this$props2.innerRef,
+            props = _objectWithoutPropertiesLoose$1(_this$props2, ['innerRef'])
+
+          PROPS_TO_OMIT.forEach(function(prop) {
+            delete props[prop]
+          })
+          var newProps = {}
+          controlledProps.forEach(function(propName) {
+            var propValue = _this4.props[propName]
+            newProps[propName] =
+              propValue !== undefined ? propValue : _this4._values[propName]
+          })
+          return React__default.createElement(
+            Component,
+            _extends$1({}, props, newProps, this.handlers, {
+              ref: innerRef || this.attachRef,
             })
-            if (methods.length)
-              _this.attachRef = function(ref) {
-                _this.inner = ref
-              }
-            return _this
-          }
-
-          var _proto = UncontrolledComponent.prototype
-
-          _proto.shouldComponentUpdate = function shouldComponentUpdate() {
-            //let the forceUpdate trigger the update
-            return !this._notifying
-          }
-
-          _proto.componentWillMount = function componentWillMount() {
-            var _this2 = this
-
-            var props = this.props
-            this._values = Object.create(null)
-            controlledProps.forEach(function(key) {
-              _this2._values[key] = props[Utils.defaultKey(key)]
-            })
-          }
-
-          _proto.componentWillReceiveProps = function componentWillReceiveProps(
-            nextProps
-          ) {
-            var _this3 = this
-
-            var props = this.props
-            controlledProps.forEach(function(key) {
-              /**
-               * If a prop switches from controlled to Uncontrolled
-               * reset its value to the defaultValue
-               */
-              if (!Utils.isProp(nextProps, key) && Utils.isProp(props, key)) {
-                _this3._values[key] = nextProps[Utils.defaultKey(key)]
-              }
-            })
-          }
-
-          _proto.componentWillUnmount = function componentWillUnmount() {
-            this.unmounted = true
-          }
-
-          _proto.render = function render() {
-            var _this4 = this
-
-            var _this$props2 = this.props,
-              innerRef = _this$props2.innerRef,
-              props = _objectWithoutProperties(_this$props2, ['innerRef'])
-
-            PROPS_TO_OMIT.forEach(function(prop) {
-              delete props[prop]
-            })
-            var newProps = {}
-            controlledProps.forEach(function(propName) {
-              var propValue = _this4.props[propName]
-              newProps[propName] =
-                propValue !== undefined ? propValue : _this4._values[propName]
-            })
-            return _react.default.createElement(
-              Component,
-              _extends({}, props, newProps, this.handlers, {
-                ref: innerRef || this.attachRef,
-              })
-            )
-          }
-
-          return UncontrolledComponent
-        })(_react.default.Component)
-
-      UncontrolledComponent.displayName = 'Uncontrolled(' + displayName + ')'
-      UncontrolledComponent.propTypes = _extends(
-        {
-          innerRef: function innerRef() {},
-        },
-        Utils.uncontrolledPropTypes(controlledValues, displayName)
-      )
-      methods.forEach(function(method) {
-        UncontrolledComponent.prototype[method] = function $proxiedMethod() {
-          var _this$inner
-
-          return (_this$inner = this.inner)[method].apply(
-            _this$inner,
-            arguments
           )
         }
-      })
-      var WrappedComponent = UncontrolledComponent
 
-      if (_react.default.forwardRef) {
-        WrappedComponent = _react.default.forwardRef(function(props, ref) {
-          return _react.default.createElement(
-            UncontrolledComponent,
-            _extends({}, props, {
-              innerRef: ref,
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 127,
-              },
-              __self: this,
-            })
-          )
-        })
-        WrappedComponent.propTypes = UncontrolledComponent.propTypes
+        return UncontrolledComponent
+      })(React__default.Component)
+
+    UncontrolledComponent.displayName = 'Uncontrolled(' + displayName + ')'
+    UncontrolledComponent.propTypes = _extends$1(
+      {
+        innerRef: function innerRef() {},
+      },
+      uncontrolledPropTypes(controlledValues, displayName)
+    )
+    methods.forEach(function(method) {
+      UncontrolledComponent.prototype[method] = function $proxiedMethod() {
+        var _this$inner
+
+        return (_this$inner = this.inner)[method].apply(_this$inner, arguments)
       }
+    })
+    var WrappedComponent = UncontrolledComponent
 
-      WrappedComponent.ControlledComponent = Component
-      /**
-       * useful when wrapping a Component and you want to control
-       * everything
-       */
-
-      WrappedComponent.deferControlTo = function(
-        newComponent,
-        additions,
-        nextMethods
-      ) {
-        if (additions === void 0) {
-          additions = {}
-        }
-
-        return uncontrollable(
-          newComponent,
-          _extends({}, controlledValues, additions),
-          nextMethods
+    if (React__default.forwardRef) {
+      WrappedComponent = React__default.forwardRef(function(props, ref) {
+        return React__default.createElement(
+          UncontrolledComponent,
+          _extends$1({}, props, {
+            innerRef: ref,
+          })
         )
-      }
-
-      return WrappedComponent
+      })
+      WrappedComponent.propTypes = UncontrolledComponent.propTypes
     }
 
-    module.exports = exports['default']
-  })
+    WrappedComponent.ControlledComponent = Component
+    /**
+     * useful when wrapping a Component and you want to control
+     * everything
+     */
 
-  var uncontrollable = unwrapExports(lib)
+    WrappedComponent.deferControlTo = function(
+      newComponent,
+      additions,
+      nextMethods
+    ) {
+      if (additions === void 0) {
+        additions = {}
+      }
+
+      return uncontrollable(
+        newComponent,
+        _extends$1({}, controlledValues, additions),
+        nextMethods
+      )
+    }
+
+    return WrappedComponent
+  }
 
   var classnames = createCommonjsModule(function(module) {
     /*!
@@ -1614,504 +2061,6 @@
     })()
   })
 
-  var reactIs_production_min = createCommonjsModule(function(module, exports) {
-    Object.defineProperty(exports, '__esModule', { value: !0 })
-    var b = 'function' === typeof Symbol && Symbol.for,
-      c = b ? Symbol.for('react.element') : 60103,
-      d = b ? Symbol.for('react.portal') : 60106,
-      e = b ? Symbol.for('react.fragment') : 60107,
-      f = b ? Symbol.for('react.strict_mode') : 60108,
-      g = b ? Symbol.for('react.profiler') : 60114,
-      h = b ? Symbol.for('react.provider') : 60109,
-      k = b ? Symbol.for('react.context') : 60110,
-      l = b ? Symbol.for('react.async_mode') : 60111,
-      m = b ? Symbol.for('react.forward_ref') : 60112,
-      n = b ? Symbol.for('react.placeholder') : 60113
-    function q(a) {
-      if ('object' === typeof a && null !== a) {
-        var p = a.$$typeof
-        switch (p) {
-          case c:
-            switch (((a = a.type), a)) {
-              case l:
-              case e:
-              case g:
-              case f:
-                return a
-              default:
-                switch (((a = a && a.$$typeof), a)) {
-                  case k:
-                  case m:
-                  case h:
-                    return a
-                  default:
-                    return p
-                }
-            }
-          case d:
-            return p
-        }
-      }
-    }
-    exports.typeOf = q
-    exports.AsyncMode = l
-    exports.ContextConsumer = k
-    exports.ContextProvider = h
-    exports.Element = c
-    exports.ForwardRef = m
-    exports.Fragment = e
-    exports.Profiler = g
-    exports.Portal = d
-    exports.StrictMode = f
-    exports.isValidElementType = function(a) {
-      return (
-        'string' === typeof a ||
-        'function' === typeof a ||
-        a === e ||
-        a === l ||
-        a === g ||
-        a === f ||
-        a === n ||
-        ('object' === typeof a &&
-          null !== a &&
-          ('function' === typeof a.then ||
-            a.$$typeof === h ||
-            a.$$typeof === k ||
-            a.$$typeof === m))
-      )
-    }
-    exports.isAsyncMode = function(a) {
-      return q(a) === l
-    }
-    exports.isContextConsumer = function(a) {
-      return q(a) === k
-    }
-    exports.isContextProvider = function(a) {
-      return q(a) === h
-    }
-    exports.isElement = function(a) {
-      return 'object' === typeof a && null !== a && a.$$typeof === c
-    }
-    exports.isForwardRef = function(a) {
-      return q(a) === m
-    }
-    exports.isFragment = function(a) {
-      return q(a) === e
-    }
-    exports.isProfiler = function(a) {
-      return q(a) === g
-    }
-    exports.isPortal = function(a) {
-      return q(a) === d
-    }
-    exports.isStrictMode = function(a) {
-      return q(a) === f
-    }
-  })
-
-  unwrapExports(reactIs_production_min)
-  var reactIs_production_min_1 = reactIs_production_min.typeOf
-  var reactIs_production_min_2 = reactIs_production_min.AsyncMode
-  var reactIs_production_min_3 = reactIs_production_min.ContextConsumer
-  var reactIs_production_min_4 = reactIs_production_min.ContextProvider
-  var reactIs_production_min_5 = reactIs_production_min.Element
-  var reactIs_production_min_6 = reactIs_production_min.ForwardRef
-  var reactIs_production_min_7 = reactIs_production_min.Fragment
-  var reactIs_production_min_8 = reactIs_production_min.Profiler
-  var reactIs_production_min_9 = reactIs_production_min.Portal
-  var reactIs_production_min_10 = reactIs_production_min.StrictMode
-  var reactIs_production_min_11 = reactIs_production_min.isValidElementType
-  var reactIs_production_min_12 = reactIs_production_min.isAsyncMode
-  var reactIs_production_min_13 = reactIs_production_min.isContextConsumer
-  var reactIs_production_min_14 = reactIs_production_min.isContextProvider
-  var reactIs_production_min_15 = reactIs_production_min.isElement
-  var reactIs_production_min_16 = reactIs_production_min.isForwardRef
-  var reactIs_production_min_17 = reactIs_production_min.isFragment
-  var reactIs_production_min_18 = reactIs_production_min.isProfiler
-  var reactIs_production_min_19 = reactIs_production_min.isPortal
-  var reactIs_production_min_20 = reactIs_production_min.isStrictMode
-
-  var reactIs_development = createCommonjsModule(function(module, exports) {
-    {
-      ;(function() {
-        Object.defineProperty(exports, '__esModule', { value: true })
-
-        // The Symbol used to tag the ReactElement-like types. If there is no native Symbol
-        // nor polyfill, then a plain number is used for performance.
-        var hasSymbol = typeof Symbol === 'function' && Symbol.for
-
-        var REACT_ELEMENT_TYPE = hasSymbol
-          ? Symbol.for('react.element')
-          : 0xeac7
-        var REACT_PORTAL_TYPE = hasSymbol ? Symbol.for('react.portal') : 0xeaca
-        var REACT_FRAGMENT_TYPE = hasSymbol
-          ? Symbol.for('react.fragment')
-          : 0xeacb
-        var REACT_STRICT_MODE_TYPE = hasSymbol
-          ? Symbol.for('react.strict_mode')
-          : 0xeacc
-        var REACT_PROFILER_TYPE = hasSymbol
-          ? Symbol.for('react.profiler')
-          : 0xead2
-        var REACT_PROVIDER_TYPE = hasSymbol
-          ? Symbol.for('react.provider')
-          : 0xeacd
-        var REACT_CONTEXT_TYPE = hasSymbol
-          ? Symbol.for('react.context')
-          : 0xeace
-        var REACT_ASYNC_MODE_TYPE = hasSymbol
-          ? Symbol.for('react.async_mode')
-          : 0xeacf
-        var REACT_FORWARD_REF_TYPE = hasSymbol
-          ? Symbol.for('react.forward_ref')
-          : 0xead0
-        var REACT_PLACEHOLDER_TYPE = hasSymbol
-          ? Symbol.for('react.placeholder')
-          : 0xead1
-
-        function isValidElementType(type) {
-          return (
-            typeof type === 'string' ||
-            typeof type === 'function' ||
-            // Note: its typeof might be other than 'symbol' or 'number' if it's a polyfill.
-            type === REACT_FRAGMENT_TYPE ||
-            type === REACT_ASYNC_MODE_TYPE ||
-            type === REACT_PROFILER_TYPE ||
-            type === REACT_STRICT_MODE_TYPE ||
-            type === REACT_PLACEHOLDER_TYPE ||
-            (typeof type === 'object' &&
-              type !== null &&
-              (typeof type.then === 'function' ||
-                type.$$typeof === REACT_PROVIDER_TYPE ||
-                type.$$typeof === REACT_CONTEXT_TYPE ||
-                type.$$typeof === REACT_FORWARD_REF_TYPE))
-          )
-        }
-
-        function typeOf(object) {
-          if (typeof object === 'object' && object !== null) {
-            var $$typeof = object.$$typeof
-
-            switch ($$typeof) {
-              case REACT_ELEMENT_TYPE:
-                var type = object.type
-
-                switch (type) {
-                  case REACT_ASYNC_MODE_TYPE:
-                  case REACT_FRAGMENT_TYPE:
-                  case REACT_PROFILER_TYPE:
-                  case REACT_STRICT_MODE_TYPE:
-                    return type
-                  default:
-                    var $$typeofType = type && type.$$typeof
-
-                    switch ($$typeofType) {
-                      case REACT_CONTEXT_TYPE:
-                      case REACT_FORWARD_REF_TYPE:
-                      case REACT_PROVIDER_TYPE:
-                        return $$typeofType
-                      default:
-                        return $$typeof
-                    }
-                }
-              case REACT_PORTAL_TYPE:
-                return $$typeof
-            }
-          }
-
-          return undefined
-        }
-
-        var AsyncMode = REACT_ASYNC_MODE_TYPE
-        var ContextConsumer = REACT_CONTEXT_TYPE
-        var ContextProvider = REACT_PROVIDER_TYPE
-        var Element = REACT_ELEMENT_TYPE
-        var ForwardRef = REACT_FORWARD_REF_TYPE
-        var Fragment = REACT_FRAGMENT_TYPE
-        var Profiler = REACT_PROFILER_TYPE
-        var Portal = REACT_PORTAL_TYPE
-        var StrictMode = REACT_STRICT_MODE_TYPE
-
-        function isAsyncMode(object) {
-          return typeOf(object) === REACT_ASYNC_MODE_TYPE
-        }
-        function isContextConsumer(object) {
-          return typeOf(object) === REACT_CONTEXT_TYPE
-        }
-        function isContextProvider(object) {
-          return typeOf(object) === REACT_PROVIDER_TYPE
-        }
-        function isElement(object) {
-          return (
-            typeof object === 'object' &&
-            object !== null &&
-            object.$$typeof === REACT_ELEMENT_TYPE
-          )
-        }
-        function isForwardRef(object) {
-          return typeOf(object) === REACT_FORWARD_REF_TYPE
-        }
-        function isFragment(object) {
-          return typeOf(object) === REACT_FRAGMENT_TYPE
-        }
-        function isProfiler(object) {
-          return typeOf(object) === REACT_PROFILER_TYPE
-        }
-        function isPortal(object) {
-          return typeOf(object) === REACT_PORTAL_TYPE
-        }
-        function isStrictMode(object) {
-          return typeOf(object) === REACT_STRICT_MODE_TYPE
-        }
-
-        exports.typeOf = typeOf
-        exports.AsyncMode = AsyncMode
-        exports.ContextConsumer = ContextConsumer
-        exports.ContextProvider = ContextProvider
-        exports.Element = Element
-        exports.ForwardRef = ForwardRef
-        exports.Fragment = Fragment
-        exports.Profiler = Profiler
-        exports.Portal = Portal
-        exports.StrictMode = StrictMode
-        exports.isValidElementType = isValidElementType
-        exports.isAsyncMode = isAsyncMode
-        exports.isContextConsumer = isContextConsumer
-        exports.isContextProvider = isContextProvider
-        exports.isElement = isElement
-        exports.isForwardRef = isForwardRef
-        exports.isFragment = isFragment
-        exports.isProfiler = isProfiler
-        exports.isPortal = isPortal
-        exports.isStrictMode = isStrictMode
-      })()
-    }
-  })
-
-  unwrapExports(reactIs_development)
-  var reactIs_development_1 = reactIs_development.typeOf
-  var reactIs_development_2 = reactIs_development.AsyncMode
-  var reactIs_development_3 = reactIs_development.ContextConsumer
-  var reactIs_development_4 = reactIs_development.ContextProvider
-  var reactIs_development_5 = reactIs_development.Element
-  var reactIs_development_6 = reactIs_development.ForwardRef
-  var reactIs_development_7 = reactIs_development.Fragment
-  var reactIs_development_8 = reactIs_development.Profiler
-  var reactIs_development_9 = reactIs_development.Portal
-  var reactIs_development_10 = reactIs_development.StrictMode
-  var reactIs_development_11 = reactIs_development.isValidElementType
-  var reactIs_development_12 = reactIs_development.isAsyncMode
-  var reactIs_development_13 = reactIs_development.isContextConsumer
-  var reactIs_development_14 = reactIs_development.isContextProvider
-  var reactIs_development_15 = reactIs_development.isElement
-  var reactIs_development_16 = reactIs_development.isForwardRef
-  var reactIs_development_17 = reactIs_development.isFragment
-  var reactIs_development_18 = reactIs_development.isProfiler
-  var reactIs_development_19 = reactIs_development.isPortal
-  var reactIs_development_20 = reactIs_development.isStrictMode
-
-  var reactIs = createCommonjsModule(function(module) {
-    {
-      module.exports = reactIs_development
-    }
-  })
-
-  var createChainableTypeChecker_1 = createCommonjsModule(function(
-    module,
-    exports
-  ) {
-    Object.defineProperty(exports, '__esModule', {
-      value: true,
-    })
-    exports.default = createChainableTypeChecker
-    /**
-     * Copyright 2013-present, Facebook, Inc.
-     * All rights reserved.
-     *
-     * This source code is licensed under the BSD-style license found in the
-     * LICENSE file in the root directory of this source tree. An additional grant
-     * of patent rights can be found in the PATENTS file in the same directory.
-     */
-
-    // Mostly taken from ReactPropTypes.
-
-    function createChainableTypeChecker(validate) {
-      function checkType(
-        isRequired,
-        props,
-        propName,
-        componentName,
-        location,
-        propFullName
-      ) {
-        var componentNameSafe = componentName || '<<anonymous>>'
-        var propFullNameSafe = propFullName || propName
-
-        if (props[propName] == null) {
-          if (isRequired) {
-            return new Error(
-              'Required ' +
-                location +
-                ' `' +
-                propFullNameSafe +
-                '` was not specified ' +
-                ('in `' + componentNameSafe + '`.')
-            )
-          }
-
-          return null
-        }
-
-        for (
-          var _len = arguments.length,
-            args = Array(_len > 6 ? _len - 6 : 0),
-            _key = 6;
-          _key < _len;
-          _key++
-        ) {
-          args[_key - 6] = arguments[_key]
-        }
-
-        return validate.apply(
-          undefined,
-          [
-            props,
-            propName,
-            componentNameSafe,
-            location,
-            propFullNameSafe,
-          ].concat(args)
-        )
-      }
-
-      var chainedCheckType = checkType.bind(null, false)
-      chainedCheckType.isRequired = checkType.bind(null, true)
-
-      return chainedCheckType
-    }
-    module.exports = exports['default']
-  })
-
-  unwrapExports(createChainableTypeChecker_1)
-
-  var elementType_1 = createCommonjsModule(function(module, exports) {
-    Object.defineProperty(exports, '__esModule', {
-      value: true,
-    })
-
-    var _react2 = _interopRequireDefault(React__default)
-
-    var _createChainableTypeChecker2 = _interopRequireDefault(
-      createChainableTypeChecker_1
-    )
-
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj }
-    }
-
-    function elementType(
-      props,
-      propName,
-      componentName,
-      location,
-      propFullName
-    ) {
-      var propValue = props[propName]
-
-      if (_react2.default.isValidElement(propValue)) {
-        return new Error(
-          'Invalid ' +
-            location +
-            ' `' +
-            propFullName +
-            '` of type ReactElement ' +
-            ('supplied to `' +
-              componentName +
-              '`,expected an element type (a string ') +
-            ', component class, or function component).'
-        )
-      }
-
-      if (!(0, reactIs.isValidElementType)(propValue)) {
-        return new Error(
-          'Invalid ' +
-            location +
-            ' `' +
-            propFullName +
-            '` of value `' +
-            propValue +
-            '` ' +
-            ('supplied to `' +
-              componentName +
-              '`, expected an element type (a string ') +
-            ', component class, or function component).'
-        )
-      }
-
-      return null
-    }
-
-    exports.default = (0, _createChainableTypeChecker2.default)(elementType)
-    module.exports = exports['default']
-  })
-
-  var elementType = unwrapExports(elementType_1)
-
-  var all_1 = createCommonjsModule(function(module, exports) {
-    Object.defineProperty(exports, '__esModule', {
-      value: true,
-    })
-    exports.default = all
-
-    var _createChainableTypeChecker2 = _interopRequireDefault(
-      createChainableTypeChecker_1
-    )
-
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj }
-    }
-
-    function all() {
-      for (
-        var _len = arguments.length, validators = Array(_len), _key = 0;
-        _key < _len;
-        _key++
-      ) {
-        validators[_key] = arguments[_key]
-      }
-
-      function allPropTypes() {
-        for (
-          var _len2 = arguments.length, args = Array(_len2), _key2 = 0;
-          _key2 < _len2;
-          _key2++
-        ) {
-          args[_key2] = arguments[_key2]
-        }
-
-        var error = null
-
-        validators.forEach(function(validator) {
-          if (error != null) {
-            return
-          }
-
-          var result = validator.apply(undefined, args)
-          if (result != null) {
-            error = result
-          }
-        })
-
-        return error
-      }
-
-      return (0, _createChainableTypeChecker2.default)(allPropTypes)
-    }
-    module.exports = exports['default']
-  })
-
-  var all = unwrapExports(all_1)
-
   var navigate = {
     PREVIOUS: 'PREV',
     NEXT: 'NEXT',
@@ -2126,15 +2075,6 @@
     AGENDA: 'agenda',
   }
 
-  var eventComponent = propTypes.oneOfType([
-    elementType,
-    propTypes.shape({
-      month: elementType,
-      week: elementType,
-      day: elementType,
-      agenda: elementType,
-    }),
-  ])
   var viewNames = Object.keys(views).map(function(k) {
     return views[k]
   })
@@ -2161,28 +2101,25 @@
 
   var views$1 = propTypes.oneOfType([
     propTypes.arrayOf(propTypes.oneOf(viewNames)),
-    all(propTypes.object, function(props, name) {
-      for (
-        var _len = arguments.length,
-          args = new Array(_len > 2 ? _len - 2 : 0),
-          _key = 2;
-        _key < _len;
-        _key++
-      ) {
-        args[_key - 2] = arguments[_key]
-      }
+    propTypes.objectOf(function(prop, key) {
+      var isBuiltinView =
+        viewNames.indexOf(key) !== -1 && typeof prop[key] === 'boolean'
 
-      var prop = props[name],
-        err
-      Object.keys(prop).every(function(key) {
-        var isBuiltinView =
-          viewNames.indexOf(key) !== -1 && typeof prop[key] === 'boolean'
-        return (
-          isBuiltinView ||
-          !(err = elementType.apply(void 0, [prop, key].concat(args)))
-        )
-      })
-      return err || null
+      if (isBuiltinView) {
+        return null
+      } else {
+        for (
+          var _len = arguments.length,
+            args = new Array(_len > 2 ? _len - 2 : 0),
+            _key = 2;
+          _key < _len;
+          _key++
+        ) {
+          args[_key - 2] = arguments[_key]
+        }
+
+        return propTypes.elementType.apply(propTypes, [prop, key].concat(args))
+      }
     }),
   ])
 
@@ -2198,9 +2135,9 @@
   {
     var printWarning$2 = function printWarning(format, args) {
       var len = arguments.length
-      args = new Array(len > 2 ? len - 2 : 0)
-      for (var key = 2; key < len; key++) {
-        args[key - 2] = arguments[key]
+      args = new Array(len > 1 ? len - 1 : 0)
+      for (var key = 1; key < len; key++) {
+        args[key - 1] = arguments[key]
       }
       var argIndex = 0
       var message =
@@ -2335,414 +2272,266 @@
     return self
   }
 
-  var dateArithmetic = createCommonjsModule(function(module) {
-    var MILI = 'milliseconds',
-      SECONDS = 'seconds',
-      MINUTES = 'minutes',
-      HOURS = 'hours',
-      DAY = 'day',
-      WEEK = 'week',
-      MONTH = 'month',
-      YEAR = 'year',
-      DECADE = 'decade',
-      CENTURY = 'century'
+  var MILI = 'milliseconds',
+    SECONDS = 'seconds',
+    MINUTES = 'minutes',
+    HOURS = 'hours',
+    DAY = 'day',
+    WEEK = 'week',
+    MONTH = 'month',
+    YEAR = 'year',
+    DECADE = 'decade',
+    CENTURY = 'century'
 
-    var dates = (module.exports = {
-      add: function(date, num, unit) {
-        date = new Date(date)
+  function add(d, num, unit) {
+    d = new Date(d)
 
-        switch (unit) {
-          case MILI:
-          case SECONDS:
-          case MINUTES:
-          case HOURS:
-          case YEAR:
-            return dates[unit](date, dates[unit](date) + num)
-          case DAY:
-            return dates.date(date, dates.date(date) + num)
-          case WEEK:
-            return dates.date(date, dates.date(date) + 7 * num)
-          case MONTH:
-            return monthMath(date, num)
-          case DECADE:
-            return dates.year(date, dates.year(date) + num * 10)
-          case CENTURY:
-            return dates.year(date, dates.year(date) + num * 100)
-        }
-
-        throw new TypeError('Invalid units: "' + unit + '"')
-      },
-
-      subtract: function(date, num, unit) {
-        return dates.add(date, -num, unit)
-      },
-
-      startOf: function(date, unit, firstOfWeek) {
-        date = new Date(date)
-
-        switch (unit) {
-          case 'century':
-          case 'decade':
-          case 'year':
-            date = dates.month(date, 0)
-          case 'month':
-            date = dates.date(date, 1)
-          case 'week':
-          case 'day':
-            date = dates.hours(date, 0)
-          case 'hours':
-            date = dates.minutes(date, 0)
-          case 'minutes':
-            date = dates.seconds(date, 0)
-          case 'seconds':
-            date = dates.milliseconds(date, 0)
-        }
-
-        if (unit === DECADE)
-          date = dates.subtract(date, dates.year(date) % 10, 'year')
-
-        if (unit === CENTURY)
-          date = dates.subtract(date, dates.year(date) % 100, 'year')
-
-        if (unit === WEEK) date = dates.weekday(date, 0, firstOfWeek)
-
-        return date
-      },
-
-      endOf: function(date, unit, firstOfWeek) {
-        date = new Date(date)
-        date = dates.startOf(date, unit, firstOfWeek)
-        date = dates.add(date, 1, unit)
-        date = dates.subtract(date, 1, MILI)
-        return date
-      },
-
-      eq: createComparer(function(a, b) {
-        return a === b
-      }),
-      neq: createComparer(function(a, b) {
-        return a !== b
-      }),
-      gt: createComparer(function(a, b) {
-        return a > b
-      }),
-      gte: createComparer(function(a, b) {
-        return a >= b
-      }),
-      lt: createComparer(function(a, b) {
-        return a < b
-      }),
-      lte: createComparer(function(a, b) {
-        return a <= b
-      }),
-
-      min: function() {
-        return new Date(Math.min.apply(Math, arguments))
-      },
-
-      max: function() {
-        return new Date(Math.max.apply(Math, arguments))
-      },
-
-      inRange: function(day, min, max, unit) {
-        unit = unit || 'day'
-
-        return (
-          (!min || dates.gte(day, min, unit)) &&
-          (!max || dates.lte(day, max, unit))
-        )
-      },
-
-      milliseconds: createAccessor('Milliseconds'),
-      seconds: createAccessor('Seconds'),
-      minutes: createAccessor('Minutes'),
-      hours: createAccessor('Hours'),
-      day: createAccessor('Day'),
-      date: createAccessor('Date'),
-      month: createAccessor('Month'),
-      year: createAccessor('FullYear'),
-
-      decade: function(date, val) {
-        return val === undefined
-          ? dates.year(dates.startOf(date, DECADE))
-          : dates.add(date, val + 10, YEAR)
-      },
-
-      century: function(date, val) {
-        return val === undefined
-          ? dates.year(dates.startOf(date, CENTURY))
-          : dates.add(date, val + 100, YEAR)
-      },
-
-      weekday: function(date, val, firstDay) {
-        var weekday = (dates.day(date) + 7 - (firstDay || 0)) % 7
-
-        return val === undefined ? weekday : dates.add(date, val - weekday, DAY)
-      },
-
-      diff: function(date1, date2, unit, asFloat) {
-        var dividend, divisor, result
-
-        switch (unit) {
-          case MILI:
-          case SECONDS:
-          case MINUTES:
-          case HOURS:
-          case DAY:
-          case WEEK:
-            dividend = date2.getTime() - date1.getTime()
-            break
-          case MONTH:
-          case YEAR:
-          case DECADE:
-          case CENTURY:
-            dividend =
-              (dates.year(date2) - dates.year(date1)) * 12 +
-              dates.month(date2) -
-              dates.month(date1)
-            break
-          default:
-            throw new TypeError('Invalid units: "' + unit + '"')
-        }
-
-        switch (unit) {
-          case MILI:
-            divisor = 1
-            break
-          case SECONDS:
-            divisor = 1000
-            break
-          case MINUTES:
-            divisor = 1000 * 60
-            break
-          case HOURS:
-            divisor = 1000 * 60 * 60
-            break
-          case DAY:
-            divisor = 1000 * 60 * 60 * 24
-            break
-          case WEEK:
-            divisor = 1000 * 60 * 60 * 24 * 7
-            break
-          case MONTH:
-            divisor = 1
-            break
-          case YEAR:
-            divisor = 12
-            break
-          case DECADE:
-            divisor = 120
-            break
-          case CENTURY:
-            divisor = 1200
-            break
-          default:
-            throw new TypeError('Invalid units: "' + unit + '"')
-        }
-
-        result = dividend / divisor
-
-        return asFloat ? result : absoluteFloor(result)
-      },
-    })
-
-    function absoluteFloor(number) {
-      return number < 0 ? Math.ceil(number) : Math.floor(number)
+    switch (unit) {
+      case MILI:
+        return milliseconds(d, milliseconds(d) + num)
+      case SECONDS:
+        return seconds(d, seconds(d) + num)
+      case MINUTES:
+        return minutes(d, minutes(d) + num)
+      case HOURS:
+        return hours(d, hours(d) + num)
+      case YEAR:
+        return year(d, year(d) + num)
+      case DAY:
+        return date(d, date(d) + num)
+      case WEEK:
+        return date(d, date(d) + 7 * num)
+      case MONTH:
+        return monthMath(d, num)
+      case DECADE:
+        return year(d, year(d) + num * 10)
+      case CENTURY:
+        return year(d, year(d) + num * 100)
     }
 
-    function monthMath(date, val) {
-      var current = dates.month(date),
-        newMonth = current + val
+    throw new TypeError('Invalid units: "' + unit + '"')
+  }
 
-      date = dates.month(date, newMonth)
+  function subtract(d, num, unit) {
+    return add(d, -num, unit)
+  }
 
-      while (newMonth < 0) newMonth = 12 + newMonth
+  function startOf(d, unit, firstOfWeek) {
+    d = new Date(d)
 
-      //month rollover
-      if (dates.month(date) !== newMonth % 12) date = dates.date(date, 0) //move to last of month
-
-      return date
+    switch (unit) {
+      case CENTURY:
+      case DECADE:
+      case YEAR:
+        d = month(d, 0)
+      case MONTH:
+        d = date(d, 1)
+      case WEEK:
+      case DAY:
+        d = hours(d, 0)
+      case HOURS:
+        d = minutes(d, 0)
+      case MINUTES:
+        d = seconds(d, 0)
+      case SECONDS:
+        d = milliseconds(d, 0)
     }
 
-    function createAccessor(method) {
-      return function(date, val) {
-        if (val === undefined) return date['get' + method]()
+    if (unit === DECADE) d = subtract(d, year(d) % 10, 'year')
 
-        date = new Date(date)
-        date['set' + method](val)
-        return date
-      }
-    }
+    if (unit === CENTURY) d = subtract(d, year(d) % 100, 'year')
 
-    function createComparer(operator) {
-      return function(a, b, unit) {
-        return operator(+dates.startOf(a, unit), +dates.startOf(b, unit))
-      }
-    }
+    if (unit === WEEK) d = weekday(d, 0, firstOfWeek)
+
+    return d
+  }
+
+  function endOf(d, unit, firstOfWeek) {
+    d = new Date(d)
+    d = startOf(d, unit, firstOfWeek)
+    d = add(d, 1, unit)
+    d = subtract(d, 1, MILI)
+    return d
+  }
+
+  var eq = createComparer(function(a, b) {
+    return a === b
   })
-  var dateArithmetic_1 = dateArithmetic.add
-  var dateArithmetic_2 = dateArithmetic.subtract
-  var dateArithmetic_3 = dateArithmetic.startOf
-  var dateArithmetic_4 = dateArithmetic.endOf
-  var dateArithmetic_5 = dateArithmetic.eq
-  var dateArithmetic_6 = dateArithmetic.neq
-  var dateArithmetic_7 = dateArithmetic.gt
-  var dateArithmetic_8 = dateArithmetic.gte
-  var dateArithmetic_9 = dateArithmetic.lt
-  var dateArithmetic_10 = dateArithmetic.lte
-  var dateArithmetic_11 = dateArithmetic.min
-  var dateArithmetic_12 = dateArithmetic.max
-  var dateArithmetic_13 = dateArithmetic.inRange
-  var dateArithmetic_14 = dateArithmetic.milliseconds
-  var dateArithmetic_15 = dateArithmetic.seconds
-  var dateArithmetic_16 = dateArithmetic.minutes
-  var dateArithmetic_17 = dateArithmetic.hours
-  var dateArithmetic_18 = dateArithmetic.day
-  var dateArithmetic_19 = dateArithmetic.date
-  var dateArithmetic_20 = dateArithmetic.month
-  var dateArithmetic_21 = dateArithmetic.year
-  var dateArithmetic_22 = dateArithmetic.decade
-  var dateArithmetic_23 = dateArithmetic.century
-  var dateArithmetic_24 = dateArithmetic.weekday
-  var dateArithmetic_25 = dateArithmetic.diff
+  var gt = createComparer(function(a, b) {
+    return a > b
+  })
+  var gte = createComparer(function(a, b) {
+    return a >= b
+  })
+  var lt = createComparer(function(a, b) {
+    return a < b
+  })
+  var lte = createComparer(function(a, b) {
+    return a <= b
+  })
 
+  function min() {
+    return new Date(Math.min.apply(Math, arguments))
+  }
+
+  function max() {
+    return new Date(Math.max.apply(Math, arguments))
+  }
+
+  function inRange(day, min, max, unit) {
+    unit = unit || 'day'
+
+    return (!min || gte(day, min, unit)) && (!max || lte(day, max, unit))
+  }
+
+  var milliseconds = createAccessor('Milliseconds')
+  var seconds = createAccessor('Seconds')
+  var minutes = createAccessor('Minutes')
+  var hours = createAccessor('Hours')
+  var day = createAccessor('Day')
+  var date = createAccessor('Date')
+  var month = createAccessor('Month')
+  var year = createAccessor('FullYear')
+
+  function weekday(d, val, firstDay) {
+    var w = (day(d) + 7 - (firstDay || 0)) % 7
+
+    return val === undefined ? w : add(d, val - w, DAY)
+  }
+
+  function monthMath(d, val) {
+    var current = month(d),
+      newMonth = current + val
+
+    d = month(d, newMonth)
+
+    while (newMonth < 0) newMonth = 12 + newMonth
+
+    //month rollover
+    if (month(d) !== newMonth % 12) d = date(d, 0) //move to last of month
+
+    return d
+  }
+
+  function createAccessor(method) {
+    var hourLength = (function(method) {
+      switch (method) {
+        case 'Milliseconds':
+          return 3600000
+        case 'Seconds':
+          return 3600
+        case 'Minutes':
+          return 60
+        case 'Hours':
+          return 1
+        default:
+          return null
+      }
+    })(method)
+
+    return function(d, val) {
+      if (val === undefined) return d['get' + method]()
+
+      var dateOut = new Date(d)
+      dateOut['set' + method](val)
+
+      if (
+        hourLength &&
+        dateOut['get' + method]() != val &&
+        (method === 'Hours' ||
+          (val >= hourLength &&
+            dateOut.getHours() - d.getHours() < Math.floor(val / hourLength)))
+      ) {
+        //Skip DST hour, if it occurs
+        dateOut['set' + method](val + hourLength)
+      }
+
+      return dateOut
+    }
+  }
+
+  function createComparer(operator) {
+    return function(a, b, unit) {
+      return operator(+startOf(a, unit), +startOf(b, unit))
+    }
+  }
+
+  /* eslint no-fallthrough: off */
   var MILLI = {
     seconds: 1000,
     minutes: 1000 * 60,
     hours: 1000 * 60 * 60,
     day: 1000 * 60 * 60 * 24,
   }
-  var MONTHS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+  function firstVisibleDay(date, localizer) {
+    var firstOfMonth = startOf(date, 'month')
+    return startOf(firstOfMonth, 'week', localizer.startOfWeek())
+  }
+  function lastVisibleDay(date, localizer) {
+    var endOfMonth = endOf(date, 'month')
+    return endOf(endOfMonth, 'week', localizer.startOfWeek())
+  }
+  function visibleDays(date, localizer) {
+    var current = firstVisibleDay(date, localizer),
+      last = lastVisibleDay(date, localizer),
+      days = []
 
-  var dates = _extends({}, dateArithmetic, {
-    monthsInYear: function monthsInYear(year) {
-      var date = new Date(year, 0, 1)
-      return MONTHS.map(function(i) {
-        return dates.month(date, i)
-      })
-    },
-    firstVisibleDay: function firstVisibleDay(date, localizer) {
-      var firstOfMonth = dates.startOf(date, 'month')
-      return dates.startOf(firstOfMonth, 'week', localizer.startOfWeek())
-    },
-    lastVisibleDay: function lastVisibleDay(date, localizer) {
-      var endOfMonth = dates.endOf(date, 'month')
-      return dates.endOf(endOfMonth, 'week', localizer.startOfWeek())
-    },
-    visibleDays: function visibleDays(date, localizer) {
-      var current = dates.firstVisibleDay(date, localizer),
-        last = dates.lastVisibleDay(date, localizer),
-        days = []
+    while (lte(current, last, 'day')) {
+      days.push(current)
+      current = add(current, 1, 'day')
+    }
 
-      while (dates.lte(current, last, 'day')) {
-        days.push(current)
-        current = dates.add(current, 1, 'day')
-      }
+    return days
+  }
+  function ceil(date, unit) {
+    var floor = startOf(date, unit)
+    return eq(floor, date) ? floor : add(floor, 1, unit)
+  }
+  function range(start, end, unit) {
+    if (unit === void 0) {
+      unit = 'day'
+    }
 
-      return days
-    },
-    ceil: function ceil(date, unit) {
-      var floor = dates.startOf(date, unit)
-      return dates.eq(floor, date) ? floor : dates.add(floor, 1, unit)
-    },
-    range: function range(start, end, unit) {
-      if (unit === void 0) {
-        unit = 'day'
-      }
+    var current = start,
+      days = []
 
-      var current = start,
-        days = []
+    while (lte(current, end, unit)) {
+      days.push(current)
+      current = add(current, 1, unit)
+    }
 
-      while (dates.lte(current, end, unit)) {
-        days.push(current)
-        current = dates.add(current, 1, unit)
-      }
+    return days
+  }
+  function merge(date, time) {
+    if (time == null && date == null) return null
+    if (time == null) time = new Date()
+    if (date == null) date = new Date()
+    date = startOf(date, 'day')
+    date = hours(date, hours(time))
+    date = minutes(date, minutes(time))
+    date = seconds(date, seconds(time))
+    return milliseconds(date, milliseconds(time))
+  }
+  function isJustDate(date) {
+    return (
+      hours(date) === 0 &&
+      minutes(date) === 0 &&
+      seconds(date) === 0 &&
+      milliseconds(date) === 0
+    )
+  }
+  function diff(dateA, dateB, unit) {
+    if (!unit || unit === 'milliseconds') return Math.abs(+dateA - +dateB) // the .round() handles an edge case
+    // with DST where the total won't be exact
+    // since one day in the range may be shorter/longer by an hour
 
-      return days
-    },
-    merge: function merge(date, time) {
-      if (time == null && date == null) return null
-      if (time == null) time = new Date()
-      if (date == null) date = new Date()
-      date = dates.startOf(date, 'day')
-      date = dates.hours(date, dates.hours(time))
-      date = dates.minutes(date, dates.minutes(time))
-      date = dates.seconds(date, dates.seconds(time))
-      return dates.milliseconds(date, dates.milliseconds(time))
-    },
-    eqTime: function eqTime(dateA, dateB) {
-      return (
-        dates.hours(dateA) === dates.hours(dateB) &&
-        dates.minutes(dateA) === dates.minutes(dateB) &&
-        dates.seconds(dateA) === dates.seconds(dateB)
+    return Math.round(
+      Math.abs(
+        +startOf(dateA, unit) / MILLI[unit] -
+          +startOf(dateB, unit) / MILLI[unit]
       )
-    },
-    isJustDate: function isJustDate(date) {
-      return (
-        dates.hours(date) === 0 &&
-        dates.minutes(date) === 0 &&
-        dates.seconds(date) === 0 &&
-        dates.milliseconds(date) === 0
-      )
-    },
-    duration: function duration(start, end, unit, firstOfWeek) {
-      if (unit === 'day') unit = 'date'
-      return Math.abs(
-        dates[unit](start, undefined, firstOfWeek) -
-          dates[unit](end, undefined, firstOfWeek)
-      )
-    },
-    diff: function diff(dateA, dateB, unit) {
-      if (!unit || unit === 'milliseconds') return Math.abs(+dateA - +dateB) // the .round() handles an edge case
-      // with DST where the total won't be exact
-      // since one day in the range may be shorter/longer by an hour
-
-      return Math.round(
-        Math.abs(
-          +dates.startOf(dateA, unit) / MILLI[unit] -
-            +dates.startOf(dateB, unit) / MILLI[unit]
-        )
-      )
-    },
-    total: function total(date, unit) {
-      var ms = date.getTime(),
-        div = 1
-
-      switch (unit) {
-        case 'week':
-          div *= 7
-
-        case 'day':
-          div *= 24
-
-        case 'hours':
-          div *= 60
-
-        case 'minutes':
-          div *= 60
-
-        case 'seconds':
-          div *= 1000
-      }
-
-      return ms / div
-    },
-    week: function week(date) {
-      var d = new Date(date)
-      d.setHours(0, 0, 0)
-      d.setDate(d.getDate() + 4 - (d.getDay() || 7))
-      return Math.ceil(((d - new Date(d.getFullYear(), 0, 1)) / 8.64e7 + 1) / 7)
-    },
-    today: function today() {
-      return dates.startOf(new Date(), 'day')
-    },
-    yesterday: function yesterday() {
-      return dates.add(dates.startOf(new Date(), 'day'), -1, 'day')
-    },
-    tomorrow: function tomorrow() {
-      return dates.add(dates.startOf(new Date(), 'day'), 1, 'day')
-    },
-  })
+    )
+  }
 
   /**
    * The base implementation of `_.slice` without an iteratee call guard.
@@ -2773,8 +2562,6 @@
     }
     return result
   }
-
-  var _baseSlice = baseSlice
 
   /**
    * Performs a
@@ -2808,34 +2595,23 @@
    * _.eq(NaN, NaN);
    * // => true
    */
-  function eq(value, other) {
+  function eq$1(value, other) {
     return value === other || (value !== value && other !== other)
   }
 
-  var eq_1 = eq
-
   /** Detect free variable `global` from Node.js. */
   var freeGlobal =
-    typeof commonjsGlobal == 'object' &&
-    commonjsGlobal &&
-    commonjsGlobal.Object === Object &&
-    commonjsGlobal
-
-  var _freeGlobal = freeGlobal
+    typeof global == 'object' && global && global.Object === Object && global
 
   /** Detect free variable `self`. */
   var freeSelf =
     typeof self == 'object' && self && self.Object === Object && self
 
   /** Used as a reference to the global object. */
-  var root = _freeGlobal || freeSelf || Function('return this')()
-
-  var _root = root
+  var root = freeGlobal || freeSelf || Function('return this')()
 
   /** Built-in value references. */
-  var Symbol$1 = _root.Symbol
-
-  var _Symbol = Symbol$1
+  var Symbol$1 = root.Symbol
 
   /** Used for built-in method references. */
   var objectProto = Object.prototype
@@ -2851,7 +2627,7 @@
   var nativeObjectToString = objectProto.toString
 
   /** Built-in value references. */
-  var symToStringTag = _Symbol ? _Symbol.toStringTag : undefined
+  var symToStringTag = Symbol$1 ? Symbol$1.toStringTag : undefined
 
   /**
    * A specialized version of `baseGetTag` which ignores `Symbol.toStringTag` values.
@@ -2880,8 +2656,6 @@
     return result
   }
 
-  var _getRawTag = getRawTag
-
   /** Used for built-in method references. */
   var objectProto$1 = Object.prototype
 
@@ -2903,14 +2677,12 @@
     return nativeObjectToString$1.call(value)
   }
 
-  var _objectToString = objectToString
-
   /** `Object#toString` result references. */
   var nullTag = '[object Null]',
     undefinedTag = '[object Undefined]'
 
   /** Built-in value references. */
-  var symToStringTag$1 = _Symbol ? _Symbol.toStringTag : undefined
+  var symToStringTag$1 = Symbol$1 ? Symbol$1.toStringTag : undefined
 
   /**
    * The base implementation of `getTag` without fallbacks for buggy environments.
@@ -2924,11 +2696,9 @@
       return value === undefined ? undefinedTag : nullTag
     }
     return symToStringTag$1 && symToStringTag$1 in Object(value)
-      ? _getRawTag(value)
-      : _objectToString(value)
+      ? getRawTag(value)
+      : objectToString(value)
   }
-
-  var _baseGetTag = baseGetTag
 
   /**
    * Checks if `value` is the
@@ -2960,8 +2730,6 @@
     return value != null && (type == 'object' || type == 'function')
   }
 
-  var isObject_1 = isObject
-
   /** `Object#toString` result references. */
   var asyncTag = '[object AsyncFunction]',
     funcTag = '[object Function]',
@@ -2986,16 +2754,14 @@
    * // => false
    */
   function isFunction(value) {
-    if (!isObject_1(value)) {
+    if (!isObject(value)) {
       return false
     }
     // The use of `Object#toString` avoids issues with the `typeof` operator
     // in Safari 9 which returns 'object' for typed arrays and other constructors.
-    var tag = _baseGetTag(value)
+    var tag = baseGetTag(value)
     return tag == funcTag || tag == genTag || tag == asyncTag || tag == proxyTag
   }
-
-  var isFunction_1 = isFunction
 
   /** Used as references for various `Number` constants. */
   var MAX_SAFE_INTEGER = 9007199254740991
@@ -3035,8 +2801,6 @@
     )
   }
 
-  var isLength_1 = isLength
-
   /**
    * Checks if `value` is array-like. A value is considered array-like if it's
    * not a function and has a `value.length` that's an integer greater than or
@@ -3063,10 +2827,8 @@
    * // => false
    */
   function isArrayLike(value) {
-    return value != null && isLength_1(value.length) && !isFunction_1(value)
+    return value != null && isLength(value.length) && !isFunction(value)
   }
-
-  var isArrayLike_1 = isArrayLike
 
   /** Used as references for various `Number` constants. */
   var MAX_SAFE_INTEGER$1 = 9007199254740991
@@ -3093,8 +2855,6 @@
     )
   }
 
-  var _isIndex = isIndex
-
   /**
    * Checks if the given arguments are from an iteratee call.
    *
@@ -3106,21 +2866,19 @@
    *  else `false`.
    */
   function isIterateeCall(value, index, object) {
-    if (!isObject_1(object)) {
+    if (!isObject(object)) {
       return false
     }
     var type = typeof index
     if (
       type == 'number'
-        ? isArrayLike_1(object) && _isIndex(index, object.length)
+        ? isArrayLike(object) && isIndex(index, object.length)
         : type == 'string' && index in object
     ) {
-      return eq_1(object[index], value)
+      return eq$1(object[index], value)
     }
     return false
   }
-
-  var _isIterateeCall = isIterateeCall
 
   /**
    * Checks if `value` is object-like. A value is object-like if it's not `null`
@@ -3150,8 +2908,6 @@
     return value != null && typeof value == 'object'
   }
 
-  var isObjectLike_1 = isObjectLike
-
   /** `Object#toString` result references. */
   var symbolTag = '[object Symbol]'
 
@@ -3175,11 +2931,9 @@
   function isSymbol(value) {
     return (
       typeof value == 'symbol' ||
-      (isObjectLike_1(value) && _baseGetTag(value) == symbolTag)
+      (isObjectLike(value) && baseGetTag(value) == symbolTag)
     )
   }
-
-  var isSymbol_1 = isSymbol
 
   /** Used as references for various `Number` constants. */
   var NAN = 0 / 0
@@ -3226,12 +2980,12 @@
     if (typeof value == 'number') {
       return value
     }
-    if (isSymbol_1(value)) {
+    if (isSymbol(value)) {
       return NAN
     }
-    if (isObject_1(value)) {
+    if (isObject(value)) {
       var other = typeof value.valueOf == 'function' ? value.valueOf() : value
-      value = isObject_1(other) ? other + '' : other
+      value = isObject(other) ? other + '' : other
     }
     if (typeof value != 'string') {
       return value === 0 ? value : +value
@@ -3244,8 +2998,6 @@
       ? NAN
       : +value
   }
-
-  var toNumber_1 = toNumber
 
   /** Used as references for various `Number` constants. */
   var INFINITY = 1 / 0,
@@ -3278,15 +3030,13 @@
     if (!value) {
       return value === 0 ? value : 0
     }
-    value = toNumber_1(value)
+    value = toNumber(value)
     if (value === INFINITY || value === -INFINITY) {
       var sign = value < 0 ? -1 : 1
       return sign * MAX_INTEGER
     }
     return value === value ? value : 0
   }
-
-  var toFinite_1 = toFinite
 
   /**
    * Converts `value` to an integer.
@@ -3315,13 +3065,11 @@
    * // => 3
    */
   function toInteger(value) {
-    var result = toFinite_1(value),
+    var result = toFinite(value),
       remainder = result % 1
 
     return result === result ? (remainder ? result - remainder : result) : 0
   }
-
-  var toInteger_1 = toInteger
 
   /* Built-in method references for those with the same name as other `lodash` methods. */
   var nativeCeil = Math.ceil,
@@ -3349,10 +3097,10 @@
    * // => [['a', 'b', 'c'], ['d']]
    */
   function chunk(array, size, guard) {
-    if (guard ? _isIterateeCall(array, size, guard) : size === undefined) {
+    if (guard ? isIterateeCall(array, size, guard) : size === undefined) {
       size = 1
     } else {
-      size = nativeMax(toInteger_1(size), 0)
+      size = nativeMax(toInteger(size), 0)
     }
     var length = array == null ? 0 : array.length
     if (!length || size < 1) {
@@ -3363,12 +3111,10 @@
       result = Array(nativeCeil(length / size))
 
     while (index < length) {
-      result[resIndex++] = _baseSlice(array, index, (index += size))
+      result[resIndex++] = baseSlice(array, index, (index += size))
     }
     return result
   }
-
-  var chunk_1 = chunk
 
   var interopRequireDefault = createCommonjsModule(function(module) {
     function _interopRequireDefault(obj) {
@@ -3614,7 +3360,7 @@
 
   unwrapExports(hyphenateStyle)
 
-  var getComputedStyle = createCommonjsModule(function(module, exports) {
+  var getComputedStyle$1 = createCommonjsModule(function(module, exports) {
     exports.__esModule = true
     exports.default = _getComputedStyle
 
@@ -3662,7 +3408,7 @@
     module.exports = exports['default']
   })
 
-  unwrapExports(getComputedStyle)
+  unwrapExports(getComputedStyle$1)
 
   var removeStyle_1 = createCommonjsModule(function(module, exports) {
     exports.__esModule = true
@@ -3816,7 +3562,7 @@
 
     var _hyphenateStyle = interopRequireDefault(hyphenateStyle)
 
-    var _getComputedStyle2 = interopRequireDefault(getComputedStyle)
+    var _getComputedStyle2 = interopRequireDefault(getComputedStyle$1)
 
     var _removeStyle = interopRequireDefault(removeStyle_1)
 
@@ -4014,7 +3760,7 @@
 
   var getPosition = unwrapExports(position_1)
 
-  var requestAnimationFrame = createCommonjsModule(function(module, exports) {
+  var requestAnimationFrame$1 = createCommonjsModule(function(module, exports) {
     exports.__esModule = true
     exports.default = void 0
 
@@ -4072,7 +3818,7 @@
     module.exports = exports['default']
   })
 
-  var raf = unwrapExports(requestAnimationFrame)
+  var raf = unwrapExports(requestAnimationFrame$1)
 
   var EventCell =
     /*#__PURE__*/
@@ -4103,6 +3849,8 @@
           _this$props$component = _this$props.components,
           Event = _this$props$component.event,
           EventWrapper = _this$props$component.eventWrapper,
+          slotStart = _this$props.slotStart,
+          slotEnd = _this$props.slotEnd,
           props = _objectWithoutPropertiesLoose(_this$props, [
             'style',
             'className',
@@ -4118,6 +3866,8 @@
             'getters',
             'children',
             'components',
+            'slotStart',
+            'slotEnd',
           ])
 
         var title = accessors.title(event)
@@ -4126,9 +3876,7 @@
         var start = accessors.start(event)
         var allDay = accessors.allDay(event)
         var showAsAllDay =
-          isAllDay ||
-          allDay ||
-          dates.diff(start, dates.ceil(end, 'day'), 'day') > 1
+          isAllDay || allDay || diff(start, ceil(end, 'day'), 'day') > 1
         var userProps = getters.eventProp(event, start, end, selected)
         var content = React__default.createElement(
           'div',
@@ -4139,9 +3887,13 @@
           Event
             ? React__default.createElement(Event, {
                 event: event,
+                continuesPrior: continuesPrior,
+                continuesAfter: continuesAfter,
                 title: title,
                 isAllDay: allDay,
                 localizer: localizer,
+                slotStart: slotStart,
+                slotEnd: slotEnd,
               })
             : title
         )
@@ -4285,10 +4037,12 @@
       var _proto = Popup.prototype
 
       _proto.componentDidMount = function componentDidMount() {
-        var _this$props$popupOffs = this.props.popupOffset,
+        var _this$props = this.props,
+          _this$props$popupOffs = _this$props.popupOffset,
           popupOffset =
             _this$props$popupOffs === void 0 ? 5 : _this$props$popupOffs,
-          _getOffset = getOffset(this.refs.root),
+          popperRef = _this$props.popperRef,
+          _getOffset = getOffset(popperRef.current),
           top = _getOffset.top,
           left = _getOffset.left,
           width = _getOffset.width,
@@ -4314,17 +4068,18 @@
       }
 
       _proto.render = function render() {
-        var _this$props = this.props,
-          events = _this$props.events,
-          selected = _this$props.selected,
-          getters = _this$props.getters,
-          accessors = _this$props.accessors,
-          components = _this$props.components,
-          onSelect = _this$props.onSelect,
-          onDoubleClick = _this$props.onDoubleClick,
-          slotStart = _this$props.slotStart,
-          slotEnd = _this$props.slotEnd,
-          localizer = _this$props.localizer
+        var _this$props2 = this.props,
+          events = _this$props2.events,
+          selected = _this$props2.selected,
+          getters = _this$props2.getters,
+          accessors = _this$props2.accessors,
+          components = _this$props2.components,
+          onSelect = _this$props2.onSelect,
+          onDoubleClick = _this$props2.onDoubleClick,
+          slotStart = _this$props2.slotStart,
+          slotEnd = _this$props2.slotEnd,
+          localizer = _this$props2.localizer,
+          popperRef = _this$props2.popperRef
         var _this$props$position = this.props.position,
           left = _this$props$position.left,
           width = _this$props$position.width,
@@ -4339,9 +4094,9 @@
         return React__default.createElement(
           'div',
           {
-            ref: 'root',
             style: style,
             className: 'rbc-overlay',
+            ref: popperRef,
           },
           React__default.createElement(
             'div',
@@ -4360,8 +4115,10 @@
               accessors: accessors,
               components: components,
               onDoubleClick: onDoubleClick,
-              continuesPrior: dates.lt(accessors.end(event), slotStart, 'day'),
-              continuesAfter: dates.gte(accessors.start(event), slotEnd, 'day'),
+              continuesPrior: lt(accessors.end(event), slotStart, 'day'),
+              continuesAfter: gte(accessors.start(event), slotEnd, 'day'),
+              slotStart: slotStart,
+              slotEnd: slotEnd,
               selected: isSelected(event, selected),
             })
           })
@@ -4390,7 +4147,169 @@
     onDoubleClick: propTypes.func,
     slotStart: propTypes.instanceOf(Date),
     slotEnd: propTypes.number,
+    popperRef: propTypes.oneOfType([
+      propTypes.func,
+      propTypes.shape({
+        current: propTypes.Element,
+      }),
+    ]),
+    /**
+     * The Overlay component, of react-overlays, creates a ref that is passed to the Popup, and
+     * requires proper ref forwarding to be used without error
+     */
   }
+  var Popup$1 = React__default.forwardRef(function(props, ref) {
+    return React__default.createElement(
+      Popup,
+      _extends(
+        {
+          popperRef: ref,
+        },
+        props
+      )
+    )
+  })
+
+  var createChainableTypeChecker_1 = createCommonjsModule(function(
+    module,
+    exports
+  ) {
+    Object.defineProperty(exports, '__esModule', {
+      value: true,
+    })
+    exports.default = createChainableTypeChecker
+    /**
+     * Copyright 2013-present, Facebook, Inc.
+     * All rights reserved.
+     *
+     * This source code is licensed under the BSD-style license found in the
+     * LICENSE file in the root directory of this source tree. An additional grant
+     * of patent rights can be found in the PATENTS file in the same directory.
+     */
+
+    // Mostly taken from ReactPropTypes.
+
+    function createChainableTypeChecker(validate) {
+      function checkType(
+        isRequired,
+        props,
+        propName,
+        componentName,
+        location,
+        propFullName
+      ) {
+        var componentNameSafe = componentName || '<<anonymous>>'
+        var propFullNameSafe = propFullName || propName
+
+        if (props[propName] == null) {
+          if (isRequired) {
+            return new Error(
+              'Required ' +
+                location +
+                ' `' +
+                propFullNameSafe +
+                '` was not specified ' +
+                ('in `' + componentNameSafe + '`.')
+            )
+          }
+
+          return null
+        }
+
+        for (
+          var _len = arguments.length,
+            args = Array(_len > 6 ? _len - 6 : 0),
+            _key = 6;
+          _key < _len;
+          _key++
+        ) {
+          args[_key - 6] = arguments[_key]
+        }
+
+        return validate.apply(
+          undefined,
+          [
+            props,
+            propName,
+            componentNameSafe,
+            location,
+            propFullNameSafe,
+          ].concat(args)
+        )
+      }
+
+      var chainedCheckType = checkType.bind(null, false)
+      chainedCheckType.isRequired = checkType.bind(null, true)
+
+      return chainedCheckType
+    }
+    module.exports = exports['default']
+  })
+
+  unwrapExports(createChainableTypeChecker_1)
+
+  var elementType_1 = createCommonjsModule(function(module, exports) {
+    Object.defineProperty(exports, '__esModule', {
+      value: true,
+    })
+
+    var _react2 = _interopRequireDefault(React__default)
+
+    var _createChainableTypeChecker2 = _interopRequireDefault(
+      createChainableTypeChecker_1
+    )
+
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { default: obj }
+    }
+
+    function elementType(
+      props,
+      propName,
+      componentName,
+      location,
+      propFullName
+    ) {
+      var propValue = props[propName]
+
+      if (_react2.default.isValidElement(propValue)) {
+        return new Error(
+          'Invalid ' +
+            location +
+            ' `' +
+            propFullName +
+            '` of type ReactElement ' +
+            ('supplied to `' +
+              componentName +
+              '`,expected an element type (a string ') +
+            ', component class, or function component).'
+        )
+      }
+
+      if (!(0, reactIs.isValidElementType)(propValue)) {
+        return new Error(
+          'Invalid ' +
+            location +
+            ' `' +
+            propFullName +
+            '` of value `' +
+            propValue +
+            '` ' +
+            ('supplied to `' +
+              componentName +
+              '`, expected an element type (a string ') +
+            ', component class, or function component).'
+        )
+      }
+
+      return null
+    }
+
+    exports.default = (0, _createChainableTypeChecker2.default)(elementType)
+    module.exports = exports['default']
+  })
+
+  unwrapExports(elementType_1)
 
   var componentOrElement = createCommonjsModule(function(module, exports) {
     Object.defineProperty(exports, '__esModule', {
@@ -4473,312 +4392,175 @@
     exports.__esModule = true
     exports.default = getContainer
 
-    var _reactDom2 = _interopRequireDefault(reactDom__default)
+    var _reactDom = _interopRequireDefault(reactDom__default)
 
     function _interopRequireDefault(obj) {
       return obj && obj.__esModule ? obj : { default: obj }
     }
 
     function getContainer(container, defaultContainer) {
+      if (container == null) return defaultContainer
       container = typeof container === 'function' ? container() : container
-      return _reactDom2.default.findDOMNode(container) || defaultContainer
+      return _reactDom.default.findDOMNode(container) || null
     }
-    module.exports = exports['default']
+
+    module.exports = exports.default
   })
 
   unwrapExports(getContainer_1)
 
-  var ownerDocument_1$1 = createCommonjsModule(function(module, exports) {
-    Object.defineProperty(exports, '__esModule', {
-      value: true,
-    })
-    exports.default = ownerDocument
-    function ownerDocument(node) {
-      return (node && node.ownerDocument) || document
-    }
-    module.exports = exports['default']
-  })
-
-  unwrapExports(ownerDocument_1$1)
-
-  var ownerDocument$2 = createCommonjsModule(function(module, exports) {
+  var WaitForContainer_1 = createCommonjsModule(function(module, exports) {
     exports.__esModule = true
+    exports.default = void 0
 
-    exports.default = function(componentOrElement) {
-      return (0, _ownerDocument2.default)(
-        _reactDom2.default.findDOMNode(componentOrElement)
-      )
-    }
+    var _propTypes = _interopRequireDefault(propTypes)
 
-    var _reactDom2 = _interopRequireDefault(reactDom__default)
+    var _componentOrElement = _interopRequireDefault(componentOrElement)
 
-    var _ownerDocument2 = _interopRequireDefault(ownerDocument_1$1)
+    var _inDOM = _interopRequireDefault(inDOM)
+
+    var _ownerDocument = _interopRequireDefault(ownerDocument_1)
+
+    var _react = _interopRequireDefault(React__default)
+
+    var _reactDom = _interopRequireDefault(reactDom__default)
+
+    var _getContainer = _interopRequireDefault(getContainer_1)
 
     function _interopRequireDefault(obj) {
       return obj && obj.__esModule ? obj : { default: obj }
     }
 
-    module.exports = exports['default']
-  })
-
-  unwrapExports(ownerDocument$2)
-
-  var LegacyPortal = createCommonjsModule(function(module, exports) {
-    exports.__esModule = true
-
-    var _propTypes2 = _interopRequireDefault(propTypes)
-
-    var _componentOrElement2 = _interopRequireDefault(componentOrElement)
-
-    var _react2 = _interopRequireDefault(React__default)
-
-    var _reactDom2 = _interopRequireDefault(reactDom__default)
-
-    var _getContainer2 = _interopRequireDefault(getContainer_1)
-
-    var _ownerDocument2 = _interopRequireDefault(ownerDocument$2)
-
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj }
-    }
-
-    function _classCallCheck(instance, Constructor) {
-      if (!(instance instanceof Constructor)) {
-        throw new TypeError('Cannot call a class as a function')
-      }
-    }
-
-    function _possibleConstructorReturn(self, call) {
-      if (!self) {
+    function _assertThisInitialized(self) {
+      if (self === void 0) {
         throw new ReferenceError(
           "this hasn't been initialised - super() hasn't been called"
         )
       }
-      return call && (typeof call === 'object' || typeof call === 'function')
-        ? call
-        : self
+      return self
     }
 
-    function _inherits(subClass, superClass) {
-      if (typeof superClass !== 'function' && superClass !== null) {
-        throw new TypeError(
-          'Super expression must either be null or a function, not ' +
-            typeof superClass
-        )
-      }
-      subClass.prototype = Object.create(superClass && superClass.prototype, {
-        constructor: {
-          value: subClass,
-          enumerable: false,
-          writable: true,
-          configurable: true,
-        },
-      })
-      if (superClass)
-        Object.setPrototypeOf
-          ? Object.setPrototypeOf(subClass, superClass)
-          : (subClass.__proto__ = superClass)
+    function _inheritsLoose(subClass, superClass) {
+      subClass.prototype = Object.create(superClass.prototype)
+      subClass.prototype.constructor = subClass
+      subClass.__proto__ = superClass
     }
 
-    /**
-     * The `<Portal/>` component renders its children into a new "subtree" outside of current component hierarchy.
-     * You can think of it as a declarative `appendChild()`, or jQuery's `$.fn.appendTo()`.
-     * The children of `<Portal/>` component will be appended to the `container` specified.
-     */
-    var Portal = (function(_React$Component) {
-      _inherits(Portal, _React$Component)
-
-      function Portal() {
-        var _temp, _this, _ret
-
-        _classCallCheck(this, Portal)
-
-        for (
-          var _len = arguments.length, args = Array(_len), _key = 0;
-          _key < _len;
-          _key++
-        ) {
-          args[_key] = arguments[_key]
-        }
-
-        return (
-          (_ret = ((_temp = ((_this = _possibleConstructorReturn(
-            this,
-            _React$Component.call.apply(_React$Component, [this].concat(args))
-          )),
-          _this)),
-          (_this._mountOverlayTarget = function() {
-            if (!_this._overlayTarget) {
-              _this._overlayTarget = document.createElement('div')
-              _this._portalContainerNode = (0, _getContainer2.default)(
-                _this.props.container,
-                (0, _ownerDocument2.default)(_this).body
-              )
-              _this._portalContainerNode.appendChild(_this._overlayTarget)
-            }
-          }),
-          (_this._unmountOverlayTarget = function() {
-            if (_this._overlayTarget) {
-              _this._portalContainerNode.removeChild(_this._overlayTarget)
-              _this._overlayTarget = null
-            }
-            _this._portalContainerNode = null
-          }),
-          (_this._renderOverlay = function() {
-            var overlay = !_this.props.children
-              ? null
-              : _react2.default.Children.only(_this.props.children)
-
-            // Save reference for future access.
-            if (overlay !== null) {
-              _this._mountOverlayTarget()
-
-              var initialRender = !_this._overlayInstance
-
-              _this._overlayInstance = _reactDom2.default.unstable_renderSubtreeIntoContainer(
-                _this,
-                overlay,
-                _this._overlayTarget,
-                function() {
-                  if (initialRender && _this.props.onRendered) {
-                    _this.props.onRendered()
-                  }
-                }
-              )
-            } else {
-              // Unrender if the component is null for transitions to null
-              _this._unrenderOverlay()
-              _this._unmountOverlayTarget()
-            }
-          }),
-          (_this._unrenderOverlay = function() {
-            if (_this._overlayTarget) {
-              _reactDom2.default.unmountComponentAtNode(_this._overlayTarget)
-              _this._overlayInstance = null
-            }
-          }),
-          (_this.getMountNode = function() {
-            return _this._overlayTarget
-          }),
-          _temp)),
-          _possibleConstructorReturn(_this, _ret)
-        )
-      }
-
-      Portal.prototype.componentDidMount = function componentDidMount() {
-        this._isMounted = true
-        this._renderOverlay()
-      }
-
-      Portal.prototype.componentDidUpdate = function componentDidUpdate() {
-        this._renderOverlay()
-      }
-
-      Portal.prototype.componentWillReceiveProps = function componentWillReceiveProps(
-        nextProps
-      ) {
-        if (
-          this._overlayTarget &&
-          nextProps.container !== this.props.container
-        ) {
-          this._portalContainerNode.removeChild(this._overlayTarget)
-          this._portalContainerNode = (0, _getContainer2.default)(
-            nextProps.container,
-            (0, _ownerDocument2.default)(this).body
-          )
-          this._portalContainerNode.appendChild(this._overlayTarget)
-        }
-      }
-
-      Portal.prototype.componentWillUnmount = function componentWillUnmount() {
-        this._isMounted = false
-        this._unrenderOverlay()
-        this._unmountOverlayTarget()
-      }
-
-      Portal.prototype.render = function render() {
-        return null
-      }
-
-      return Portal
-    })(_react2.default.Component)
-
-    Portal.displayName = 'Portal'
-    Portal.propTypes = {
+    var propTypes$1 = {
       /**
        * A Node, Component instance, or function that returns either. The `container` will have the Portal children
        * appended to it.
        */
-      container: _propTypes2.default.oneOfType([
-        _componentOrElement2.default,
-        _propTypes2.default.func,
+      container: _propTypes.default.oneOfType([
+        _componentOrElement.default,
+        _propTypes.default.func,
       ]),
-
-      onRendered: _propTypes2.default.func,
+      onContainerResolved: _propTypes.default.func,
     }
-    exports.default = Portal
-    module.exports = exports['default']
+
+    var WaitForContainer =
+      /*#__PURE__*/
+      (function(_React$Component) {
+        _inheritsLoose(WaitForContainer, _React$Component)
+
+        function WaitForContainer() {
+          var _this
+
+          for (
+            var _len = arguments.length, args = new Array(_len), _key = 0;
+            _key < _len;
+            _key++
+          ) {
+            args[_key] = arguments[_key]
+          }
+
+          _this =
+            _React$Component.call.apply(
+              _React$Component,
+              [this].concat(args)
+            ) || this
+          if (!_inDOM.default) return _assertThisInitialized(_this)
+          var container = _this.props.container
+          if (typeof container === 'function') container = container()
+
+          if (container && !_reactDom.default.findDOMNode(container)) {
+            // The container is a React component that has not yet been rendered.
+            // Don't set the container node yet.
+            return _assertThisInitialized(_this)
+          }
+
+          _this.setContainer(container)
+
+          return _this
+        }
+
+        var _proto = WaitForContainer.prototype
+
+        _proto.UNSAFE_componentWillReceiveProps = function UNSAFE_componentWillReceiveProps(
+          nextProps
+        ) {
+          if (nextProps.container !== this.props.container) {
+            this.setContainer(nextProps.container)
+          }
+        }
+
+        _proto.componentDidMount = function componentDidMount() {
+          if (!this._container) {
+            this.setContainer(this.props.container)
+            this.forceUpdate(this.props.onContainerResolved)
+          } else if (this.props.onContainerResolved) {
+            this.props.onContainerResolved()
+          }
+        }
+
+        _proto.componentWillUnmount = function componentWillUnmount() {
+          this._container = null
+        }
+
+        _proto.setContainer = function setContainer(container) {
+          this._container = (0, _getContainer.default)(
+            container,
+            (0, _ownerDocument.default)().body
+          )
+        }
+
+        _proto.render = function render() {
+          return this._container ? this.props.children(this._container) : null
+        }
+
+        return WaitForContainer
+      })(_react.default.Component)
+
+    WaitForContainer.propTypes = propTypes$1
+    var _default = WaitForContainer
+    exports.default = _default
+    module.exports = exports.default
   })
 
-  unwrapExports(LegacyPortal)
+  unwrapExports(WaitForContainer_1)
 
   var Portal_1 = createCommonjsModule(function(module, exports) {
     exports.__esModule = true
+    exports.default = void 0
 
-    var _propTypes2 = _interopRequireDefault(propTypes)
+    var _propTypes = _interopRequireDefault(propTypes)
 
-    var _componentOrElement2 = _interopRequireDefault(componentOrElement)
+    var _componentOrElement = _interopRequireDefault(componentOrElement)
 
-    var _react2 = _interopRequireDefault(React__default)
+    var _react = _interopRequireDefault(React__default)
 
-    var _reactDom2 = _interopRequireDefault(reactDom__default)
+    var _reactDom = _interopRequireDefault(reactDom__default)
 
-    var _getContainer2 = _interopRequireDefault(getContainer_1)
-
-    var _ownerDocument2 = _interopRequireDefault(ownerDocument$2)
-
-    var _LegacyPortal2 = _interopRequireDefault(LegacyPortal)
+    var _WaitForContainer = _interopRequireDefault(WaitForContainer_1)
 
     function _interopRequireDefault(obj) {
       return obj && obj.__esModule ? obj : { default: obj }
     }
 
-    function _classCallCheck(instance, Constructor) {
-      if (!(instance instanceof Constructor)) {
-        throw new TypeError('Cannot call a class as a function')
-      }
-    }
-
-    function _possibleConstructorReturn(self, call) {
-      if (!self) {
-        throw new ReferenceError(
-          "this hasn't been initialised - super() hasn't been called"
-        )
-      }
-      return call && (typeof call === 'object' || typeof call === 'function')
-        ? call
-        : self
-    }
-
-    function _inherits(subClass, superClass) {
-      if (typeof superClass !== 'function' && superClass !== null) {
-        throw new TypeError(
-          'Super expression must either be null or a function, not ' +
-            typeof superClass
-        )
-      }
-      subClass.prototype = Object.create(superClass && superClass.prototype, {
-        constructor: {
-          value: subClass,
-          enumerable: false,
-          writable: true,
-          configurable: true,
-        },
-      })
-      if (superClass)
-        Object.setPrototypeOf
-          ? Object.setPrototypeOf(subClass, superClass)
-          : (subClass.__proto__ = superClass)
+    function _inheritsLoose(subClass, superClass) {
+      subClass.prototype = Object.create(superClass.prototype)
+      subClass.prototype.constructor = subClass
+      subClass.__proto__ = superClass
     }
 
     /**
@@ -4786,75 +4568,39 @@
      * You can think of it as a declarative `appendChild()`, or jQuery's `$.fn.appendTo()`.
      * The children of `<Portal/>` component will be appended to the `container` specified.
      */
-    var Portal = (function(_React$Component) {
-      _inherits(Portal, _React$Component)
+    var Portal =
+      /*#__PURE__*/
+      (function(_React$Component) {
+        _inheritsLoose(Portal, _React$Component)
 
-      function Portal() {
-        var _temp, _this, _ret
-
-        _classCallCheck(this, Portal)
-
-        for (
-          var _len = arguments.length, args = Array(_len), _key = 0;
-          _key < _len;
-          _key++
-        ) {
-          args[_key] = arguments[_key]
+        function Portal() {
+          return _React$Component.apply(this, arguments) || this
         }
 
-        return (
-          (_ret = ((_temp = ((_this = _possibleConstructorReturn(
-            this,
-            _React$Component.call.apply(_React$Component, [this].concat(args))
-          )),
-          _this)),
-          (_this.setContainer = function() {
-            var props =
-              arguments.length > 0 && arguments[0] !== undefined
-                ? arguments[0]
-                : _this.props
+        var _proto = Portal.prototype
 
-            _this._portalContainerNode = (0, _getContainer2.default)(
-              props.container,
-              (0, _ownerDocument2.default)(_this).body
-            )
-          }),
-          (_this.getMountNode = function() {
-            return _this._portalContainerNode
-          }),
-          _temp)),
-          _possibleConstructorReturn(_this, _ret)
-        )
-      }
+        _proto.render = function render() {
+          var _this = this
 
-      Portal.prototype.componentDidMount = function componentDidMount() {
-        this.setContainer()
-        this.forceUpdate(this.props.onRendered)
-      }
-
-      Portal.prototype.componentWillReceiveProps = function componentWillReceiveProps(
-        nextProps
-      ) {
-        if (nextProps.container !== this.props.container) {
-          this.setContainer(nextProps)
+          return this.props.children
+            ? _react.default.createElement(
+                _WaitForContainer.default,
+                {
+                  container: this.props.container,
+                  onContainerResolved: this.props.onRendered,
+                },
+                function(container) {
+                  return _reactDom.default.createPortal(
+                    _this.props.children,
+                    container
+                  )
+                }
+              )
+            : null
         }
-      }
 
-      Portal.prototype.componentWillUnmount = function componentWillUnmount() {
-        this._portalContainerNode = null
-      }
-
-      Portal.prototype.render = function render() {
-        return this.props.children && this._portalContainerNode
-          ? _reactDom2.default.createPortal(
-              this.props.children,
-              this._portalContainerNode
-            )
-          : null
-      }
-
-      return Portal
-    })(_react2.default.Component)
+        return Portal
+      })(_react.default.Component)
 
     Portal.displayName = 'Portal'
     Portal.propTypes = {
@@ -4862,1151 +4608,28 @@
        * A Node, Component instance, or function that returns either. The `container` will have the Portal children
        * appended to it.
        */
-      container: _propTypes2.default.oneOfType([
-        _componentOrElement2.default,
-        _propTypes2.default.func,
+      container: _propTypes.default.oneOfType([
+        _componentOrElement.default,
+        _propTypes.default.func,
       ]),
-
-      onRendered: _propTypes2.default.func,
+      onRendered: _propTypes.default.func,
     }
-    exports.default = _reactDom2.default.createPortal
-      ? Portal
-      : _LegacyPortal2.default
-    module.exports = exports['default']
+    var _default = Portal
+    exports.default = _default
+    module.exports = exports.default
   })
 
   unwrapExports(Portal_1)
 
-  var inDOM$2 = createCommonjsModule(function(module, exports) {
-    Object.defineProperty(exports, '__esModule', {
-      value: true,
-    })
-    exports.default = !!(
-      typeof window !== 'undefined' &&
-      window.document &&
-      window.document.createElement
-    )
-    module.exports = exports['default']
-  })
-
-  unwrapExports(inDOM$2)
-
-  var contains$2 = createCommonjsModule(function(module, exports) {
-    Object.defineProperty(exports, '__esModule', {
-      value: true,
-    })
-
-    var _inDOM2 = _interopRequireDefault(inDOM$2)
-
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj }
-    }
-
-    exports.default = (function() {
-      // HTML DOM and SVG DOM may have different support levels,
-      // so we need to check on context instead of a document root element.
-      return _inDOM2.default
-        ? function(context, node) {
-            if (context.contains) {
-              return context.contains(node)
-            } else if (context.compareDocumentPosition) {
-              return (
-                context === node ||
-                !!(context.compareDocumentPosition(node) & 16)
-              )
-            } else {
-              return fallback(context, node)
-            }
-          }
-        : fallback
-    })()
-
-    function fallback(context, node) {
-      if (node)
-        do {
-          if (node === context) return true
-        } while ((node = node.parentNode))
-
-      return false
-    }
-    module.exports = exports['default']
-  })
-
-  unwrapExports(contains$2)
-
-  var isWindow$2 = createCommonjsModule(function(module, exports) {
-    Object.defineProperty(exports, '__esModule', {
-      value: true,
-    })
-    exports.default = getWindow
-    function getWindow(node) {
-      return node === node.window
-        ? node
-        : node.nodeType === 9
-        ? node.defaultView || node.parentWindow
-        : false
-    }
-    module.exports = exports['default']
-  })
-
-  unwrapExports(isWindow$2)
-
-  var offset_1$1 = createCommonjsModule(function(module, exports) {
-    Object.defineProperty(exports, '__esModule', {
-      value: true,
-    })
-    exports.default = offset
-
-    var _contains2 = _interopRequireDefault(contains$2)
-
-    var _isWindow2 = _interopRequireDefault(isWindow$2)
-
-    var _ownerDocument2 = _interopRequireDefault(ownerDocument_1$1)
-
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj }
-    }
-
-    function offset(node) {
-      var doc = (0, _ownerDocument2.default)(node),
-        win = (0, _isWindow2.default)(doc),
-        docElem = doc && doc.documentElement,
-        box = { top: 0, left: 0, height: 0, width: 0 }
-
-      if (!doc) return
-
-      // Make sure it's not a disconnected DOM node
-      if (!(0, _contains2.default)(docElem, node)) return box
-
-      if (node.getBoundingClientRect !== undefined)
-        box = node.getBoundingClientRect()
-
-      // IE8 getBoundingClientRect doesn't support width & height
-      box = {
-        top:
-          box.top +
-          (win.pageYOffset || docElem.scrollTop) -
-          (docElem.clientTop || 0),
-        left:
-          box.left +
-          (win.pageXOffset || docElem.scrollLeft) -
-          (docElem.clientLeft || 0),
-        width: (box.width == null ? node.offsetWidth : box.width) || 0,
-        height: (box.height == null ? node.offsetHeight : box.height) || 0,
-      }
-
-      return box
-    }
-    module.exports = exports['default']
-  })
-
-  unwrapExports(offset_1$1)
-
-  var camelize_1$1 = createCommonjsModule(function(module, exports) {
-    Object.defineProperty(exports, '__esModule', {
-      value: true,
-    })
-    exports.default = camelize
-    var rHyphen = /-(.)/g
-
-    function camelize(string) {
-      return string.replace(rHyphen, function(_, chr) {
-        return chr.toUpperCase()
-      })
-    }
-    module.exports = exports['default']
-  })
-
-  unwrapExports(camelize_1$1)
-
-  var camelizeStyle$2 = createCommonjsModule(function(module, exports) {
-    Object.defineProperty(exports, '__esModule', {
-      value: true,
-    })
-    exports.default = camelizeStyleName
-
-    var _camelize2 = _interopRequireDefault(camelize_1$1)
-
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj }
-    }
-
-    var msPattern = /^-ms-/
-    /**
-     * Copyright 2014-2015, Facebook, Inc.
-     * All rights reserved.
-     * https://github.com/facebook/react/blob/2aeb8a2a6beb00617a4217f7f8284924fa2ad819/src/vendor/core/camelizeStyleName.js
-     */
-    function camelizeStyleName(string) {
-      return (0, _camelize2.default)(string.replace(msPattern, 'ms-'))
-    }
-    module.exports = exports['default']
-  })
-
-  unwrapExports(camelizeStyle$2)
-
-  var hyphenate_1$1 = createCommonjsModule(function(module, exports) {
-    Object.defineProperty(exports, '__esModule', {
-      value: true,
-    })
-    exports.default = hyphenate
-
-    var rUpper = /([A-Z])/g
-
-    function hyphenate(string) {
-      return string.replace(rUpper, '-$1').toLowerCase()
-    }
-    module.exports = exports['default']
-  })
-
-  unwrapExports(hyphenate_1$1)
-
-  var hyphenateStyle$2 = createCommonjsModule(function(module, exports) {
-    Object.defineProperty(exports, '__esModule', {
-      value: true,
-    })
-    exports.default = hyphenateStyleName
-
-    var _hyphenate2 = _interopRequireDefault(hyphenate_1$1)
-
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj }
-    }
-
-    var msPattern = /^ms-/
-    /**
-     * Copyright 2013-2014, Facebook, Inc.
-     * All rights reserved.
-     * https://github.com/facebook/react/blob/2aeb8a2a6beb00617a4217f7f8284924fa2ad819/src/vendor/core/hyphenateStyleName.js
-     */
-
-    function hyphenateStyleName(string) {
-      return (0, _hyphenate2.default)(string).replace(msPattern, '-ms-')
-    }
-    module.exports = exports['default']
-  })
-
-  unwrapExports(hyphenateStyle$2)
-
-  var getComputedStyle$2 = createCommonjsModule(function(module, exports) {
-    Object.defineProperty(exports, '__esModule', {
-      value: true,
-    })
-    exports.default = _getComputedStyle
-
-    var _camelizeStyle2 = _interopRequireDefault(camelizeStyle$2)
-
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj }
-    }
-
-    var rposition = /^(top|right|bottom|left)$/
-    var rnumnonpx = /^([+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|))(?!px)[a-z%]+$/i
-
-    function _getComputedStyle(node) {
-      if (!node)
-        throw new TypeError('No Element passed to `getComputedStyle()`')
-      var doc = node.ownerDocument
-
-      return 'defaultView' in doc
-        ? doc.defaultView.opener
-          ? node.ownerDocument.defaultView.getComputedStyle(node, null)
-          : window.getComputedStyle(node, null)
-        : {
-            //ie 8 "magic" from: https://github.com/jquery/jquery/blob/1.11-stable/src/css/curCSS.js#L72
-            getPropertyValue: function getPropertyValue(prop) {
-              var style = node.style
-
-              prop = (0, _camelizeStyle2.default)(prop)
-
-              if (prop == 'float') prop = 'styleFloat'
-
-              var current = node.currentStyle[prop] || null
-
-              if (current == null && style && style[prop]) current = style[prop]
-
-              if (rnumnonpx.test(current) && !rposition.test(prop)) {
-                // Remember the original values
-                var left = style.left
-                var runStyle = node.runtimeStyle
-                var rsLeft = runStyle && runStyle.left
-
-                // Put in the new values to get a computed value out
-                if (rsLeft) runStyle.left = node.currentStyle.left
-
-                style.left = prop === 'fontSize' ? '1em' : current
-                current = style.pixelLeft + 'px'
-
-                // Revert the changed values
-                style.left = left
-                if (rsLeft) runStyle.left = rsLeft
-              }
-
-              return current
-            },
-          }
-    }
-    module.exports = exports['default']
-  })
-
-  unwrapExports(getComputedStyle$2)
-
-  var removeStyle_1$1 = createCommonjsModule(function(module, exports) {
-    Object.defineProperty(exports, '__esModule', {
-      value: true,
-    })
-    exports.default = removeStyle
-    function removeStyle(node, key) {
-      return 'removeProperty' in node.style
-        ? node.style.removeProperty(key)
-        : node.style.removeAttribute(key)
-    }
-    module.exports = exports['default']
-  })
-
-  unwrapExports(removeStyle_1$1)
-
-  var properties$2 = createCommonjsModule(function(module, exports) {
-    Object.defineProperty(exports, '__esModule', {
-      value: true,
-    })
-    exports.animationEnd = exports.animationDelay = exports.animationTiming = exports.animationDuration = exports.animationName = exports.transitionEnd = exports.transitionDuration = exports.transitionDelay = exports.transitionTiming = exports.transitionProperty = exports.transform = undefined
-
-    var _inDOM2 = _interopRequireDefault(inDOM$2)
-
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj }
-    }
-
-    var transform = 'transform'
-    var prefix = void 0,
-      transitionEnd = void 0,
-      animationEnd = void 0
-    var transitionProperty = void 0,
-      transitionDuration = void 0,
-      transitionTiming = void 0,
-      transitionDelay = void 0
-    var animationName = void 0,
-      animationDuration = void 0,
-      animationTiming = void 0,
-      animationDelay = void 0
-
-    if (_inDOM2.default) {
-      var _getTransitionPropert = getTransitionProperties()
-
-      prefix = _getTransitionPropert.prefix
-      exports.transitionEnd = transitionEnd =
-        _getTransitionPropert.transitionEnd
-      exports.animationEnd = animationEnd = _getTransitionPropert.animationEnd
-
-      exports.transform = transform = prefix + '-' + transform
-      exports.transitionProperty = transitionProperty =
-        prefix + '-transition-property'
-      exports.transitionDuration = transitionDuration =
-        prefix + '-transition-duration'
-      exports.transitionDelay = transitionDelay = prefix + '-transition-delay'
-      exports.transitionTiming = transitionTiming =
-        prefix + '-transition-timing-function'
-
-      exports.animationName = animationName = prefix + '-animation-name'
-      exports.animationDuration = animationDuration =
-        prefix + '-animation-duration'
-      exports.animationTiming = animationTiming = prefix + '-animation-delay'
-      exports.animationDelay = animationDelay =
-        prefix + '-animation-timing-function'
-    }
-
-    exports.transform = transform
-    exports.transitionProperty = transitionProperty
-    exports.transitionTiming = transitionTiming
-    exports.transitionDelay = transitionDelay
-    exports.transitionDuration = transitionDuration
-    exports.transitionEnd = transitionEnd
-    exports.animationName = animationName
-    exports.animationDuration = animationDuration
-    exports.animationTiming = animationTiming
-    exports.animationDelay = animationDelay
-    exports.animationEnd = animationEnd
-    exports.default = {
-      transform: transform,
-      end: transitionEnd,
-      property: transitionProperty,
-      timing: transitionTiming,
-      delay: transitionDelay,
-      duration: transitionDuration,
-    }
-
-    function getTransitionProperties() {
-      var style = document.createElement('div').style
-
-      var vendorMap = {
-        O: function O(e) {
-          return 'o' + e.toLowerCase()
-        },
-        Moz: function Moz(e) {
-          return e.toLowerCase()
-        },
-        Webkit: function Webkit(e) {
-          return 'webkit' + e
-        },
-        ms: function ms(e) {
-          return 'MS' + e
-        },
-      }
-
-      var vendors = Object.keys(vendorMap)
-
-      var transitionEnd = void 0,
-        animationEnd = void 0
-      var prefix = ''
-
-      for (var i = 0; i < vendors.length; i++) {
-        var vendor = vendors[i]
-
-        if (vendor + 'TransitionProperty' in style) {
-          prefix = '-' + vendor.toLowerCase()
-          transitionEnd = vendorMap[vendor]('TransitionEnd')
-          animationEnd = vendorMap[vendor]('AnimationEnd')
-          break
-        }
-      }
-
-      if (!transitionEnd && 'transitionProperty' in style)
-        transitionEnd = 'transitionend'
-
-      if (!animationEnd && 'animationName' in style)
-        animationEnd = 'animationend'
-
-      style = null
-
-      return {
-        animationEnd: animationEnd,
-        transitionEnd: transitionEnd,
-        prefix: prefix,
-      }
-    }
-  })
-
-  unwrapExports(properties$2)
-  var properties_1$1 = properties$2.animationEnd
-  var properties_2$1 = properties$2.animationDelay
-  var properties_3$1 = properties$2.animationTiming
-  var properties_4$1 = properties$2.animationDuration
-  var properties_5$1 = properties$2.animationName
-  var properties_6$1 = properties$2.transitionEnd
-  var properties_7$1 = properties$2.transitionDuration
-  var properties_8$1 = properties$2.transitionDelay
-  var properties_9$1 = properties$2.transitionTiming
-  var properties_10$1 = properties$2.transitionProperty
-  var properties_11$1 = properties$2.transform
-
-  var isTransform_1$1 = createCommonjsModule(function(module, exports) {
-    Object.defineProperty(exports, '__esModule', {
-      value: true,
-    })
-    exports.default = isTransform
-    var supportedTransforms = /^((translate|rotate|scale)(X|Y|Z|3d)?|matrix(3d)?|perspective|skew(X|Y)?)$/i
-
-    function isTransform(property) {
-      return !!(property && supportedTransforms.test(property))
-    }
-    module.exports = exports['default']
-  })
-
-  unwrapExports(isTransform_1$1)
-
-  var style_1$1 = createCommonjsModule(function(module, exports) {
-    Object.defineProperty(exports, '__esModule', {
-      value: true,
-    })
-    exports.default = style
-
-    var _camelizeStyle2 = _interopRequireDefault(camelizeStyle$2)
-
-    var _hyphenateStyle2 = _interopRequireDefault(hyphenateStyle$2)
-
-    var _getComputedStyle3 = _interopRequireDefault(getComputedStyle$2)
-
-    var _removeStyle2 = _interopRequireDefault(removeStyle_1$1)
-
-    var _isTransform2 = _interopRequireDefault(isTransform_1$1)
-
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj }
-    }
-
-    function style(node, property, value) {
-      var css = ''
-      var transforms = ''
-      var props = property
-
-      if (typeof property === 'string') {
-        if (value === undefined) {
-          return (
-            node.style[(0, _camelizeStyle2.default)(property)] ||
-            (0, _getComputedStyle3.default)(node).getPropertyValue(
-              (0, _hyphenateStyle2.default)(property)
-            )
-          )
-        } else {
-          ;(props = {})[property] = value
-        }
-      }
-
-      Object.keys(props).forEach(function(key) {
-        var value = props[key]
-        if (!value && value !== 0) {
-          ;(0, _removeStyle2.default)(node, (0, _hyphenateStyle2.default)(key))
-        } else if ((0, _isTransform2.default)(key)) {
-          transforms += key + '(' + value + ') '
-        } else {
-          css += (0, _hyphenateStyle2.default)(key) + ': ' + value + ';'
-        }
-      })
-
-      if (transforms) {
-        css += properties$2.transform + ': ' + transforms + ';'
-      }
-
-      node.style.cssText += ';' + css
-    }
-    module.exports = exports['default']
-  })
-
-  unwrapExports(style_1$1)
-
-  var offsetParent_1$1 = createCommonjsModule(function(module, exports) {
-    Object.defineProperty(exports, '__esModule', {
-      value: true,
-    })
-    exports.default = offsetParent
-
-    var _ownerDocument2 = _interopRequireDefault(ownerDocument_1$1)
-
-    var _style2 = _interopRequireDefault(style_1$1)
-
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj }
-    }
-
-    function nodeName(node) {
-      return node.nodeName && node.nodeName.toLowerCase()
-    }
-
-    function offsetParent(node) {
-      var doc = (0, _ownerDocument2.default)(node),
-        offsetParent = node && node.offsetParent
-
-      while (
-        offsetParent &&
-        nodeName(node) !== 'html' &&
-        (0, _style2.default)(offsetParent, 'position') === 'static'
-      ) {
-        offsetParent = offsetParent.offsetParent
-      }
-
-      return offsetParent || doc.documentElement
-    }
-    module.exports = exports['default']
-  })
-
-  unwrapExports(offsetParent_1$1)
-
-  var scrollTop_1$1 = createCommonjsModule(function(module, exports) {
-    Object.defineProperty(exports, '__esModule', {
-      value: true,
-    })
-    exports.default = scrollTop
-
-    var _isWindow2 = _interopRequireDefault(isWindow$2)
-
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj }
-    }
-
-    function scrollTop(node, val) {
-      var win = (0, _isWindow2.default)(node)
-
-      if (val === undefined)
-        return win
-          ? 'pageYOffset' in win
-            ? win.pageYOffset
-            : win.document.documentElement.scrollTop
-          : node.scrollTop
-
-      if (win)
-        win.scrollTo(
-          'pageXOffset' in win
-            ? win.pageXOffset
-            : win.document.documentElement.scrollLeft,
-          val
-        )
-      else node.scrollTop = val
-    }
-    module.exports = exports['default']
-  })
-
-  unwrapExports(scrollTop_1$1)
-
-  var scrollLeft$1 = createCommonjsModule(function(module, exports) {
-    Object.defineProperty(exports, '__esModule', {
-      value: true,
-    })
-    exports.default = scrollTop
-
-    var _isWindow2 = _interopRequireDefault(isWindow$2)
-
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj }
-    }
-
-    function scrollTop(node, val) {
-      var win = (0, _isWindow2.default)(node)
-
-      if (val === undefined)
-        return win
-          ? 'pageXOffset' in win
-            ? win.pageXOffset
-            : win.document.documentElement.scrollLeft
-          : node.scrollLeft
-
-      if (win)
-        win.scrollTo(
-          val,
-          'pageYOffset' in win
-            ? win.pageYOffset
-            : win.document.documentElement.scrollTop
-        )
-      else node.scrollLeft = val
-    }
-    module.exports = exports['default']
-  })
-
-  unwrapExports(scrollLeft$1)
-
-  var position_1$1 = createCommonjsModule(function(module, exports) {
-    Object.defineProperty(exports, '__esModule', {
-      value: true,
-    })
-
-    var _extends =
-      Object.assign ||
-      function(target) {
-        for (var i = 1; i < arguments.length; i++) {
-          var source = arguments[i]
-          for (var key in source) {
-            if (Object.prototype.hasOwnProperty.call(source, key)) {
-              target[key] = source[key]
-            }
-          }
-        }
-        return target
-      }
-
-    exports.default = position
-
-    var _offset2 = _interopRequireDefault(offset_1$1)
-
-    var _offsetParent2 = _interopRequireDefault(offsetParent_1$1)
-
-    var _scrollTop2 = _interopRequireDefault(scrollTop_1$1)
-
-    var _scrollLeft2 = _interopRequireDefault(scrollLeft$1)
-
-    var _style2 = _interopRequireDefault(style_1$1)
-
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj }
-    }
-
-    function nodeName(node) {
-      return node.nodeName && node.nodeName.toLowerCase()
-    }
-
-    function position(node, offsetParent) {
-      var parentOffset = { top: 0, left: 0 },
-        offset
-
-      // Fixed elements are offset from window (parentOffset = {top:0, left: 0},
-      // because it is its only offset parent
-      if ((0, _style2.default)(node, 'position') === 'fixed') {
-        offset = node.getBoundingClientRect()
-      } else {
-        offsetParent = offsetParent || (0, _offsetParent2.default)(node)
-        offset = (0, _offset2.default)(node)
-
-        if (nodeName(offsetParent) !== 'html')
-          parentOffset = (0, _offset2.default)(offsetParent)
-
-        parentOffset.top +=
-          parseInt((0, _style2.default)(offsetParent, 'borderTopWidth'), 10) -
-            (0, _scrollTop2.default)(offsetParent) || 0
-        parentOffset.left +=
-          parseInt((0, _style2.default)(offsetParent, 'borderLeftWidth'), 10) -
-            (0, _scrollLeft2.default)(offsetParent) || 0
-      }
-
-      // Subtract parent offsets and node margins
-      return _extends({}, offset, {
-        top:
-          offset.top -
-          parentOffset.top -
-          (parseInt((0, _style2.default)(node, 'marginTop'), 10) || 0),
-        left:
-          offset.left -
-          parentOffset.left -
-          (parseInt((0, _style2.default)(node, 'marginLeft'), 10) || 0),
-      })
-    }
-    module.exports = exports['default']
-  })
-
-  unwrapExports(position_1$1)
-
-  var calculatePosition_1 = createCommonjsModule(function(module, exports) {
-    exports.__esModule = true
-    exports.default = calculatePosition
-
-    var _offset2 = _interopRequireDefault(offset_1$1)
-
-    var _position2 = _interopRequireDefault(position_1$1)
-
-    var _scrollTop2 = _interopRequireDefault(scrollTop_1$1)
-
-    var _ownerDocument2 = _interopRequireDefault(ownerDocument$2)
-
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj }
-    }
-
-    function getContainerDimensions(containerNode) {
-      var width = void 0,
-        height = void 0,
-        scroll = void 0
-
-      if (containerNode.tagName === 'BODY') {
-        width = window.innerWidth
-        height = window.innerHeight
-
-        scroll =
-          (0, _scrollTop2.default)(
-            (0, _ownerDocument2.default)(containerNode).documentElement
-          ) || (0, _scrollTop2.default)(containerNode)
-      } else {
-        var _getOffset = (0, _offset2.default)(containerNode)
-
-        width = _getOffset.width
-        height = _getOffset.height
-
-        scroll = (0, _scrollTop2.default)(containerNode)
-      }
-
-      return { width: width, height: height, scroll: scroll }
-    }
-
-    function getTopDelta(top, overlayHeight, container, padding) {
-      var containerDimensions = getContainerDimensions(container)
-      var containerScroll = containerDimensions.scroll
-      var containerHeight = containerDimensions.height
-
-      var topEdgeOffset = top - padding - containerScroll
-      var bottomEdgeOffset = top + padding - containerScroll + overlayHeight
-
-      if (topEdgeOffset < 0) {
-        return -topEdgeOffset
-      } else if (bottomEdgeOffset > containerHeight) {
-        return containerHeight - bottomEdgeOffset
-      } else {
-        return 0
-      }
-    }
-
-    function getLeftDelta(left, overlayWidth, container, padding) {
-      var containerDimensions = getContainerDimensions(container)
-      var containerWidth = containerDimensions.width
-
-      var leftEdgeOffset = left - padding
-      var rightEdgeOffset = left + padding + overlayWidth
-
-      if (leftEdgeOffset < 0) {
-        return -leftEdgeOffset
-      } else if (rightEdgeOffset > containerWidth) {
-        return containerWidth - rightEdgeOffset
-      }
-
-      return 0
-    }
-
-    function calculatePosition(
-      placement,
-      overlayNode,
-      target,
-      container,
-      padding
-    ) {
-      var childOffset =
-        container.tagName === 'BODY'
-          ? (0, _offset2.default)(target)
-          : (0, _position2.default)(target, container)
-
-      var _getOffset2 = (0, _offset2.default)(overlayNode),
-        overlayHeight = _getOffset2.height,
-        overlayWidth = _getOffset2.width
-
-      var positionLeft = void 0,
-        positionTop = void 0,
-        arrowOffsetLeft = void 0,
-        arrowOffsetTop = void 0
-
-      if (placement === 'left' || placement === 'right') {
-        positionTop = childOffset.top + (childOffset.height - overlayHeight) / 2
-
-        if (placement === 'left') {
-          positionLeft = childOffset.left - overlayWidth
-        } else {
-          positionLeft = childOffset.left + childOffset.width
-        }
-
-        var topDelta = getTopDelta(
-          positionTop,
-          overlayHeight,
-          container,
-          padding
-        )
-
-        positionTop += topDelta
-        arrowOffsetTop = 50 * (1 - (2 * topDelta) / overlayHeight) + '%'
-        arrowOffsetLeft = void 0
-      } else if (placement === 'top' || placement === 'bottom') {
-        positionLeft = childOffset.left + (childOffset.width - overlayWidth) / 2
-
-        if (placement === 'top') {
-          positionTop = childOffset.top - overlayHeight
-        } else {
-          positionTop = childOffset.top + childOffset.height
-        }
-
-        var leftDelta = getLeftDelta(
-          positionLeft,
-          overlayWidth,
-          container,
-          padding
-        )
-
-        positionLeft += leftDelta
-        arrowOffsetLeft = 50 * (1 - (2 * leftDelta) / overlayWidth) + '%'
-        arrowOffsetTop = void 0
-      } else {
-        throw new Error(
-          'calcOverlayPosition(): No such placement of "' +
-            placement +
-            '" found.'
-        )
-      }
-
-      return {
-        positionLeft: positionLeft,
-        positionTop: positionTop,
-        arrowOffsetLeft: arrowOffsetLeft,
-        arrowOffsetTop: arrowOffsetTop,
-      }
-    }
-    module.exports = exports['default']
-  })
-
-  unwrapExports(calculatePosition_1)
-
-  var Position_1 = createCommonjsModule(function(module, exports) {
-    exports.__esModule = true
-
-    var _extends =
-      Object.assign ||
-      function(target) {
-        for (var i = 1; i < arguments.length; i++) {
-          var source = arguments[i]
-          for (var key in source) {
-            if (Object.prototype.hasOwnProperty.call(source, key)) {
-              target[key] = source[key]
-            }
-          }
-        }
-        return target
-      }
-
-    var _classnames2 = _interopRequireDefault(classnames)
-
-    var _propTypes2 = _interopRequireDefault(propTypes)
-
-    var _componentOrElement2 = _interopRequireDefault(componentOrElement)
-
-    var _react2 = _interopRequireDefault(React__default)
-
-    var _reactDom2 = _interopRequireDefault(reactDom__default)
-
-    var _calculatePosition2 = _interopRequireDefault(calculatePosition_1)
-
-    var _getContainer2 = _interopRequireDefault(getContainer_1)
-
-    var _ownerDocument2 = _interopRequireDefault(ownerDocument$2)
-
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj }
-    }
-
-    function _objectWithoutProperties(obj, keys) {
-      var target = {}
-      for (var i in obj) {
-        if (keys.indexOf(i) >= 0) continue
-        if (!Object.prototype.hasOwnProperty.call(obj, i)) continue
-        target[i] = obj[i]
-      }
-      return target
-    }
-
-    function _classCallCheck(instance, Constructor) {
-      if (!(instance instanceof Constructor)) {
-        throw new TypeError('Cannot call a class as a function')
-      }
-    }
-
-    function _possibleConstructorReturn(self, call) {
-      if (!self) {
-        throw new ReferenceError(
-          "this hasn't been initialised - super() hasn't been called"
-        )
-      }
-      return call && (typeof call === 'object' || typeof call === 'function')
-        ? call
-        : self
-    }
-
-    function _inherits(subClass, superClass) {
-      if (typeof superClass !== 'function' && superClass !== null) {
-        throw new TypeError(
-          'Super expression must either be null or a function, not ' +
-            typeof superClass
-        )
-      }
-      subClass.prototype = Object.create(superClass && superClass.prototype, {
-        constructor: {
-          value: subClass,
-          enumerable: false,
-          writable: true,
-          configurable: true,
-        },
-      })
-      if (superClass)
-        Object.setPrototypeOf
-          ? Object.setPrototypeOf(subClass, superClass)
-          : (subClass.__proto__ = superClass)
-    }
-
-    /**
-     * The Position component calculates the coordinates for its child, to position
-     * it relative to a `target` component or node. Useful for creating callouts
-     * and tooltips, the Position component injects a `style` props with `left` and
-     * `top` values for positioning your component.
-     *
-     * It also injects "arrow" `left`, and `top` values for styling callout arrows
-     * for giving your components a sense of directionality.
-     */
-    var Position = (function(_React$Component) {
-      _inherits(Position, _React$Component)
-
-      function Position(props, context) {
-        _classCallCheck(this, Position)
-
-        var _this = _possibleConstructorReturn(
-          this,
-          _React$Component.call(this, props, context)
-        )
-
-        _this.getTarget = function() {
-          var target = _this.props.target
-
-          var targetElement = typeof target === 'function' ? target() : target
-          return (
-            (targetElement && _reactDom2.default.findDOMNode(targetElement)) ||
-            null
-          )
-        }
-
-        _this.maybeUpdatePosition = function(placementChanged) {
-          var target = _this.getTarget()
-
-          if (
-            !_this.props.shouldUpdatePosition &&
-            target === _this._lastTarget &&
-            !placementChanged
-          ) {
-            return
-          }
-
-          _this.updatePosition(target)
-        }
-
-        _this.state = {
-          positionLeft: 0,
-          positionTop: 0,
-          arrowOffsetLeft: null,
-          arrowOffsetTop: null,
-        }
-
-        _this._needsFlush = false
-        _this._lastTarget = null
-        return _this
-      }
-
-      Position.prototype.componentDidMount = function componentDidMount() {
-        this.updatePosition(this.getTarget())
-      }
-
-      Position.prototype.componentWillReceiveProps = function componentWillReceiveProps() {
-        this._needsFlush = true
-      }
-
-      Position.prototype.componentDidUpdate = function componentDidUpdate(
-        prevProps
-      ) {
-        if (this._needsFlush) {
-          this._needsFlush = false
-          this.maybeUpdatePosition(this.props.placement !== prevProps.placement)
-        }
-      }
-
-      Position.prototype.render = function render() {
-        var _props = this.props,
-          children = _props.children,
-          className = _props.className,
-          props = _objectWithoutProperties(_props, ['children', 'className'])
-
-        var _state = this.state,
-          positionLeft = _state.positionLeft,
-          positionTop = _state.positionTop,
-          arrowPosition = _objectWithoutProperties(_state, [
-            'positionLeft',
-            'positionTop',
-          ])
-
-        // These should not be forwarded to the child.
-
-        delete props.target
-        delete props.container
-        delete props.containerPadding
-        delete props.shouldUpdatePosition
-
-        var child = _react2.default.Children.only(children)
-        return (0, React__default.cloneElement)(
-          child,
-          _extends({}, props, arrowPosition, {
-            // FIXME: Don't forward `positionLeft` and `positionTop` via both props
-            // and `props.style`.
-            positionLeft: positionLeft,
-            positionTop: positionTop,
-            className: (0, _classnames2.default)(
-              className,
-              child.props.className
-            ),
-            style: _extends({}, child.props.style, {
-              left: positionLeft,
-              top: positionTop,
-            }),
-          })
-        )
-      }
-
-      Position.prototype.updatePosition = function updatePosition(target) {
-        this._lastTarget = target
-
-        if (!target) {
-          this.setState({
-            positionLeft: 0,
-            positionTop: 0,
-            arrowOffsetLeft: null,
-            arrowOffsetTop: null,
-          })
-
-          return
-        }
-
-        var overlay = _reactDom2.default.findDOMNode(this)
-        var container = (0, _getContainer2.default)(
-          this.props.container,
-          (0, _ownerDocument2.default)(this).body
-        )
-
-        this.setState(
-          (0, _calculatePosition2.default)(
-            this.props.placement,
-            overlay,
-            target,
-            container,
-            this.props.containerPadding
-          )
-        )
-      }
-
-      return Position
-    })(_react2.default.Component)
-
-    Position.propTypes = {
-      /**
-       * A node, element, or function that returns either. The child will be
-       * be positioned next to the `target` specified.
-       */
-      target: _propTypes2.default.oneOfType([
-        _componentOrElement2.default,
-        _propTypes2.default.func,
-      ]),
-
-      /**
-       * "offsetParent" of the component
-       */
-      container: _propTypes2.default.oneOfType([
-        _componentOrElement2.default,
-        _propTypes2.default.func,
-      ]),
-      /**
-       * Minimum spacing in pixels between container border and component border
-       */
-      containerPadding: _propTypes2.default.number,
-      /**
-       * How to position the component relative to the target
-       */
-      placement: _propTypes2.default.oneOf(['top', 'right', 'bottom', 'left']),
-      /**
-       * Whether the position should be changed on each update
-       */
-      shouldUpdatePosition: _propTypes2.default.bool,
-    }
-
-    Position.displayName = 'Position'
-
-    Position.defaultProps = {
-      containerPadding: 0,
-      placement: 'right',
-      shouldUpdatePosition: false,
-    }
-
-    exports.default = Position
-    module.exports = exports['default']
-  })
-
-  unwrapExports(Position_1)
-
   var on_1 = createCommonjsModule(function(module, exports) {
-    Object.defineProperty(exports, '__esModule', {
-      value: true,
-    })
+    exports.__esModule = true
+    exports.default = void 0
 
-    var _inDOM2 = _interopRequireDefault(inDOM$2)
-
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj }
-    }
+    var _inDOM = interopRequireDefault(inDOM)
 
     var on = function on() {}
-    if (_inDOM2.default) {
+
+    if (_inDOM.default) {
       on = (function() {
         if (document.addEventListener)
           return function(node, eventName, handler, capture) {
@@ -6024,25 +4647,22 @@
       })()
     }
 
-    exports.default = on
+    var _default = on
+    exports.default = _default
     module.exports = exports['default']
   })
 
   unwrapExports(on_1)
 
   var off_1 = createCommonjsModule(function(module, exports) {
-    Object.defineProperty(exports, '__esModule', {
-      value: true,
-    })
+    exports.__esModule = true
+    exports.default = void 0
 
-    var _inDOM2 = _interopRequireDefault(inDOM$2)
-
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj }
-    }
+    var _inDOM = interopRequireDefault(inDOM)
 
     var off = function off() {}
-    if (_inDOM2.default) {
+
+    if (_inDOM.default) {
       off = (function() {
         if (document.addEventListener)
           return function(node, eventName, handler, capture) {
@@ -6059,96 +4679,101 @@
       })()
     }
 
-    exports.default = off
+    var _default = off
+    exports.default = _default
     module.exports = exports['default']
   })
 
   unwrapExports(off_1)
 
-  var addEventListener = createCommonjsModule(function(module, exports) {
+  var listen_1 = createCommonjsModule(function(module, exports) {
     exports.__esModule = true
+    exports.default = void 0
 
-    exports.default = function(node, event, handler, capture) {
-      ;(0, _on2.default)(node, event, handler, capture)
+    var _inDOM = interopRequireDefault(inDOM)
 
-      return {
-        remove: function remove() {
-          ;(0, _off2.default)(node, event, handler, capture)
-        },
+    var _on = interopRequireDefault(on_1)
+
+    var _off = interopRequireDefault(off_1)
+
+    var listen = function listen() {}
+
+    if (_inDOM.default) {
+      listen = function listen(node, eventName, handler, capture) {
+        ;(0, _on.default)(node, eventName, handler, capture)
+        return function() {
+          ;(0, _off.default)(node, eventName, handler, capture)
+        }
       }
     }
 
-    var _on2 = _interopRequireDefault(on_1)
-
-    var _off2 = _interopRequireDefault(off_1)
-
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj }
-    }
-
+    var _default = listen
+    exports.default = _default
     module.exports = exports['default']
   })
 
-  unwrapExports(addEventListener)
+  unwrapExports(listen_1)
 
-  var RootCloseWrapper_1 = createCommonjsModule(function(module, exports) {
+  var ownerDocument = createCommonjsModule(function(module, exports) {
     exports.__esModule = true
+    exports.default = _default
 
-    var _contains2 = _interopRequireDefault(contains$2)
+    var _reactDom = _interopRequireDefault(reactDom__default)
 
-    var _propTypes2 = _interopRequireDefault(propTypes)
-
-    var _react2 = _interopRequireDefault(React__default)
-
-    var _reactDom2 = _interopRequireDefault(reactDom__default)
-
-    var _addEventListener2 = _interopRequireDefault(addEventListener)
-
-    var _ownerDocument2 = _interopRequireDefault(ownerDocument$2)
+    var _ownerDocument = _interopRequireDefault(ownerDocument_1)
 
     function _interopRequireDefault(obj) {
       return obj && obj.__esModule ? obj : { default: obj }
     }
 
-    function _classCallCheck(instance, Constructor) {
-      if (!(instance instanceof Constructor)) {
-        throw new TypeError('Cannot call a class as a function')
-      }
+    function _default(componentOrElement) {
+      return (0,
+      _ownerDocument.default)(_reactDom.default.findDOMNode(componentOrElement))
     }
 
-    function _possibleConstructorReturn(self, call) {
-      if (!self) {
+    module.exports = exports.default
+  })
+
+  unwrapExports(ownerDocument)
+
+  var RootCloseWrapper_1 = createCommonjsModule(function(module, exports) {
+    exports.__esModule = true
+    exports.default = void 0
+
+    var _contains = _interopRequireDefault(contains)
+
+    var _listen = _interopRequireDefault(listen_1)
+
+    var _propTypes = _interopRequireDefault(propTypes)
+
+    var _react = _interopRequireDefault(React__default)
+
+    var _reactDom = _interopRequireDefault(reactDom__default)
+
+    var _ownerDocument = _interopRequireDefault(ownerDocument)
+
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { default: obj }
+    }
+
+    function _inheritsLoose(subClass, superClass) {
+      subClass.prototype = Object.create(superClass.prototype)
+      subClass.prototype.constructor = subClass
+      subClass.__proto__ = superClass
+    }
+
+    function _assertThisInitialized(self) {
+      if (self === void 0) {
         throw new ReferenceError(
           "this hasn't been initialised - super() hasn't been called"
         )
       }
-      return call && (typeof call === 'object' || typeof call === 'function')
-        ? call
-        : self
-    }
-
-    function _inherits(subClass, superClass) {
-      if (typeof superClass !== 'function' && superClass !== null) {
-        throw new TypeError(
-          'Super expression must either be null or a function, not ' +
-            typeof superClass
-        )
-      }
-      subClass.prototype = Object.create(superClass && superClass.prototype, {
-        constructor: {
-          value: subClass,
-          enumerable: false,
-          writable: true,
-          configurable: true,
-        },
-      })
-      if (superClass)
-        Object.setPrototypeOf
-          ? Object.setPrototypeOf(subClass, superClass)
-          : (subClass.__proto__ = superClass)
+      return self
     }
 
     var escapeKeyCode = 27
+
+    var noop = function noop() {}
 
     function isLeftClickEvent(event) {
       return event.button === 0
@@ -6162,7 +4787,6 @@
         event.shiftKey
       )
     }
-
     /**
      * The `<RootCloseWrapper/>` component registers your callback on the document
      * when rendered. Powers the `<Overlay/>` component. This is used achieve modal
@@ -6170,186 +4794,3255 @@
      * interact with the rest of the document or hits the `esc` key.
      */
 
-    var RootCloseWrapper = (function(_React$Component) {
-      _inherits(RootCloseWrapper, _React$Component)
+    var RootCloseWrapper =
+      /*#__PURE__*/
+      (function(_React$Component) {
+        _inheritsLoose(RootCloseWrapper, _React$Component)
 
-      function RootCloseWrapper(props, context) {
-        _classCallCheck(this, RootCloseWrapper)
+        function RootCloseWrapper(props, context) {
+          var _this
 
-        var _this = _possibleConstructorReturn(
-          this,
-          _React$Component.call(this, props, context)
-        )
+          _this = _React$Component.call(this, props, context) || this
 
-        _this.addEventListeners = function() {
-          var event = _this.props.event
+          _this.addEventListeners = function() {
+            var event = _this.props.event
+            var doc = (0, _ownerDocument.default)(
+              _assertThisInitialized(_assertThisInitialized(_this))
+            ) // Use capture for this listener so it fires before React's listener, to
+            // avoid false positives in the contains() check below if the target DOM
+            // element is removed in the React mouse callback.
 
-          var doc = (0, _ownerDocument2.default)(_this)
-
-          // Use capture for this listener so it fires before React's listener, to
-          // avoid false positives in the contains() check below if the target DOM
-          // element is removed in the React mouse callback.
-          _this.documentMouseCaptureListener = (0, _addEventListener2.default)(
-            doc,
-            event,
-            _this.handleMouseCapture,
-            true
-          )
-
-          _this.documentMouseListener = (0, _addEventListener2.default)(
-            doc,
-            event,
-            _this.handleMouse
-          )
-
-          _this.documentKeyupListener = (0, _addEventListener2.default)(
-            doc,
-            'keyup',
-            _this.handleKeyUp
-          )
-        }
-
-        _this.removeEventListeners = function() {
-          if (_this.documentMouseCaptureListener) {
-            _this.documentMouseCaptureListener.remove()
-          }
-
-          if (_this.documentMouseListener) {
-            _this.documentMouseListener.remove()
-          }
-
-          if (_this.documentKeyupListener) {
-            _this.documentKeyupListener.remove()
-          }
-        }
-
-        _this.handleMouseCapture = function(e) {
-          _this.preventMouseRootClose =
-            isModifiedEvent(e) ||
-            !isLeftClickEvent(e) ||
-            (0, _contains2.default)(
-              _reactDom2.default.findDOMNode(_this),
-              e.target
+            _this.removeMouseCaptureListener = (0, _listen.default)(
+              doc,
+              event,
+              _this.handleMouseCapture,
+              true
             )
+            _this.removeMouseListener = (0, _listen.default)(
+              doc,
+              event,
+              _this.handleMouse
+            )
+            _this.removeKeyupListener = (0, _listen.default)(
+              doc,
+              'keyup',
+              _this.handleKeyUp
+            )
+
+            if ('ontouchstart' in doc.documentElement) {
+              _this.mobileSafariHackListeners = [].slice
+                .call(document.body.children)
+                .map(function(el) {
+                  return (0, _listen.default)(el, 'mousemove', noop)
+                })
+            }
+          }
+
+          _this.removeEventListeners = function() {
+            if (_this.removeMouseCaptureListener)
+              _this.removeMouseCaptureListener()
+            if (_this.removeMouseListener) _this.removeMouseListener()
+            if (_this.removeKeyupListener) _this.removeKeyupListener()
+            if (_this.mobileSafariHackListeners)
+              _this.mobileSafariHackListeners.forEach(function(remove) {
+                return remove()
+              })
+          }
+
+          _this.handleMouseCapture = function(e) {
+            _this.preventMouseRootClose =
+              isModifiedEvent(e) ||
+              !isLeftClickEvent(e) ||
+              (0, _contains.default)(
+                _reactDom.default.findDOMNode(
+                  _assertThisInitialized(_assertThisInitialized(_this))
+                ),
+                e.target
+              )
+          }
+
+          _this.handleMouse = function(e) {
+            if (!_this.preventMouseRootClose && _this.props.onRootClose) {
+              _this.props.onRootClose(e)
+            }
+          }
+
+          _this.handleKeyUp = function(e) {
+            if (e.keyCode === escapeKeyCode && _this.props.onRootClose) {
+              _this.props.onRootClose(e)
+            }
+          }
+
+          _this.preventMouseRootClose = false
+          return _this
         }
 
-        _this.handleMouse = function(e) {
-          if (!_this.preventMouseRootClose && _this.props.onRootClose) {
-            _this.props.onRootClose(e)
+        var _proto = RootCloseWrapper.prototype
+
+        _proto.componentDidMount = function componentDidMount() {
+          if (!this.props.disabled) {
+            this.addEventListeners()
           }
         }
 
-        _this.handleKeyUp = function(e) {
-          if (e.keyCode === escapeKeyCode && _this.props.onRootClose) {
-            _this.props.onRootClose(e)
+        _proto.componentDidUpdate = function componentDidUpdate(prevProps) {
+          if (!this.props.disabled && prevProps.disabled) {
+            this.addEventListeners()
+          } else if (this.props.disabled && !prevProps.disabled) {
+            this.removeEventListeners()
           }
         }
 
-        _this.preventMouseRootClose = false
-        return _this
-      }
-
-      RootCloseWrapper.prototype.componentDidMount = function componentDidMount() {
-        if (!this.props.disabled) {
-          this.addEventListeners()
+        _proto.componentWillUnmount = function componentWillUnmount() {
+          if (!this.props.disabled) {
+            this.removeEventListeners()
+          }
         }
-      }
 
-      RootCloseWrapper.prototype.componentDidUpdate = function componentDidUpdate(
-        prevProps
-      ) {
-        if (!this.props.disabled && prevProps.disabled) {
-          this.addEventListeners()
-        } else if (this.props.disabled && !prevProps.disabled) {
-          this.removeEventListeners()
+        _proto.render = function render() {
+          return this.props.children
         }
-      }
 
-      RootCloseWrapper.prototype.componentWillUnmount = function componentWillUnmount() {
-        if (!this.props.disabled) {
-          this.removeEventListeners()
-        }
-      }
-
-      RootCloseWrapper.prototype.render = function render() {
-        return this.props.children
-      }
-
-      return RootCloseWrapper
-    })(_react2.default.Component)
+        return RootCloseWrapper
+      })(_react.default.Component)
 
     RootCloseWrapper.displayName = 'RootCloseWrapper'
-
     RootCloseWrapper.propTypes = {
       /**
        * Callback fired after click or mousedown. Also triggers when user hits `esc`.
        */
-      onRootClose: _propTypes2.default.func,
+      onRootClose: _propTypes.default.func,
+
       /**
        * Children to render.
        */
-      children: _propTypes2.default.element,
+      children: _propTypes.default.element,
+
       /**
        * Disable the the RootCloseWrapper, preventing it from triggering `onRootClose`.
        */
-      disabled: _propTypes2.default.bool,
+      disabled: _propTypes.default.bool,
+
       /**
        * Choose which document mouse event to bind to.
        */
-      event: _propTypes2.default.oneOf(['click', 'mousedown']),
+      event: _propTypes.default.oneOf(['click', 'mousedown']),
     }
-
     RootCloseWrapper.defaultProps = {
       event: 'click',
     }
-
-    exports.default = RootCloseWrapper
-    module.exports = exports['default']
+    var _default = RootCloseWrapper
+    exports.default = _default
+    module.exports = exports.default
   })
 
   unwrapExports(RootCloseWrapper_1)
 
-  var Overlay_1 = createCommonjsModule(function(module, exports) {
-    exports.__esModule = true
+  function _objectWithoutPropertiesLoose$2(source, excluded) {
+    if (source == null) return {}
+    var target = {}
+    var sourceKeys = Object.keys(source)
+    var key, i
 
-    var _extends =
-      Object.assign ||
-      function(target) {
-        for (var i = 1; i < arguments.length; i++) {
-          var source = arguments[i]
-          for (var key in source) {
-            if (Object.prototype.hasOwnProperty.call(source, key)) {
-              target[key] = source[key]
-            }
-          }
-        }
-        return target
+    for (i = 0; i < sourceKeys.length; i++) {
+      key = sourceKeys[i]
+      if (excluded.indexOf(key) >= 0) continue
+      target[key] = source[key]
+    }
+
+    return target
+  }
+
+  var objectWithoutPropertiesLoose = _objectWithoutPropertiesLoose$2
+
+  function _inheritsLoose$2(subClass, superClass) {
+    subClass.prototype = Object.create(superClass.prototype)
+    subClass.prototype.constructor = subClass
+    subClass.__proto__ = superClass
+  }
+
+  var inheritsLoose = _inheritsLoose$2
+
+  function _assertThisInitialized$1(self) {
+    if (self === void 0) {
+      throw new ReferenceError(
+        "this hasn't been initialised - super() hasn't been called"
+      )
+    }
+
+    return self
+  }
+
+  var assertThisInitialized = _assertThisInitialized$1
+
+  function _defineProperty(obj, key, value) {
+    if (key in obj) {
+      Object.defineProperty(obj, key, {
+        value: value,
+        enumerable: true,
+        configurable: true,
+        writable: true,
+      })
+    } else {
+      obj[key] = value
+    }
+
+    return obj
+  }
+
+  var defineProperty = _defineProperty
+
+  /**!
+   * @fileOverview Kickass library to create and place poppers near their reference elements.
+   * @version 1.15.0
+   * @license
+   * Copyright (c) 2016 Federico Zivolo and contributors
+   *
+   * Permission is hereby granted, free of charge, to any person obtaining a copy
+   * of this software and associated documentation files (the "Software"), to deal
+   * in the Software without restriction, including without limitation the rights
+   * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+   * copies of the Software, and to permit persons to whom the Software is
+   * furnished to do so, subject to the following conditions:
+   *
+   * The above copyright notice and this permission notice shall be included in all
+   * copies or substantial portions of the Software.
+   *
+   * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+   * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+   * SOFTWARE.
+   */
+  var isBrowser =
+    typeof window !== 'undefined' && typeof document !== 'undefined'
+
+  var longerTimeoutBrowsers = ['Edge', 'Trident', 'Firefox']
+  var timeoutDuration = 0
+  for (var i = 0; i < longerTimeoutBrowsers.length; i += 1) {
+    if (
+      isBrowser &&
+      navigator.userAgent.indexOf(longerTimeoutBrowsers[i]) >= 0
+    ) {
+      timeoutDuration = 1
+      break
+    }
+  }
+
+  function microtaskDebounce(fn) {
+    var called = false
+    return function() {
+      if (called) {
+        return
+      }
+      called = true
+      window.Promise.resolve().then(function() {
+        called = false
+        fn()
+      })
+    }
+  }
+
+  function taskDebounce(fn) {
+    var scheduled = false
+    return function() {
+      if (!scheduled) {
+        scheduled = true
+        setTimeout(function() {
+          scheduled = false
+          fn()
+        }, timeoutDuration)
+      }
+    }
+  }
+
+  var supportsMicroTasks = isBrowser && window.Promise
+
+  /**
+   * Create a debounced version of a method, that's asynchronously deferred
+   * but called in the minimum time possible.
+   *
+   * @method
+   * @memberof Popper.Utils
+   * @argument {Function} fn
+   * @returns {Function}
+   */
+  var debounce = supportsMicroTasks ? microtaskDebounce : taskDebounce
+
+  /**
+   * Check if the given variable is a function
+   * @method
+   * @memberof Popper.Utils
+   * @argument {Any} functionToCheck - variable to check
+   * @returns {Boolean} answer to: is a function?
+   */
+  function isFunction$1(functionToCheck) {
+    var getType = {}
+    return (
+      functionToCheck &&
+      getType.toString.call(functionToCheck) === '[object Function]'
+    )
+  }
+
+  /**
+   * Get CSS computed property of the given element
+   * @method
+   * @memberof Popper.Utils
+   * @argument {Eement} element
+   * @argument {String} property
+   */
+  function getStyleComputedProperty(element, property) {
+    if (element.nodeType !== 1) {
+      return []
+    }
+    // NOTE: 1 DOM access here
+    var window = element.ownerDocument.defaultView
+    var css = window.getComputedStyle(element, null)
+    return property ? css[property] : css
+  }
+
+  /**
+   * Returns the parentNode or the host of the element
+   * @method
+   * @memberof Popper.Utils
+   * @argument {Element} element
+   * @returns {Element} parent
+   */
+  function getParentNode(element) {
+    if (element.nodeName === 'HTML') {
+      return element
+    }
+    return element.parentNode || element.host
+  }
+
+  /**
+   * Returns the scrolling parent of the given element
+   * @method
+   * @memberof Popper.Utils
+   * @argument {Element} element
+   * @returns {Element} scroll parent
+   */
+  function getScrollParent(element) {
+    // Return body, `getScroll` will take care to get the correct `scrollTop` from it
+    if (!element) {
+      return document.body
+    }
+
+    switch (element.nodeName) {
+      case 'HTML':
+      case 'BODY':
+        return element.ownerDocument.body
+      case '#document':
+        return element.body
+    }
+
+    // Firefox want us to check `-x` and `-y` variations as well
+
+    var _getStyleComputedProp = getStyleComputedProperty(element),
+      overflow = _getStyleComputedProp.overflow,
+      overflowX = _getStyleComputedProp.overflowX,
+      overflowY = _getStyleComputedProp.overflowY
+
+    if (/(auto|scroll|overlay)/.test(overflow + overflowY + overflowX)) {
+      return element
+    }
+
+    return getScrollParent(getParentNode(element))
+  }
+
+  var isIE11 =
+    isBrowser && !!(window.MSInputMethodContext && document.documentMode)
+  var isIE10 = isBrowser && /MSIE 10/.test(navigator.userAgent)
+
+  /**
+   * Determines if the browser is Internet Explorer
+   * @method
+   * @memberof Popper.Utils
+   * @param {Number} version to check
+   * @returns {Boolean} isIE
+   */
+  function isIE(version) {
+    if (version === 11) {
+      return isIE11
+    }
+    if (version === 10) {
+      return isIE10
+    }
+    return isIE11 || isIE10
+  }
+
+  /**
+   * Returns the offset parent of the given element
+   * @method
+   * @memberof Popper.Utils
+   * @argument {Element} element
+   * @returns {Element} offset parent
+   */
+  function getOffsetParent(element) {
+    if (!element) {
+      return document.documentElement
+    }
+
+    var noOffsetParent = isIE(10) ? document.body : null
+
+    // NOTE: 1 DOM access here
+    var offsetParent = element.offsetParent || null
+    // Skip hidden elements which don't have an offsetParent
+    while (offsetParent === noOffsetParent && element.nextElementSibling) {
+      offsetParent = (element = element.nextElementSibling).offsetParent
+    }
+
+    var nodeName = offsetParent && offsetParent.nodeName
+
+    if (!nodeName || nodeName === 'BODY' || nodeName === 'HTML') {
+      return element
+        ? element.ownerDocument.documentElement
+        : document.documentElement
+    }
+
+    // .offsetParent will return the closest TH, TD or TABLE in case
+    // no offsetParent is present, I hate this job...
+    if (
+      ['TH', 'TD', 'TABLE'].indexOf(offsetParent.nodeName) !== -1 &&
+      getStyleComputedProperty(offsetParent, 'position') === 'static'
+    ) {
+      return getOffsetParent(offsetParent)
+    }
+
+    return offsetParent
+  }
+
+  function isOffsetContainer(element) {
+    var nodeName = element.nodeName
+
+    if (nodeName === 'BODY') {
+      return false
+    }
+    return (
+      nodeName === 'HTML' ||
+      getOffsetParent(element.firstElementChild) === element
+    )
+  }
+
+  /**
+   * Finds the root node (document, shadowDOM root) of the given element
+   * @method
+   * @memberof Popper.Utils
+   * @argument {Element} node
+   * @returns {Element} root node
+   */
+  function getRoot(node) {
+    if (node.parentNode !== null) {
+      return getRoot(node.parentNode)
+    }
+
+    return node
+  }
+
+  /**
+   * Finds the offset parent common to the two provided nodes
+   * @method
+   * @memberof Popper.Utils
+   * @argument {Element} element1
+   * @argument {Element} element2
+   * @returns {Element} common offset parent
+   */
+  function findCommonOffsetParent(element1, element2) {
+    // This check is needed to avoid errors in case one of the elements isn't defined for any reason
+    if (!element1 || !element1.nodeType || !element2 || !element2.nodeType) {
+      return document.documentElement
+    }
+
+    // Here we make sure to give as "start" the element that comes first in the DOM
+    var order =
+      element1.compareDocumentPosition(element2) &
+      Node.DOCUMENT_POSITION_FOLLOWING
+    var start = order ? element1 : element2
+    var end = order ? element2 : element1
+
+    // Get common ancestor container
+    var range = document.createRange()
+    range.setStart(start, 0)
+    range.setEnd(end, 0)
+    var commonAncestorContainer = range.commonAncestorContainer
+
+    // Both nodes are inside #document
+
+    if (
+      (element1 !== commonAncestorContainer &&
+        element2 !== commonAncestorContainer) ||
+      start.contains(end)
+    ) {
+      if (isOffsetContainer(commonAncestorContainer)) {
+        return commonAncestorContainer
       }
 
-    var _propTypes2 = _interopRequireDefault(propTypes)
+      return getOffsetParent(commonAncestorContainer)
+    }
 
-    var _elementType2 = _interopRequireDefault(elementType_1)
+    // one of the nodes is inside shadowDOM, find which one
+    var element1root = getRoot(element1)
+    if (element1root.host) {
+      return findCommonOffsetParent(element1root.host, element2)
+    } else {
+      return findCommonOffsetParent(element1, getRoot(element2).host)
+    }
+  }
+
+  /**
+   * Gets the scroll value of the given element in the given side (top and left)
+   * @method
+   * @memberof Popper.Utils
+   * @argument {Element} element
+   * @argument {String} side `top` or `left`
+   * @returns {number} amount of scrolled pixels
+   */
+  function getScroll(element) {
+    var side =
+      arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'top'
+
+    var upperSide = side === 'top' ? 'scrollTop' : 'scrollLeft'
+    var nodeName = element.nodeName
+
+    if (nodeName === 'BODY' || nodeName === 'HTML') {
+      var html = element.ownerDocument.documentElement
+      var scrollingElement = element.ownerDocument.scrollingElement || html
+      return scrollingElement[upperSide]
+    }
+
+    return element[upperSide]
+  }
+
+  /*
+   * Sum or subtract the element scroll values (left and top) from a given rect object
+   * @method
+   * @memberof Popper.Utils
+   * @param {Object} rect - Rect object you want to change
+   * @param {HTMLElement} element - The element from the function reads the scroll values
+   * @param {Boolean} subtract - set to true if you want to subtract the scroll values
+   * @return {Object} rect - The modifier rect object
+   */
+  function includeScroll(rect, element) {
+    var subtract =
+      arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false
+
+    var scrollTop = getScroll(element, 'top')
+    var scrollLeft = getScroll(element, 'left')
+    var modifier = subtract ? -1 : 1
+    rect.top += scrollTop * modifier
+    rect.bottom += scrollTop * modifier
+    rect.left += scrollLeft * modifier
+    rect.right += scrollLeft * modifier
+    return rect
+  }
+
+  /*
+   * Helper to detect borders of a given element
+   * @method
+   * @memberof Popper.Utils
+   * @param {CSSStyleDeclaration} styles
+   * Result of `getStyleComputedProperty` on the given element
+   * @param {String} axis - `x` or `y`
+   * @return {number} borders - The borders size of the given axis
+   */
+
+  function getBordersSize(styles, axis) {
+    var sideA = axis === 'x' ? 'Left' : 'Top'
+    var sideB = sideA === 'Left' ? 'Right' : 'Bottom'
+
+    return (
+      parseFloat(styles['border' + sideA + 'Width'], 10) +
+      parseFloat(styles['border' + sideB + 'Width'], 10)
+    )
+  }
+
+  function getSize(axis, body, html, computedStyle) {
+    return Math.max(
+      body['offset' + axis],
+      body['scroll' + axis],
+      html['client' + axis],
+      html['offset' + axis],
+      html['scroll' + axis],
+      isIE(10)
+        ? parseInt(html['offset' + axis]) +
+            parseInt(
+              computedStyle['margin' + (axis === 'Height' ? 'Top' : 'Left')]
+            ) +
+            parseInt(
+              computedStyle['margin' + (axis === 'Height' ? 'Bottom' : 'Right')]
+            )
+        : 0
+    )
+  }
+
+  function getWindowSizes(document) {
+    var body = document.body
+    var html = document.documentElement
+    var computedStyle = isIE(10) && getComputedStyle(html)
+
+    return {
+      height: getSize('Height', body, html, computedStyle),
+      width: getSize('Width', body, html, computedStyle),
+    }
+  }
+
+  var classCallCheck = function(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+      throw new TypeError('Cannot call a class as a function')
+    }
+  }
+
+  var createClass = (function() {
+    function defineProperties(target, props) {
+      for (var i = 0; i < props.length; i++) {
+        var descriptor = props[i]
+        descriptor.enumerable = descriptor.enumerable || false
+        descriptor.configurable = true
+        if ('value' in descriptor) descriptor.writable = true
+        Object.defineProperty(target, descriptor.key, descriptor)
+      }
+    }
+
+    return function(Constructor, protoProps, staticProps) {
+      if (protoProps) defineProperties(Constructor.prototype, protoProps)
+      if (staticProps) defineProperties(Constructor, staticProps)
+      return Constructor
+    }
+  })()
+
+  var defineProperty$1 = function(obj, key, value) {
+    if (key in obj) {
+      Object.defineProperty(obj, key, {
+        value: value,
+        enumerable: true,
+        configurable: true,
+        writable: true,
+      })
+    } else {
+      obj[key] = value
+    }
+
+    return obj
+  }
+
+  var _extends$2 =
+    Object.assign ||
+    function(target) {
+      for (var i = 1; i < arguments.length; i++) {
+        var source = arguments[i]
+
+        for (var key in source) {
+          if (Object.prototype.hasOwnProperty.call(source, key)) {
+            target[key] = source[key]
+          }
+        }
+      }
+
+      return target
+    }
+
+  /**
+   * Given element offsets, generate an output similar to getBoundingClientRect
+   * @method
+   * @memberof Popper.Utils
+   * @argument {Object} offsets
+   * @returns {Object} ClientRect like output
+   */
+  function getClientRect(offsets) {
+    return _extends$2({}, offsets, {
+      right: offsets.left + offsets.width,
+      bottom: offsets.top + offsets.height,
+    })
+  }
+
+  /**
+   * Get bounding client rect of given element
+   * @method
+   * @memberof Popper.Utils
+   * @param {HTMLElement} element
+   * @return {Object} client rect
+   */
+  function getBoundingClientRect(element) {
+    var rect = {}
+
+    // IE10 10 FIX: Please, don't ask, the element isn't
+    // considered in DOM in some circumstances...
+    // This isn't reproducible in IE10 compatibility mode of IE11
+    try {
+      if (isIE(10)) {
+        rect = element.getBoundingClientRect()
+        var scrollTop = getScroll(element, 'top')
+        var scrollLeft = getScroll(element, 'left')
+        rect.top += scrollTop
+        rect.left += scrollLeft
+        rect.bottom += scrollTop
+        rect.right += scrollLeft
+      } else {
+        rect = element.getBoundingClientRect()
+      }
+    } catch (e) {}
+
+    var result = {
+      left: rect.left,
+      top: rect.top,
+      width: rect.right - rect.left,
+      height: rect.bottom - rect.top,
+    }
+
+    // subtract scrollbar size from sizes
+    var sizes =
+      element.nodeName === 'HTML' ? getWindowSizes(element.ownerDocument) : {}
+    var width = sizes.width || element.clientWidth || result.right - result.left
+    var height =
+      sizes.height || element.clientHeight || result.bottom - result.top
+
+    var horizScrollbar = element.offsetWidth - width
+    var vertScrollbar = element.offsetHeight - height
+
+    // if an hypothetical scrollbar is detected, we must be sure it's not a `border`
+    // we make this check conditional for performance reasons
+    if (horizScrollbar || vertScrollbar) {
+      var styles = getStyleComputedProperty(element)
+      horizScrollbar -= getBordersSize(styles, 'x')
+      vertScrollbar -= getBordersSize(styles, 'y')
+
+      result.width -= horizScrollbar
+      result.height -= vertScrollbar
+    }
+
+    return getClientRect(result)
+  }
+
+  function getOffsetRectRelativeToArbitraryNode(children, parent) {
+    var fixedPosition =
+      arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false
+
+    var isIE10 = isIE(10)
+    var isHTML = parent.nodeName === 'HTML'
+    var childrenRect = getBoundingClientRect(children)
+    var parentRect = getBoundingClientRect(parent)
+    var scrollParent = getScrollParent(children)
+
+    var styles = getStyleComputedProperty(parent)
+    var borderTopWidth = parseFloat(styles.borderTopWidth, 10)
+    var borderLeftWidth = parseFloat(styles.borderLeftWidth, 10)
+
+    // In cases where the parent is fixed, we must ignore negative scroll in offset calc
+    if (fixedPosition && isHTML) {
+      parentRect.top = Math.max(parentRect.top, 0)
+      parentRect.left = Math.max(parentRect.left, 0)
+    }
+    var offsets = getClientRect({
+      top: childrenRect.top - parentRect.top - borderTopWidth,
+      left: childrenRect.left - parentRect.left - borderLeftWidth,
+      width: childrenRect.width,
+      height: childrenRect.height,
+    })
+    offsets.marginTop = 0
+    offsets.marginLeft = 0
+
+    // Subtract margins of documentElement in case it's being used as parent
+    // we do this only on HTML because it's the only element that behaves
+    // differently when margins are applied to it. The margins are included in
+    // the box of the documentElement, in the other cases not.
+    if (!isIE10 && isHTML) {
+      var marginTop = parseFloat(styles.marginTop, 10)
+      var marginLeft = parseFloat(styles.marginLeft, 10)
+
+      offsets.top -= borderTopWidth - marginTop
+      offsets.bottom -= borderTopWidth - marginTop
+      offsets.left -= borderLeftWidth - marginLeft
+      offsets.right -= borderLeftWidth - marginLeft
+
+      // Attach marginTop and marginLeft because in some circumstances we may need them
+      offsets.marginTop = marginTop
+      offsets.marginLeft = marginLeft
+    }
+
+    if (
+      isIE10 && !fixedPosition
+        ? parent.contains(scrollParent)
+        : parent === scrollParent && scrollParent.nodeName !== 'BODY'
+    ) {
+      offsets = includeScroll(offsets, parent)
+    }
+
+    return offsets
+  }
+
+  function getViewportOffsetRectRelativeToArtbitraryNode(element) {
+    var excludeScroll =
+      arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false
+
+    var html = element.ownerDocument.documentElement
+    var relativeOffset = getOffsetRectRelativeToArbitraryNode(element, html)
+    var width = Math.max(html.clientWidth, window.innerWidth || 0)
+    var height = Math.max(html.clientHeight, window.innerHeight || 0)
+
+    var scrollTop = !excludeScroll ? getScroll(html) : 0
+    var scrollLeft = !excludeScroll ? getScroll(html, 'left') : 0
+
+    var offset = {
+      top: scrollTop - relativeOffset.top + relativeOffset.marginTop,
+      left: scrollLeft - relativeOffset.left + relativeOffset.marginLeft,
+      width: width,
+      height: height,
+    }
+
+    return getClientRect(offset)
+  }
+
+  /**
+   * Check if the given element is fixed or is inside a fixed parent
+   * @method
+   * @memberof Popper.Utils
+   * @argument {Element} element
+   * @argument {Element} customContainer
+   * @returns {Boolean} answer to "isFixed?"
+   */
+  function isFixed(element) {
+    var nodeName = element.nodeName
+    if (nodeName === 'BODY' || nodeName === 'HTML') {
+      return false
+    }
+    if (getStyleComputedProperty(element, 'position') === 'fixed') {
+      return true
+    }
+    var parentNode = getParentNode(element)
+    if (!parentNode) {
+      return false
+    }
+    return isFixed(parentNode)
+  }
+
+  /**
+   * Finds the first parent of an element that has a transformed property defined
+   * @method
+   * @memberof Popper.Utils
+   * @argument {Element} element
+   * @returns {Element} first transformed parent or documentElement
+   */
+
+  function getFixedPositionOffsetParent(element) {
+    // This check is needed to avoid errors in case one of the elements isn't defined for any reason
+    if (!element || !element.parentElement || isIE()) {
+      return document.documentElement
+    }
+    var el = element.parentElement
+    while (el && getStyleComputedProperty(el, 'transform') === 'none') {
+      el = el.parentElement
+    }
+    return el || document.documentElement
+  }
+
+  /**
+   * Computed the boundaries limits and return them
+   * @method
+   * @memberof Popper.Utils
+   * @param {HTMLElement} popper
+   * @param {HTMLElement} reference
+   * @param {number} padding
+   * @param {HTMLElement} boundariesElement - Element used to define the boundaries
+   * @param {Boolean} fixedPosition - Is in fixed position mode
+   * @returns {Object} Coordinates of the boundaries
+   */
+  function getBoundaries(popper, reference, padding, boundariesElement) {
+    var fixedPosition =
+      arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : false
+
+    // NOTE: 1 DOM access here
+
+    var boundaries = { top: 0, left: 0 }
+    var offsetParent = fixedPosition
+      ? getFixedPositionOffsetParent(popper)
+      : findCommonOffsetParent(popper, reference)
+
+    // Handle viewport case
+    if (boundariesElement === 'viewport') {
+      boundaries = getViewportOffsetRectRelativeToArtbitraryNode(
+        offsetParent,
+        fixedPosition
+      )
+    } else {
+      // Handle other cases based on DOM element used as boundaries
+      var boundariesNode = void 0
+      if (boundariesElement === 'scrollParent') {
+        boundariesNode = getScrollParent(getParentNode(reference))
+        if (boundariesNode.nodeName === 'BODY') {
+          boundariesNode = popper.ownerDocument.documentElement
+        }
+      } else if (boundariesElement === 'window') {
+        boundariesNode = popper.ownerDocument.documentElement
+      } else {
+        boundariesNode = boundariesElement
+      }
+
+      var offsets = getOffsetRectRelativeToArbitraryNode(
+        boundariesNode,
+        offsetParent,
+        fixedPosition
+      )
+
+      // In case of HTML, we need a different computation
+      if (boundariesNode.nodeName === 'HTML' && !isFixed(offsetParent)) {
+        var _getWindowSizes = getWindowSizes(popper.ownerDocument),
+          height = _getWindowSizes.height,
+          width = _getWindowSizes.width
+
+        boundaries.top += offsets.top - offsets.marginTop
+        boundaries.bottom = height + offsets.top
+        boundaries.left += offsets.left - offsets.marginLeft
+        boundaries.right = width + offsets.left
+      } else {
+        // for all the other DOM elements, this one is good
+        boundaries = offsets
+      }
+    }
+
+    // Add paddings
+    padding = padding || 0
+    var isPaddingNumber = typeof padding === 'number'
+    boundaries.left += isPaddingNumber ? padding : padding.left || 0
+    boundaries.top += isPaddingNumber ? padding : padding.top || 0
+    boundaries.right -= isPaddingNumber ? padding : padding.right || 0
+    boundaries.bottom -= isPaddingNumber ? padding : padding.bottom || 0
+
+    return boundaries
+  }
+
+  function getArea(_ref) {
+    var width = _ref.width,
+      height = _ref.height
+
+    return width * height
+  }
+
+  /**
+   * Utility used to transform the `auto` placement to the placement with more
+   * available space.
+   * @method
+   * @memberof Popper.Utils
+   * @argument {Object} data - The data object generated by update method
+   * @argument {Object} options - Modifiers configuration and options
+   * @returns {Object} The data object, properly modified
+   */
+  function computeAutoPlacement(
+    placement,
+    refRect,
+    popper,
+    reference,
+    boundariesElement
+  ) {
+    var padding =
+      arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : 0
+
+    if (placement.indexOf('auto') === -1) {
+      return placement
+    }
+
+    var boundaries = getBoundaries(
+      popper,
+      reference,
+      padding,
+      boundariesElement
+    )
+
+    var rects = {
+      top: {
+        width: boundaries.width,
+        height: refRect.top - boundaries.top,
+      },
+      right: {
+        width: boundaries.right - refRect.right,
+        height: boundaries.height,
+      },
+      bottom: {
+        width: boundaries.width,
+        height: boundaries.bottom - refRect.bottom,
+      },
+      left: {
+        width: refRect.left - boundaries.left,
+        height: boundaries.height,
+      },
+    }
+
+    var sortedAreas = Object.keys(rects)
+      .map(function(key) {
+        return _extends$2(
+          {
+            key: key,
+          },
+          rects[key],
+          {
+            area: getArea(rects[key]),
+          }
+        )
+      })
+      .sort(function(a, b) {
+        return b.area - a.area
+      })
+
+    var filteredAreas = sortedAreas.filter(function(_ref2) {
+      var width = _ref2.width,
+        height = _ref2.height
+      return width >= popper.clientWidth && height >= popper.clientHeight
+    })
+
+    var computedPlacement =
+      filteredAreas.length > 0 ? filteredAreas[0].key : sortedAreas[0].key
+
+    var variation = placement.split('-')[1]
+
+    return computedPlacement + (variation ? '-' + variation : '')
+  }
+
+  /**
+   * Get offsets to the reference element
+   * @method
+   * @memberof Popper.Utils
+   * @param {Object} state
+   * @param {Element} popper - the popper element
+   * @param {Element} reference - the reference element (the popper will be relative to this)
+   * @param {Element} fixedPosition - is in fixed position mode
+   * @returns {Object} An object containing the offsets which will be applied to the popper
+   */
+  function getReferenceOffsets(state, popper, reference) {
+    var fixedPosition =
+      arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null
+
+    var commonOffsetParent = fixedPosition
+      ? getFixedPositionOffsetParent(popper)
+      : findCommonOffsetParent(popper, reference)
+    return getOffsetRectRelativeToArbitraryNode(
+      reference,
+      commonOffsetParent,
+      fixedPosition
+    )
+  }
+
+  /**
+   * Get the outer sizes of the given element (offset size + margins)
+   * @method
+   * @memberof Popper.Utils
+   * @argument {Element} element
+   * @returns {Object} object containing width and height properties
+   */
+  function getOuterSizes(element) {
+    var window = element.ownerDocument.defaultView
+    var styles = window.getComputedStyle(element)
+    var x =
+      parseFloat(styles.marginTop || 0) + parseFloat(styles.marginBottom || 0)
+    var y =
+      parseFloat(styles.marginLeft || 0) + parseFloat(styles.marginRight || 0)
+    var result = {
+      width: element.offsetWidth + y,
+      height: element.offsetHeight + x,
+    }
+    return result
+  }
+
+  /**
+   * Get the opposite placement of the given one
+   * @method
+   * @memberof Popper.Utils
+   * @argument {String} placement
+   * @returns {String} flipped placement
+   */
+  function getOppositePlacement(placement) {
+    var hash = { left: 'right', right: 'left', bottom: 'top', top: 'bottom' }
+    return placement.replace(/left|right|bottom|top/g, function(matched) {
+      return hash[matched]
+    })
+  }
+
+  /**
+   * Get offsets to the popper
+   * @method
+   * @memberof Popper.Utils
+   * @param {Object} position - CSS position the Popper will get applied
+   * @param {HTMLElement} popper - the popper element
+   * @param {Object} referenceOffsets - the reference offsets (the popper will be relative to this)
+   * @param {String} placement - one of the valid placement options
+   * @returns {Object} popperOffsets - An object containing the offsets which will be applied to the popper
+   */
+  function getPopperOffsets(popper, referenceOffsets, placement) {
+    placement = placement.split('-')[0]
+
+    // Get popper node sizes
+    var popperRect = getOuterSizes(popper)
+
+    // Add position, width and height to our offsets object
+    var popperOffsets = {
+      width: popperRect.width,
+      height: popperRect.height,
+    }
+
+    // depending by the popper placement we have to compute its offsets slightly differently
+    var isHoriz = ['right', 'left'].indexOf(placement) !== -1
+    var mainSide = isHoriz ? 'top' : 'left'
+    var secondarySide = isHoriz ? 'left' : 'top'
+    var measurement = isHoriz ? 'height' : 'width'
+    var secondaryMeasurement = !isHoriz ? 'height' : 'width'
+
+    popperOffsets[mainSide] =
+      referenceOffsets[mainSide] +
+      referenceOffsets[measurement] / 2 -
+      popperRect[measurement] / 2
+    if (placement === secondarySide) {
+      popperOffsets[secondarySide] =
+        referenceOffsets[secondarySide] - popperRect[secondaryMeasurement]
+    } else {
+      popperOffsets[secondarySide] =
+        referenceOffsets[getOppositePlacement(secondarySide)]
+    }
+
+    return popperOffsets
+  }
+
+  /**
+   * Mimics the `find` method of Array
+   * @method
+   * @memberof Popper.Utils
+   * @argument {Array} arr
+   * @argument prop
+   * @argument value
+   * @returns index or -1
+   */
+  function find(arr, check) {
+    // use native find if supported
+    if (Array.prototype.find) {
+      return arr.find(check)
+    }
+
+    // use `filter` to obtain the same behavior of `find`
+    return arr.filter(check)[0]
+  }
+
+  /**
+   * Return the index of the matching object
+   * @method
+   * @memberof Popper.Utils
+   * @argument {Array} arr
+   * @argument prop
+   * @argument value
+   * @returns index or -1
+   */
+  function findIndex(arr, prop, value) {
+    // use native findIndex if supported
+    if (Array.prototype.findIndex) {
+      return arr.findIndex(function(cur) {
+        return cur[prop] === value
+      })
+    }
+
+    // use `find` + `indexOf` if `findIndex` isn't supported
+    var match = find(arr, function(obj) {
+      return obj[prop] === value
+    })
+    return arr.indexOf(match)
+  }
+
+  /**
+   * Loop trough the list of modifiers and run them in order,
+   * each of them will then edit the data object.
+   * @method
+   * @memberof Popper.Utils
+   * @param {dataObject} data
+   * @param {Array} modifiers
+   * @param {String} ends - Optional modifier name used as stopper
+   * @returns {dataObject}
+   */
+  function runModifiers(modifiers, data, ends) {
+    var modifiersToRun =
+      ends === undefined
+        ? modifiers
+        : modifiers.slice(0, findIndex(modifiers, 'name', ends))
+
+    modifiersToRun.forEach(function(modifier) {
+      if (modifier['function']) {
+        // eslint-disable-line dot-notation
+        console.warn('`modifier.function` is deprecated, use `modifier.fn`!')
+      }
+      var fn = modifier['function'] || modifier.fn // eslint-disable-line dot-notation
+      if (modifier.enabled && isFunction$1(fn)) {
+        // Add properties to offsets to make them a complete clientRect object
+        // we do this before each modifier to make sure the previous one doesn't
+        // mess with these values
+        data.offsets.popper = getClientRect(data.offsets.popper)
+        data.offsets.reference = getClientRect(data.offsets.reference)
+
+        data = fn(data, modifier)
+      }
+    })
+
+    return data
+  }
+
+  /**
+   * Updates the position of the popper, computing the new offsets and applying
+   * the new style.<br />
+   * Prefer `scheduleUpdate` over `update` because of performance reasons.
+   * @method
+   * @memberof Popper
+   */
+  function update() {
+    // if popper is destroyed, don't perform any further update
+    if (this.state.isDestroyed) {
+      return
+    }
+
+    var data = {
+      instance: this,
+      styles: {},
+      arrowStyles: {},
+      attributes: {},
+      flipped: false,
+      offsets: {},
+    }
+
+    // compute reference element offsets
+    data.offsets.reference = getReferenceOffsets(
+      this.state,
+      this.popper,
+      this.reference,
+      this.options.positionFixed
+    )
+
+    // compute auto placement, store placement inside the data object,
+    // modifiers will be able to edit `placement` if needed
+    // and refer to originalPlacement to know the original value
+    data.placement = computeAutoPlacement(
+      this.options.placement,
+      data.offsets.reference,
+      this.popper,
+      this.reference,
+      this.options.modifiers.flip.boundariesElement,
+      this.options.modifiers.flip.padding
+    )
+
+    // store the computed placement inside `originalPlacement`
+    data.originalPlacement = data.placement
+
+    data.positionFixed = this.options.positionFixed
+
+    // compute the popper offsets
+    data.offsets.popper = getPopperOffsets(
+      this.popper,
+      data.offsets.reference,
+      data.placement
+    )
+
+    data.offsets.popper.position = this.options.positionFixed
+      ? 'fixed'
+      : 'absolute'
+
+    // run the modifiers
+    data = runModifiers(this.modifiers, data)
+
+    // the first `update` will call `onCreate` callback
+    // the other ones will call `onUpdate` callback
+    if (!this.state.isCreated) {
+      this.state.isCreated = true
+      this.options.onCreate(data)
+    } else {
+      this.options.onUpdate(data)
+    }
+  }
+
+  /**
+   * Helper used to know if the given modifier is enabled.
+   * @method
+   * @memberof Popper.Utils
+   * @returns {Boolean}
+   */
+  function isModifierEnabled(modifiers, modifierName) {
+    return modifiers.some(function(_ref) {
+      var name = _ref.name,
+        enabled = _ref.enabled
+      return enabled && name === modifierName
+    })
+  }
+
+  /**
+   * Get the prefixed supported property name
+   * @method
+   * @memberof Popper.Utils
+   * @argument {String} property (camelCase)
+   * @returns {String} prefixed property (camelCase or PascalCase, depending on the vendor prefix)
+   */
+  function getSupportedPropertyName(property) {
+    var prefixes = [false, 'ms', 'Webkit', 'Moz', 'O']
+    var upperProp = property.charAt(0).toUpperCase() + property.slice(1)
+
+    for (var i = 0; i < prefixes.length; i++) {
+      var prefix = prefixes[i]
+      var toCheck = prefix ? '' + prefix + upperProp : property
+      if (typeof document.body.style[toCheck] !== 'undefined') {
+        return toCheck
+      }
+    }
+    return null
+  }
+
+  /**
+   * Destroys the popper.
+   * @method
+   * @memberof Popper
+   */
+  function destroy() {
+    this.state.isDestroyed = true
+
+    // touch DOM only if `applyStyle` modifier is enabled
+    if (isModifierEnabled(this.modifiers, 'applyStyle')) {
+      this.popper.removeAttribute('x-placement')
+      this.popper.style.position = ''
+      this.popper.style.top = ''
+      this.popper.style.left = ''
+      this.popper.style.right = ''
+      this.popper.style.bottom = ''
+      this.popper.style.willChange = ''
+      this.popper.style[getSupportedPropertyName('transform')] = ''
+    }
+
+    this.disableEventListeners()
+
+    // remove the popper if user explicity asked for the deletion on destroy
+    // do not use `remove` because IE11 doesn't support it
+    if (this.options.removeOnDestroy) {
+      this.popper.parentNode.removeChild(this.popper)
+    }
+    return this
+  }
+
+  /**
+   * Get the window associated with the element
+   * @argument {Element} element
+   * @returns {Window}
+   */
+  function getWindow(element) {
+    var ownerDocument = element.ownerDocument
+    return ownerDocument ? ownerDocument.defaultView : window
+  }
+
+  function attachToScrollParents(scrollParent, event, callback, scrollParents) {
+    var isBody = scrollParent.nodeName === 'BODY'
+    var target = isBody ? scrollParent.ownerDocument.defaultView : scrollParent
+    target.addEventListener(event, callback, { passive: true })
+
+    if (!isBody) {
+      attachToScrollParents(
+        getScrollParent(target.parentNode),
+        event,
+        callback,
+        scrollParents
+      )
+    }
+    scrollParents.push(target)
+  }
+
+  /**
+   * Setup needed event listeners used to update the popper position
+   * @method
+   * @memberof Popper.Utils
+   * @private
+   */
+  function setupEventListeners(reference, options, state, updateBound) {
+    // Resize event listener on window
+    state.updateBound = updateBound
+    getWindow(reference).addEventListener('resize', state.updateBound, {
+      passive: true,
+    })
+
+    // Scroll event listener on scroll parents
+    var scrollElement = getScrollParent(reference)
+    attachToScrollParents(
+      scrollElement,
+      'scroll',
+      state.updateBound,
+      state.scrollParents
+    )
+    state.scrollElement = scrollElement
+    state.eventsEnabled = true
+
+    return state
+  }
+
+  /**
+   * It will add resize/scroll events and start recalculating
+   * position of the popper element when they are triggered.
+   * @method
+   * @memberof Popper
+   */
+  function enableEventListeners() {
+    if (!this.state.eventsEnabled) {
+      this.state = setupEventListeners(
+        this.reference,
+        this.options,
+        this.state,
+        this.scheduleUpdate
+      )
+    }
+  }
+
+  /**
+   * Remove event listeners used to update the popper position
+   * @method
+   * @memberof Popper.Utils
+   * @private
+   */
+  function removeEventListeners(reference, state) {
+    // Remove resize event listener on window
+    getWindow(reference).removeEventListener('resize', state.updateBound)
+
+    // Remove scroll event listener on scroll parents
+    state.scrollParents.forEach(function(target) {
+      target.removeEventListener('scroll', state.updateBound)
+    })
+
+    // Reset state
+    state.updateBound = null
+    state.scrollParents = []
+    state.scrollElement = null
+    state.eventsEnabled = false
+    return state
+  }
+
+  /**
+   * It will remove resize/scroll events and won't recalculate popper position
+   * when they are triggered. It also won't trigger `onUpdate` callback anymore,
+   * unless you call `update` method manually.
+   * @method
+   * @memberof Popper
+   */
+  function disableEventListeners() {
+    if (this.state.eventsEnabled) {
+      cancelAnimationFrame(this.scheduleUpdate)
+      this.state = removeEventListeners(this.reference, this.state)
+    }
+  }
+
+  /**
+   * Tells if a given input is a number
+   * @method
+   * @memberof Popper.Utils
+   * @param {*} input to check
+   * @return {Boolean}
+   */
+  function isNumeric(n) {
+    return n !== '' && !isNaN(parseFloat(n)) && isFinite(n)
+  }
+
+  /**
+   * Set the style to the given popper
+   * @method
+   * @memberof Popper.Utils
+   * @argument {Element} element - Element to apply the style to
+   * @argument {Object} styles
+   * Object with a list of properties and values which will be applied to the element
+   */
+  function setStyles(element, styles) {
+    Object.keys(styles).forEach(function(prop) {
+      var unit = ''
+      // add unit if the value is numeric and is one of the following
+      if (
+        ['width', 'height', 'top', 'right', 'bottom', 'left'].indexOf(prop) !==
+          -1 &&
+        isNumeric(styles[prop])
+      ) {
+        unit = 'px'
+      }
+      element.style[prop] = styles[prop] + unit
+    })
+  }
+
+  /**
+   * Set the attributes to the given popper
+   * @method
+   * @memberof Popper.Utils
+   * @argument {Element} element - Element to apply the attributes to
+   * @argument {Object} styles
+   * Object with a list of properties and values which will be applied to the element
+   */
+  function setAttributes(element, attributes) {
+    Object.keys(attributes).forEach(function(prop) {
+      var value = attributes[prop]
+      if (value !== false) {
+        element.setAttribute(prop, attributes[prop])
+      } else {
+        element.removeAttribute(prop)
+      }
+    })
+  }
+
+  /**
+   * @function
+   * @memberof Modifiers
+   * @argument {Object} data - The data object generated by `update` method
+   * @argument {Object} data.styles - List of style properties - values to apply to popper element
+   * @argument {Object} data.attributes - List of attribute properties - values to apply to popper element
+   * @argument {Object} options - Modifiers configuration and options
+   * @returns {Object} The same data object
+   */
+  function applyStyle(data) {
+    // any property present in `data.styles` will be applied to the popper,
+    // in this way we can make the 3rd party modifiers add custom styles to it
+    // Be aware, modifiers could override the properties defined in the previous
+    // lines of this modifier!
+    setStyles(data.instance.popper, data.styles)
+
+    // any property present in `data.attributes` will be applied to the popper,
+    // they will be set as HTML attributes of the element
+    setAttributes(data.instance.popper, data.attributes)
+
+    // if arrowElement is defined and arrowStyles has some properties
+    if (data.arrowElement && Object.keys(data.arrowStyles).length) {
+      setStyles(data.arrowElement, data.arrowStyles)
+    }
+
+    return data
+  }
+
+  /**
+   * Set the x-placement attribute before everything else because it could be used
+   * to add margins to the popper margins needs to be calculated to get the
+   * correct popper offsets.
+   * @method
+   * @memberof Popper.modifiers
+   * @param {HTMLElement} reference - The reference element used to position the popper
+   * @param {HTMLElement} popper - The HTML element used as popper
+   * @param {Object} options - Popper.js options
+   */
+  function applyStyleOnLoad(
+    reference,
+    popper,
+    options,
+    modifierOptions,
+    state
+  ) {
+    // compute reference element offsets
+    var referenceOffsets = getReferenceOffsets(
+      state,
+      popper,
+      reference,
+      options.positionFixed
+    )
+
+    // compute auto placement, store placement inside the data object,
+    // modifiers will be able to edit `placement` if needed
+    // and refer to originalPlacement to know the original value
+    var placement = computeAutoPlacement(
+      options.placement,
+      referenceOffsets,
+      popper,
+      reference,
+      options.modifiers.flip.boundariesElement,
+      options.modifiers.flip.padding
+    )
+
+    popper.setAttribute('x-placement', placement)
+
+    // Apply `position` to popper before anything else because
+    // without the position applied we can't guarantee correct computations
+    setStyles(popper, {
+      position: options.positionFixed ? 'fixed' : 'absolute',
+    })
+
+    return options
+  }
+
+  /**
+   * @function
+   * @memberof Popper.Utils
+   * @argument {Object} data - The data object generated by `update` method
+   * @argument {Boolean} shouldRound - If the offsets should be rounded at all
+   * @returns {Object} The popper's position offsets rounded
+   *
+   * The tale of pixel-perfect positioning. It's still not 100% perfect, but as
+   * good as it can be within reason.
+   * Discussion here: https://github.com/FezVrasta/popper.js/pull/715
+   *
+   * Low DPI screens cause a popper to be blurry if not using full pixels (Safari
+   * as well on High DPI screens).
+   *
+   * Firefox prefers no rounding for positioning and does not have blurriness on
+   * high DPI screens.
+   *
+   * Only horizontal placement and left/right values need to be considered.
+   */
+  function getRoundedOffsets(data, shouldRound) {
+    var _data$offsets = data.offsets,
+      popper = _data$offsets.popper,
+      reference = _data$offsets.reference
+    var round = Math.round,
+      floor = Math.floor
+
+    var noRound = function noRound(v) {
+      return v
+    }
+
+    var referenceWidth = round(reference.width)
+    var popperWidth = round(popper.width)
+
+    var isVertical = ['left', 'right'].indexOf(data.placement) !== -1
+    var isVariation = data.placement.indexOf('-') !== -1
+    var sameWidthParity = referenceWidth % 2 === popperWidth % 2
+    var bothOddWidth = referenceWidth % 2 === 1 && popperWidth % 2 === 1
+
+    var horizontalToInteger = !shouldRound
+      ? noRound
+      : isVertical || isVariation || sameWidthParity
+      ? round
+      : floor
+    var verticalToInteger = !shouldRound ? noRound : round
+
+    return {
+      left: horizontalToInteger(
+        bothOddWidth && !isVariation && shouldRound
+          ? popper.left - 1
+          : popper.left
+      ),
+      top: verticalToInteger(popper.top),
+      bottom: verticalToInteger(popper.bottom),
+      right: horizontalToInteger(popper.right),
+    }
+  }
+
+  var isFirefox = isBrowser && /Firefox/i.test(navigator.userAgent)
+
+  /**
+   * @function
+   * @memberof Modifiers
+   * @argument {Object} data - The data object generated by `update` method
+   * @argument {Object} options - Modifiers configuration and options
+   * @returns {Object} The data object, properly modified
+   */
+  function computeStyle(data, options) {
+    var x = options.x,
+      y = options.y
+    var popper = data.offsets.popper
+
+    // Remove this legacy support in Popper.js v2
+
+    var legacyGpuAccelerationOption = find(data.instance.modifiers, function(
+      modifier
+    ) {
+      return modifier.name === 'applyStyle'
+    }).gpuAcceleration
+    if (legacyGpuAccelerationOption !== undefined) {
+      console.warn(
+        'WARNING: `gpuAcceleration` option moved to `computeStyle` modifier and will not be supported in future versions of Popper.js!'
+      )
+    }
+    var gpuAcceleration =
+      legacyGpuAccelerationOption !== undefined
+        ? legacyGpuAccelerationOption
+        : options.gpuAcceleration
+
+    var offsetParent = getOffsetParent(data.instance.popper)
+    var offsetParentRect = getBoundingClientRect(offsetParent)
+
+    // Styles
+    var styles = {
+      position: popper.position,
+    }
+
+    var offsets = getRoundedOffsets(
+      data,
+      window.devicePixelRatio < 2 || !isFirefox
+    )
+
+    var sideA = x === 'bottom' ? 'top' : 'bottom'
+    var sideB = y === 'right' ? 'left' : 'right'
+
+    // if gpuAcceleration is set to `true` and transform is supported,
+    //  we use `translate3d` to apply the position to the popper we
+    // automatically use the supported prefixed version if needed
+    var prefixedProperty = getSupportedPropertyName('transform')
+
+    // now, let's make a step back and look at this code closely (wtf?)
+    // If the content of the popper grows once it's been positioned, it
+    // may happen that the popper gets misplaced because of the new content
+    // overflowing its reference element
+    // To avoid this problem, we provide two options (x and y), which allow
+    // the consumer to define the offset origin.
+    // If we position a popper on top of a reference element, we can set
+    // `x` to `top` to make the popper grow towards its top instead of
+    // its bottom.
+    var left = void 0,
+      top = void 0
+    if (sideA === 'bottom') {
+      // when offsetParent is <html> the positioning is relative to the bottom of the screen (excluding the scrollbar)
+      // and not the bottom of the html element
+      if (offsetParent.nodeName === 'HTML') {
+        top = -offsetParent.clientHeight + offsets.bottom
+      } else {
+        top = -offsetParentRect.height + offsets.bottom
+      }
+    } else {
+      top = offsets.top
+    }
+    if (sideB === 'right') {
+      if (offsetParent.nodeName === 'HTML') {
+        left = -offsetParent.clientWidth + offsets.right
+      } else {
+        left = -offsetParentRect.width + offsets.right
+      }
+    } else {
+      left = offsets.left
+    }
+    if (gpuAcceleration && prefixedProperty) {
+      styles[prefixedProperty] = 'translate3d(' + left + 'px, ' + top + 'px, 0)'
+      styles[sideA] = 0
+      styles[sideB] = 0
+      styles.willChange = 'transform'
+    } else {
+      // othwerise, we use the standard `top`, `left`, `bottom` and `right` properties
+      var invertTop = sideA === 'bottom' ? -1 : 1
+      var invertLeft = sideB === 'right' ? -1 : 1
+      styles[sideA] = top * invertTop
+      styles[sideB] = left * invertLeft
+      styles.willChange = sideA + ', ' + sideB
+    }
+
+    // Attributes
+    var attributes = {
+      'x-placement': data.placement,
+    }
+
+    // Update `data` attributes, styles and arrowStyles
+    data.attributes = _extends$2({}, attributes, data.attributes)
+    data.styles = _extends$2({}, styles, data.styles)
+    data.arrowStyles = _extends$2({}, data.offsets.arrow, data.arrowStyles)
+
+    return data
+  }
+
+  /**
+   * Helper used to know if the given modifier depends from another one.<br />
+   * It checks if the needed modifier is listed and enabled.
+   * @method
+   * @memberof Popper.Utils
+   * @param {Array} modifiers - list of modifiers
+   * @param {String} requestingName - name of requesting modifier
+   * @param {String} requestedName - name of requested modifier
+   * @returns {Boolean}
+   */
+  function isModifierRequired(modifiers, requestingName, requestedName) {
+    var requesting = find(modifiers, function(_ref) {
+      var name = _ref.name
+      return name === requestingName
+    })
+
+    var isRequired =
+      !!requesting &&
+      modifiers.some(function(modifier) {
+        return (
+          modifier.name === requestedName &&
+          modifier.enabled &&
+          modifier.order < requesting.order
+        )
+      })
+
+    if (!isRequired) {
+      var _requesting = '`' + requestingName + '`'
+      var requested = '`' + requestedName + '`'
+      console.warn(
+        requested +
+          ' modifier is required by ' +
+          _requesting +
+          ' modifier in order to work, be sure to include it before ' +
+          _requesting +
+          '!'
+      )
+    }
+    return isRequired
+  }
+
+  /**
+   * @function
+   * @memberof Modifiers
+   * @argument {Object} data - The data object generated by update method
+   * @argument {Object} options - Modifiers configuration and options
+   * @returns {Object} The data object, properly modified
+   */
+  function arrow(data, options) {
+    var _data$offsets$arrow
+
+    // arrow depends on keepTogether in order to work
+    if (!isModifierRequired(data.instance.modifiers, 'arrow', 'keepTogether')) {
+      return data
+    }
+
+    var arrowElement = options.element
+
+    // if arrowElement is a string, suppose it's a CSS selector
+    if (typeof arrowElement === 'string') {
+      arrowElement = data.instance.popper.querySelector(arrowElement)
+
+      // if arrowElement is not found, don't run the modifier
+      if (!arrowElement) {
+        return data
+      }
+    } else {
+      // if the arrowElement isn't a query selector we must check that the
+      // provided DOM node is child of its popper node
+      if (!data.instance.popper.contains(arrowElement)) {
+        console.warn(
+          'WARNING: `arrow.element` must be child of its popper element!'
+        )
+        return data
+      }
+    }
+
+    var placement = data.placement.split('-')[0]
+    var _data$offsets = data.offsets,
+      popper = _data$offsets.popper,
+      reference = _data$offsets.reference
+
+    var isVertical = ['left', 'right'].indexOf(placement) !== -1
+
+    var len = isVertical ? 'height' : 'width'
+    var sideCapitalized = isVertical ? 'Top' : 'Left'
+    var side = sideCapitalized.toLowerCase()
+    var altSide = isVertical ? 'left' : 'top'
+    var opSide = isVertical ? 'bottom' : 'right'
+    var arrowElementSize = getOuterSizes(arrowElement)[len]
+
+    //
+    // extends keepTogether behavior making sure the popper and its
+    // reference have enough pixels in conjunction
+    //
+
+    // top/left side
+    if (reference[opSide] - arrowElementSize < popper[side]) {
+      data.offsets.popper[side] -=
+        popper[side] - (reference[opSide] - arrowElementSize)
+    }
+    // bottom/right side
+    if (reference[side] + arrowElementSize > popper[opSide]) {
+      data.offsets.popper[side] +=
+        reference[side] + arrowElementSize - popper[opSide]
+    }
+    data.offsets.popper = getClientRect(data.offsets.popper)
+
+    // compute center of the popper
+    var center = reference[side] + reference[len] / 2 - arrowElementSize / 2
+
+    // Compute the sideValue using the updated popper offsets
+    // take popper margin in account because we don't have this info available
+    var css = getStyleComputedProperty(data.instance.popper)
+    var popperMarginSide = parseFloat(css['margin' + sideCapitalized], 10)
+    var popperBorderSide = parseFloat(
+      css['border' + sideCapitalized + 'Width'],
+      10
+    )
+    var sideValue =
+      center - data.offsets.popper[side] - popperMarginSide - popperBorderSide
+
+    // prevent arrowElement from being placed not contiguously to its popper
+    sideValue = Math.max(Math.min(popper[len] - arrowElementSize, sideValue), 0)
+
+    data.arrowElement = arrowElement
+    data.offsets.arrow = ((_data$offsets$arrow = {}),
+    defineProperty$1(_data$offsets$arrow, side, Math.round(sideValue)),
+    defineProperty$1(_data$offsets$arrow, altSide, ''),
+    _data$offsets$arrow)
+
+    return data
+  }
+
+  /**
+   * Get the opposite placement variation of the given one
+   * @method
+   * @memberof Popper.Utils
+   * @argument {String} placement variation
+   * @returns {String} flipped placement variation
+   */
+  function getOppositeVariation(variation) {
+    if (variation === 'end') {
+      return 'start'
+    } else if (variation === 'start') {
+      return 'end'
+    }
+    return variation
+  }
+
+  /**
+   * List of accepted placements to use as values of the `placement` option.<br />
+   * Valid placements are:
+   * - `auto`
+   * - `top`
+   * - `right`
+   * - `bottom`
+   * - `left`
+   *
+   * Each placement can have a variation from this list:
+   * - `-start`
+   * - `-end`
+   *
+   * Variations are interpreted easily if you think of them as the left to right
+   * written languages. Horizontally (`top` and `bottom`), `start` is left and `end`
+   * is right.<br />
+   * Vertically (`left` and `right`), `start` is top and `end` is bottom.
+   *
+   * Some valid examples are:
+   * - `top-end` (on top of reference, right aligned)
+   * - `right-start` (on right of reference, top aligned)
+   * - `bottom` (on bottom, centered)
+   * - `auto-end` (on the side with more space available, alignment depends by placement)
+   *
+   * @static
+   * @type {Array}
+   * @enum {String}
+   * @readonly
+   * @method placements
+   * @memberof Popper
+   */
+  var placements = [
+    'auto-start',
+    'auto',
+    'auto-end',
+    'top-start',
+    'top',
+    'top-end',
+    'right-start',
+    'right',
+    'right-end',
+    'bottom-end',
+    'bottom',
+    'bottom-start',
+    'left-end',
+    'left',
+    'left-start',
+  ]
+
+  // Get rid of `auto` `auto-start` and `auto-end`
+  var validPlacements = placements.slice(3)
+
+  /**
+   * Given an initial placement, returns all the subsequent placements
+   * clockwise (or counter-clockwise).
+   *
+   * @method
+   * @memberof Popper.Utils
+   * @argument {String} placement - A valid placement (it accepts variations)
+   * @argument {Boolean} counter - Set to true to walk the placements counterclockwise
+   * @returns {Array} placements including their variations
+   */
+  function clockwise(placement) {
+    var counter =
+      arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false
+
+    var index = validPlacements.indexOf(placement)
+    var arr = validPlacements
+      .slice(index + 1)
+      .concat(validPlacements.slice(0, index))
+    return counter ? arr.reverse() : arr
+  }
+
+  var BEHAVIORS = {
+    FLIP: 'flip',
+    CLOCKWISE: 'clockwise',
+    COUNTERCLOCKWISE: 'counterclockwise',
+  }
+
+  /**
+   * @function
+   * @memberof Modifiers
+   * @argument {Object} data - The data object generated by update method
+   * @argument {Object} options - Modifiers configuration and options
+   * @returns {Object} The data object, properly modified
+   */
+  function flip(data, options) {
+    // if `inner` modifier is enabled, we can't use the `flip` modifier
+    if (isModifierEnabled(data.instance.modifiers, 'inner')) {
+      return data
+    }
+
+    if (data.flipped && data.placement === data.originalPlacement) {
+      // seems like flip is trying to loop, probably there's not enough space on any of the flippable sides
+      return data
+    }
+
+    var boundaries = getBoundaries(
+      data.instance.popper,
+      data.instance.reference,
+      options.padding,
+      options.boundariesElement,
+      data.positionFixed
+    )
+
+    var placement = data.placement.split('-')[0]
+    var placementOpposite = getOppositePlacement(placement)
+    var variation = data.placement.split('-')[1] || ''
+
+    var flipOrder = []
+
+    switch (options.behavior) {
+      case BEHAVIORS.FLIP:
+        flipOrder = [placement, placementOpposite]
+        break
+      case BEHAVIORS.CLOCKWISE:
+        flipOrder = clockwise(placement)
+        break
+      case BEHAVIORS.COUNTERCLOCKWISE:
+        flipOrder = clockwise(placement, true)
+        break
+      default:
+        flipOrder = options.behavior
+    }
+
+    flipOrder.forEach(function(step, index) {
+      if (placement !== step || flipOrder.length === index + 1) {
+        return data
+      }
+
+      placement = data.placement.split('-')[0]
+      placementOpposite = getOppositePlacement(placement)
+
+      var popperOffsets = data.offsets.popper
+      var refOffsets = data.offsets.reference
+
+      // using floor because the reference offsets may contain decimals we are not going to consider here
+      var floor = Math.floor
+      var overlapsRef =
+        (placement === 'left' &&
+          floor(popperOffsets.right) > floor(refOffsets.left)) ||
+        (placement === 'right' &&
+          floor(popperOffsets.left) < floor(refOffsets.right)) ||
+        (placement === 'top' &&
+          floor(popperOffsets.bottom) > floor(refOffsets.top)) ||
+        (placement === 'bottom' &&
+          floor(popperOffsets.top) < floor(refOffsets.bottom))
+
+      var overflowsLeft = floor(popperOffsets.left) < floor(boundaries.left)
+      var overflowsRight = floor(popperOffsets.right) > floor(boundaries.right)
+      var overflowsTop = floor(popperOffsets.top) < floor(boundaries.top)
+      var overflowsBottom =
+        floor(popperOffsets.bottom) > floor(boundaries.bottom)
+
+      var overflowsBoundaries =
+        (placement === 'left' && overflowsLeft) ||
+        (placement === 'right' && overflowsRight) ||
+        (placement === 'top' && overflowsTop) ||
+        (placement === 'bottom' && overflowsBottom)
+
+      // flip the variation if required
+      var isVertical = ['top', 'bottom'].indexOf(placement) !== -1
+
+      // flips variation if reference element overflows boundaries
+      var flippedVariationByRef =
+        !!options.flipVariations &&
+        ((isVertical && variation === 'start' && overflowsLeft) ||
+          (isVertical && variation === 'end' && overflowsRight) ||
+          (!isVertical && variation === 'start' && overflowsTop) ||
+          (!isVertical && variation === 'end' && overflowsBottom))
+
+      // flips variation if popper content overflows boundaries
+      var flippedVariationByContent =
+        !!options.flipVariationsByContent &&
+        ((isVertical && variation === 'start' && overflowsRight) ||
+          (isVertical && variation === 'end' && overflowsLeft) ||
+          (!isVertical && variation === 'start' && overflowsBottom) ||
+          (!isVertical && variation === 'end' && overflowsTop))
+
+      var flippedVariation = flippedVariationByRef || flippedVariationByContent
+
+      if (overlapsRef || overflowsBoundaries || flippedVariation) {
+        // this boolean to detect any flip loop
+        data.flipped = true
+
+        if (overlapsRef || overflowsBoundaries) {
+          placement = flipOrder[index + 1]
+        }
+
+        if (flippedVariation) {
+          variation = getOppositeVariation(variation)
+        }
+
+        data.placement = placement + (variation ? '-' + variation : '')
+
+        // this object contains `position`, we want to preserve it along with
+        // any additional property we may add in the future
+        data.offsets.popper = _extends$2(
+          {},
+          data.offsets.popper,
+          getPopperOffsets(
+            data.instance.popper,
+            data.offsets.reference,
+            data.placement
+          )
+        )
+
+        data = runModifiers(data.instance.modifiers, data, 'flip')
+      }
+    })
+    return data
+  }
+
+  /**
+   * @function
+   * @memberof Modifiers
+   * @argument {Object} data - The data object generated by update method
+   * @argument {Object} options - Modifiers configuration and options
+   * @returns {Object} The data object, properly modified
+   */
+  function keepTogether(data) {
+    var _data$offsets = data.offsets,
+      popper = _data$offsets.popper,
+      reference = _data$offsets.reference
+
+    var placement = data.placement.split('-')[0]
+    var floor = Math.floor
+    var isVertical = ['top', 'bottom'].indexOf(placement) !== -1
+    var side = isVertical ? 'right' : 'bottom'
+    var opSide = isVertical ? 'left' : 'top'
+    var measurement = isVertical ? 'width' : 'height'
+
+    if (popper[side] < floor(reference[opSide])) {
+      data.offsets.popper[opSide] =
+        floor(reference[opSide]) - popper[measurement]
+    }
+    if (popper[opSide] > floor(reference[side])) {
+      data.offsets.popper[opSide] = floor(reference[side])
+    }
+
+    return data
+  }
+
+  /**
+   * Converts a string containing value + unit into a px value number
+   * @function
+   * @memberof {modifiers~offset}
+   * @private
+   * @argument {String} str - Value + unit string
+   * @argument {String} measurement - `height` or `width`
+   * @argument {Object} popperOffsets
+   * @argument {Object} referenceOffsets
+   * @returns {Number|String}
+   * Value in pixels, or original string if no values were extracted
+   */
+  function toValue(str, measurement, popperOffsets, referenceOffsets) {
+    // separate value from unit
+    var split = str.match(/((?:\-|\+)?\d*\.?\d*)(.*)/)
+    var value = +split[1]
+    var unit = split[2]
+
+    // If it's not a number it's an operator, I guess
+    if (!value) {
+      return str
+    }
+
+    if (unit.indexOf('%') === 0) {
+      var element = void 0
+      switch (unit) {
+        case '%p':
+          element = popperOffsets
+          break
+        case '%':
+        case '%r':
+        default:
+          element = referenceOffsets
+      }
+
+      var rect = getClientRect(element)
+      return (rect[measurement] / 100) * value
+    } else if (unit === 'vh' || unit === 'vw') {
+      // if is a vh or vw, we calculate the size based on the viewport
+      var size = void 0
+      if (unit === 'vh') {
+        size = Math.max(
+          document.documentElement.clientHeight,
+          window.innerHeight || 0
+        )
+      } else {
+        size = Math.max(
+          document.documentElement.clientWidth,
+          window.innerWidth || 0
+        )
+      }
+      return (size / 100) * value
+    } else {
+      // if is an explicit pixel unit, we get rid of the unit and keep the value
+      // if is an implicit unit, it's px, and we return just the value
+      return value
+    }
+  }
+
+  /**
+   * Parse an `offset` string to extrapolate `x` and `y` numeric offsets.
+   * @function
+   * @memberof {modifiers~offset}
+   * @private
+   * @argument {String} offset
+   * @argument {Object} popperOffsets
+   * @argument {Object} referenceOffsets
+   * @argument {String} basePlacement
+   * @returns {Array} a two cells array with x and y offsets in numbers
+   */
+  function parseOffset(offset, popperOffsets, referenceOffsets, basePlacement) {
+    var offsets = [0, 0]
+
+    // Use height if placement is left or right and index is 0 otherwise use width
+    // in this way the first offset will use an axis and the second one
+    // will use the other one
+    var useHeight = ['right', 'left'].indexOf(basePlacement) !== -1
+
+    // Split the offset string to obtain a list of values and operands
+    // The regex addresses values with the plus or minus sign in front (+10, -20, etc)
+    var fragments = offset.split(/(\+|\-)/).map(function(frag) {
+      return frag.trim()
+    })
+
+    // Detect if the offset string contains a pair of values or a single one
+    // they could be separated by comma or space
+    var divider = fragments.indexOf(
+      find(fragments, function(frag) {
+        return frag.search(/,|\s/) !== -1
+      })
+    )
+
+    if (fragments[divider] && fragments[divider].indexOf(',') === -1) {
+      console.warn(
+        'Offsets separated by white space(s) are deprecated, use a comma (,) instead.'
+      )
+    }
+
+    // If divider is found, we divide the list of values and operands to divide
+    // them by ofset X and Y.
+    var splitRegex = /\s*,\s*|\s+/
+    var ops =
+      divider !== -1
+        ? [
+            fragments
+              .slice(0, divider)
+              .concat([fragments[divider].split(splitRegex)[0]]),
+            [fragments[divider].split(splitRegex)[1]].concat(
+              fragments.slice(divider + 1)
+            ),
+          ]
+        : [fragments]
+
+    // Convert the values with units to absolute pixels to allow our computations
+    ops = ops.map(function(op, index) {
+      // Most of the units rely on the orientation of the popper
+      var measurement = (index === 1
+      ? !useHeight
+      : useHeight)
+        ? 'height'
+        : 'width'
+      var mergeWithPrevious = false
+      return (
+        op
+          // This aggregates any `+` or `-` sign that aren't considered operators
+          // e.g.: 10 + +5 => [10, +, +5]
+          .reduce(function(a, b) {
+            if (a[a.length - 1] === '' && ['+', '-'].indexOf(b) !== -1) {
+              a[a.length - 1] = b
+              mergeWithPrevious = true
+              return a
+            } else if (mergeWithPrevious) {
+              a[a.length - 1] += b
+              mergeWithPrevious = false
+              return a
+            } else {
+              return a.concat(b)
+            }
+          }, [])
+          // Here we convert the string values into number values (in px)
+          .map(function(str) {
+            return toValue(str, measurement, popperOffsets, referenceOffsets)
+          })
+      )
+    })
+
+    // Loop trough the offsets arrays and execute the operations
+    ops.forEach(function(op, index) {
+      op.forEach(function(frag, index2) {
+        if (isNumeric(frag)) {
+          offsets[index] += frag * (op[index2 - 1] === '-' ? -1 : 1)
+        }
+      })
+    })
+    return offsets
+  }
+
+  /**
+   * @function
+   * @memberof Modifiers
+   * @argument {Object} data - The data object generated by update method
+   * @argument {Object} options - Modifiers configuration and options
+   * @argument {Number|String} options.offset=0
+   * The offset value as described in the modifier description
+   * @returns {Object} The data object, properly modified
+   */
+  function offset(data, _ref) {
+    var offset = _ref.offset
+    var placement = data.placement,
+      _data$offsets = data.offsets,
+      popper = _data$offsets.popper,
+      reference = _data$offsets.reference
+
+    var basePlacement = placement.split('-')[0]
+
+    var offsets = void 0
+    if (isNumeric(+offset)) {
+      offsets = [+offset, 0]
+    } else {
+      offsets = parseOffset(offset, popper, reference, basePlacement)
+    }
+
+    if (basePlacement === 'left') {
+      popper.top += offsets[0]
+      popper.left -= offsets[1]
+    } else if (basePlacement === 'right') {
+      popper.top += offsets[0]
+      popper.left += offsets[1]
+    } else if (basePlacement === 'top') {
+      popper.left += offsets[0]
+      popper.top -= offsets[1]
+    } else if (basePlacement === 'bottom') {
+      popper.left += offsets[0]
+      popper.top += offsets[1]
+    }
+
+    data.popper = popper
+    return data
+  }
+
+  /**
+   * @function
+   * @memberof Modifiers
+   * @argument {Object} data - The data object generated by `update` method
+   * @argument {Object} options - Modifiers configuration and options
+   * @returns {Object} The data object, properly modified
+   */
+  function preventOverflow(data, options) {
+    var boundariesElement =
+      options.boundariesElement || getOffsetParent(data.instance.popper)
+
+    // If offsetParent is the reference element, we really want to
+    // go one step up and use the next offsetParent as reference to
+    // avoid to make this modifier completely useless and look like broken
+    if (data.instance.reference === boundariesElement) {
+      boundariesElement = getOffsetParent(boundariesElement)
+    }
+
+    // NOTE: DOM access here
+    // resets the popper's position so that the document size can be calculated excluding
+    // the size of the popper element itself
+    var transformProp = getSupportedPropertyName('transform')
+    var popperStyles = data.instance.popper.style // assignment to help minification
+    var top = popperStyles.top,
+      left = popperStyles.left,
+      transform = popperStyles[transformProp]
+
+    popperStyles.top = ''
+    popperStyles.left = ''
+    popperStyles[transformProp] = ''
+
+    var boundaries = getBoundaries(
+      data.instance.popper,
+      data.instance.reference,
+      options.padding,
+      boundariesElement,
+      data.positionFixed
+    )
+
+    // NOTE: DOM access here
+    // restores the original style properties after the offsets have been computed
+    popperStyles.top = top
+    popperStyles.left = left
+    popperStyles[transformProp] = transform
+
+    options.boundaries = boundaries
+
+    var order = options.priority
+    var popper = data.offsets.popper
+
+    var check = {
+      primary: function primary(placement) {
+        var value = popper[placement]
+        if (
+          popper[placement] < boundaries[placement] &&
+          !options.escapeWithReference
+        ) {
+          value = Math.max(popper[placement], boundaries[placement])
+        }
+        return defineProperty$1({}, placement, value)
+      },
+      secondary: function secondary(placement) {
+        var mainSide = placement === 'right' ? 'left' : 'top'
+        var value = popper[mainSide]
+        if (
+          popper[placement] > boundaries[placement] &&
+          !options.escapeWithReference
+        ) {
+          value = Math.min(
+            popper[mainSide],
+            boundaries[placement] -
+              (placement === 'right' ? popper.width : popper.height)
+          )
+        }
+        return defineProperty$1({}, mainSide, value)
+      },
+    }
+
+    order.forEach(function(placement) {
+      var side =
+        ['left', 'top'].indexOf(placement) !== -1 ? 'primary' : 'secondary'
+      popper = _extends$2({}, popper, check[side](placement))
+    })
+
+    data.offsets.popper = popper
+
+    return data
+  }
+
+  /**
+   * @function
+   * @memberof Modifiers
+   * @argument {Object} data - The data object generated by `update` method
+   * @argument {Object} options - Modifiers configuration and options
+   * @returns {Object} The data object, properly modified
+   */
+  function shift(data) {
+    var placement = data.placement
+    var basePlacement = placement.split('-')[0]
+    var shiftvariation = placement.split('-')[1]
+
+    // if shift shiftvariation is specified, run the modifier
+    if (shiftvariation) {
+      var _data$offsets = data.offsets,
+        reference = _data$offsets.reference,
+        popper = _data$offsets.popper
+
+      var isVertical = ['bottom', 'top'].indexOf(basePlacement) !== -1
+      var side = isVertical ? 'left' : 'top'
+      var measurement = isVertical ? 'width' : 'height'
+
+      var shiftOffsets = {
+        start: defineProperty$1({}, side, reference[side]),
+        end: defineProperty$1(
+          {},
+          side,
+          reference[side] + reference[measurement] - popper[measurement]
+        ),
+      }
+
+      data.offsets.popper = _extends$2({}, popper, shiftOffsets[shiftvariation])
+    }
+
+    return data
+  }
+
+  /**
+   * @function
+   * @memberof Modifiers
+   * @argument {Object} data - The data object generated by update method
+   * @argument {Object} options - Modifiers configuration and options
+   * @returns {Object} The data object, properly modified
+   */
+  function hide(data) {
+    if (
+      !isModifierRequired(data.instance.modifiers, 'hide', 'preventOverflow')
+    ) {
+      return data
+    }
+
+    var refRect = data.offsets.reference
+    var bound = find(data.instance.modifiers, function(modifier) {
+      return modifier.name === 'preventOverflow'
+    }).boundaries
+
+    if (
+      refRect.bottom < bound.top ||
+      refRect.left > bound.right ||
+      refRect.top > bound.bottom ||
+      refRect.right < bound.left
+    ) {
+      // Avoid unnecessary DOM access if visibility hasn't changed
+      if (data.hide === true) {
+        return data
+      }
+
+      data.hide = true
+      data.attributes['x-out-of-boundaries'] = ''
+    } else {
+      // Avoid unnecessary DOM access if visibility hasn't changed
+      if (data.hide === false) {
+        return data
+      }
+
+      data.hide = false
+      data.attributes['x-out-of-boundaries'] = false
+    }
+
+    return data
+  }
+
+  /**
+   * @function
+   * @memberof Modifiers
+   * @argument {Object} data - The data object generated by `update` method
+   * @argument {Object} options - Modifiers configuration and options
+   * @returns {Object} The data object, properly modified
+   */
+  function inner(data) {
+    var placement = data.placement
+    var basePlacement = placement.split('-')[0]
+    var _data$offsets = data.offsets,
+      popper = _data$offsets.popper,
+      reference = _data$offsets.reference
+
+    var isHoriz = ['left', 'right'].indexOf(basePlacement) !== -1
+
+    var subtractLength = ['top', 'left'].indexOf(basePlacement) === -1
+
+    popper[isHoriz ? 'left' : 'top'] =
+      reference[basePlacement] -
+      (subtractLength ? popper[isHoriz ? 'width' : 'height'] : 0)
+
+    data.placement = getOppositePlacement(placement)
+    data.offsets.popper = getClientRect(popper)
+
+    return data
+  }
+
+  /**
+   * Modifier function, each modifier can have a function of this type assigned
+   * to its `fn` property.<br />
+   * These functions will be called on each update, this means that you must
+   * make sure they are performant enough to avoid performance bottlenecks.
+   *
+   * @function ModifierFn
+   * @argument {dataObject} data - The data object generated by `update` method
+   * @argument {Object} options - Modifiers configuration and options
+   * @returns {dataObject} The data object, properly modified
+   */
+
+  /**
+   * Modifiers are plugins used to alter the behavior of your poppers.<br />
+   * Popper.js uses a set of 9 modifiers to provide all the basic functionalities
+   * needed by the library.
+   *
+   * Usually you don't want to override the `order`, `fn` and `onLoad` props.
+   * All the other properties are configurations that could be tweaked.
+   * @namespace modifiers
+   */
+  var modifiers = {
+    /**
+     * Modifier used to shift the popper on the start or end of its reference
+     * element.<br />
+     * It will read the variation of the `placement` property.<br />
+     * It can be one either `-end` or `-start`.
+     * @memberof modifiers
+     * @inner
+     */
+    shift: {
+      /** @prop {number} order=100 - Index used to define the order of execution */
+      order: 100,
+      /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+      enabled: true,
+      /** @prop {ModifierFn} */
+      fn: shift,
+    },
+
+    /**
+     * The `offset` modifier can shift your popper on both its axis.
+     *
+     * It accepts the following units:
+     * - `px` or unit-less, interpreted as pixels
+     * - `%` or `%r`, percentage relative to the length of the reference element
+     * - `%p`, percentage relative to the length of the popper element
+     * - `vw`, CSS viewport width unit
+     * - `vh`, CSS viewport height unit
+     *
+     * For length is intended the main axis relative to the placement of the popper.<br />
+     * This means that if the placement is `top` or `bottom`, the length will be the
+     * `width`. In case of `left` or `right`, it will be the `height`.
+     *
+     * You can provide a single value (as `Number` or `String`), or a pair of values
+     * as `String` divided by a comma or one (or more) white spaces.<br />
+     * The latter is a deprecated method because it leads to confusion and will be
+     * removed in v2.<br />
+     * Additionally, it accepts additions and subtractions between different units.
+     * Note that multiplications and divisions aren't supported.
+     *
+     * Valid examples are:
+     * ```
+     * 10
+     * '10%'
+     * '10, 10'
+     * '10%, 10'
+     * '10 + 10%'
+     * '10 - 5vh + 3%'
+     * '-10px + 5vh, 5px - 6%'
+     * ```
+     * > **NB**: If you desire to apply offsets to your poppers in a way that may make them overlap
+     * > with their reference element, unfortunately, you will have to disable the `flip` modifier.
+     * > You can read more on this at this [issue](https://github.com/FezVrasta/popper.js/issues/373).
+     *
+     * @memberof modifiers
+     * @inner
+     */
+    offset: {
+      /** @prop {number} order=200 - Index used to define the order of execution */
+      order: 200,
+      /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+      enabled: true,
+      /** @prop {ModifierFn} */
+      fn: offset,
+      /** @prop {Number|String} offset=0
+       * The offset value as described in the modifier description
+       */
+      offset: 0,
+    },
+
+    /**
+     * Modifier used to prevent the popper from being positioned outside the boundary.
+     *
+     * A scenario exists where the reference itself is not within the boundaries.<br />
+     * We can say it has "escaped the boundaries" — or just "escaped".<br />
+     * In this case we need to decide whether the popper should either:
+     *
+     * - detach from the reference and remain "trapped" in the boundaries, or
+     * - if it should ignore the boundary and "escape with its reference"
+     *
+     * When `escapeWithReference` is set to`true` and reference is completely
+     * outside its boundaries, the popper will overflow (or completely leave)
+     * the boundaries in order to remain attached to the edge of the reference.
+     *
+     * @memberof modifiers
+     * @inner
+     */
+    preventOverflow: {
+      /** @prop {number} order=300 - Index used to define the order of execution */
+      order: 300,
+      /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+      enabled: true,
+      /** @prop {ModifierFn} */
+      fn: preventOverflow,
+      /**
+       * @prop {Array} [priority=['left','right','top','bottom']]
+       * Popper will try to prevent overflow following these priorities by default,
+       * then, it could overflow on the left and on top of the `boundariesElement`
+       */
+      priority: ['left', 'right', 'top', 'bottom'],
+      /**
+       * @prop {number} padding=5
+       * Amount of pixel used to define a minimum distance between the boundaries
+       * and the popper. This makes sure the popper always has a little padding
+       * between the edges of its container
+       */
+      padding: 5,
+      /**
+       * @prop {String|HTMLElement} boundariesElement='scrollParent'
+       * Boundaries used by the modifier. Can be `scrollParent`, `window`,
+       * `viewport` or any DOM element.
+       */
+      boundariesElement: 'scrollParent',
+    },
+
+    /**
+     * Modifier used to make sure the reference and its popper stay near each other
+     * without leaving any gap between the two. Especially useful when the arrow is
+     * enabled and you want to ensure that it points to its reference element.
+     * It cares only about the first axis. You can still have poppers with margin
+     * between the popper and its reference element.
+     * @memberof modifiers
+     * @inner
+     */
+    keepTogether: {
+      /** @prop {number} order=400 - Index used to define the order of execution */
+      order: 400,
+      /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+      enabled: true,
+      /** @prop {ModifierFn} */
+      fn: keepTogether,
+    },
+
+    /**
+     * This modifier is used to move the `arrowElement` of the popper to make
+     * sure it is positioned between the reference element and its popper element.
+     * It will read the outer size of the `arrowElement` node to detect how many
+     * pixels of conjunction are needed.
+     *
+     * It has no effect if no `arrowElement` is provided.
+     * @memberof modifiers
+     * @inner
+     */
+    arrow: {
+      /** @prop {number} order=500 - Index used to define the order of execution */
+      order: 500,
+      /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+      enabled: true,
+      /** @prop {ModifierFn} */
+      fn: arrow,
+      /** @prop {String|HTMLElement} element='[x-arrow]' - Selector or node used as arrow */
+      element: '[x-arrow]',
+    },
+
+    /**
+     * Modifier used to flip the popper's placement when it starts to overlap its
+     * reference element.
+     *
+     * Requires the `preventOverflow` modifier before it in order to work.
+     *
+     * **NOTE:** this modifier will interrupt the current update cycle and will
+     * restart it if it detects the need to flip the placement.
+     * @memberof modifiers
+     * @inner
+     */
+    flip: {
+      /** @prop {number} order=600 - Index used to define the order of execution */
+      order: 600,
+      /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+      enabled: true,
+      /** @prop {ModifierFn} */
+      fn: flip,
+      /**
+       * @prop {String|Array} behavior='flip'
+       * The behavior used to change the popper's placement. It can be one of
+       * `flip`, `clockwise`, `counterclockwise` or an array with a list of valid
+       * placements (with optional variations)
+       */
+      behavior: 'flip',
+      /**
+       * @prop {number} padding=5
+       * The popper will flip if it hits the edges of the `boundariesElement`
+       */
+      padding: 5,
+      /**
+       * @prop {String|HTMLElement} boundariesElement='viewport'
+       * The element which will define the boundaries of the popper position.
+       * The popper will never be placed outside of the defined boundaries
+       * (except if `keepTogether` is enabled)
+       */
+      boundariesElement: 'viewport',
+      /**
+       * @prop {Boolean} flipVariations=false
+       * The popper will switch placement variation between `-start` and `-end` when
+       * the reference element overlaps its boundaries.
+       *
+       * The original placement should have a set variation.
+       */
+      flipVariations: false,
+      /**
+       * @prop {Boolean} flipVariationsByContent=false
+       * The popper will switch placement variation between `-start` and `-end` when
+       * the popper element overlaps its reference boundaries.
+       *
+       * The original placement should have a set variation.
+       */
+      flipVariationsByContent: false,
+    },
+
+    /**
+     * Modifier used to make the popper flow toward the inner of the reference element.
+     * By default, when this modifier is disabled, the popper will be placed outside
+     * the reference element.
+     * @memberof modifiers
+     * @inner
+     */
+    inner: {
+      /** @prop {number} order=700 - Index used to define the order of execution */
+      order: 700,
+      /** @prop {Boolean} enabled=false - Whether the modifier is enabled or not */
+      enabled: false,
+      /** @prop {ModifierFn} */
+      fn: inner,
+    },
+
+    /**
+     * Modifier used to hide the popper when its reference element is outside of the
+     * popper boundaries. It will set a `x-out-of-boundaries` attribute which can
+     * be used to hide with a CSS selector the popper when its reference is
+     * out of boundaries.
+     *
+     * Requires the `preventOverflow` modifier before it in order to work.
+     * @memberof modifiers
+     * @inner
+     */
+    hide: {
+      /** @prop {number} order=800 - Index used to define the order of execution */
+      order: 800,
+      /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+      enabled: true,
+      /** @prop {ModifierFn} */
+      fn: hide,
+    },
+
+    /**
+     * Computes the style that will be applied to the popper element to gets
+     * properly positioned.
+     *
+     * Note that this modifier will not touch the DOM, it just prepares the styles
+     * so that `applyStyle` modifier can apply it. This separation is useful
+     * in case you need to replace `applyStyle` with a custom implementation.
+     *
+     * This modifier has `850` as `order` value to maintain backward compatibility
+     * with previous versions of Popper.js. Expect the modifiers ordering method
+     * to change in future major versions of the library.
+     *
+     * @memberof modifiers
+     * @inner
+     */
+    computeStyle: {
+      /** @prop {number} order=850 - Index used to define the order of execution */
+      order: 850,
+      /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+      enabled: true,
+      /** @prop {ModifierFn} */
+      fn: computeStyle,
+      /**
+       * @prop {Boolean} gpuAcceleration=true
+       * If true, it uses the CSS 3D transformation to position the popper.
+       * Otherwise, it will use the `top` and `left` properties
+       */
+      gpuAcceleration: true,
+      /**
+       * @prop {string} [x='bottom']
+       * Where to anchor the X axis (`bottom` or `top`). AKA X offset origin.
+       * Change this if your popper should grow in a direction different from `bottom`
+       */
+      x: 'bottom',
+      /**
+       * @prop {string} [x='left']
+       * Where to anchor the Y axis (`left` or `right`). AKA Y offset origin.
+       * Change this if your popper should grow in a direction different from `right`
+       */
+      y: 'right',
+    },
+
+    /**
+     * Applies the computed styles to the popper element.
+     *
+     * All the DOM manipulations are limited to this modifier. This is useful in case
+     * you want to integrate Popper.js inside a framework or view library and you
+     * want to delegate all the DOM manipulations to it.
+     *
+     * Note that if you disable this modifier, you must make sure the popper element
+     * has its position set to `absolute` before Popper.js can do its work!
+     *
+     * Just disable this modifier and define your own to achieve the desired effect.
+     *
+     * @memberof modifiers
+     * @inner
+     */
+    applyStyle: {
+      /** @prop {number} order=900 - Index used to define the order of execution */
+      order: 900,
+      /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+      enabled: true,
+      /** @prop {ModifierFn} */
+      fn: applyStyle,
+      /** @prop {Function} */
+      onLoad: applyStyleOnLoad,
+      /**
+       * @deprecated since version 1.10.0, the property moved to `computeStyle` modifier
+       * @prop {Boolean} gpuAcceleration=true
+       * If true, it uses the CSS 3D transformation to position the popper.
+       * Otherwise, it will use the `top` and `left` properties
+       */
+      gpuAcceleration: undefined,
+    },
+  }
+
+  /**
+   * The `dataObject` is an object containing all the information used by Popper.js.
+   * This object is passed to modifiers and to the `onCreate` and `onUpdate` callbacks.
+   * @name dataObject
+   * @property {Object} data.instance The Popper.js instance
+   * @property {String} data.placement Placement applied to popper
+   * @property {String} data.originalPlacement Placement originally defined on init
+   * @property {Boolean} data.flipped True if popper has been flipped by flip modifier
+   * @property {Boolean} data.hide True if the reference element is out of boundaries, useful to know when to hide the popper
+   * @property {HTMLElement} data.arrowElement Node used as arrow by arrow modifier
+   * @property {Object} data.styles Any CSS property defined here will be applied to the popper. It expects the JavaScript nomenclature (eg. `marginBottom`)
+   * @property {Object} data.arrowStyles Any CSS property defined here will be applied to the popper arrow. It expects the JavaScript nomenclature (eg. `marginBottom`)
+   * @property {Object} data.boundaries Offsets of the popper boundaries
+   * @property {Object} data.offsets The measurements of popper, reference and arrow elements
+   * @property {Object} data.offsets.popper `top`, `left`, `width`, `height` values
+   * @property {Object} data.offsets.reference `top`, `left`, `width`, `height` values
+   * @property {Object} data.offsets.arrow] `top` and `left` offsets, only one of them will be different from 0
+   */
+
+  /**
+   * Default options provided to Popper.js constructor.<br />
+   * These can be overridden using the `options` argument of Popper.js.<br />
+   * To override an option, simply pass an object with the same
+   * structure of the `options` object, as the 3rd argument. For example:
+   * ```
+   * new Popper(ref, pop, {
+   *   modifiers: {
+   *     preventOverflow: { enabled: false }
+   *   }
+   * })
+   * ```
+   * @type {Object}
+   * @static
+   * @memberof Popper
+   */
+  var Defaults = {
+    /**
+     * Popper's placement.
+     * @prop {Popper.placements} placement='bottom'
+     */
+    placement: 'bottom',
+
+    /**
+     * Set this to true if you want popper to position it self in 'fixed' mode
+     * @prop {Boolean} positionFixed=false
+     */
+    positionFixed: false,
+
+    /**
+     * Whether events (resize, scroll) are initially enabled.
+     * @prop {Boolean} eventsEnabled=true
+     */
+    eventsEnabled: true,
+
+    /**
+     * Set to true if you want to automatically remove the popper when
+     * you call the `destroy` method.
+     * @prop {Boolean} removeOnDestroy=false
+     */
+    removeOnDestroy: false,
+
+    /**
+     * Callback called when the popper is created.<br />
+     * By default, it is set to no-op.<br />
+     * Access Popper.js instance with `data.instance`.
+     * @prop {onCreate}
+     */
+    onCreate: function onCreate() {},
+
+    /**
+     * Callback called when the popper is updated. This callback is not called
+     * on the initialization/creation of the popper, but only on subsequent
+     * updates.<br />
+     * By default, it is set to no-op.<br />
+     * Access Popper.js instance with `data.instance`.
+     * @prop {onUpdate}
+     */
+    onUpdate: function onUpdate() {},
+
+    /**
+     * List of modifiers used to modify the offsets before they are applied to the popper.
+     * They provide most of the functionalities of Popper.js.
+     * @prop {modifiers}
+     */
+    modifiers: modifiers,
+  }
+
+  /**
+   * @callback onCreate
+   * @param {dataObject} data
+   */
+
+  /**
+   * @callback onUpdate
+   * @param {dataObject} data
+   */
+
+  // Utils
+  // Methods
+  var Popper = (function() {
+    /**
+     * Creates a new Popper.js instance.
+     * @class Popper
+     * @param {Element|referenceObject} reference - The reference element used to position the popper
+     * @param {Element} popper - The HTML / XML element used as the popper
+     * @param {Object} options - Your custom options to override the ones defined in [Defaults](#defaults)
+     * @return {Object} instance - The generated Popper.js instance
+     */
+    function Popper(reference, popper) {
+      var _this = this
+
+      var options =
+        arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {}
+      classCallCheck(this, Popper)
+
+      this.scheduleUpdate = function() {
+        return requestAnimationFrame(_this.update)
+      }
+
+      // make update() debounced, so that it only runs at most once-per-tick
+      this.update = debounce(this.update.bind(this))
+
+      // with {} we create a new object with the options inside it
+      this.options = _extends$2({}, Popper.Defaults, options)
+
+      // init state
+      this.state = {
+        isDestroyed: false,
+        isCreated: false,
+        scrollParents: [],
+      }
+
+      // get reference and popper elements (allow jQuery wrappers)
+      this.reference = reference && reference.jquery ? reference[0] : reference
+      this.popper = popper && popper.jquery ? popper[0] : popper
+
+      // Deep merge modifiers options
+      this.options.modifiers = {}
+      Object.keys(
+        _extends$2({}, Popper.Defaults.modifiers, options.modifiers)
+      ).forEach(function(name) {
+        _this.options.modifiers[name] = _extends$2(
+          {},
+          Popper.Defaults.modifiers[name] || {},
+          options.modifiers ? options.modifiers[name] : {}
+        )
+      })
+
+      // Refactoring modifiers' list (Object => Array)
+      this.modifiers = Object.keys(this.options.modifiers)
+        .map(function(name) {
+          return _extends$2(
+            {
+              name: name,
+            },
+            _this.options.modifiers[name]
+          )
+        })
+        // sort the modifiers by order
+        .sort(function(a, b) {
+          return a.order - b.order
+        })
+
+      // modifiers have the ability to execute arbitrary code when Popper.js get inited
+      // such code is executed in the same order of its modifier
+      // they could add new properties to their options configuration
+      // BE AWARE: don't add options to `options.modifiers.name` but to `modifierOptions`!
+      this.modifiers.forEach(function(modifierOptions) {
+        if (modifierOptions.enabled && isFunction$1(modifierOptions.onLoad)) {
+          modifierOptions.onLoad(
+            _this.reference,
+            _this.popper,
+            _this.options,
+            modifierOptions,
+            _this.state
+          )
+        }
+      })
+
+      // fire the first update to position the popper in the right place
+      this.update()
+
+      var eventsEnabled = this.options.eventsEnabled
+      if (eventsEnabled) {
+        // setup event listeners, they will take care of update the position in specific situations
+        this.enableEventListeners()
+      }
+
+      this.state.eventsEnabled = eventsEnabled
+    }
+
+    // We can't use class properties because they don't get listed in the
+    // class prototype and break stuff like Sinon stubs
+
+    createClass(Popper, [
+      {
+        key: 'update',
+        value: function update$$1() {
+          return update.call(this)
+        },
+      },
+      {
+        key: 'destroy',
+        value: function destroy$$1() {
+          return destroy.call(this)
+        },
+      },
+      {
+        key: 'enableEventListeners',
+        value: function enableEventListeners$$1() {
+          return enableEventListeners.call(this)
+        },
+      },
+      {
+        key: 'disableEventListeners',
+        value: function disableEventListeners$$1() {
+          return disableEventListeners.call(this)
+        },
+
+        /**
+         * Schedules an update. It will run on the next UI update available.
+         * @method scheduleUpdate
+         * @memberof Popper
+         */
+
+        /**
+         * Collection of utilities useful when writing custom modifiers.
+         * Starting from version 1.7, this method is available only if you
+         * include `popper-utils.js` before `popper.js`.
+         *
+         * **DEPRECATION**: This way to access PopperUtils is deprecated
+         * and will be removed in v2! Use the PopperUtils module directly instead.
+         * Due to the high instability of the methods contained in Utils, we can't
+         * guarantee them to follow semver. Use them at your own risk!
+         * @static
+         * @private
+         * @type {Object}
+         * @deprecated since version 1.8
+         * @member Utils
+         * @memberof Popper
+         */
+      },
+    ])
+    return Popper
+  })()
+
+  /**
+   * The `referenceObject` is an object that provides an interface compatible with Popper.js
+   * and lets you use it as replacement of a real DOM node.<br />
+   * You can use this method to position a popper relatively to a set of coordinates
+   * in case you don't have a DOM node to use as reference.
+   *
+   * ```
+   * new Popper(referenceObject, popperNode);
+   * ```
+   *
+   * NB: This feature isn't supported in Internet Explorer 10.
+   * @name referenceObject
+   * @property {Function} data.getBoundingClientRect
+   * A function that returns a set of coordinates compatible with the native `getBoundingClientRect` method.
+   * @property {number} data.clientWidth
+   * An ES6 getter that will return the width of the virtual reference element.
+   * @property {number} data.clientHeight
+   * An ES6 getter that will return the height of the virtual reference element.
+   */
+
+  Popper.Utils = (typeof window !== 'undefined' ? window : global).PopperUtils
+  Popper.placements = placements
+  Popper.Defaults = Defaults
+
+  var key = '__global_unique_id__'
+
+  var gud = function() {
+    return (commonjsGlobal[key] = (commonjsGlobal[key] || 0) + 1)
+  }
+
+  /**
+   * Copyright (c) 2013-present, Facebook, Inc.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE file in the root directory of this source tree.
+   *
+   *
+   */
+
+  function makeEmptyFunction(arg) {
+    return function() {
+      return arg
+    }
+  }
+
+  /**
+   * This function accepts and discards inputs; it has no side effects. This is
+   * primarily useful idiomatically for overridable function endpoints which
+   * always need to be callable, since JS lacks a null-call idiom ala Cocoa.
+   */
+  var emptyFunction = function emptyFunction() {}
+
+  emptyFunction.thatReturns = makeEmptyFunction
+  emptyFunction.thatReturnsFalse = makeEmptyFunction(false)
+  emptyFunction.thatReturnsTrue = makeEmptyFunction(true)
+  emptyFunction.thatReturnsNull = makeEmptyFunction(null)
+  emptyFunction.thatReturnsThis = function() {
+    return this
+  }
+  emptyFunction.thatReturnsArgument = function(arg) {
+    return arg
+  }
+
+  var emptyFunction_1 = emptyFunction
+
+  /**
+   * Similar to invariant but only logs a warning if the condition is not met.
+   * This can be used to log issues in development environments in critical
+   * paths. Removing the logging code for production environments will keep the
+   * same logic and follow the same code paths.
+   */
+
+  var warning$1 = emptyFunction_1
+
+  {
+    var printWarning$3 = function printWarning(format) {
+      for (
+        var _len = arguments.length,
+          args = Array(_len > 1 ? _len - 1 : 0),
+          _key = 1;
+        _key < _len;
+        _key++
+      ) {
+        args[_key - 1] = arguments[_key]
+      }
+
+      var argIndex = 0
+      var message =
+        'Warning: ' +
+        format.replace(/%s/g, function() {
+          return args[argIndex++]
+        })
+      if (typeof console !== 'undefined') {
+        console.error(message)
+      }
+      try {
+        // --- Welcome to debugging React ---
+        // This error was thrown as a convenience so that you can use this stack
+        // to find the callsite that caused this warning to fire.
+        throw new Error(message)
+      } catch (x) {}
+    }
+
+    warning$1 = function warning(condition, format) {
+      if (format === undefined) {
+        throw new Error(
+          '`warning(condition, format, ...args)` requires a warning ' +
+            'message argument'
+        )
+      }
+
+      if (format.indexOf('Failed Composite propType: ') === 0) {
+        return // Ignore CompositeComponent proptype check.
+      }
+
+      if (!condition) {
+        for (
+          var _len2 = arguments.length,
+            args = Array(_len2 > 2 ? _len2 - 2 : 0),
+            _key2 = 2;
+          _key2 < _len2;
+          _key2++
+        ) {
+          args[_key2 - 2] = arguments[_key2]
+        }
+
+        printWarning$3.apply(undefined, [format].concat(args))
+      }
+    }
+  }
+
+  var warning_1$1 = warning$1
+
+  var implementation = createCommonjsModule(function(module, exports) {
+    exports.__esModule = true
 
     var _react2 = _interopRequireDefault(React__default)
 
-    var _Portal2 = _interopRequireDefault(Portal_1)
+    var _propTypes2 = _interopRequireDefault(propTypes)
 
-    var _Position2 = _interopRequireDefault(Position_1)
+    var _gud2 = _interopRequireDefault(gud)
 
-    var _RootCloseWrapper2 = _interopRequireDefault(RootCloseWrapper_1)
+    var _warning2 = _interopRequireDefault(warning_1$1)
 
     function _interopRequireDefault(obj) {
       return obj && obj.__esModule ? obj : { default: obj }
-    }
-
-    function _objectWithoutProperties(obj, keys) {
-      var target = {}
-      for (var i in obj) {
-        if (keys.indexOf(i) >= 0) continue
-        if (!Object.prototype.hasOwnProperty.call(obj, i)) continue
-        target[i] = obj[i]
-      }
-      return target
     }
 
     function _classCallCheck(instance, Constructor) {
@@ -6390,217 +8083,1184 @@
           : (subClass.__proto__ = superClass)
     }
 
-    /**
-     * Built on top of `<Position/>` and `<Portal/>`, the overlay component is great for custom tooltip overlays.
-     */
-    var Overlay = (function(_React$Component) {
-      _inherits(Overlay, _React$Component)
+    var MAX_SIGNED_31_BIT_INT = 1073741823
 
-      function Overlay(props, context) {
-        _classCallCheck(this, Overlay)
+    // Inlined Object.is polyfill.
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
+    function objectIs(x, y) {
+      if (x === y) {
+        return x !== 0 || 1 / x === 1 / y
+      } else {
+        return x !== x && y !== y
+      }
+    }
 
-        var _this = _possibleConstructorReturn(
-          this,
-          _React$Component.call(this, props, context)
-        )
+    function createEventEmitter(value) {
+      var handlers = []
+      return {
+        on: function on(handler) {
+          handlers.push(handler)
+        },
+        off: function off(handler) {
+          handlers = handlers.filter(function(h) {
+            return h !== handler
+          })
+        },
+        get: function get() {
+          return value
+        },
+        set: function set(newValue, changedBits) {
+          value = newValue
+          handlers.forEach(function(handler) {
+            return handler(value, changedBits)
+          })
+        },
+      }
+    }
 
-        _this.handleHidden = function() {
-          _this.setState({ exited: true })
+    function onlyChild(children) {
+      return Array.isArray(children) ? children[0] : children
+    }
 
-          if (_this.props.onExited) {
-            var _this$props
+    function createReactContext(defaultValue, calculateChangedBits) {
+      var _Provider$childContex, _Consumer$contextType
 
-            ;(_this$props = _this.props).onExited.apply(_this$props, arguments)
+      var contextProp = '__create-react-context-' + (0, _gud2.default)() + '__'
+
+      var Provider = (function(_Component) {
+        _inherits(Provider, _Component)
+
+        function Provider() {
+          var _temp, _this, _ret
+
+          _classCallCheck(this, Provider)
+
+          for (
+            var _len = arguments.length, args = Array(_len), _key = 0;
+            _key < _len;
+            _key++
+          ) {
+            args[_key] = arguments[_key]
+          }
+
+          return (
+            (_ret = ((_temp = ((_this = _possibleConstructorReturn(
+              this,
+              _Component.call.apply(_Component, [this].concat(args))
+            )),
+            _this)),
+            (_this.emitter = createEventEmitter(_this.props.value)),
+            _temp)),
+            _possibleConstructorReturn(_this, _ret)
+          )
+        }
+
+        Provider.prototype.getChildContext = function getChildContext() {
+          var _ref
+
+          return (_ref = {}), (_ref[contextProp] = this.emitter), _ref
+        }
+
+        Provider.prototype.componentWillReceiveProps = function componentWillReceiveProps(
+          nextProps
+        ) {
+          if (this.props.value !== nextProps.value) {
+            var oldValue = this.props.value
+            var newValue = nextProps.value
+            var changedBits = void 0
+
+            if (objectIs(oldValue, newValue)) {
+              changedBits = 0 // No change
+            } else {
+              changedBits =
+                typeof calculateChangedBits === 'function'
+                  ? calculateChangedBits(oldValue, newValue)
+                  : MAX_SIGNED_31_BIT_INT
+              {
+                ;(0, _warning2.default)(
+                  (changedBits & MAX_SIGNED_31_BIT_INT) === changedBits,
+                  'calculateChangedBits: Expected the return value to be a ' +
+                    '31-bit integer. Instead received: %s',
+                  changedBits
+                )
+              }
+
+              changedBits |= 0
+
+              if (changedBits !== 0) {
+                this.emitter.set(nextProps.value, changedBits)
+              }
+            }
           }
         }
 
-        _this.state = { exited: !props.show }
-        _this.onHiddenListener = _this.handleHidden.bind(_this)
+        Provider.prototype.render = function render() {
+          return this.props.children
+        }
+
+        return Provider
+      })(React__default.Component)
+
+      Provider.childContextTypes = ((_Provider$childContex = {}),
+      (_Provider$childContex[contextProp] =
+        _propTypes2.default.object.isRequired),
+      _Provider$childContex)
+
+      var Consumer = (function(_Component2) {
+        _inherits(Consumer, _Component2)
+
+        function Consumer() {
+          var _temp2, _this2, _ret2
+
+          _classCallCheck(this, Consumer)
+
+          for (
+            var _len2 = arguments.length, args = Array(_len2), _key2 = 0;
+            _key2 < _len2;
+            _key2++
+          ) {
+            args[_key2] = arguments[_key2]
+          }
+
+          return (
+            (_ret2 = ((_temp2 = ((_this2 = _possibleConstructorReturn(
+              this,
+              _Component2.call.apply(_Component2, [this].concat(args))
+            )),
+            _this2)),
+            (_this2.state = {
+              value: _this2.getValue(),
+            }),
+            (_this2.onUpdate = function(newValue, changedBits) {
+              var observedBits = _this2.observedBits | 0
+              if ((observedBits & changedBits) !== 0) {
+                _this2.setState({ value: _this2.getValue() })
+              }
+            }),
+            _temp2)),
+            _possibleConstructorReturn(_this2, _ret2)
+          )
+        }
+
+        Consumer.prototype.componentWillReceiveProps = function componentWillReceiveProps(
+          nextProps
+        ) {
+          var observedBits = nextProps.observedBits
+
+          this.observedBits =
+            observedBits === undefined || observedBits === null
+              ? MAX_SIGNED_31_BIT_INT // Subscribe to all changes by default
+              : observedBits
+        }
+
+        Consumer.prototype.componentDidMount = function componentDidMount() {
+          if (this.context[contextProp]) {
+            this.context[contextProp].on(this.onUpdate)
+          }
+          var observedBits = this.props.observedBits
+
+          this.observedBits =
+            observedBits === undefined || observedBits === null
+              ? MAX_SIGNED_31_BIT_INT // Subscribe to all changes by default
+              : observedBits
+        }
+
+        Consumer.prototype.componentWillUnmount = function componentWillUnmount() {
+          if (this.context[contextProp]) {
+            this.context[contextProp].off(this.onUpdate)
+          }
+        }
+
+        Consumer.prototype.getValue = function getValue() {
+          if (this.context[contextProp]) {
+            return this.context[contextProp].get()
+          } else {
+            return defaultValue
+          }
+        }
+
+        Consumer.prototype.render = function render() {
+          return onlyChild(this.props.children)(this.state.value)
+        }
+
+        return Consumer
+      })(React__default.Component)
+
+      Consumer.contextTypes = ((_Consumer$contextType = {}),
+      (_Consumer$contextType[contextProp] = _propTypes2.default.object),
+      _Consumer$contextType)
+
+      return {
+        Provider: Provider,
+        Consumer: Consumer,
+      }
+    }
+
+    exports.default = createReactContext
+    module.exports = exports['default']
+  })
+
+  unwrapExports(implementation)
+
+  var lib = createCommonjsModule(function(module, exports) {
+    exports.__esModule = true
+
+    var _react2 = _interopRequireDefault(React__default)
+
+    var _implementation2 = _interopRequireDefault(implementation)
+
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { default: obj }
+    }
+
+    exports.default = _react2.default.createContext || _implementation2.default
+    module.exports = exports['default']
+  })
+
+  var createContext = unwrapExports(lib)
+
+  var ManagerContext = createContext({
+    setReferenceNode: undefined,
+    referenceNode: undefined,
+  })
+
+  var Manager =
+    /*#__PURE__*/
+    (function(_React$Component) {
+      inheritsLoose(Manager, _React$Component)
+
+      function Manager() {
+        var _this
+
+        _this = _React$Component.call(this) || this
+
+        defineProperty(
+          assertThisInitialized(assertThisInitialized(_this)),
+          'setReferenceNode',
+          function(referenceNode) {
+            if (
+              !referenceNode ||
+              _this.state.context.referenceNode === referenceNode
+            ) {
+              return
+            }
+
+            _this.setState(function(_ref) {
+              var context = _ref.context
+              return {
+                context: _extends_1({}, context, {
+                  referenceNode: referenceNode,
+                }),
+              }
+            })
+          }
+        )
+
+        _this.state = {
+          context: {
+            setReferenceNode: _this.setReferenceNode,
+            referenceNode: undefined,
+          },
+        }
         return _this
       }
 
-      Overlay.prototype.componentWillReceiveProps = function componentWillReceiveProps(
-        nextProps
+      var _proto = Manager.prototype
+
+      _proto.render = function render() {
+        return React.createElement(
+          ManagerContext.Provider,
+          {
+            value: this.state.context,
+          },
+          this.props.children
+        )
+      }
+
+      return Manager
+    })(React.Component)
+
+  /**
+   * Takes an argument and if it's an array, returns the first item in the array,
+   * otherwise returns the argument. Used for Preact compatibility.
+   */
+  var unwrapArray = function unwrapArray(arg) {
+    return Array.isArray(arg) ? arg[0] : arg
+  }
+  /**
+   * Takes a maybe-undefined function and arbitrary args and invokes the function
+   * only if it is defined.
+   */
+
+  var safeInvoke = function safeInvoke(fn) {
+    if (typeof fn === 'function') {
+      for (
+        var _len = arguments.length,
+          args = new Array(_len > 1 ? _len - 1 : 0),
+          _key = 1;
+        _key < _len;
+        _key++
       ) {
-        if (nextProps.show) {
-          this.setState({ exited: false })
-        } else if (!nextProps.transition) {
-          // Otherwise let handleHidden take care of marking exited.
-          this.setState({ exited: true })
+        args[_key - 1] = arguments[_key]
+      }
+
+      return fn.apply(void 0, args)
+    }
+  }
+
+  var initialStyle = {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    opacity: 0,
+    pointerEvents: 'none',
+  }
+  var initialArrowStyle = {}
+  var InnerPopper =
+    /*#__PURE__*/
+    (function(_React$Component) {
+      inheritsLoose(InnerPopper, _React$Component)
+
+      function InnerPopper() {
+        var _this
+
+        for (
+          var _len = arguments.length, args = new Array(_len), _key = 0;
+          _key < _len;
+          _key++
+        ) {
+          args[_key] = arguments[_key]
+        }
+
+        _this =
+          _React$Component.call.apply(_React$Component, [this].concat(args)) ||
+          this
+
+        defineProperty(
+          assertThisInitialized(assertThisInitialized(_this)),
+          'state',
+          {
+            data: undefined,
+            placement: undefined,
+          }
+        )
+
+        defineProperty(
+          assertThisInitialized(assertThisInitialized(_this)),
+          'popperInstance',
+          void 0
+        )
+
+        defineProperty(
+          assertThisInitialized(assertThisInitialized(_this)),
+          'popperNode',
+          null
+        )
+
+        defineProperty(
+          assertThisInitialized(assertThisInitialized(_this)),
+          'arrowNode',
+          null
+        )
+
+        defineProperty(
+          assertThisInitialized(assertThisInitialized(_this)),
+          'setPopperNode',
+          function(popperNode) {
+            if (!popperNode || _this.popperNode === popperNode) return
+            safeInvoke(_this.props.innerRef, popperNode)
+            _this.popperNode = popperNode
+
+            _this.updatePopperInstance()
+          }
+        )
+
+        defineProperty(
+          assertThisInitialized(assertThisInitialized(_this)),
+          'setArrowNode',
+          function(arrowNode) {
+            _this.arrowNode = arrowNode
+          }
+        )
+
+        defineProperty(
+          assertThisInitialized(assertThisInitialized(_this)),
+          'updateStateModifier',
+          {
+            enabled: true,
+            order: 900,
+            fn: function fn(data) {
+              var placement = data.placement
+
+              _this.setState({
+                data: data,
+                placement: placement,
+              })
+
+              return data
+            },
+          }
+        )
+
+        defineProperty(
+          assertThisInitialized(assertThisInitialized(_this)),
+          'getOptions',
+          function() {
+            return {
+              placement: _this.props.placement,
+              eventsEnabled: _this.props.eventsEnabled,
+              positionFixed: _this.props.positionFixed,
+              modifiers: _extends_1({}, _this.props.modifiers, {
+                arrow: _extends_1(
+                  {},
+                  _this.props.modifiers && _this.props.modifiers.arrow,
+                  {
+                    enabled: !!_this.arrowNode,
+                    element: _this.arrowNode,
+                  }
+                ),
+                applyStyle: {
+                  enabled: false,
+                },
+                updateStateModifier: _this.updateStateModifier,
+              }),
+            }
+          }
+        )
+
+        defineProperty(
+          assertThisInitialized(assertThisInitialized(_this)),
+          'getPopperStyle',
+          function() {
+            return !_this.popperNode || !_this.state.data
+              ? initialStyle
+              : _extends_1(
+                  {
+                    position: _this.state.data.offsets.popper.position,
+                  },
+                  _this.state.data.styles
+                )
+          }
+        )
+
+        defineProperty(
+          assertThisInitialized(assertThisInitialized(_this)),
+          'getPopperPlacement',
+          function() {
+            return !_this.state.data ? undefined : _this.state.placement
+          }
+        )
+
+        defineProperty(
+          assertThisInitialized(assertThisInitialized(_this)),
+          'getArrowStyle',
+          function() {
+            return !_this.arrowNode || !_this.state.data
+              ? initialArrowStyle
+              : _this.state.data.arrowStyles
+          }
+        )
+
+        defineProperty(
+          assertThisInitialized(assertThisInitialized(_this)),
+          'getOutOfBoundariesState',
+          function() {
+            return _this.state.data ? _this.state.data.hide : undefined
+          }
+        )
+
+        defineProperty(
+          assertThisInitialized(assertThisInitialized(_this)),
+          'destroyPopperInstance',
+          function() {
+            if (!_this.popperInstance) return
+
+            _this.popperInstance.destroy()
+
+            _this.popperInstance = null
+          }
+        )
+
+        defineProperty(
+          assertThisInitialized(assertThisInitialized(_this)),
+          'updatePopperInstance',
+          function() {
+            _this.destroyPopperInstance()
+
+            var _assertThisInitialize = assertThisInitialized(
+                assertThisInitialized(_this)
+              ),
+              popperNode = _assertThisInitialize.popperNode
+
+            var referenceElement = _this.props.referenceElement
+            if (!referenceElement || !popperNode) return
+            _this.popperInstance = new Popper(
+              referenceElement,
+              popperNode,
+              _this.getOptions()
+            )
+          }
+        )
+
+        defineProperty(
+          assertThisInitialized(assertThisInitialized(_this)),
+          'scheduleUpdate',
+          function() {
+            if (_this.popperInstance) {
+              _this.popperInstance.scheduleUpdate()
+            }
+          }
+        )
+
+        return _this
+      }
+
+      var _proto = InnerPopper.prototype
+
+      _proto.componentDidUpdate = function componentDidUpdate(
+        prevProps,
+        prevState
+      ) {
+        // If the Popper.js options have changed, update the instance (destroy + create)
+        if (
+          this.props.placement !== prevProps.placement ||
+          this.props.referenceElement !== prevProps.referenceElement ||
+          this.props.positionFixed !== prevProps.positionFixed
+        ) {
+          this.updatePopperInstance()
+        } else if (
+          this.props.eventsEnabled !== prevProps.eventsEnabled &&
+          this.popperInstance
+        ) {
+          this.props.eventsEnabled
+            ? this.popperInstance.enableEventListeners()
+            : this.popperInstance.disableEventListeners()
+        } // A placement difference in state means popper determined a new placement
+        // apart from the props value. By the time the popper element is rendered with
+        // the new position Popper has already measured it, if the place change triggers
+        // a size change it will result in a misaligned popper. So we schedule an update to be sure.
+
+        if (prevState.placement !== this.state.placement) {
+          this.scheduleUpdate()
         }
       }
 
-      Overlay.prototype.render = function render() {
-        var _props = this.props,
-          container = _props.container,
-          containerPadding = _props.containerPadding,
-          target = _props.target,
-          placement = _props.placement,
-          shouldUpdatePosition = _props.shouldUpdatePosition,
-          rootClose = _props.rootClose,
-          children = _props.children,
-          Transition = _props.transition,
-          props = _objectWithoutProperties(_props, [
-            'container',
-            'containerPadding',
-            'target',
-            'placement',
-            'shouldUpdatePosition',
-            'rootClose',
-            'children',
-            'transition',
-          ])
+      _proto.componentWillUnmount = function componentWillUnmount() {
+        safeInvoke(this.props.innerRef, null)
+        this.destroyPopperInstance()
+      }
 
-        // Don't un-render the overlay while it's transitioning out.
+      _proto.render = function render() {
+        return unwrapArray(this.props.children)({
+          ref: this.setPopperNode,
+          style: this.getPopperStyle(),
+          placement: this.getPopperPlacement(),
+          outOfBoundaries: this.getOutOfBoundariesState(),
+          scheduleUpdate: this.scheduleUpdate,
+          arrowProps: {
+            ref: this.setArrowNode,
+            style: this.getArrowStyle(),
+          },
+        })
+      }
 
-        var mountOverlay = props.show || (Transition && !this.state.exited)
-        if (!mountOverlay) {
-          // Don't bother showing anything if we don't have to.
+      return InnerPopper
+    })(React.Component)
+
+  defineProperty(InnerPopper, 'defaultProps', {
+    placement: 'bottom',
+    eventsEnabled: true,
+    referenceElement: undefined,
+    positionFixed: false,
+  })
+
+  var placements$1 = Popper.placements
+  function Popper$1(_ref) {
+    var referenceElement = _ref.referenceElement,
+      props = objectWithoutPropertiesLoose(_ref, ['referenceElement'])
+
+    return React.createElement(ManagerContext.Consumer, null, function(_ref2) {
+      var referenceNode = _ref2.referenceNode
+      return React.createElement(
+        InnerPopper,
+        _extends_1(
+          {
+            referenceElement:
+              referenceElement !== undefined ? referenceElement : referenceNode,
+          },
+          props
+        )
+      )
+    })
+  }
+
+  var InnerReference =
+    /*#__PURE__*/
+    (function(_React$Component) {
+      inheritsLoose(InnerReference, _React$Component)
+
+      function InnerReference() {
+        var _this
+
+        for (
+          var _len = arguments.length, args = new Array(_len), _key = 0;
+          _key < _len;
+          _key++
+        ) {
+          args[_key] = arguments[_key]
+        }
+
+        _this =
+          _React$Component.call.apply(_React$Component, [this].concat(args)) ||
+          this
+
+        defineProperty(
+          assertThisInitialized(assertThisInitialized(_this)),
+          'refHandler',
+          function(node) {
+            safeInvoke(_this.props.innerRef, node)
+            safeInvoke(_this.props.setReferenceNode, node)
+          }
+        )
+
+        return _this
+      }
+
+      var _proto = InnerReference.prototype
+
+      _proto.render = function render() {
+        warning_1(
+          Boolean(this.props.setReferenceNode),
+          '`Reference` should not be used outside of a `Manager` component.'
+        )
+        return unwrapArray(this.props.children)({
+          ref: this.refHandler,
+        })
+      }
+
+      return InnerReference
+    })(React.Component)
+
+  function Reference(props) {
+    return React.createElement(ManagerContext.Consumer, null, function(_ref) {
+      var setReferenceNode = _ref.setReferenceNode
+      return React.createElement(
+        InnerReference,
+        _extends_1(
+          {
+            setReferenceNode: setReferenceNode,
+          },
+          props
+        )
+      )
+    })
+  }
+
+  // Public components
+  // Public types
+
+  var esm = /*#__PURE__*/ Object.freeze({
+    Popper: Popper$1,
+    placements: placements$1,
+    Manager: Manager,
+    Reference: Reference,
+  })
+
+  var forwardRef_1 = createCommonjsModule(function(module, exports) {
+    exports.__esModule = true
+    exports.default = forwardRef
+
+    var _react = _interopRequireDefault(React__default)
+
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { default: obj }
+    }
+
+    function forwardRef(renderFn, _ref) {
+      var displayName = _ref.displayName,
+        propTypes = _ref.propTypes,
+        defaultProps = _ref.defaultProps,
+        _ref$allowFallback = _ref.allowFallback,
+        allowFallback =
+          _ref$allowFallback === void 0 ? false : _ref$allowFallback
+
+      var render = function render(props, ref) {
+        return renderFn(props, ref)
+      }
+
+      Object.assign(render, {
+        displayName: displayName,
+      })
+      if (_react.default.forwardRef || !allowFallback)
+        return Object.assign(_react.default.forwardRef(render), {
+          propTypes: propTypes,
+          defaultProps: defaultProps,
+        })
+      return Object.assign(
+        function(props) {
+          return render(props, null)
+        },
+        {
+          displayName: displayName,
+          propTypes: propTypes,
+          defaultProps: defaultProps,
+        }
+      )
+    }
+  })
+
+  unwrapExports(forwardRef_1)
+
+  var Overlay_1 = createCommonjsModule(function(module, exports) {
+    exports.__esModule = true
+    exports.default = void 0
+
+    var _propTypes = _interopRequireDefault(propTypes)
+
+    var _elementType = _interopRequireDefault(elementType_1)
+
+    var _componentOrElement = _interopRequireDefault(componentOrElement)
+
+    var _react = _interopRequireDefault(React__default)
+
+    var _reactDom = _interopRequireDefault(reactDom__default)
+
+    var _Portal = _interopRequireDefault(Portal_1)
+
+    var _RootCloseWrapper = _interopRequireDefault(RootCloseWrapper_1)
+
+    var _forwardRef = _interopRequireDefault(forwardRef_1)
+
+    var _WaitForContainer = _interopRequireDefault(WaitForContainer_1)
+
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { default: obj }
+    }
+
+    function _extends() {
+      _extends =
+        Object.assign ||
+        function(target) {
+          for (var i = 1; i < arguments.length; i++) {
+            var source = arguments[i]
+            for (var key in source) {
+              if (Object.prototype.hasOwnProperty.call(source, key)) {
+                target[key] = source[key]
+              }
+            }
+          }
+          return target
+        }
+      return _extends.apply(this, arguments)
+    }
+
+    function _objectWithoutPropertiesLoose(source, excluded) {
+      if (source == null) return {}
+      var target = {}
+      var sourceKeys = Object.keys(source)
+      var key, i
+      for (i = 0; i < sourceKeys.length; i++) {
+        key = sourceKeys[i]
+        if (excluded.indexOf(key) >= 0) continue
+        target[key] = source[key]
+      }
+      return target
+    }
+
+    function _inheritsLoose(subClass, superClass) {
+      subClass.prototype = Object.create(superClass.prototype)
+      subClass.prototype.constructor = subClass
+      subClass.__proto__ = superClass
+    }
+
+    function _assertThisInitialized(self) {
+      if (self === void 0) {
+        throw new ReferenceError(
+          "this hasn't been initialised - super() hasn't been called"
+        )
+      }
+      return self
+    }
+
+    /**
+     * Built on top of `<Position/>` and `<Portal/>`, the overlay component is
+     * great for custom tooltip overlays.
+     */
+    var Overlay =
+      /*#__PURE__*/
+      (function(_React$Component) {
+        _inheritsLoose(Overlay, _React$Component)
+
+        function Overlay(props, context) {
+          var _this
+
+          _this = _React$Component.call(this, props, context) || this
+
+          _this.handleHidden = function() {
+            _this.setState({
+              exited: true,
+            })
+
+            if (_this.props.onExited) {
+              var _this$props
+
+              ;(_this$props = _this.props).onExited.apply(
+                _this$props,
+                arguments
+              )
+            }
+          }
+
+          _this.state = {
+            exited: !props.show,
+          }
+          _this.onHiddenListener = _this.handleHidden.bind(
+            _assertThisInitialized(_assertThisInitialized(_this))
+          )
+          _this._lastTarget = null
+          return _this
+        }
+
+        Overlay.getDerivedStateFromProps = function getDerivedStateFromProps(
+          nextProps
+        ) {
+          if (nextProps.show) {
+            return {
+              exited: false,
+            }
+          } else if (!nextProps.transition) {
+            // Otherwise let handleHidden take care of marking exited.
+            return {
+              exited: true,
+            }
+          }
+
           return null
         }
 
-        var child = children
+        var _proto = Overlay.prototype
 
-        // Position is be inner-most because it adds inline styles into the child,
-        // which the other wrappers don't forward correctly.
-        child = _react2.default.createElement(
-          _Position2.default,
-          {
-            container: container,
-            containerPadding: containerPadding,
-            target: target,
+        _proto.componentDidMount = function componentDidMount() {
+          this.setState({
+            target: this.getTarget(),
+          })
+        }
+
+        _proto.componentDidUpdate = function componentDidUpdate(prevProps) {
+          if (this.props === prevProps) return
+          var target = this.getTarget()
+
+          if (target !== this.state.target) {
+            this.setState({
+              target: target,
+            })
+          }
+        }
+
+        _proto.getTarget = function getTarget() {
+          var target = this.props.target
+          target = typeof target === 'function' ? target() : target
+          return (target && _reactDom.default.findDOMNode(target)) || null
+        }
+
+        _proto.render = function render() {
+          var _this2 = this
+
+          var _this$props2 = this.props,
+            _0 = _this$props2.target,
+            container = _this$props2.container,
+            containerPadding = _this$props2.containerPadding,
+            placement = _this$props2.placement,
+            rootClose = _this$props2.rootClose,
+            children = _this$props2.children,
+            flip = _this$props2.flip,
+            _this$props2$popperCo = _this$props2.popperConfig,
+            popperConfig =
+              _this$props2$popperCo === void 0 ? {} : _this$props2$popperCo,
+            Transition = _this$props2.transition,
+            props = _objectWithoutPropertiesLoose(_this$props2, [
+              'target',
+              'container',
+              'containerPadding',
+              'placement',
+              'rootClose',
+              'children',
+              'flip',
+              'popperConfig',
+              'transition',
+            ])
+
+          var target = this.state.target // Don't un-render the overlay while it's transitioning out.
+
+          var mountOverlay = props.show || (Transition && !this.state.exited)
+
+          if (!mountOverlay) {
+            // Don't bother showing anything if we don't have to.
+            return null
+          }
+
+          var child = children
+          var _popperConfig$modifie = popperConfig.modifiers,
+            modifiers =
+              _popperConfig$modifie === void 0 ? {} : _popperConfig$modifie
+
+          var popperProps = _extends({}, popperConfig, {
             placement: placement,
-            shouldUpdatePosition: shouldUpdatePosition,
-          },
-          child
-        )
+            referenceElement: target,
+            enableEvents: props.show,
+            modifiers: _extends({}, modifiers, {
+              preventOverflow: _extends(
+                {
+                  padding: containerPadding || 5,
+                },
+                modifiers.preventOverflow
+              ),
+              flip: _extends(
+                {
+                  enabled: !!flip,
+                },
+                modifiers.preventOverflow
+              ),
+            }),
+          })
 
-        if (Transition) {
-          var onExit = props.onExit,
-            onExiting = props.onExiting,
-            onEnter = props.onEnter,
-            onEntering = props.onEntering,
-            onEntered = props.onEntered
+          child = _react.default.createElement(
+            esm.Popper,
+            popperProps,
+            function(_ref) {
+              var arrowProps = _ref.arrowProps,
+                style = _ref.style,
+                ref = _ref.ref,
+                popper = _objectWithoutPropertiesLoose(_ref, [
+                  'arrowProps',
+                  'style',
+                  'ref',
+                ])
 
-          // This animates the child node by injecting props, so it must precede
-          // anything that adds a wrapping div.
+              _this2.popper = popper
 
-          child = _react2.default.createElement(
-            Transition,
+              var innerChild = _this2.props.children(
+                _extends({}, popper, {
+                  // popper doesn't set the initial placement
+                  placement: popper.placement || placement,
+                  show: props.show,
+                  arrowProps: arrowProps,
+                  props: {
+                    ref: ref,
+                    style: style,
+                  },
+                })
+              )
+
+              if (Transition) {
+                var onExit = props.onExit,
+                  onExiting = props.onExiting,
+                  onEnter = props.onEnter,
+                  onEntering = props.onEntering,
+                  onEntered = props.onEntered
+                innerChild = _react.default.createElement(
+                  Transition,
+                  {
+                    in: props.show,
+                    appear: true,
+                    onExit: onExit,
+                    onExiting: onExiting,
+                    onExited: _this2.onHiddenListener,
+                    onEnter: onEnter,
+                    onEntering: onEntering,
+                    onEntered: onEntered,
+                  },
+                  innerChild
+                )
+              }
+
+              return innerChild
+            }
+          )
+
+          if (rootClose) {
+            child = _react.default.createElement(
+              _RootCloseWrapper.default,
+              {
+                onRootClose: props.onHide,
+                event: props.rootCloseEvent,
+                disabled: props.rootCloseDisabled,
+              },
+              child
+            )
+          }
+
+          return _react.default.createElement(
+            _Portal.default,
             {
-              in: props.show,
-              appear: true,
-              onExit: onExit,
-              onExiting: onExiting,
-              onExited: this.onHiddenListener,
-              onEnter: onEnter,
-              onEntering: onEntering,
-              onEntered: onEntered,
+              container: container,
             },
             child
           )
         }
 
-        // This goes after everything else because it adds a wrapping div.
-        if (rootClose) {
-          child = _react2.default.createElement(
-            _RootCloseWrapper2.default,
-            { onRootClose: props.onHide },
-            child
-          )
+        return Overlay
+      })(_react.default.Component)
+
+    Overlay.propTypes = _extends({}, _Portal.default.propTypes, {
+      /**
+       * Set the visibility of the Overlay
+       */
+      show: _propTypes.default.bool,
+
+      /** Specify where the overlay element is positioned in relation to the target element */
+      placement: _propTypes.default.oneOf(esm.placements),
+
+      /**
+       * A Node, Component instance, or function that returns either. The `container` will have the Portal children
+       * appended to it.
+       */
+      container: _propTypes.default.oneOfType([
+        _componentOrElement.default,
+        _propTypes.default.func,
+      ]),
+
+      /**
+       * Enables the Popper.js `flip` modifier, allowing the Overlay to
+       * automatically adjust it's placement in case of overlap with the viewport or toggle.
+       * Refer to the [flip docs](https://popper.js.org/popper-documentation.html#modifiers..flip.enabled) for more info
+       */
+      flip: _propTypes.default.bool,
+
+      /**
+       * A render prop that returns an element to overlay and position. See
+       * the [react-popper documentation](https://github.com/FezVrasta/react-popper#children) for more info.
+       *
+       * @type {Function ({
+       *   show: boolean,
+       *   placement: Placement,
+       *   outOfBoundaries: ?boolean,
+       *   scheduleUpdate: () => void,
+       *   props: {
+       *     ref: (?HTMLElement) => void,
+       *     style: { [string]: string | number },
+       *     aria-labelledby: ?string
+       *   },
+       *   arrowProps: {
+       *     ref: (?HTMLElement) => void,
+       *     style: { [string]: string | number },
+       *   },
+       * }) => React.Element}
+       */
+      children: _propTypes.default.func.isRequired,
+
+      /**
+       * A set of popper options and props passed directly to react-popper's Popper component.
+       */
+      popperConfig: _propTypes.default.object,
+
+      /**
+       * Specify whether the overlay should trigger `onHide` when the user clicks outside the overlay
+       */
+      rootClose: _propTypes.default.bool,
+
+      /**
+       * Specify event for toggling overlay
+       */
+      rootCloseEvent: _RootCloseWrapper.default.propTypes.event,
+
+      /**
+       * Specify disabled for disable RootCloseWrapper
+       */
+      rootCloseDisabled: _RootCloseWrapper.default.propTypes.disabled,
+
+      /**
+       * A Callback fired by the Overlay when it wishes to be hidden.
+       *
+       * __required__ when `rootClose` is `true`.
+       *
+       * @type func
+       */
+      onHide: function onHide(props) {
+        var propType = _propTypes.default.func
+
+        if (props.rootClose) {
+          propType = propType.isRequired
         }
 
-        return _react2.default.createElement(
-          _Portal2.default,
-          { container: container },
-          child
+        for (
+          var _len = arguments.length,
+            args = new Array(_len > 1 ? _len - 1 : 0),
+            _key = 1;
+          _key < _len;
+          _key++
+        ) {
+          args[_key - 1] = arguments[_key]
+        }
+
+        return propType.apply(void 0, [props].concat(args))
+      },
+
+      /**
+       * A `react-transition-group@2.0.0` `<Transition/>` component
+       * used to animate the overlay as it changes visibility.
+       */
+      transition: _elementType.default,
+
+      /**
+       * Callback fired before the Overlay transitions in
+       */
+      onEnter: _propTypes.default.func,
+
+      /**
+       * Callback fired as the Overlay begins to transition in
+       */
+      onEntering: _propTypes.default.func,
+
+      /**
+       * Callback fired after the Overlay finishes transitioning in
+       */
+      onEntered: _propTypes.default.func,
+
+      /**
+       * Callback fired right before the Overlay transitions out
+       */
+      onExit: _propTypes.default.func,
+
+      /**
+       * Callback fired as the Overlay begins to transition out
+       */
+      onExiting: _propTypes.default.func,
+
+      /**
+       * Callback fired after the Overlay finishes transitioning out
+       */
+      onExited: _propTypes.default.func,
+    })
+
+    var _default = (0, _forwardRef.default)(
+      function(props, ref) {
+        return (
+          // eslint-disable-next-line react/prop-types
+          _react.default.createElement(
+            _WaitForContainer.default,
+            {
+              container: props.container,
+            },
+            function(container) {
+              return _react.default.createElement(
+                Overlay,
+                _extends({}, props, {
+                  ref: ref,
+                  container: container,
+                })
+              )
+            }
+          )
         )
-      }
-
-      return Overlay
-    })(_react2.default.Component)
-
-    Overlay.propTypes = _extends(
-      {},
-      _Portal2.default.propTypes,
-      _Position2.default.propTypes,
+      },
       {
-        /**
-         * Set the visibility of the Overlay
-         */
-        show: _propTypes2.default.bool,
-
-        /**
-         * Specify whether the overlay should trigger `onHide` when the user clicks outside the overlay
-         */
-        rootClose: _propTypes2.default.bool,
-
-        /**
-         * A Callback fired by the Overlay when it wishes to be hidden.
-         *
-         * __required__ when `rootClose` is `true`.
-         *
-         * @type func
-         */
-        onHide: function onHide(props) {
-          var propType = _propTypes2.default.func
-          if (props.rootClose) {
-            propType = propType.isRequired
-          }
-
-          for (
-            var _len = arguments.length,
-              args = Array(_len > 1 ? _len - 1 : 0),
-              _key = 1;
-            _key < _len;
-            _key++
-          ) {
-            args[_key - 1] = arguments[_key]
-          }
-
-          return propType.apply(undefined, [props].concat(args))
-        },
-
-        /**
-         * A `react-transition-group@2.0.0` `<Transition/>` component
-         * used to animate the overlay as it changes visibility.
-         */
-        transition: _elementType2.default,
-
-        /**
-         * Callback fired before the Overlay transitions in
-         */
-        onEnter: _propTypes2.default.func,
-
-        /**
-         * Callback fired as the Overlay begins to transition in
-         */
-        onEntering: _propTypes2.default.func,
-
-        /**
-         * Callback fired after the Overlay finishes transitioning in
-         */
-        onEntered: _propTypes2.default.func,
-
-        /**
-         * Callback fired right before the Overlay transitions out
-         */
-        onExit: _propTypes2.default.func,
-
-        /**
-         * Callback fired as the Overlay begins to transition out
-         */
-        onExiting: _propTypes2.default.func,
-
-        /**
-         * Callback fired after the Overlay finishes transitioning out
-         */
-        onExited: _propTypes2.default.func,
+        displayName: 'withContainer(Overlay)',
       }
     )
 
-    exports.default = Overlay
-    module.exports = exports['default']
+    exports.default = _default
+    module.exports = exports.default
   })
 
   var Overlay = unwrapExports(Overlay_1)
@@ -6736,71 +9396,6 @@
 
   var closest = unwrapExports(closest_1)
 
-  var on_1$1 = createCommonjsModule(function(module, exports) {
-    exports.__esModule = true
-    exports.default = void 0
-
-    var _inDOM = interopRequireDefault(inDOM)
-
-    var on = function on() {}
-
-    if (_inDOM.default) {
-      on = (function() {
-        if (document.addEventListener)
-          return function(node, eventName, handler, capture) {
-            return node.addEventListener(eventName, handler, capture || false)
-          }
-        else if (document.attachEvent)
-          return function(node, eventName, handler) {
-            return node.attachEvent('on' + eventName, function(e) {
-              e = e || window.event
-              e.target = e.target || e.srcElement
-              e.currentTarget = node
-              handler.call(node, e)
-            })
-          }
-      })()
-    }
-
-    var _default = on
-    exports.default = _default
-    module.exports = exports['default']
-  })
-
-  unwrapExports(on_1$1)
-
-  var off_1$1 = createCommonjsModule(function(module, exports) {
-    exports.__esModule = true
-    exports.default = void 0
-
-    var _inDOM = interopRequireDefault(inDOM)
-
-    var off = function off() {}
-
-    if (_inDOM.default) {
-      off = (function() {
-        if (document.addEventListener)
-          return function(node, eventName, handler, capture) {
-            return node.removeEventListener(
-              eventName,
-              handler,
-              capture || false
-            )
-          }
-        else if (document.attachEvent)
-          return function(node, eventName, handler) {
-            return node.detachEvent('on' + eventName, handler)
-          }
-      })()
-    }
-
-    var _default = off
-    exports.default = _default
-    module.exports = exports['default']
-  })
-
-  unwrapExports(off_1$1)
-
   var filter = createCommonjsModule(function(module, exports) {
     exports.__esModule = true
     exports.default = filterEvents
@@ -6828,43 +9423,15 @@
 
   unwrapExports(filter)
 
-  var listen_1 = createCommonjsModule(function(module, exports) {
-    exports.__esModule = true
-    exports.default = void 0
-
-    var _inDOM = interopRequireDefault(inDOM)
-
-    var _on = interopRequireDefault(on_1$1)
-
-    var _off = interopRequireDefault(off_1$1)
-
-    var listen = function listen() {}
-
-    if (_inDOM.default) {
-      listen = function listen(node, eventName, handler, capture) {
-        ;(0, _on.default)(node, eventName, handler, capture)
-        return function() {
-          ;(0, _off.default)(node, eventName, handler, capture)
-        }
-      }
-    }
-
-    var _default = listen
-    exports.default = _default
-    module.exports = exports['default']
-  })
-
-  unwrapExports(listen_1)
-
   var events = createCommonjsModule(function(module, exports) {
     exports.__esModule = true
     exports.default = void 0
 
-    var _on = interopRequireDefault(on_1$1)
+    var _on = interopRequireDefault(on_1)
 
     exports.on = _on.default
 
-    var _off = interopRequireDefault(off_1$1)
+    var _off = interopRequireDefault(off_1)
 
     exports.off = _off.default
 
@@ -6890,7 +9457,7 @@
   var events_3 = events.filter
   var events_4 = events.listen
 
-  function addEventListener$2(type, handler, target) {
+  function addEventListener(type, handler, target) {
     if (target === void 0) {
       target = document
     }
@@ -6948,6 +9515,7 @@
           longPressThreshold =
             _ref2$longPressThresh === void 0 ? 250 : _ref2$longPressThresh
 
+        this.isDetached = false
         this.container = node
         this.globalMouse = !node || global
         this.longPressThreshold = longPressThreshold
@@ -6955,19 +9523,28 @@
         this._handleInitialEvent = this._handleInitialEvent.bind(this)
         this._handleMoveEvent = this._handleMoveEvent.bind(this)
         this._handleTerminatingEvent = this._handleTerminatingEvent.bind(this)
-        this._keyListener = this._keyListener.bind(this) // Fixes an iOS 10 bug where scrolling could not be prevented on the window.
+        this._keyListener = this._keyListener.bind(this)
+        this._dropFromOutsideListener = this._dropFromOutsideListener.bind(this)
+        this._dragOverFromOutsideListener = this._dragOverFromOutsideListener.bind(
+          this
+        ) // Fixes an iOS 10 bug where scrolling could not be prevented on the window.
         // https://github.com/metafizzy/flickity/issues/457#issuecomment-254501356
 
-        this._onTouchMoveWindowListener = addEventListener$2(
+        this._onTouchMoveWindowListener = addEventListener(
           'touchmove',
           function() {},
           window
         )
-        this._onKeyDownListener = addEventListener$2(
-          'keydown',
-          this._keyListener
+        this._onKeyDownListener = addEventListener('keydown', this._keyListener)
+        this._onKeyUpListener = addEventListener('keyup', this._keyListener)
+        this._onDropFromOutsideListener = addEventListener(
+          'drop',
+          this._dropFromOutsideListener
         )
-        this._onKeyUpListener = addEventListener$2('keyup', this._keyListener)
+        this._onDragOverfromOutisde = addEventListener(
+          'dragover',
+          this._dragOverFromOutsideListener
+        )
 
         this._addInitialEventListener()
       }
@@ -7005,6 +9582,7 @@
       }
 
       _proto.teardown = function teardown() {
+        this.isDetached = true
         this.listeners = Object.create(null)
         this._onTouchMoveWindowListener &&
           this._onTouchMoveWindowListener.remove()
@@ -7014,6 +9592,7 @@
         this._onMoveListener && this._onMoveListener.remove()
         this._onKeyUpListener && this._onKeyUpListener.remove()
         this._onKeyDownListener && this._onKeyDownListener.remove()
+        this._onDropFromOutsideListener && this._onDragOverfromOutisde.remove()
       }
 
       _proto.isSelected = function isSelected(node) {
@@ -7045,15 +9624,15 @@
             cleanup()
             handler(initialEvent)
           }, _this.longPressThreshold)
-          touchMoveListener = addEventListener$2('touchmove', function() {
+          touchMoveListener = addEventListener('touchmove', function() {
             return cleanup()
           })
-          touchEndListener = addEventListener$2('touchend', function() {
+          touchEndListener = addEventListener('touchend', function() {
             return cleanup()
           })
         }
 
-        var touchStartListener = addEventListener$2(
+        var touchStartListener = addEventListener(
           'touchstart',
           handleTouchStart
         )
@@ -7092,17 +9671,17 @@
       _proto._addInitialEventListener = function _addInitialEventListener() {
         var _this2 = this
 
-        var mouseDownListener = addEventListener$2('mousedown', function(e) {
+        var mouseDownListener = addEventListener('mousedown', function(e) {
           _this2._onInitialEventListener.remove()
 
           _this2._handleInitialEvent(e)
 
-          _this2._onInitialEventListener = addEventListener$2(
+          _this2._onInitialEventListener = addEventListener(
             'mousedown',
             _this2._handleInitialEvent
           )
         })
-        var touchStartListener = addEventListener$2('touchstart', function(e) {
+        var touchStartListener = addEventListener('touchstart', function(e) {
           _this2._onInitialEventListener.remove()
 
           _this2._onInitialEventListener = _this2._addLongPressListener(
@@ -7118,12 +9697,50 @@
         }
       }
 
-      _proto._handleInitialEvent = function _handleInitialEvent(e) {
+      _proto._dropFromOutsideListener = function _dropFromOutsideListener(e) {
         var _getEventCoordinates = getEventCoordinates(e),
-          clientX = _getEventCoordinates.clientX,
-          clientY = _getEventCoordinates.clientY,
           pageX = _getEventCoordinates.pageX,
-          pageY = _getEventCoordinates.pageY
+          pageY = _getEventCoordinates.pageY,
+          clientX = _getEventCoordinates.clientX,
+          clientY = _getEventCoordinates.clientY
+
+        this.emit('dropFromOutside', {
+          x: pageX,
+          y: pageY,
+          clientX: clientX,
+          clientY: clientY,
+        })
+        e.preventDefault()
+      }
+
+      _proto._dragOverFromOutsideListener = function _dragOverFromOutsideListener(
+        e
+      ) {
+        var _getEventCoordinates2 = getEventCoordinates(e),
+          pageX = _getEventCoordinates2.pageX,
+          pageY = _getEventCoordinates2.pageY,
+          clientX = _getEventCoordinates2.clientX,
+          clientY = _getEventCoordinates2.clientY
+
+        this.emit('dragOverFromOutside', {
+          x: pageX,
+          y: pageY,
+          clientX: clientX,
+          clientY: clientY,
+        })
+        e.preventDefault()
+      }
+
+      _proto._handleInitialEvent = function _handleInitialEvent(e) {
+        if (this.isDetached) {
+          return
+        }
+
+        var _getEventCoordinates3 = getEventCoordinates(e),
+          clientX = _getEventCoordinates3.clientX,
+          clientY = _getEventCoordinates3.clientY,
+          pageX = _getEventCoordinates3.pageX,
+          pageY = _getEventCoordinates3.pageY
 
         var node = this.container(),
           collides,
@@ -7173,15 +9790,15 @@
 
         switch (e.type) {
           case 'mousedown':
-            this._onEndListener = addEventListener$2(
+            this._onEndListener = addEventListener(
               'mouseup',
               this._handleTerminatingEvent
             )
-            this._onEscListener = addEventListener$2(
+            this._onEscListener = addEventListener(
               'keydown',
               this._handleTerminatingEvent
             )
-            this._onMoveListener = addEventListener$2(
+            this._onMoveListener = addEventListener(
               'mousemove',
               this._handleMoveEvent
             )
@@ -7190,11 +9807,11 @@
           case 'touchstart':
             this._handleMoveEvent(e)
 
-            this._onEndListener = addEventListener$2(
+            this._onEndListener = addEventListener(
               'touchend',
               this._handleTerminatingEvent
             )
-            this._onMoveListener = addEventListener$2(
+            this._onMoveListener = addEventListener(
               'touchmove',
               this._handleMoveEvent
             )
@@ -7206,9 +9823,9 @@
       }
 
       _proto._handleTerminatingEvent = function _handleTerminatingEvent(e) {
-        var _getEventCoordinates2 = getEventCoordinates(e),
-          pageX = _getEventCoordinates2.pageX,
-          pageY = _getEventCoordinates2.pageY
+        var _getEventCoordinates4 = getEventCoordinates(e),
+          pageX = _getEventCoordinates4.pageX,
+          pageY = _getEventCoordinates4.pageY
 
         this.selecting = false
         this._onEndListener && this._onEndListener.remove()
@@ -7235,11 +9852,11 @@
       }
 
       _proto._handleClickEvent = function _handleClickEvent(e) {
-        var _getEventCoordinates3 = getEventCoordinates(e),
-          pageX = _getEventCoordinates3.pageX,
-          pageY = _getEventCoordinates3.pageY,
-          clientX = _getEventCoordinates3.clientX,
-          clientY = _getEventCoordinates3.clientY
+        var _getEventCoordinates5 = getEventCoordinates(e),
+          pageX = _getEventCoordinates5.pageX,
+          pageY = _getEventCoordinates5.pageY,
+          clientX = _getEventCoordinates5.clientX,
+          clientY = _getEventCoordinates5.clientY
 
         var now = new Date().getTime()
 
@@ -7269,7 +9886,7 @@
       }
 
       _proto._handleMoveEvent = function _handleMoveEvent(e) {
-        if (this._initialEventData === null) {
+        if (this._initialEventData === null || this.isDetached) {
           return
         }
 
@@ -7277,9 +9894,9 @@
           x = _this$_initialEventDa.x,
           y = _this$_initialEventDa.y
 
-        var _getEventCoordinates4 = getEventCoordinates(e),
-          pageX = _getEventCoordinates4.pageX,
-          pageY = _getEventCoordinates4.pageY
+        var _getEventCoordinates6 = getEventCoordinates(e),
+          pageX = _getEventCoordinates6.pageX,
+          pageY = _getEventCoordinates6.pageY
 
         var w = Math.abs(x - pageX)
         var h = Math.abs(y - pageY)
@@ -7480,9 +10097,9 @@
                   'rbc-day-bg',
                   className,
                   selected && 'rbc-selected-cell',
-                  dates.eq(date, current, 'day') && 'rbc-today',
+                  eq(date, current, 'day') && 'rbc-today',
                   currentDate &&
-                    dates.month(currentDate) !== dates.month(date) &&
+                    month(currentDate) !== month(date) &&
                     'rbc-off-range-bg'
                 ),
               })
@@ -7677,6 +10294,8 @@
         onDoubleClick: onDoubleClick,
         continuesPrior: continuesPrior,
         continuesAfter: continuesAfter,
+        slotStart: slotMetrics.first,
+        slotEnd: slotMetrics.last,
         selected: isSelected(event, selected),
       })
     },
@@ -7777,8 +10396,6 @@
     return -1
   }
 
-  var _baseFindIndex = baseFindIndex
-
   /**
    * Removes all key-value entries from the list cache.
    *
@@ -7791,8 +10408,6 @@
     this.size = 0
   }
 
-  var _listCacheClear = listCacheClear
-
   /**
    * Gets the index at which the `key` is found in `array` of key-value pairs.
    *
@@ -7804,14 +10419,12 @@
   function assocIndexOf(array, key) {
     var length = array.length
     while (length--) {
-      if (eq_1(array[length][0], key)) {
+      if (eq$1(array[length][0], key)) {
         return length
       }
     }
     return -1
   }
-
-  var _assocIndexOf = assocIndexOf
 
   /** Used for built-in method references. */
   var arrayProto = Array.prototype
@@ -7830,7 +10443,7 @@
    */
   function listCacheDelete(key) {
     var data = this.__data__,
-      index = _assocIndexOf(data, key)
+      index = assocIndexOf(data, key)
 
     if (index < 0) {
       return false
@@ -7845,8 +10458,6 @@
     return true
   }
 
-  var _listCacheDelete = listCacheDelete
-
   /**
    * Gets the list cache value for `key`.
    *
@@ -7858,12 +10469,10 @@
    */
   function listCacheGet(key) {
     var data = this.__data__,
-      index = _assocIndexOf(data, key)
+      index = assocIndexOf(data, key)
 
     return index < 0 ? undefined : data[index][1]
   }
-
-  var _listCacheGet = listCacheGet
 
   /**
    * Checks if a list cache value for `key` exists.
@@ -7875,10 +10484,8 @@
    * @returns {boolean} Returns `true` if an entry for `key` exists, else `false`.
    */
   function listCacheHas(key) {
-    return _assocIndexOf(this.__data__, key) > -1
+    return assocIndexOf(this.__data__, key) > -1
   }
-
-  var _listCacheHas = listCacheHas
 
   /**
    * Sets the list cache `key` to `value`.
@@ -7892,7 +10499,7 @@
    */
   function listCacheSet(key, value) {
     var data = this.__data__,
-      index = _assocIndexOf(data, key)
+      index = assocIndexOf(data, key)
 
     if (index < 0) {
       ++this.size
@@ -7902,8 +10509,6 @@
     }
     return this
   }
-
-  var _listCacheSet = listCacheSet
 
   /**
    * Creates an list cache object.
@@ -7924,13 +10529,11 @@
   }
 
   // Add methods to `ListCache`.
-  ListCache.prototype.clear = _listCacheClear
-  ListCache.prototype['delete'] = _listCacheDelete
-  ListCache.prototype.get = _listCacheGet
-  ListCache.prototype.has = _listCacheHas
-  ListCache.prototype.set = _listCacheSet
-
-  var _ListCache = ListCache
+  ListCache.prototype.clear = listCacheClear
+  ListCache.prototype['delete'] = listCacheDelete
+  ListCache.prototype.get = listCacheGet
+  ListCache.prototype.has = listCacheHas
+  ListCache.prototype.set = listCacheSet
 
   /**
    * Removes all key-value entries from the stack.
@@ -7940,11 +10543,9 @@
    * @memberOf Stack
    */
   function stackClear() {
-    this.__data__ = new _ListCache()
+    this.__data__ = new ListCache()
     this.size = 0
   }
-
-  var _stackClear = stackClear
 
   /**
    * Removes `key` and its value from the stack.
@@ -7963,8 +10564,6 @@
     return result
   }
 
-  var _stackDelete = stackDelete
-
   /**
    * Gets the stack value for `key`.
    *
@@ -7977,8 +10576,6 @@
   function stackGet(key) {
     return this.__data__.get(key)
   }
-
-  var _stackGet = stackGet
 
   /**
    * Checks if a stack value for `key` exists.
@@ -7993,17 +10590,13 @@
     return this.__data__.has(key)
   }
 
-  var _stackHas = stackHas
-
   /** Used to detect overreaching core-js shims. */
-  var coreJsData = _root['__core-js_shared__']
-
-  var _coreJsData = coreJsData
+  var coreJsData = root['__core-js_shared__']
 
   /** Used to detect methods masquerading as native. */
   var maskSrcKey = (function() {
     var uid = /[^.]+$/.exec(
-      (_coreJsData && _coreJsData.keys && _coreJsData.keys.IE_PROTO) || ''
+      (coreJsData && coreJsData.keys && coreJsData.keys.IE_PROTO) || ''
     )
     return uid ? 'Symbol(src)_1.' + uid : ''
   })()
@@ -8018,8 +10611,6 @@
   function isMasked(func) {
     return !!maskSrcKey && maskSrcKey in func
   }
-
-  var _isMasked = isMasked
 
   /** Used for built-in method references. */
   var funcProto = Function.prototype
@@ -8045,8 +10636,6 @@
     }
     return ''
   }
-
-  var _toSource = toSource
 
   /**
    * Used to match `RegExp`
@@ -8089,14 +10678,12 @@
    *  else `false`.
    */
   function baseIsNative(value) {
-    if (!isObject_1(value) || _isMasked(value)) {
+    if (!isObject(value) || isMasked(value)) {
       return false
     }
-    var pattern = isFunction_1(value) ? reIsNative : reIsHostCtor
-    return pattern.test(_toSource(value))
+    var pattern = isFunction(value) ? reIsNative : reIsHostCtor
+    return pattern.test(toSource(value))
   }
-
-  var _baseIsNative = baseIsNative
 
   /**
    * Gets the value at `key` of `object`.
@@ -8110,8 +10697,6 @@
     return object == null ? undefined : object[key]
   }
 
-  var _getValue = getValue
-
   /**
    * Gets the native function at `key` of `object`.
    *
@@ -8121,21 +10706,15 @@
    * @returns {*} Returns the function if it's native, else `undefined`.
    */
   function getNative(object, key) {
-    var value = _getValue(object, key)
-    return _baseIsNative(value) ? value : undefined
+    var value = getValue(object, key)
+    return baseIsNative(value) ? value : undefined
   }
 
-  var _getNative = getNative
+  /* Built-in method references that are verified to be native. */
+  var Map$1 = getNative(root, 'Map')
 
   /* Built-in method references that are verified to be native. */
-  var Map$1 = _getNative(_root, 'Map')
-
-  var _Map = Map$1
-
-  /* Built-in method references that are verified to be native. */
-  var nativeCreate = _getNative(Object, 'create')
-
-  var _nativeCreate = nativeCreate
+  var nativeCreate = getNative(Object, 'create')
 
   /**
    * Removes all key-value entries from the hash.
@@ -8145,11 +10724,9 @@
    * @memberOf Hash
    */
   function hashClear() {
-    this.__data__ = _nativeCreate ? _nativeCreate(null) : {}
+    this.__data__ = nativeCreate ? nativeCreate(null) : {}
     this.size = 0
   }
-
-  var _hashClear = hashClear
 
   /**
    * Removes `key` and its value from the hash.
@@ -8166,8 +10743,6 @@
     this.size -= result ? 1 : 0
     return result
   }
-
-  var _hashDelete = hashDelete
 
   /** Used to stand-in for `undefined` hash values. */
   var HASH_UNDEFINED = '__lodash_hash_undefined__'
@@ -8189,14 +10764,12 @@
    */
   function hashGet(key) {
     var data = this.__data__
-    if (_nativeCreate) {
+    if (nativeCreate) {
       var result = data[key]
       return result === HASH_UNDEFINED ? undefined : result
     }
     return hasOwnProperty$3.call(data, key) ? data[key] : undefined
   }
-
-  var _hashGet = hashGet
 
   /** Used for built-in method references. */
   var objectProto$4 = Object.prototype
@@ -8215,12 +10788,10 @@
    */
   function hashHas(key) {
     var data = this.__data__
-    return _nativeCreate
+    return nativeCreate
       ? data[key] !== undefined
       : hasOwnProperty$4.call(data, key)
   }
-
-  var _hashHas = hashHas
 
   /** Used to stand-in for `undefined` hash values. */
   var HASH_UNDEFINED$1 = '__lodash_hash_undefined__'
@@ -8238,11 +10809,9 @@
   function hashSet(key, value) {
     var data = this.__data__
     this.size += this.has(key) ? 0 : 1
-    data[key] = _nativeCreate && value === undefined ? HASH_UNDEFINED$1 : value
+    data[key] = nativeCreate && value === undefined ? HASH_UNDEFINED$1 : value
     return this
   }
-
-  var _hashSet = hashSet
 
   /**
    * Creates a hash object.
@@ -8263,13 +10832,11 @@
   }
 
   // Add methods to `Hash`.
-  Hash.prototype.clear = _hashClear
-  Hash.prototype['delete'] = _hashDelete
-  Hash.prototype.get = _hashGet
-  Hash.prototype.has = _hashHas
-  Hash.prototype.set = _hashSet
-
-  var _Hash = Hash
+  Hash.prototype.clear = hashClear
+  Hash.prototype['delete'] = hashDelete
+  Hash.prototype.get = hashGet
+  Hash.prototype.has = hashHas
+  Hash.prototype.set = hashSet
 
   /**
    * Removes all key-value entries from the map.
@@ -8281,13 +10848,11 @@
   function mapCacheClear() {
     this.size = 0
     this.__data__ = {
-      hash: new _Hash(),
-      map: new (_Map || _ListCache)(),
-      string: new _Hash(),
+      hash: new Hash(),
+      map: new (Map$1 || ListCache)(),
+      string: new Hash(),
     }
   }
-
-  var _mapCacheClear = mapCacheClear
 
   /**
    * Checks if `value` is suitable for use as unique object key.
@@ -8306,8 +10871,6 @@
       : value === null
   }
 
-  var _isKeyable = isKeyable
-
   /**
    * Gets the data for `map`.
    *
@@ -8318,12 +10881,10 @@
    */
   function getMapData(map, key) {
     var data = map.__data__
-    return _isKeyable(key)
+    return isKeyable(key)
       ? data[typeof key == 'string' ? 'string' : 'hash']
       : data.map
   }
-
-  var _getMapData = getMapData
 
   /**
    * Removes `key` and its value from the map.
@@ -8335,12 +10896,10 @@
    * @returns {boolean} Returns `true` if the entry was removed, else `false`.
    */
   function mapCacheDelete(key) {
-    var result = _getMapData(this, key)['delete'](key)
+    var result = getMapData(this, key)['delete'](key)
     this.size -= result ? 1 : 0
     return result
   }
-
-  var _mapCacheDelete = mapCacheDelete
 
   /**
    * Gets the map value for `key`.
@@ -8352,10 +10911,8 @@
    * @returns {*} Returns the entry value.
    */
   function mapCacheGet(key) {
-    return _getMapData(this, key).get(key)
+    return getMapData(this, key).get(key)
   }
-
-  var _mapCacheGet = mapCacheGet
 
   /**
    * Checks if a map value for `key` exists.
@@ -8367,10 +10924,8 @@
    * @returns {boolean} Returns `true` if an entry for `key` exists, else `false`.
    */
   function mapCacheHas(key) {
-    return _getMapData(this, key).has(key)
+    return getMapData(this, key).has(key)
   }
-
-  var _mapCacheHas = mapCacheHas
 
   /**
    * Sets the map `key` to `value`.
@@ -8383,15 +10938,13 @@
    * @returns {Object} Returns the map cache instance.
    */
   function mapCacheSet(key, value) {
-    var data = _getMapData(this, key),
+    var data = getMapData(this, key),
       size = data.size
 
     data.set(key, value)
     this.size += data.size == size ? 0 : 1
     return this
   }
-
-  var _mapCacheSet = mapCacheSet
 
   /**
    * Creates a map cache object to store key-value pairs.
@@ -8412,13 +10965,11 @@
   }
 
   // Add methods to `MapCache`.
-  MapCache.prototype.clear = _mapCacheClear
-  MapCache.prototype['delete'] = _mapCacheDelete
-  MapCache.prototype.get = _mapCacheGet
-  MapCache.prototype.has = _mapCacheHas
-  MapCache.prototype.set = _mapCacheSet
-
-  var _MapCache = MapCache
+  MapCache.prototype.clear = mapCacheClear
+  MapCache.prototype['delete'] = mapCacheDelete
+  MapCache.prototype.get = mapCacheGet
+  MapCache.prototype.has = mapCacheHas
+  MapCache.prototype.set = mapCacheSet
 
   /** Used as the size to enable large array optimizations. */
   var LARGE_ARRAY_SIZE = 200
@@ -8435,21 +10986,19 @@
    */
   function stackSet(key, value) {
     var data = this.__data__
-    if (data instanceof _ListCache) {
+    if (data instanceof ListCache) {
       var pairs = data.__data__
-      if (!_Map || pairs.length < LARGE_ARRAY_SIZE - 1) {
+      if (!Map$1 || pairs.length < LARGE_ARRAY_SIZE - 1) {
         pairs.push([key, value])
         this.size = ++data.size
         return this
       }
-      data = this.__data__ = new _MapCache(pairs)
+      data = this.__data__ = new MapCache(pairs)
     }
     data.set(key, value)
     this.size = data.size
     return this
   }
-
-  var _stackSet = stackSet
 
   /**
    * Creates a stack cache object to store key-value pairs.
@@ -8459,18 +11008,16 @@
    * @param {Array} [entries] The key-value pairs to cache.
    */
   function Stack(entries) {
-    var data = (this.__data__ = new _ListCache(entries))
+    var data = (this.__data__ = new ListCache(entries))
     this.size = data.size
   }
 
   // Add methods to `Stack`.
-  Stack.prototype.clear = _stackClear
-  Stack.prototype['delete'] = _stackDelete
-  Stack.prototype.get = _stackGet
-  Stack.prototype.has = _stackHas
-  Stack.prototype.set = _stackSet
-
-  var _Stack = Stack
+  Stack.prototype.clear = stackClear
+  Stack.prototype['delete'] = stackDelete
+  Stack.prototype.get = stackGet
+  Stack.prototype.has = stackHas
+  Stack.prototype.set = stackSet
 
   /** Used to stand-in for `undefined` hash values. */
   var HASH_UNDEFINED$2 = '__lodash_hash_undefined__'
@@ -8490,8 +11037,6 @@
     return this
   }
 
-  var _setCacheAdd = setCacheAdd
-
   /**
    * Checks if `value` is in the array cache.
    *
@@ -8505,8 +11050,6 @@
     return this.__data__.has(value)
   }
 
-  var _setCacheHas = setCacheHas
-
   /**
    *
    * Creates an array cache object to store unique values.
@@ -8519,17 +11062,15 @@
     var index = -1,
       length = values == null ? 0 : values.length
 
-    this.__data__ = new _MapCache()
+    this.__data__ = new MapCache()
     while (++index < length) {
       this.add(values[index])
     }
   }
 
   // Add methods to `SetCache`.
-  SetCache.prototype.add = SetCache.prototype.push = _setCacheAdd
-  SetCache.prototype.has = _setCacheHas
-
-  var _SetCache = SetCache
+  SetCache.prototype.add = SetCache.prototype.push = setCacheAdd
+  SetCache.prototype.has = setCacheHas
 
   /**
    * A specialized version of `_.some` for arrays without support for iteratee
@@ -8553,8 +11094,6 @@
     return false
   }
 
-  var _arraySome = arraySome
-
   /**
    * Checks if a `cache` value for `key` exists.
    *
@@ -8566,8 +11105,6 @@
   function cacheHas(cache, key) {
     return cache.has(key)
   }
-
-  var _cacheHas = cacheHas
 
   /** Used to compose bitmasks for value comparisons. */
   var COMPARE_PARTIAL_FLAG = 1,
@@ -8601,7 +11138,7 @@
     }
     var index = -1,
       result = true,
-      seen = bitmask & COMPARE_UNORDERED_FLAG ? new _SetCache() : undefined
+      seen = bitmask & COMPARE_UNORDERED_FLAG ? new SetCache() : undefined
 
     stack.set(array, other)
     stack.set(other, array)
@@ -8626,9 +11163,9 @@
       // Recursively compare arrays (susceptible to call stack limits).
       if (seen) {
         if (
-          !_arraySome(other, function(othValue, othIndex) {
+          !arraySome(other, function(othValue, othIndex) {
             if (
-              !_cacheHas(seen, othIndex) &&
+              !cacheHas(seen, othIndex) &&
               (arrValue === othValue ||
                 equalFunc(arrValue, othValue, bitmask, customizer, stack))
             ) {
@@ -8654,12 +11191,8 @@
     return result
   }
 
-  var _equalArrays = equalArrays
-
   /** Built-in value references. */
-  var Uint8Array = _root.Uint8Array
-
-  var _Uint8Array = Uint8Array
+  var Uint8Array = root.Uint8Array
 
   /**
    * Converts `map` to its key-value pairs.
@@ -8678,8 +11211,6 @@
     return result
   }
 
-  var _mapToArray = mapToArray
-
   /**
    * Converts `set` to an array of its values.
    *
@@ -8696,8 +11227,6 @@
     })
     return result
   }
-
-  var _setToArray = setToArray
 
   /** Used to compose bitmasks for value comparisons. */
   var COMPARE_PARTIAL_FLAG$1 = 1,
@@ -8718,7 +11247,7 @@
     dataViewTag = '[object DataView]'
 
   /** Used to convert symbols to primitives and strings. */
-  var symbolProto = _Symbol ? _Symbol.prototype : undefined,
+  var symbolProto = Symbol$1 ? Symbol$1.prototype : undefined,
     symbolValueOf = symbolProto ? symbolProto.valueOf : undefined
 
   /**
@@ -8761,7 +11290,7 @@
       case arrayBufferTag:
         if (
           object.byteLength != other.byteLength ||
-          !equalFunc(new _Uint8Array(object), new _Uint8Array(other))
+          !equalFunc(new Uint8Array(object), new Uint8Array(other))
         ) {
           return false
         }
@@ -8772,7 +11301,7 @@
       case numberTag:
         // Coerce booleans to `1` or `0` and dates to milliseconds.
         // Invalid dates are coerced to `NaN`.
-        return eq_1(+object, +other)
+        return eq$1(+object, +other)
 
       case errorTag:
         return object.name == other.name && object.message == other.message
@@ -8785,11 +11314,11 @@
         return object == other + ''
 
       case mapTag:
-        var convert = _mapToArray
+        var convert = mapToArray
 
       case setTag:
         var isPartial = bitmask & COMPARE_PARTIAL_FLAG$1
-        convert || (convert = _setToArray)
+        convert || (convert = setToArray)
 
         if (object.size != other.size && !isPartial) {
           return false
@@ -8803,7 +11332,7 @@
 
         // Recursively compare objects (susceptible to call stack limits).
         stack.set(object, other)
-        var result = _equalArrays(
+        var result = equalArrays(
           convert(object),
           convert(other),
           bitmask,
@@ -8821,8 +11350,6 @@
     }
     return false
   }
-
-  var _equalByTag = equalByTag
 
   /**
    * Appends the elements of `values` to `array`.
@@ -8842,8 +11369,6 @@
     }
     return array
   }
-
-  var _arrayPush = arrayPush
 
   /**
    * Checks if `value` is classified as an `Array` object.
@@ -8870,8 +11395,6 @@
    */
   var isArray = Array.isArray
 
-  var isArray_1 = isArray
-
   /**
    * The base implementation of `getAllKeys` and `getAllKeysIn` which uses
    * `keysFunc` and `symbolsFunc` to get the enumerable property names and
@@ -8885,10 +11408,8 @@
    */
   function baseGetAllKeys(object, keysFunc, symbolsFunc) {
     var result = keysFunc(object)
-    return isArray_1(object) ? result : _arrayPush(result, symbolsFunc(object))
+    return isArray(object) ? result : arrayPush(result, symbolsFunc(object))
   }
-
-  var _baseGetAllKeys = baseGetAllKeys
 
   /**
    * A specialized version of `_.filter` for arrays without support for
@@ -8914,8 +11435,6 @@
     return result
   }
 
-  var _arrayFilter = arrayFilter
-
   /**
    * This method returns a new empty array.
    *
@@ -8938,8 +11457,6 @@
     return []
   }
 
-  var stubArray_1 = stubArray
-
   /** Used for built-in method references. */
   var objectProto$5 = Object.prototype
 
@@ -8957,18 +11474,16 @@
    * @returns {Array} Returns the array of symbols.
    */
   var getSymbols = !nativeGetSymbols
-    ? stubArray_1
+    ? stubArray
     : function(object) {
         if (object == null) {
           return []
         }
         object = Object(object)
-        return _arrayFilter(nativeGetSymbols(object), function(symbol) {
+        return arrayFilter(nativeGetSymbols(object), function(symbol) {
           return propertyIsEnumerable.call(object, symbol)
         })
       }
-
-  var _getSymbols = getSymbols
 
   /**
    * The base implementation of `_.times` without support for iteratee shorthands
@@ -8989,8 +11504,6 @@
     return result
   }
 
-  var _baseTimes = baseTimes
-
   /** `Object#toString` result references. */
   var argsTag = '[object Arguments]'
 
@@ -9002,10 +11515,8 @@
    * @returns {boolean} Returns `true` if `value` is an `arguments` object,
    */
   function baseIsArguments(value) {
-    return isObjectLike_1(value) && _baseGetTag(value) == argsTag
+    return isObjectLike(value) && baseGetTag(value) == argsTag
   }
-
-  var _baseIsArguments = baseIsArguments
 
   /** Used for built-in method references. */
   var objectProto$6 = Object.prototype
@@ -9034,21 +11545,19 @@
    * _.isArguments([1, 2, 3]);
    * // => false
    */
-  var isArguments = _baseIsArguments(
+  var isArguments = baseIsArguments(
     (function() {
       return arguments
     })()
   )
-    ? _baseIsArguments
+    ? baseIsArguments
     : function(value) {
         return (
-          isObjectLike_1(value) &&
+          isObjectLike(value) &&
           hasOwnProperty$5.call(value, 'callee') &&
           !propertyIsEnumerable$1.call(value, 'callee')
         )
       }
-
-  var isArguments_1 = isArguments
 
   /**
    * This method returns `false`.
@@ -9067,50 +11576,45 @@
     return false
   }
 
-  var stubFalse_1 = stubFalse
+  /** Detect free variable `exports`. */
+  var freeExports =
+    typeof exports == 'object' && exports && !exports.nodeType && exports
 
-  var isBuffer_1 = createCommonjsModule(function(module, exports) {
-    /** Detect free variable `exports`. */
-    var freeExports = exports && !exports.nodeType && exports
+  /** Detect free variable `module`. */
+  var freeModule =
+    freeExports &&
+    typeof module == 'object' &&
+    module &&
+    !module.nodeType &&
+    module
 
-    /** Detect free variable `module`. */
-    var freeModule =
-      freeExports &&
-      'object' == 'object' &&
-      module &&
-      !module.nodeType &&
-      module
+  /** Detect the popular CommonJS extension `module.exports`. */
+  var moduleExports = freeModule && freeModule.exports === freeExports
 
-    /** Detect the popular CommonJS extension `module.exports`. */
-    var moduleExports = freeModule && freeModule.exports === freeExports
+  /** Built-in value references. */
+  var Buffer = moduleExports ? root.Buffer : undefined
 
-    /** Built-in value references. */
-    var Buffer = moduleExports ? _root.Buffer : undefined
+  /* Built-in method references for those with the same name as other `lodash` methods. */
+  var nativeIsBuffer = Buffer ? Buffer.isBuffer : undefined
 
-    /* Built-in method references for those with the same name as other `lodash` methods. */
-    var nativeIsBuffer = Buffer ? Buffer.isBuffer : undefined
-
-    /**
-     * Checks if `value` is a buffer.
-     *
-     * @static
-     * @memberOf _
-     * @since 4.3.0
-     * @category Lang
-     * @param {*} value The value to check.
-     * @returns {boolean} Returns `true` if `value` is a buffer, else `false`.
-     * @example
-     *
-     * _.isBuffer(new Buffer(2));
-     * // => true
-     *
-     * _.isBuffer(new Uint8Array(2));
-     * // => false
-     */
-    var isBuffer = nativeIsBuffer || stubFalse_1
-
-    module.exports = isBuffer
-  })
+  /**
+   * Checks if `value` is a buffer.
+   *
+   * @static
+   * @memberOf _
+   * @since 4.3.0
+   * @category Lang
+   * @param {*} value The value to check.
+   * @returns {boolean} Returns `true` if `value` is a buffer, else `false`.
+   * @example
+   *
+   * _.isBuffer(new Buffer(2));
+   * // => true
+   *
+   * _.isBuffer(new Uint8Array(2));
+   * // => false
+   */
+  var isBuffer = nativeIsBuffer || stubFalse
 
   /** `Object#toString` result references. */
   var argsTag$1 = '[object Arguments]',
@@ -9169,13 +11673,11 @@
    */
   function baseIsTypedArray(value) {
     return (
-      isObjectLike_1(value) &&
-      isLength_1(value.length) &&
-      !!typedArrayTags[_baseGetTag(value)]
+      isObjectLike(value) &&
+      isLength(value.length) &&
+      !!typedArrayTags[baseGetTag(value)]
     )
   }
-
-  var _baseIsTypedArray = baseIsTypedArray
 
   /**
    * The base implementation of `_.unary` without support for storing metadata.
@@ -9190,47 +11692,44 @@
     }
   }
 
-  var _baseUnary = baseUnary
+  /** Detect free variable `exports`. */
+  var freeExports$1 =
+    typeof exports == 'object' && exports && !exports.nodeType && exports
 
-  var _nodeUtil = createCommonjsModule(function(module, exports) {
-    /** Detect free variable `exports`. */
-    var freeExports = exports && !exports.nodeType && exports
+  /** Detect free variable `module`. */
+  var freeModule$1 =
+    freeExports$1 &&
+    typeof module == 'object' &&
+    module &&
+    !module.nodeType &&
+    module
 
-    /** Detect free variable `module`. */
-    var freeModule =
-      freeExports &&
-      'object' == 'object' &&
-      module &&
-      !module.nodeType &&
-      module
+  /** Detect the popular CommonJS extension `module.exports`. */
+  var moduleExports$1 = freeModule$1 && freeModule$1.exports === freeExports$1
 
-    /** Detect the popular CommonJS extension `module.exports`. */
-    var moduleExports = freeModule && freeModule.exports === freeExports
+  /** Detect free variable `process` from Node.js. */
+  var freeProcess = moduleExports$1 && freeGlobal.process
 
-    /** Detect free variable `process` from Node.js. */
-    var freeProcess = moduleExports && _freeGlobal.process
+  /** Used to access faster Node.js helpers. */
+  var nodeUtil = (function() {
+    try {
+      // Use `util.types` for Node.js 10+.
+      var types =
+        freeModule$1 &&
+        freeModule$1.require &&
+        freeModule$1.require('util').types
 
-    /** Used to access faster Node.js helpers. */
-    var nodeUtil = (function() {
-      try {
-        // Use `util.types` for Node.js 10+.
-        var types =
-          freeModule && freeModule.require && freeModule.require('util').types
+      if (types) {
+        return types
+      }
 
-        if (types) {
-          return types
-        }
-
-        // Legacy `process.binding('util')` for Node.js < 10.
-        return freeProcess && freeProcess.binding && freeProcess.binding('util')
-      } catch (e) {}
-    })()
-
-    module.exports = nodeUtil
-  })
+      // Legacy `process.binding('util')` for Node.js < 10.
+      return freeProcess && freeProcess.binding && freeProcess.binding('util')
+    } catch (e) {}
+  })()
 
   /* Node.js helper references. */
-  var nodeIsTypedArray = _nodeUtil && _nodeUtil.isTypedArray
+  var nodeIsTypedArray = nodeUtil && nodeUtil.isTypedArray
 
   /**
    * Checks if `value` is classified as a typed array.
@@ -9250,10 +11749,8 @@
    * // => false
    */
   var isTypedArray = nodeIsTypedArray
-    ? _baseUnary(nodeIsTypedArray)
-    : _baseIsTypedArray
-
-  var isTypedArray_1 = isTypedArray
+    ? baseUnary(nodeIsTypedArray)
+    : baseIsTypedArray
 
   /** Used for built-in method references. */
   var objectProto$7 = Object.prototype
@@ -9270,12 +11767,12 @@
    * @returns {Array} Returns the array of property names.
    */
   function arrayLikeKeys(value, inherited) {
-    var isArr = isArray_1(value),
-      isArg = !isArr && isArguments_1(value),
-      isBuff = !isArr && !isArg && isBuffer_1(value),
-      isType = !isArr && !isArg && !isBuff && isTypedArray_1(value),
+    var isArr = isArray(value),
+      isArg = !isArr && isArguments(value),
+      isBuff = !isArr && !isArg && isBuffer(value),
+      isType = !isArr && !isArg && !isBuff && isTypedArray(value),
       skipIndexes = isArr || isArg || isBuff || isType,
-      result = skipIndexes ? _baseTimes(value.length, String) : [],
+      result = skipIndexes ? baseTimes(value.length, String) : [],
       length = result.length
 
     for (var key in value) {
@@ -9293,7 +11790,7 @@
                 key == 'byteLength' ||
                 key == 'byteOffset')) ||
             // Skip index properties.
-            _isIndex(key, length))
+            isIndex(key, length))
         )
       ) {
         result.push(key)
@@ -9301,8 +11798,6 @@
     }
     return result
   }
-
-  var _arrayLikeKeys = arrayLikeKeys
 
   /** Used for built-in method references. */
   var objectProto$8 = Object.prototype
@@ -9321,8 +11816,6 @@
     return value === proto
   }
 
-  var _isPrototype = isPrototype
-
   /**
    * Creates a unary function that invokes `func` with its argument transformed.
    *
@@ -9337,12 +11830,8 @@
     }
   }
 
-  var _overArg = overArg
-
   /* Built-in method references for those with the same name as other `lodash` methods. */
-  var nativeKeys = _overArg(Object.keys, Object)
-
-  var _nativeKeys = nativeKeys
+  var nativeKeys = overArg(Object.keys, Object)
 
   /** Used for built-in method references. */
   var objectProto$9 = Object.prototype
@@ -9358,8 +11847,8 @@
    * @returns {Array} Returns the array of property names.
    */
   function baseKeys(object) {
-    if (!_isPrototype(object)) {
-      return _nativeKeys(object)
+    if (!isPrototype(object)) {
+      return nativeKeys(object)
     }
     var result = []
     for (var key in Object(object)) {
@@ -9369,8 +11858,6 @@
     }
     return result
   }
-
-  var _baseKeys = baseKeys
 
   /**
    * Creates an array of the own enumerable property names of `object`.
@@ -9401,10 +11888,8 @@
    * // => ['0', '1']
    */
   function keys(object) {
-    return isArrayLike_1(object) ? _arrayLikeKeys(object) : _baseKeys(object)
+    return isArrayLike(object) ? arrayLikeKeys(object) : baseKeys(object)
   }
-
-  var keys_1 = keys
 
   /**
    * Creates an array of own enumerable property names and symbols of `object`.
@@ -9414,10 +11899,8 @@
    * @returns {Array} Returns the array of property names and symbols.
    */
   function getAllKeys(object) {
-    return _baseGetAllKeys(object, keys_1, _getSymbols)
+    return baseGetAllKeys(object, keys, getSymbols)
   }
-
-  var _getAllKeys = getAllKeys
 
   /** Used to compose bitmasks for value comparisons. */
   var COMPARE_PARTIAL_FLAG$2 = 1
@@ -9443,9 +11926,9 @@
    */
   function equalObjects(object, other, bitmask, customizer, equalFunc, stack) {
     var isPartial = bitmask & COMPARE_PARTIAL_FLAG$2,
-      objProps = _getAllKeys(object),
+      objProps = getAllKeys(object),
       objLength = objProps.length,
-      othProps = _getAllKeys(other),
+      othProps = getAllKeys(other),
       othLength = othProps.length
 
     if (objLength != othLength && !isPartial) {
@@ -9513,27 +11996,17 @@
     return result
   }
 
-  var _equalObjects = equalObjects
+  /* Built-in method references that are verified to be native. */
+  var DataView = getNative(root, 'DataView')
 
   /* Built-in method references that are verified to be native. */
-  var DataView = _getNative(_root, 'DataView')
-
-  var _DataView = DataView
+  var Promise = getNative(root, 'Promise')
 
   /* Built-in method references that are verified to be native. */
-  var Promise = _getNative(_root, 'Promise')
-
-  var _Promise = Promise
+  var Set = getNative(root, 'Set')
 
   /* Built-in method references that are verified to be native. */
-  var Set = _getNative(_root, 'Set')
-
-  var _Set = Set
-
-  /* Built-in method references that are verified to be native. */
-  var WeakMap = _getNative(_root, 'WeakMap')
-
-  var _WeakMap = WeakMap
+  var WeakMap = getNative(root, 'WeakMap')
 
   /** `Object#toString` result references. */
   var mapTag$2 = '[object Map]',
@@ -9545,11 +12018,11 @@
   var dataViewTag$2 = '[object DataView]'
 
   /** Used to detect maps, sets, and weakmaps. */
-  var dataViewCtorString = _toSource(_DataView),
-    mapCtorString = _toSource(_Map),
-    promiseCtorString = _toSource(_Promise),
-    setCtorString = _toSource(_Set),
-    weakMapCtorString = _toSource(_WeakMap)
+  var dataViewCtorString = toSource(DataView),
+    mapCtorString = toSource(Map$1),
+    promiseCtorString = toSource(Promise),
+    setCtorString = toSource(Set),
+    weakMapCtorString = toSource(WeakMap)
 
   /**
    * Gets the `toStringTag` of `value`.
@@ -9558,20 +12031,20 @@
    * @param {*} value The value to query.
    * @returns {string} Returns the `toStringTag`.
    */
-  var getTag = _baseGetTag
+  var getTag = baseGetTag
 
   // Fallback for data views, maps, sets, and weak maps in IE 11 and promises in Node.js < 6.
   if (
-    (_DataView && getTag(new _DataView(new ArrayBuffer(1))) != dataViewTag$2) ||
-    (_Map && getTag(new _Map()) != mapTag$2) ||
-    (_Promise && getTag(_Promise.resolve()) != promiseTag) ||
-    (_Set && getTag(new _Set()) != setTag$2) ||
-    (_WeakMap && getTag(new _WeakMap()) != weakMapTag$1)
+    (DataView && getTag(new DataView(new ArrayBuffer(1))) != dataViewTag$2) ||
+    (Map$1 && getTag(new Map$1()) != mapTag$2) ||
+    (Promise && getTag(Promise.resolve()) != promiseTag) ||
+    (Set && getTag(new Set()) != setTag$2) ||
+    (WeakMap && getTag(new WeakMap()) != weakMapTag$1)
   ) {
     getTag = function(value) {
-      var result = _baseGetTag(value),
+      var result = baseGetTag(value),
         Ctor = result == objectTag$1 ? value.constructor : undefined,
-        ctorString = Ctor ? _toSource(Ctor) : ''
+        ctorString = Ctor ? toSource(Ctor) : ''
 
       if (ctorString) {
         switch (ctorString) {
@@ -9591,7 +12064,7 @@
     }
   }
 
-  var _getTag = getTag
+  var getTag$1 = getTag
 
   /** Used to compose bitmasks for value comparisons. */
   var COMPARE_PARTIAL_FLAG$3 = 1
@@ -9629,10 +12102,10 @@
     equalFunc,
     stack
   ) {
-    var objIsArr = isArray_1(object),
-      othIsArr = isArray_1(other),
-      objTag = objIsArr ? arrayTag$1 : _getTag(object),
-      othTag = othIsArr ? arrayTag$1 : _getTag(other)
+    var objIsArr = isArray(object),
+      othIsArr = isArray(other),
+      objTag = objIsArr ? arrayTag$1 : getTag$1(object),
+      othTag = othIsArr ? arrayTag$1 : getTag$1(other)
 
     objTag = objTag == argsTag$2 ? objectTag$2 : objTag
     othTag = othTag == argsTag$2 ? objectTag$2 : othTag
@@ -9641,18 +12114,18 @@
       othIsObj = othTag == objectTag$2,
       isSameTag = objTag == othTag
 
-    if (isSameTag && isBuffer_1(object)) {
-      if (!isBuffer_1(other)) {
+    if (isSameTag && isBuffer(object)) {
+      if (!isBuffer(other)) {
         return false
       }
       objIsArr = true
       objIsObj = false
     }
     if (isSameTag && !objIsObj) {
-      stack || (stack = new _Stack())
-      return objIsArr || isTypedArray_1(object)
-        ? _equalArrays(object, other, bitmask, customizer, equalFunc, stack)
-        : _equalByTag(
+      stack || (stack = new Stack())
+      return objIsArr || isTypedArray(object)
+        ? equalArrays(object, other, bitmask, customizer, equalFunc, stack)
+        : equalByTag(
             object,
             other,
             objTag,
@@ -9671,18 +12144,16 @@
         var objUnwrapped = objIsWrapped ? object.value() : object,
           othUnwrapped = othIsWrapped ? other.value() : other
 
-        stack || (stack = new _Stack())
+        stack || (stack = new Stack())
         return equalFunc(objUnwrapped, othUnwrapped, bitmask, customizer, stack)
       }
     }
     if (!isSameTag) {
       return false
     }
-    stack || (stack = new _Stack())
-    return _equalObjects(object, other, bitmask, customizer, equalFunc, stack)
+    stack || (stack = new Stack())
+    return equalObjects(object, other, bitmask, customizer, equalFunc, stack)
   }
-
-  var _baseIsEqualDeep = baseIsEqualDeep
 
   /**
    * The base implementation of `_.isEqual` which supports partial comparisons
@@ -9705,11 +12176,11 @@
     if (
       value == null ||
       other == null ||
-      (!isObjectLike_1(value) && !isObjectLike_1(other))
+      (!isObjectLike(value) && !isObjectLike(other))
     ) {
       return value !== value && other !== other
     }
-    return _baseIsEqualDeep(
+    return baseIsEqualDeep(
       value,
       other,
       bitmask,
@@ -9718,8 +12189,6 @@
       stack
     )
   }
-
-  var _baseIsEqual = baseIsEqual
 
   /** Used to compose bitmasks for value comparisons. */
   var COMPARE_PARTIAL_FLAG$4 = 1,
@@ -9765,7 +12234,7 @@
           return false
         }
       } else {
-        var stack = new _Stack()
+        var stack = new Stack()
         if (customizer) {
           var result = customizer(
             objValue,
@@ -9778,7 +12247,7 @@
         }
         if (
           !(result === undefined
-            ? _baseIsEqual(
+            ? baseIsEqual(
                 srcValue,
                 objValue,
                 COMPARE_PARTIAL_FLAG$4 | COMPARE_UNORDERED_FLAG$2,
@@ -9794,8 +12263,6 @@
     return true
   }
 
-  var _baseIsMatch = baseIsMatch
-
   /**
    * Checks if `value` is suitable for strict equality comparisons, i.e. `===`.
    *
@@ -9805,10 +12272,8 @@
    *  equality comparisons, else `false`.
    */
   function isStrictComparable(value) {
-    return value === value && !isObject_1(value)
+    return value === value && !isObject(value)
   }
-
-  var _isStrictComparable = isStrictComparable
 
   /**
    * Gets the property names, values, and compare flags of `object`.
@@ -9818,19 +12283,17 @@
    * @returns {Array} Returns the match data of `object`.
    */
   function getMatchData(object) {
-    var result = keys_1(object),
+    var result = keys(object),
       length = result.length
 
     while (length--) {
       var key = result[length],
         value = object[key]
 
-      result[length] = [key, value, _isStrictComparable(value)]
+      result[length] = [key, value, isStrictComparable(value)]
     }
     return result
   }
-
-  var _getMatchData = getMatchData
 
   /**
    * A specialized version of `matchesProperty` for source values suitable
@@ -9853,8 +12316,6 @@
     }
   }
 
-  var _matchesStrictComparable = matchesStrictComparable
-
   /**
    * The base implementation of `_.matches` which doesn't clone `source`.
    *
@@ -9863,16 +12324,14 @@
    * @returns {Function} Returns the new spec function.
    */
   function baseMatches(source) {
-    var matchData = _getMatchData(source)
+    var matchData = getMatchData(source)
     if (matchData.length == 1 && matchData[0][2]) {
-      return _matchesStrictComparable(matchData[0][0], matchData[0][1])
+      return matchesStrictComparable(matchData[0][0], matchData[0][1])
     }
     return function(object) {
-      return object === source || _baseIsMatch(object, source, matchData)
+      return object === source || baseIsMatch(object, source, matchData)
     }
   }
-
-  var _baseMatches = baseMatches
 
   /** Used to match property names within property paths. */
   var reIsDeepProp = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/,
@@ -9887,7 +12346,7 @@
    * @returns {boolean} Returns `true` if `value` is a property name, else `false`.
    */
   function isKey(value, object) {
-    if (isArray_1(value)) {
+    if (isArray(value)) {
       return false
     }
     var type = typeof value
@@ -9896,7 +12355,7 @@
       type == 'symbol' ||
       type == 'boolean' ||
       value == null ||
-      isSymbol_1(value)
+      isSymbol(value)
     ) {
       return true
     }
@@ -9906,8 +12365,6 @@
       (object != null && value in Object(object))
     )
   }
-
-  var _isKey = isKey
 
   /** Error message constants. */
   var FUNC_ERROR_TEXT = 'Expected a function'
@@ -9975,14 +12432,12 @@
       memoized.cache = cache.set(key, result) || cache
       return result
     }
-    memoized.cache = new (memoize.Cache || _MapCache)()
+    memoized.cache = new (memoize.Cache || MapCache)()
     return memoized
   }
 
   // Expose `MapCache`.
-  memoize.Cache = _MapCache
-
-  var memoize_1 = memoize
+  memoize.Cache = MapCache
 
   /** Used as the maximum memoize cache size. */
   var MAX_MEMOIZE_SIZE = 500
@@ -9996,7 +12451,7 @@
    * @returns {Function} Returns the new memoized function.
    */
   function memoizeCapped(func) {
-    var result = memoize_1(func, function(key) {
+    var result = memoize(func, function(key) {
       if (cache.size === MAX_MEMOIZE_SIZE) {
         cache.clear()
       }
@@ -10006,8 +12461,6 @@
     var cache = result.cache
     return result
   }
-
-  var _memoizeCapped = memoizeCapped
 
   /** Used to match property names within property paths. */
   var rePropName = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g
@@ -10022,7 +12475,7 @@
    * @param {string} string The string to convert.
    * @returns {Array} Returns the property path array.
    */
-  var stringToPath = _memoizeCapped(function(string) {
+  var stringToPath = memoizeCapped(function(string) {
     var result = []
     if (string.charCodeAt(0) === 46 /* . */) {
       result.push('')
@@ -10034,8 +12487,6 @@
     })
     return result
   })
-
-  var _stringToPath = stringToPath
 
   /**
    * A specialized version of `_.map` for arrays without support for iteratee
@@ -10057,13 +12508,11 @@
     return result
   }
 
-  var _arrayMap = arrayMap
-
   /** Used as references for various `Number` constants. */
   var INFINITY$1 = 1 / 0
 
   /** Used to convert symbols to primitives and strings. */
-  var symbolProto$1 = _Symbol ? _Symbol.prototype : undefined,
+  var symbolProto$1 = Symbol$1 ? Symbol$1.prototype : undefined,
     symbolToString = symbolProto$1 ? symbolProto$1.toString : undefined
 
   /**
@@ -10079,18 +12528,16 @@
     if (typeof value == 'string') {
       return value
     }
-    if (isArray_1(value)) {
+    if (isArray(value)) {
       // Recursively convert values (susceptible to call stack limits).
-      return _arrayMap(value, baseToString) + ''
+      return arrayMap(value, baseToString) + ''
     }
-    if (isSymbol_1(value)) {
+    if (isSymbol(value)) {
       return symbolToString ? symbolToString.call(value) : ''
     }
     var result = value + ''
     return result == '0' && 1 / value == -INFINITY$1 ? '-0' : result
   }
-
-  var _baseToString = baseToString
 
   /**
    * Converts `value` to a string. An empty string is returned for `null`
@@ -10114,10 +12561,8 @@
    * // => '1,2,3'
    */
   function toString(value) {
-    return value == null ? '' : _baseToString(value)
+    return value == null ? '' : baseToString(value)
   }
-
-  var toString_1 = toString
 
   /**
    * Casts `value` to a path array if it's not one.
@@ -10128,13 +12573,11 @@
    * @returns {Array} Returns the cast property path array.
    */
   function castPath(value, object) {
-    if (isArray_1(value)) {
+    if (isArray(value)) {
       return value
     }
-    return _isKey(value, object) ? [value] : _stringToPath(toString_1(value))
+    return isKey(value, object) ? [value] : stringToPath(toString(value))
   }
-
-  var _castPath = castPath
 
   /** Used as references for various `Number` constants. */
   var INFINITY$2 = 1 / 0
@@ -10147,14 +12590,12 @@
    * @returns {string|symbol} Returns the key.
    */
   function toKey(value) {
-    if (typeof value == 'string' || isSymbol_1(value)) {
+    if (typeof value == 'string' || isSymbol(value)) {
       return value
     }
     var result = value + ''
     return result == '0' && 1 / value == -INFINITY$2 ? '-0' : result
   }
-
-  var _toKey = toKey
 
   /**
    * The base implementation of `_.get` without support for default values.
@@ -10165,18 +12606,16 @@
    * @returns {*} Returns the resolved value.
    */
   function baseGet(object, path) {
-    path = _castPath(path, object)
+    path = castPath(path, object)
 
     var index = 0,
       length = path.length
 
     while (object != null && index < length) {
-      object = object[_toKey(path[index++])]
+      object = object[toKey(path[index++])]
     }
     return index && index == length ? object : undefined
   }
-
-  var _baseGet = baseGet
 
   /**
    * Gets the value at `path` of `object`. If the resolved value is
@@ -10204,11 +12643,9 @@
    * // => 'default'
    */
   function get(object, path, defaultValue) {
-    var result = object == null ? undefined : _baseGet(object, path)
+    var result = object == null ? undefined : baseGet(object, path)
     return result === undefined ? defaultValue : result
   }
-
-  var get_1 = get
 
   /**
    * The base implementation of `_.hasIn` without support for deep paths.
@@ -10222,8 +12659,6 @@
     return object != null && key in Object(object)
   }
 
-  var _baseHasIn = baseHasIn
-
   /**
    * Checks if `path` exists on `object`.
    *
@@ -10234,14 +12669,14 @@
    * @returns {boolean} Returns `true` if `path` exists, else `false`.
    */
   function hasPath(object, path, hasFunc) {
-    path = _castPath(path, object)
+    path = castPath(path, object)
 
     var index = -1,
       length = path.length,
       result = false
 
     while (++index < length) {
-      var key = _toKey(path[index])
+      var key = toKey(path[index])
       if (!(result = object != null && hasFunc(object, key))) {
         break
       }
@@ -10253,13 +12688,11 @@
     length = object == null ? 0 : object.length
     return (
       !!length &&
-      isLength_1(length) &&
-      _isIndex(key, length) &&
-      (isArray_1(object) || isArguments_1(object))
+      isLength(length) &&
+      isIndex(key, length) &&
+      (isArray(object) || isArguments(object))
     )
   }
-
-  var _hasPath = hasPath
 
   /**
    * Checks if `path` is a direct or inherited property of `object`.
@@ -10288,10 +12721,8 @@
    * // => false
    */
   function hasIn(object, path) {
-    return object != null && _hasPath(object, path, _baseHasIn)
+    return object != null && hasPath(object, path, baseHasIn)
   }
-
-  var hasIn_1 = hasIn
 
   /** Used to compose bitmasks for value comparisons. */
   var COMPARE_PARTIAL_FLAG$5 = 1,
@@ -10306,22 +12737,20 @@
    * @returns {Function} Returns the new spec function.
    */
   function baseMatchesProperty(path, srcValue) {
-    if (_isKey(path) && _isStrictComparable(srcValue)) {
-      return _matchesStrictComparable(_toKey(path), srcValue)
+    if (isKey(path) && isStrictComparable(srcValue)) {
+      return matchesStrictComparable(toKey(path), srcValue)
     }
     return function(object) {
-      var objValue = get_1(object, path)
+      var objValue = get(object, path)
       return objValue === undefined && objValue === srcValue
-        ? hasIn_1(object, path)
-        : _baseIsEqual(
+        ? hasIn(object, path)
+        : baseIsEqual(
             srcValue,
             objValue,
             COMPARE_PARTIAL_FLAG$5 | COMPARE_UNORDERED_FLAG$3
           )
     }
   }
-
-  var _baseMatchesProperty = baseMatchesProperty
 
   /**
    * This method returns the first argument it receives.
@@ -10343,8 +12772,6 @@
     return value
   }
 
-  var identity_1 = identity
-
   /**
    * The base implementation of `_.property` without support for deep paths.
    *
@@ -10358,8 +12785,6 @@
     }
   }
 
-  var _baseProperty = baseProperty
-
   /**
    * A specialized version of `baseProperty` which supports deep paths.
    *
@@ -10369,11 +12794,9 @@
    */
   function basePropertyDeep(path) {
     return function(object) {
-      return _baseGet(object, path)
+      return baseGet(object, path)
     }
   }
-
-  var _basePropertyDeep = basePropertyDeep
 
   /**
    * Creates a function that returns the value at `path` of a given object.
@@ -10398,10 +12821,8 @@
    * // => [1, 2]
    */
   function property(path) {
-    return _isKey(path) ? _baseProperty(_toKey(path)) : _basePropertyDeep(path)
+    return isKey(path) ? baseProperty(toKey(path)) : basePropertyDeep(path)
   }
-
-  var property_1 = property
 
   /**
    * The base implementation of `_.iteratee`.
@@ -10417,17 +12838,15 @@
       return value
     }
     if (value == null) {
-      return identity_1
+      return identity
     }
     if (typeof value == 'object') {
-      return isArray_1(value)
-        ? _baseMatchesProperty(value[0], value[1])
-        : _baseMatches(value)
+      return isArray(value)
+        ? baseMatchesProperty(value[0], value[1])
+        : baseMatches(value)
     }
-    return property_1(value)
+    return property(value)
   }
-
-  var _baseIteratee = baseIteratee
 
   /* Built-in method references for those with the same name as other `lodash` methods. */
   var nativeMax$1 = Math.max
@@ -10467,19 +12886,17 @@
    * _.findIndex(users, 'active');
    * // => 2
    */
-  function findIndex(array, predicate, fromIndex) {
+  function findIndex$1(array, predicate, fromIndex) {
     var length = array == null ? 0 : array.length
     if (!length) {
       return -1
     }
-    var index = fromIndex == null ? 0 : toInteger_1(fromIndex)
+    var index = fromIndex == null ? 0 : toInteger(fromIndex)
     if (index < 0) {
       index = nativeMax$1(length + index, 0)
     }
-    return _baseFindIndex(array, _baseIteratee(predicate, 3), index)
+    return baseFindIndex(array, baseIteratee(predicate, 3), index)
   }
-
-  var findIndex_1 = findIndex
 
   function endOfRange(dateRange, unit) {
     if (unit === void 0) {
@@ -10488,7 +12905,7 @@
 
     return {
       first: dateRange[0],
-      last: dates.add(dateRange[dateRange.length - 1], 1, unit),
+      last: add(dateRange[dateRange.length - 1], 1, unit),
     }
   }
   function eventSegments(event, range, accessors) {
@@ -10496,13 +12913,13 @@
       first = _endOfRange.first,
       last = _endOfRange.last
 
-    var slots = dates.diff(first, last, 'day')
-    var start = dates.max(dates.startOf(accessors.start(event), 'day'), first)
-    var end = dates.min(dates.ceil(accessors.end(event), 'day'), last)
-    var padding = findIndex_1(range, function(x) {
-      return dates.eq(x, start, 'day')
+    var slots = diff(first, last, 'day')
+    var start = max(startOf(accessors.start(event), 'day'), first)
+    var end = min(ceil(accessors.end(event), 'day'), last)
+    var padding = findIndex$1(range, function(x) {
+      return eq(x, start, 'day')
     })
-    var span = dates.diff(start, end, 'day')
+    var span = diff(start, end, 'day')
     span = Math.min(span, slots)
     span = Math.max(span, 1)
     return {
@@ -10548,14 +12965,14 @@
       extra: extra,
     }
   }
-  function inRange(e, start, end, accessors) {
-    var eStart = dates.startOf(accessors.start(e), 'day')
+  function inRange$1(e, start, end, accessors) {
+    var eStart = startOf(accessors.start(e), 'day')
     var eEnd = accessors.end(e)
-    var startsBeforeEnd = dates.lte(eStart, end, 'day') // when the event is zero duration we need to handle a bit differently
+    var startsBeforeEnd = lte(eStart, end, 'day') // when the event is zero duration we need to handle a bit differently
 
-    var endsAfterStart = !dates.eq(eStart, eEnd, 'minutes')
-      ? dates.gt(eEnd, start, 'minutes')
-      : dates.gte(eEnd, start, 'minutes')
+    var endsAfterStart = !eq(eStart, eEnd, 'minutes')
+      ? gt(eEnd, start, 'minutes')
+      : gte(eEnd, start, 'minutes')
     return startsBeforeEnd && endsAfterStart
   }
   function segsOverlap(seg, otherSegs) {
@@ -10565,16 +12982,16 @@
   }
   function sortEvents(evtA, evtB, accessors) {
     var startSort =
-      +dates.startOf(accessors.start(evtA), 'day') -
-      +dates.startOf(accessors.start(evtB), 'day')
-    var durA = dates.diff(
+      +startOf(accessors.start(evtA), 'day') -
+      +startOf(accessors.start(evtB), 'day')
+    var durA = diff(
       accessors.start(evtA),
-      dates.ceil(accessors.end(evtA), 'day'),
+      ceil(accessors.end(evtA), 'day'),
       'day'
     )
-    var durB = dates.diff(
+    var durB = diff(
       accessors.start(evtB),
-      dates.ceil(accessors.end(evtB), 'day'),
+      ceil(accessors.end(evtB), 'day'),
       'day'
     )
     return (
@@ -10612,8 +13029,6 @@
     return result
   }
 
-  var _baseRange = baseRange
-
   /**
    * Creates a `_.range` or `_.rangeRight` function.
    *
@@ -10623,27 +13038,21 @@
    */
   function createRange(fromRight) {
     return function(start, end, step) {
-      if (
-        step &&
-        typeof step != 'number' &&
-        _isIterateeCall(start, end, step)
-      ) {
+      if (step && typeof step != 'number' && isIterateeCall(start, end, step)) {
         end = step = undefined
       }
       // Ensure the sign of `-0` is preserved.
-      start = toFinite_1(start)
+      start = toFinite(start)
       if (end === undefined) {
         end = start
         start = 0
       } else {
-        end = toFinite_1(end)
+        end = toFinite(end)
       }
-      step = step === undefined ? (start < end ? 1 : -1) : toFinite_1(step)
-      return _baseRange(start, end, step, fromRight)
+      step = step === undefined ? (start < end ? 1 : -1) : toFinite(step)
+      return baseRange(start, end, step, fromRight)
     }
   }
-
-  var _createRange = createRange
 
   /**
    * Creates an array of numbers (positive and/or negative) progressing from
@@ -10686,9 +13095,7 @@
    * _.range(0);
    * // => []
    */
-  var range = _createRange()
-
-  var range_1 = range
+  var range$1 = createRange()
 
   var isSegmentInSlot = function isSegmentInSlot(seg, slot) {
     return seg.left <= slot && seg.right >= slot
@@ -10776,7 +13183,7 @@
 
       _proto.canRenderSlotEvent = function canRenderSlotEvent(slot, span) {
         var segments = this.props.segments
-        return range_1(slot, slot + span).every(function(s) {
+        return range$1(slot, slot + span).every(function(s) {
           var count = eventsInSlot(segments, s)
           return count === 1
         })
@@ -10805,7 +13212,7 @@
 
       _proto.showMore = function showMore(slot, e) {
         e.preventDefault()
-        this.props.onShowMore(slot)
+        this.props.onShowMore(slot, e.target)
       }
 
       return EventEndingRow
@@ -10825,7 +13232,7 @@
     return a === b
   }
 
-  function index$2(resultFn, isEqual) {
+  function index(resultFn, isEqual) {
     if (isEqual === void 0) {
       isEqual = simpleIsEqual
     }
@@ -10836,7 +13243,7 @@
     var calledOnce = false
 
     var isNewArgEqualToLast = function isNewArgEqualToLast(newArg, index) {
-      return isEqual(newArg, lastArgs[index])
+      return isEqual(newArg, lastArgs[index], index)
     }
 
     var result = function result() {
@@ -10876,7 +13283,7 @@
   }
 
   function getSlotMetrics() {
-    return index$2(function(options) {
+    return index(function(options) {
       var range = options.range,
         events = options.events,
         maxRows = options.maxRows,
@@ -10915,7 +13322,7 @@
         },
         getSlotForDate: function getSlotForDate(date) {
           return range.find(function(r) {
-            return dates.eq(r, date, 'day')
+            return eq(r, date, 'day')
           })
         },
         getEventsForSlot: function getEventsForSlot(slot) {
@@ -10928,18 +13335,18 @@
             })
         },
         continuesPrior: function continuesPrior(event) {
-          return dates.lt(accessors.start(event), first, 'day')
+          return lt(accessors.start(event), first, 'day')
         },
         continuesAfter: function continuesAfter(event) {
           var eventEnd = accessors.end(event)
-          var singleDayDuration = dates.eq(
+          var singleDayDuration = eq(
             accessors.start(event),
             eventEnd,
             'minutes'
           )
           return singleDayDuration
-            ? dates.gte(eventEnd, last, 'minutes')
-            : dates.gt(eventEnd, last, 'minutes')
+            ? gte(eventEnd, last, 'minutes')
+            : gt(eventEnd, last, 'minutes')
         },
       }
     }, isEqual)
@@ -10972,7 +13379,7 @@
           onSelectSlot(range.slice(slot.start, slot.end + 1), slot)
         }
 
-        _this.handleShowMore = function(slot) {
+        _this.handleShowMore = function(slot, target) {
           var _this$props2 = _this.props,
             range = _this$props2.range,
             onShowMore = _this$props2.onShowMore
@@ -10980,15 +13387,13 @@
           var metrics = _this.slotMetrics(_this.props)
 
           var row = qsa(
-            reactDom.findDOMNode(
-              _assertThisInitialized(_assertThisInitialized(_this))
-            ),
+            reactDom.findDOMNode(_assertThisInitialized(_this)),
             '.rbc-row-bg'
           )[0]
           var cell
           if (row) cell = row.children[slot - 1]
           var events = metrics.getEventsForSlot(slot)
-          onShowMore(events, range[slot - 1], cell, slot)
+          onShowMore(events, range[slot - 1], cell, slot, target)
         }
 
         _this.createHeadingRef = function(r) {
@@ -11003,9 +13408,7 @@
           var container = _this.props.container
           return container
             ? container()
-            : reactDom.findDOMNode(
-                _assertThisInitialized(_assertThisInitialized(_this))
-              )
+            : reactDom.findDOMNode(_assertThisInitialized(_this))
         }
 
         _this.renderHeadingCell = function(date, index) {
@@ -11017,7 +13420,7 @@
             key: 'header_' + index,
             className: classnames(
               'rbc-date-cell',
-              dates.eq(date, getNow(), 'day') && 'rbc-now'
+              eq(date, getNow(), 'day') && 'rbc-now'
             ),
           })
         }
@@ -11270,7 +13673,7 @@
 
   var eventsForWeek = function eventsForWeek(evts, start, end, accessors) {
     return evts.filter(function(e) {
-      return inRange(e, start, end, accessors)
+      return inRange$1(e, start, end, accessors)
     })
   }
 
@@ -11295,9 +13698,7 @@
           this
 
         _this.getContainer = function() {
-          return reactDom.findDOMNode(
-            _assertThisInitialized(_assertThisInitialized(_this))
-          )
+          return reactDom.findDOMNode(_assertThisInitialized(_this))
         }
 
         _this.renderWeek = function(week, weekIdx) {
@@ -11326,7 +13727,7 @@
           })
           return React__default.createElement(DateContentRow, {
             key: weekIdx,
-            ref: weekIdx === 0 ? 'slotRow' : undefined,
+            ref: weekIdx === 0 ? _this.slotRowRef : undefined,
             container: _this.getContainer,
             className: 'rbc-month-row',
             getNow: getNow,
@@ -11360,8 +13761,8 @@
             currentDate = _this$props2.date,
             getDrilldownView = _this$props2.getDrilldownView,
             localizer = _this$props2.localizer
-          var isOffRange = dates.month(date) !== dates.month(currentDate)
-          var isCurrent = dates.eq(date, currentDate, 'day')
+          var isOffRange = month(date) !== month(currentDate)
+          var isCurrent = eq(date, currentDate, 'day')
           var drilldownView = getDrilldownView(date)
           var label = localizer.format(date, 'dateFormat')
           var DateHeaderComponent =
@@ -11431,7 +13832,7 @@
           notify(_this.props.onDoubleClickEvent, args)
         }
 
-        _this.handleShowMore = function(events, date, cell, slot) {
+        _this.handleShowMore = function(events, date, cell, slot, target) {
           var _this$props3 = _this.props,
             popup = _this$props3.popup,
             onDrillDown = _this$props3.onDrillDown,
@@ -11443,9 +13844,7 @@
           if (popup) {
             var position = getPosition(
               cell,
-              reactDom.findDOMNode(
-                _assertThisInitialized(_assertThisInitialized(_this))
-              )
+              reactDom.findDOMNode(_assertThisInitialized(_this))
             )
 
             _this.setState({
@@ -11453,6 +13852,7 @@
                 date: date,
                 events: events,
                 position: position,
+                target: target,
               },
             })
           } else {
@@ -11464,6 +13864,7 @@
 
         _this._bgRows = []
         _this._pendingSelection = []
+        _this.slotRowRef = React__default.createRef()
         _this.state = {
           rowLimit: 5,
           needLimitMeasure: true,
@@ -11478,7 +13879,7 @@
       ) {
         var date = _ref2.date
         this.setState({
-          needLimitMeasure: !dates.eq(date, this.props.date, 'month'),
+          needLimitMeasure: !eq(date, this.props.date, 'month'),
         })
       }
 
@@ -11517,8 +13918,8 @@
           date = _this$props4.date,
           localizer = _this$props4.localizer,
           className = _this$props4.className,
-          month = dates.visibleDays(date, localizer),
-          weeks = chunk_1(month, 7)
+          month = visibleDays(date, localizer),
+          weeks = chunk(month, 7)
         this._weekCount = weeks.length
         return React__default.createElement(
           'div',
@@ -11544,7 +13945,7 @@
         var first = row[0]
         var last = row[row.length - 1]
         var HeaderComponent = components.header || Header
-        return dates.range(first, last, 'day').map(function(day, idx) {
+        return range(first, last, 'day').map(function(day, idx) {
           return React__default.createElement(
             'div',
             {
@@ -11582,27 +13983,36 @@
                 overlay: null,
               })
             },
+            target: function target() {
+              return overlay.target
+            },
           },
-          React__default.createElement(Popup, {
-            accessors: accessors,
-            getters: getters,
-            selected: selected,
-            components: components,
-            localizer: localizer,
-            position: overlay.position,
-            events: overlay.events,
-            slotStart: overlay.date,
-            slotEnd: overlay.end,
-            onSelect: this.handleSelectEvent,
-            onDoubleClick: this.handleDoubleClickEvent,
-          })
+          function(_ref3) {
+            var props = _ref3.props
+            return React__default.createElement(
+              Popup$1,
+              _extends({}, props, {
+                accessors: accessors,
+                getters: getters,
+                selected: selected,
+                components: components,
+                localizer: localizer,
+                position: overlay.position,
+                events: overlay.events,
+                slotStart: overlay.date,
+                slotEnd: overlay.end,
+                onSelect: _this3.handleSelectEvent,
+                onDoubleClick: _this3.handleDoubleClickEvent,
+              })
+            )
+          }
         )
       }
 
       _proto.measureRowLimit = function measureRowLimit() {
         this.setState({
           needLimitMeasure: false,
-          rowLimit: this.refs.slotRow.getRowLimit(),
+          rowLimit: this.slotRowRef.current.getRowLimit(),
         })
       }
 
@@ -11665,10 +14075,10 @@
     ]),
   }
 
-  MonthView.range = function(date, _ref3) {
-    var localizer = _ref3.localizer
-    var start = dates.firstVisibleDay(date, localizer)
-    var end = dates.lastVisibleDay(date, localizer)
+  MonthView.range = function(date, _ref4) {
+    var localizer = _ref4.localizer
+    var start = firstVisibleDay(date, localizer)
+    var end = lastVisibleDay(date, localizer)
     return {
       start: start,
       end: end,
@@ -11678,18 +14088,18 @@
   MonthView.navigate = function(date, action) {
     switch (action) {
       case navigate.PREVIOUS:
-        return dates.add(date, -1, 'month')
+        return add(date, -1, 'month')
 
       case navigate.NEXT:
-        return dates.add(date, 1, 'month')
+        return add(date, 1, 'month')
 
       default:
         return date
     }
   }
 
-  MonthView.title = function(date, _ref4) {
-    var localizer = _ref4.localizer
+  MonthView.title = function(date, _ref5) {
+    var localizer = _ref5.localizer
     return localizer.format(date, 'monthHeaderFormat')
   }
 
@@ -11700,8 +14110,8 @@
   var getKey = function getKey(min, max, step, slots) {
     return (
       '' +
-      +dates.startOf(min, 'minutes') +
-      ('' + +dates.startOf(max, 'minutes')) +
+      +startOf(min, 'minutes') +
+      ('' + +startOf(max, 'minutes')) +
       (step + '-' + slots)
     )
   }
@@ -11711,14 +14121,14 @@
       end = _ref.max,
       step = _ref.step,
       timeslots = _ref.timeslots
-    var key = getKey(start, end, step, timeslots)
-    var totalMin =
-      1 + dates.diff(start, end, 'minutes') + getDstOffset(start, end)
-    var minutesFromMidnight = dates.diff(
-      dates.startOf(start, 'day'),
-      start,
-      'minutes'
-    )
+    var key = getKey(start, end, step, timeslots) // if the start is on a DST-changing day but *after* the moment of DST
+    // transition we need to add those extra minutes to our minutesFromMidnight
+
+    var daystart = startOf(start, 'day')
+    var daystartdstoffset = getDstOffset(daystart, start)
+    var totalMin = 1 + diff(start, end, 'minutes') + getDstOffset(start, end)
+    var minutesFromMidnight =
+      diff(daystart, start, 'minutes') + daystartdstoffset
     var numGroups = Math.ceil(totalMin / (step * timeslots))
     var numSlots = numGroups * timeslots
     var groups = new Array(numGroups)
@@ -11758,8 +14168,8 @@
     )
 
     function positionFromDate(date) {
-      var diff = dates.diff(start, date, 'minutes') + getDstOffset(start, date)
-      return Math.min(diff, totalMin)
+      var diff$1 = diff(start, date, 'minutes') + getDstOffset(start, date)
+      return Math.min(diff$1, totalMin)
     }
 
     return {
@@ -11770,7 +14180,7 @@
       },
       dateIsInGroup: function dateIsInGroup(date, groupIndex) {
         var nextGroup = groups[groupIndex + 1]
-        return dates.inRange(
+        return inRange(
           date,
           groups[groupIndex][0],
           nextGroup ? nextGroup[0] : end,
@@ -11780,7 +14190,7 @@
       nextSlot: function nextSlot(slot) {
         var next = slots[Math.min(slots.indexOf(slot) + 1, slots.length - 1)] // in the case of the last slot we won't a long enough range so manually get it
 
-        if (next === slot) next = dates.add(slot, step, 'minutes')
+        if (next === slot) next = add(slot, step, 'minutes')
         return next
       },
       closestSlotToPosition: function closestSlotToPosition(percent) {
@@ -11799,28 +14209,31 @@
           offset = 0
         }
 
-        if (dates.lt(date, start, 'minutes')) return slots[0]
-        var diffMins = dates.diff(start, date, 'minutes')
+        if (lt(date, start, 'minutes')) return slots[0]
+        var diffMins = diff(start, date, 'minutes')
         return slots[(diffMins - (diffMins % step)) / step + offset]
       },
       startsBeforeDay: function startsBeforeDay(date) {
-        return dates.lt(date, start, 'day')
+        return lt(date, start, 'day')
       },
       startsAfterDay: function startsAfterDay(date) {
-        return dates.gt(date, end, 'day')
+        return gt(date, end, 'day')
       },
       startsBefore: function startsBefore(date) {
-        return dates.lt(dates.merge(start, date), start, 'minutes')
+        return lt(merge(start, date), start, 'minutes')
       },
       startsAfter: function startsAfter(date) {
-        return dates.gt(dates.merge(end, date), end, 'minutes')
+        return gt(merge(end, date), end, 'minutes')
       },
-      getRange: function getRange(rangeStart, rangeEnd) {
-        rangeStart = dates.min(end, dates.max(start, rangeStart))
-        rangeEnd = dates.min(end, dates.max(start, rangeEnd))
+      getRange: function getRange(rangeStart, rangeEnd, ignoreMin, ignoreMax) {
+        if (!ignoreMin) rangeStart = min(end, max(start, rangeStart))
+        if (!ignoreMax) rangeEnd = min(end, max(start, rangeEnd))
         var rangeStartMin = positionFromDate(rangeStart)
         var rangeEndMin = positionFromDate(rangeEnd)
-        var top = (rangeStartMin / (step * numSlots)) * 100
+        var top =
+          rangeEndMin - rangeStartMin < step
+            ? ((rangeStartMin - step) / (step * numSlots)) * 100
+            : (rangeStartMin / (step * numSlots)) * 100
         return {
           top: top,
           height: (rangeEndMin / (step * numSlots)) * 100 - top,
@@ -11850,7 +14263,7 @@
   }
 
   /** Built-in value references. */
-  var spreadableSymbol = _Symbol ? _Symbol.isConcatSpreadable : undefined
+  var spreadableSymbol = Symbol$1 ? Symbol$1.isConcatSpreadable : undefined
 
   /**
    * Checks if `value` is a flattenable `arguments` object or array.
@@ -11861,13 +14274,11 @@
    */
   function isFlattenable(value) {
     return (
-      isArray_1(value) ||
-      isArguments_1(value) ||
+      isArray(value) ||
+      isArguments(value) ||
       !!(spreadableSymbol && value && value[spreadableSymbol])
     )
   }
-
-  var _isFlattenable = isFlattenable
 
   /**
    * The base implementation of `_.flatten` with support for restricting flattening.
@@ -11884,7 +14295,7 @@
     var index = -1,
       length = array.length
 
-    predicate || (predicate = _isFlattenable)
+    predicate || (predicate = isFlattenable)
     result || (result = [])
 
     while (++index < length) {
@@ -11894,7 +14305,7 @@
           // Recursively flatten arrays (susceptible to call stack limits).
           baseFlatten(value, depth - 1, predicate, isStrict, result)
         } else {
-          _arrayPush(result, value)
+          arrayPush(result, value)
         }
       } else if (!isStrict) {
         result[result.length] = value
@@ -11902,8 +14313,6 @@
     }
     return result
   }
-
-  var _baseFlatten = baseFlatten
 
   /**
    * Creates a base function for methods like `_.forIn` and `_.forOwn`.
@@ -11929,8 +14338,6 @@
     }
   }
 
-  var _createBaseFor = createBaseFor
-
   /**
    * The base implementation of `baseForOwn` which iterates over `object`
    * properties returned by `keysFunc` and invokes `iteratee` for each property.
@@ -11942,9 +14349,7 @@
    * @param {Function} keysFunc The function to get the keys of `object`.
    * @returns {Object} Returns `object`.
    */
-  var baseFor = _createBaseFor()
-
-  var _baseFor = baseFor
+  var baseFor = createBaseFor()
 
   /**
    * The base implementation of `_.forOwn` without support for iteratee shorthands.
@@ -11955,10 +14360,8 @@
    * @returns {Object} Returns `object`.
    */
   function baseForOwn(object, iteratee) {
-    return object && _baseFor(object, iteratee, keys_1)
+    return object && baseFor(object, iteratee, keys)
   }
-
-  var _baseForOwn = baseForOwn
 
   /**
    * Creates a `baseEach` or `baseEachRight` function.
@@ -11973,7 +14376,7 @@
       if (collection == null) {
         return collection
       }
-      if (!isArrayLike_1(collection)) {
+      if (!isArrayLike(collection)) {
         return eachFunc(collection, iteratee)
       }
       var length = collection.length,
@@ -11989,8 +14392,6 @@
     }
   }
 
-  var _createBaseEach = createBaseEach
-
   /**
    * The base implementation of `_.forEach` without support for iteratee shorthands.
    *
@@ -11999,9 +14400,7 @@
    * @param {Function} iteratee The function invoked per iteration.
    * @returns {Array|Object} Returns `collection`.
    */
-  var baseEach = _createBaseEach(_baseForOwn)
-
-  var _baseEach = baseEach
+  var baseEach = createBaseEach(baseForOwn)
 
   /**
    * The base implementation of `_.map` without support for iteratee shorthands.
@@ -12013,15 +14412,13 @@
    */
   function baseMap(collection, iteratee) {
     var index = -1,
-      result = isArrayLike_1(collection) ? Array(collection.length) : []
+      result = isArrayLike(collection) ? Array(collection.length) : []
 
-    _baseEach(collection, function(value, key, collection) {
+    baseEach(collection, function(value, key, collection) {
       result[++index] = iteratee(value, key, collection)
     })
     return result
   }
-
-  var _baseMap = baseMap
 
   /**
    * The base implementation of `_.sortBy` which uses `comparer` to define the
@@ -12043,8 +14440,6 @@
     return array
   }
 
-  var _baseSortBy = baseSortBy
-
   /**
    * Compares values to sort them in ascending order.
    *
@@ -12058,12 +14453,12 @@
       var valIsDefined = value !== undefined,
         valIsNull = value === null,
         valIsReflexive = value === value,
-        valIsSymbol = isSymbol_1(value)
+        valIsSymbol = isSymbol(value)
 
       var othIsDefined = other !== undefined,
         othIsNull = other === null,
         othIsReflexive = other === other,
-        othIsSymbol = isSymbol_1(other)
+        othIsSymbol = isSymbol(other)
 
       if (
         (!othIsNull && !othIsSymbol && !valIsSymbol && value > other) ||
@@ -12095,8 +14490,6 @@
     return 0
   }
 
-  var _compareAscending = compareAscending
-
   /**
    * Used by `_.orderBy` to compare multiple properties of a value to another
    * and stable sort them.
@@ -12119,7 +14512,7 @@
       ordersLength = orders.length
 
     while (++index < length) {
-      var result = _compareAscending(objCriteria[index], othCriteria[index])
+      var result = compareAscending(objCriteria[index], othCriteria[index])
       if (result) {
         if (index >= ordersLength) {
           return result
@@ -12138,8 +14531,6 @@
     return object.index - other.index
   }
 
-  var _compareMultiple = compareMultiple
-
   /**
    * The base implementation of `_.orderBy` without param guards.
    *
@@ -12151,24 +14542,22 @@
    */
   function baseOrderBy(collection, iteratees, orders) {
     var index = -1
-    iteratees = _arrayMap(
-      iteratees.length ? iteratees : [identity_1],
-      _baseUnary(_baseIteratee)
+    iteratees = arrayMap(
+      iteratees.length ? iteratees : [identity],
+      baseUnary(baseIteratee)
     )
 
-    var result = _baseMap(collection, function(value, key, collection) {
-      var criteria = _arrayMap(iteratees, function(iteratee) {
+    var result = baseMap(collection, function(value, key, collection) {
+      var criteria = arrayMap(iteratees, function(iteratee) {
         return iteratee(value)
       })
       return { criteria: criteria, index: ++index, value: value }
     })
 
-    return _baseSortBy(result, function(object, other) {
-      return _compareMultiple(object, other, orders)
+    return baseSortBy(result, function(object, other) {
+      return compareMultiple(object, other, orders)
     })
   }
-
-  var _baseOrderBy = baseOrderBy
 
   /**
    * A faster alternative to `Function#apply`, this function invokes `func`
@@ -12193,8 +14582,6 @@
     }
     return func.apply(thisArg, args)
   }
-
-  var _apply = apply
 
   /* Built-in method references for those with the same name as other `lodash` methods. */
   var nativeMax$3 = Math.max
@@ -12225,11 +14612,9 @@
         otherArgs[index] = args[index]
       }
       otherArgs[start] = transform(array)
-      return _apply(func, this, otherArgs)
+      return apply(func, this, otherArgs)
     }
   }
-
-  var _overRest = overRest
 
   /**
    * Creates a function that returns `value`.
@@ -12256,17 +14641,13 @@
     }
   }
 
-  var constant_1 = constant
-
-  var defineProperty = (function() {
+  var defineProperty$2 = (function() {
     try {
-      var func = _getNative(Object, 'defineProperty')
+      var func = getNative(Object, 'defineProperty')
       func({}, '', {})
       return func
     } catch (e) {}
   })()
-
-  var _defineProperty = defineProperty
 
   /**
    * The base implementation of `setToString` without support for hot loop shorting.
@@ -12276,18 +14657,16 @@
    * @param {Function} string The `toString` result.
    * @returns {Function} Returns `func`.
    */
-  var baseSetToString = !_defineProperty
-    ? identity_1
+  var baseSetToString = !defineProperty$2
+    ? identity
     : function(func, string) {
-        return _defineProperty(func, 'toString', {
+        return defineProperty$2(func, 'toString', {
           configurable: true,
           enumerable: false,
-          value: constant_1(string),
+          value: constant(string),
           writable: true,
         })
       }
-
-  var _baseSetToString = baseSetToString
 
   /** Used to detect hot functions by number of calls within a span of milliseconds. */
   var HOT_COUNT = 800,
@@ -12325,8 +14704,6 @@
     }
   }
 
-  var _shortOut = shortOut
-
   /**
    * Sets the `toString` method of `func` to return `string`.
    *
@@ -12335,9 +14712,7 @@
    * @param {Function} string The `toString` result.
    * @returns {Function} Returns `func`.
    */
-  var setToString = _shortOut(_baseSetToString)
-
-  var _setToString = setToString
+  var setToString = shortOut(baseSetToString)
 
   /**
    * The base implementation of `_.rest` which doesn't validate or coerce arguments.
@@ -12348,10 +14723,8 @@
    * @returns {Function} Returns the new function.
    */
   function baseRest(func, start) {
-    return _setToString(_overRest(func, start, identity_1), func + '')
+    return setToString(overRest(func, start, identity), func + '')
   }
-
-  var _baseRest = baseRest
 
   /**
    * Creates an array of elements, sorted in ascending order by the results of
@@ -12382,23 +14755,21 @@
    * _.sortBy(users, ['user', 'age']);
    * // => objects for [['barney', 34], ['barney', 36], ['fred', 40], ['fred', 48]]
    */
-  var sortBy = _baseRest(function(collection, iteratees) {
+  var sortBy = baseRest(function(collection, iteratees) {
     if (collection == null) {
       return []
     }
     var length = iteratees.length
-    if (length > 1 && _isIterateeCall(collection, iteratees[0], iteratees[1])) {
+    if (length > 1 && isIterateeCall(collection, iteratees[0], iteratees[1])) {
       iteratees = []
     } else if (
       length > 2 &&
-      _isIterateeCall(iteratees[0], iteratees[1], iteratees[2])
+      isIterateeCall(iteratees[0], iteratees[1], iteratees[2])
     ) {
       iteratees = [iteratees[0]]
     }
-    return _baseOrderBy(collection, _baseFlatten(iteratees, 1), [])
+    return baseOrderBy(collection, baseFlatten(iteratees, 1), [])
   })
-
-  var sortBy_1 = sortBy
 
   var Event =
     /*#__PURE__*/
@@ -12514,7 +14885,7 @@
   }
 
   function sortByRender(events) {
-    var sortedByTime = sortBy_1(events, [
+    var sortedByTime = sortBy(events, [
       'startMs',
       function(e) {
         return -e.endMs
@@ -12621,10 +14992,6 @@
     })
   }
 
-  function NoopWrapper(props) {
-    return props.children
-  }
-
   var TimeSlotGroup =
     /*#__PURE__*/
     (function(_Component) {
@@ -12695,7 +15062,7 @@
       className = props.className,
       event = props.event,
       accessors = props.accessors,
-      isRtl = props.isRtl,
+      rtl = props.rtl,
       selected = props.selected,
       label = props.label,
       continuesEarlier = props.continuesEarlier,
@@ -12758,7 +15125,7 @@
               top: top + '%',
               height: height + '%',
             }),
-            (_extends2[isRtl ? 'right' : 'left'] = Math.max(0, xOffset) + '%'),
+            (_extends2[rtl ? 'right' : 'left'] = Math.max(0, xOffset) + '%'),
             (_extends2.width = width + '%'),
             _extends2)
           ),
@@ -12804,7 +15171,7 @@
         _this.renderEvents = function() {
           var _this$props = _this.props,
             events = _this$props.events,
-            isRtl = _this$props.rtl,
+            rtl = _this$props.rtl,
             selected = _this$props.selected,
             accessors = _this$props.accessors,
             localizer = _this$props.localizer,
@@ -12814,9 +15181,7 @@
             timeslots = _this$props.timeslots,
             minimumStartDifference = _this$props.minimumStartDifference
 
-          var _assertThisInitialize = _assertThisInitialized(
-              _assertThisInitialized(_this)
-            ),
+          var _assertThisInitialize = _assertThisInitialized(_this),
             slotMetrics = _assertThisInitialize.slotMetrics
 
           var messages = localizer.messages
@@ -12856,7 +15221,7 @@
               label: label,
               key: 'evt_' + idx,
               getters: getters,
-              isRtl: isRtl,
+              rtl: rtl,
               components: components,
               continuesEarlier: continuesEarlier,
               continuesLater: continuesLater,
@@ -12873,14 +15238,10 @@
         }
 
         _this._selectable = function() {
-          var node = reactDom.findDOMNode(
-            _assertThisInitialized(_assertThisInitialized(_this))
-          )
+          var node = reactDom.findDOMNode(_assertThisInitialized(_this))
           var selector = (_this._selector = new Selection(
             function() {
-              return reactDom.findDOMNode(
-                _assertThisInitialized(_assertThisInitialized(_this))
-              )
+              return reactDom.findDOMNode(_assertThisInitialized(_this))
             },
             {
               longPressThreshold: _this.props.longPressThreshold,
@@ -12896,8 +15257,8 @@
 
             if (onSelecting) {
               if (
-                (dates.eq(current.startDate, start, 'minutes') &&
-                  dates.eq(current.endDate, end, 'minutes')) ||
+                (eq(current.startDate, start, 'minutes') &&
+                  eq(current.endDate, end, 'minutes')) ||
                 onSelecting({
                   start: start,
                   end: end,
@@ -12927,8 +15288,8 @@
               currentSlot = _this.slotMetrics.nextSlot(initialSlot)
 
             var selectRange = _this.slotMetrics.getRange(
-              dates.min(initialSlot, currentSlot),
-              dates.max(initialSlot, currentSlot)
+              min(initialSlot, currentSlot),
+              max(initialSlot, currentSlot)
             )
 
             return _extends({}, selectRange, {
@@ -12943,12 +15304,7 @@
             actionType
           ) {
             if (
-              !isEvent(
-                reactDom.findDOMNode(
-                  _assertThisInitialized(_assertThisInitialized(_this))
-                ),
-                box
-              )
+              !isEvent(reactDom.findDOMNode(_assertThisInitialized(_this)), box)
             ) {
               var _selectionState = selectionState(box),
                 startDate = _selectionState.startDate,
@@ -12972,9 +15328,7 @@
           selector.on('beforeSelect', function(box) {
             if (_this.props.selectable !== 'ignoreEvents') return
             return !isEvent(
-              reactDom.findDOMNode(
-                _assertThisInitialized(_assertThisInitialized(_this))
-              ),
+              reactDom.findDOMNode(_assertThisInitialized(_this)),
               box
             )
           })
@@ -13024,9 +15378,9 @@
           var current = startDate,
             slots = []
 
-          while (dates.lte(current, endDate)) {
+          while (lte(current, endDate)) {
             slots.push(current)
-            current = dates.add(current, _this.props.step, 'minutes')
+            current = add(current, _this.props.step, 'minutes')
           }
 
           notify(_this.props.onSelectSlot, {
@@ -13097,7 +15451,7 @@
         prevProps,
         prevState
       ) {
-        var getNowChanged = !dates.eq(
+        var getNowChanged = !eq(
           prevProps.getNow(),
           this.props.getNow(),
           'minutes'
@@ -13109,11 +15463,17 @@
           if (this.props.isNow) {
             var tail =
               !getNowChanged &&
-              dates.eq(prevProps.date, this.props.date, 'minutes') &&
+              eq(prevProps.date, this.props.date, 'minutes') &&
               prevState.timeIndicatorPosition ===
                 this.state.timeIndicatorPosition
             this.setTimeIndicatorPositionUpdateInterval(tail)
           }
+        } else if (
+          this.props.isNow &&
+          (!eq(prevProps.min, this.props.min, 'minutes') ||
+            !eq(prevProps.max, this.props.max, 'minutes'))
+        ) {
+          this.positionTimeIndicator()
         }
       }
 
@@ -13576,7 +15936,7 @@
               className: classnames(
                 'rbc-header',
                 className,
-                dates.eq(date, today, 'day') && 'rbc-today'
+                eq(date, today, 'day') && 'rbc-today'
               ),
             },
             drilldownView
@@ -13820,8 +16180,8 @@
 
         _this.checkOverflow = function() {
           if (_this._updatingOverflow) return
-          var isOverflowing =
-            _this.refs.content.scrollHeight > _this.refs.content.clientHeight
+          var content = _this.contentRef.current
+          var isOverflowing = content.scrollHeight > content.clientHeight
 
           if (_this.state.isOverflowing !== isOverflowing) {
             _this._updatingOverflow = true
@@ -13837,7 +16197,7 @@
           }
         }
 
-        _this.memoizedResources = index$2(function(resources, accessors) {
+        _this.memoizedResources = index(function(resources, accessors) {
           return Resources(resources, accessors)
         })
         _this.state = {
@@ -13845,6 +16205,7 @@
           isOverflowing: null,
         }
         _this.scrollRef = React__default.createRef()
+        _this.contentRef = React__default.createRef()
         return _this
       }
 
@@ -13890,8 +16251,8 @@
           scrollToTime = _this$props.scrollToTime // When paginating, reset scroll
 
         if (
-          !dates.eq(nextProps.range[0], range[0], 'minute') ||
-          !dates.eq(nextProps.scrollToTime, scrollToTime, 'minute')
+          !eq(nextProps.range[0], range[0], 'minute') ||
+          !eq(nextProps.scrollToTime, scrollToTime, 'minute')
         ) {
           this.calculateScroll(nextProps)
         }
@@ -13915,7 +16276,7 @@
             var daysEvents = (groupedEvents.get(id) || []).filter(function(
               event
             ) {
-              return dates.inRange(
+              return inRange(
                 date,
                 accessors.start(event),
                 accessors.end(event),
@@ -13926,11 +16287,11 @@
               DayColumn,
               _extends({}, _this2.props, {
                 localizer: localizer,
-                min: dates.merge(date, min),
-                max: dates.merge(date, max),
+                min: merge(date, min),
+                max: merge(date, max),
                 resource: resource && id,
                 components: components,
-                isNow: dates.eq(date, now, 'day'),
+                isNow: eq(date, now, 'day'),
                 key: i + '-' + jj,
                 date: date,
                 events: daysEvents,
@@ -13945,6 +16306,7 @@
           events = _this$props3.events,
           range = _this$props3.range,
           width = _this$props3.width,
+          rtl = _this$props3.rtl,
           selected = _this$props3.selected,
           getNow = _this$props3.getNow,
           resources = _this$props3.resources,
@@ -13963,14 +16325,14 @@
         var allDayEvents = [],
           rangeEvents = []
         events.forEach(function(event) {
-          if (inRange(event, start, end, accessors)) {
+          if (inRange$1(event, start, end, accessors)) {
             var eStart = accessors.start(event),
               eEnd = accessors.end(event)
 
             if (
               accessors.allDay(event) ||
-              (dates.isJustDate(eStart) && dates.isJustDate(eEnd)) ||
-              (!showMultiDayTimes && !dates.eq(eStart, eEnd, 'day'))
+              (isJustDate(eStart) && isJustDate(eEnd)) ||
+              (!showMultiDayTimes && !eq(eStart, eEnd, 'day'))
             ) {
               allDayEvents.push(event)
             } else {
@@ -13993,6 +16355,7 @@
             range: range,
             events: allDayEvents,
             width: width,
+            rtl: rtl,
             getNow: getNow,
             localizer: localizer,
             selected: selected,
@@ -14013,7 +16376,7 @@
           React__default.createElement(
             'div',
             {
-              ref: 'content',
+              ref: this.contentRef,
               className: 'rbc-time-content',
               onScroll: this.handleScroll,
             },
@@ -14021,8 +16384,8 @@
               date: start,
               ref: this.gutterRef,
               localizer: localizer,
-              min: dates.merge(start, min),
-              max: dates.merge(start, max),
+              min: merge(start, min),
+              max: merge(start, max),
               step: this.props.step,
               getNow: this.props.getNow,
               timeslots: this.props.timeslots,
@@ -14061,7 +16424,7 @@
 
       _proto.applyScroll = function applyScroll() {
         if (this._scrollRatio) {
-          var content = this.refs.content
+          var content = this.contentRef.current
           content.scrollTop = content.scrollHeight * this._scrollRatio // Only do this once
 
           this._scrollRatio = null
@@ -14077,8 +16440,8 @@
           min = _props.min,
           max = _props.max,
           scrollToTime = _props.scrollToTime
-        var diffMillis = scrollToTime - dates.startOf(scrollToTime, 'day')
-        var totalMillis = dates.diff(max, min)
+        var diffMillis = scrollToTime - startOf(scrollToTime, 'day')
+        var totalMillis = diff(max, min)
         this._scrollRatio = diffMillis / totalMillis
       }
 
@@ -14116,9 +16479,9 @@
   TimeGrid.defaultProps = {
     step: 30,
     timeslots: 2,
-    min: dates.startOf(new Date(), 'day'),
-    max: dates.endOf(new Date(), 'day'),
-    scrollToTime: dates.startOf(new Date(), 'day'),
+    min: startOf(new Date(), 'day'),
+    max: endOf(new Date(), 'day'),
+    scrollToTime: startOf(new Date(), 'day'),
   }
 
   var Day =
@@ -14155,16 +16518,16 @@
   }
 
   Day.range = function(date) {
-    return [dates.startOf(date, 'day')]
+    return [startOf(date, 'day')]
   }
 
   Day.navigate = function(date, action) {
     switch (action) {
       case navigate.PREVIOUS:
-        return dates.add(date, -1, 'day')
+        return add(date, -1, 'day')
 
       case navigate.NEXT:
-        return dates.add(date, 1, 'day')
+        return add(date, 1, 'day')
 
       default:
         return date
@@ -14213,10 +16576,10 @@
   Week.navigate = function(date, action) {
     switch (action) {
       case navigate.PREVIOUS:
-        return dates.add(date, -1, 'week')
+        return add(date, -1, 'week')
 
       case navigate.NEXT:
-        return dates.add(date, 1, 'week')
+        return add(date, 1, 'week')
 
       default:
         return date
@@ -14226,9 +16589,9 @@
   Week.range = function(date, _ref) {
     var localizer = _ref.localizer
     var firstOfWeek = localizer.startOfWeek()
-    var start = dates.startOf(date, 'week', firstOfWeek)
-    var end = dates.endOf(date, 'week', firstOfWeek)
-    return dates.range(start, end)
+    var start = startOf(date, 'week', firstOfWeek)
+    var end = endOf(date, 'week', firstOfWeek)
+    return range(start, end)
   }
 
   Week.title = function(date, _ref2) {
@@ -14410,20 +16773,10 @@
     (function(_React$Component) {
       _inheritsLoose(Agenda, _React$Component)
 
-      function Agenda() {
+      function Agenda(props) {
         var _this
 
-        for (
-          var _len = arguments.length, args = new Array(_len), _key = 0;
-          _key < _len;
-          _key++
-        ) {
-          args[_key] = arguments[_key]
-        }
-
-        _this =
-          _React$Component.call.apply(_React$Component, [this].concat(args)) ||
-          this
+        _this = _React$Component.call(this, props) || this
 
         _this.renderDay = function(day, events, dayKey) {
           var _this$props = _this.props,
@@ -14435,10 +16788,10 @@
             Event = _this$props$component.event,
             AgendaDate = _this$props$component.date
           events = events.filter(function(e) {
-            return inRange(
+            return inRange$1(
               e,
-              dates.startOf(day, 'day'),
-              dates.endOf(day, 'day'),
+              startOf(day, 'day'),
+              endOf(day, 'day'),
               accessors
             )
           })
@@ -14513,9 +16866,9 @@
           var start = accessors.start(event)
 
           if (!accessors.allDay(event)) {
-            if (dates.eq(start, end)) {
+            if (eq(start, end)) {
               label = localizer.format(start, 'agendaTimeFormat')
-            } else if (dates.eq(start, end, 'day')) {
+            } else if (eq(start, end, 'day')) {
               label = localizer.format(
                 {
                   start: start,
@@ -14523,15 +16876,15 @@
                 },
                 'agendaTimeRangeFormat'
               )
-            } else if (dates.eq(day, start, 'day')) {
+            } else if (eq(day, start, 'day')) {
               label = localizer.format(start, 'agendaTimeFormat')
-            } else if (dates.eq(day, end, 'day')) {
+            } else if (eq(day, end, 'day')) {
               label = localizer.format(end, 'agendaTimeFormat')
             }
           }
 
-          if (dates.gt(day, start, 'day')) labelClass = 'rbc-continues-prior'
-          if (dates.lt(day, end, 'day')) labelClass += ' rbc-continues-after'
+          if (gt(day, start, 'day')) labelClass = 'rbc-continues-prior'
+          if (lt(day, end, 'day')) labelClass += ' rbc-continues-after'
           return React__default.createElement(
             'span',
             {
@@ -14548,12 +16901,13 @@
         }
 
         _this._adjustHeader = function() {
-          if (!_this.refs.tbody) return
-          var header = _this.refs.header
-          var firstRow = _this.refs.tbody.firstChild
+          if (!_this.tbodyRef.current) return
+          var header = _this.headerRef.current
+          var firstRow = _this.tbodyRef.current.firstChild
           if (!firstRow) return
           var isOverflowing =
-            _this.refs.content.scrollHeight > _this.refs.content.clientHeight
+            _this.contentRef.current.scrollHeight >
+            _this.contentRef.current.clientHeight
           var widths = _this._widths || []
           _this._widths = [
             getWidth(firstRow.children[0]),
@@ -14564,8 +16918,8 @@
             widths[0] !== _this._widths[0] ||
             widths[1] !== _this._widths[1]
           ) {
-            _this.refs.dateCol.style.width = _this._widths[0] + 'px'
-            _this.refs.timeCol.style.width = _this._widths[1] + 'px'
+            _this.dateColRef.current.style.width = _this._widths[0] + 'px'
+            _this.timeColRef.current.style.width = _this._widths[1] + 'px'
           }
 
           if (isOverflowing) {
@@ -14576,6 +16930,11 @@
           }
         }
 
+        _this.headerRef = React__default.createRef()
+        _this.dateColRef = React__default.createRef()
+        _this.timeColRef = React__default.createRef()
+        _this.contentRef = React__default.createRef()
+        _this.tbodyRef = React__default.createRef()
         return _this
       }
 
@@ -14599,10 +16958,10 @@
           accessors = _this$props3.accessors,
           localizer = _this$props3.localizer
         var messages = localizer.messages
-        var end = dates.add(date, length, 'day')
-        var range = dates.range(date, end, 'day')
+        var end = add(date, length, 'day')
+        var range$1 = range(date, end, 'day')
         events = events.filter(function(event) {
-          return inRange(event, date, end, accessors)
+          return inRange$1(event, date, end, accessors)
         })
         events.sort(function(a, b) {
           return +accessors.start(a) - +accessors.start(b)
@@ -14619,7 +16978,7 @@
                 React__default.createElement(
                   'table',
                   {
-                    ref: 'header',
+                    ref: this.headerRef,
                     className: 'rbc-agenda-table',
                   },
                   React__default.createElement(
@@ -14632,7 +16991,7 @@
                         'th',
                         {
                           className: 'rbc-header',
-                          ref: 'dateCol',
+                          ref: this.dateColRef,
                         },
                         messages.date
                       ),
@@ -14640,7 +16999,7 @@
                         'th',
                         {
                           className: 'rbc-header',
-                          ref: 'timeCol',
+                          ref: this.timeColRef,
                         },
                         messages.time
                       ),
@@ -14658,7 +17017,7 @@
                   'div',
                   {
                     className: 'rbc-agenda-content',
-                    ref: 'content',
+                    ref: this.contentRef,
                   },
                   React__default.createElement(
                     'table',
@@ -14668,9 +17027,9 @@
                     React__default.createElement(
                       'tbody',
                       {
-                        ref: 'tbody',
+                        ref: this.tbodyRef,
                       },
-                      range.map(function(day, idx) {
+                      range$1.map(function(day, idx) {
                         return _this2.renderDay(day, events, idx)
                       })
                     )
@@ -14707,7 +17066,7 @@
   Agenda.range = function(start, _ref) {
     var _ref$length = _ref.length,
       length = _ref$length === void 0 ? Agenda.defaultProps.length : _ref$length
-    var end = dates.add(start, length, 'day')
+    var end = add(start, length, 'day')
     return {
       start: start,
       end: end,
@@ -14721,10 +17080,10 @@
 
     switch (action) {
       case navigate.PREVIOUS:
-        return dates.add(date, -length, 'day')
+        return add(date, -length, 'day')
 
       case navigate.NEXT:
-        return dates.add(date, length, 'day')
+        return add(date, length, 'day')
 
       default:
         return date
@@ -14736,7 +17095,7 @@
       length =
         _ref3$length === void 0 ? Agenda.defaultProps.length : _ref3$length,
       localizer = _ref3.localizer
-    var end = dates.add(start, length, 'day')
+    var end = add(start, length, 'day')
     return localizer.format(
       {
         start: start,
@@ -14930,8 +17289,6 @@
     return array
   }
 
-  var _arrayEach = arrayEach
-
   /**
    * The base implementation of `assignValue` and `assignMergeValue` without
    * value checks.
@@ -14942,8 +17299,8 @@
    * @param {*} value The value to assign.
    */
   function baseAssignValue(object, key, value) {
-    if (key == '__proto__' && _defineProperty) {
-      _defineProperty(object, key, {
+    if (key == '__proto__' && defineProperty$2) {
+      defineProperty$2(object, key, {
         configurable: true,
         enumerable: true,
         value: value,
@@ -14953,8 +17310,6 @@
       object[key] = value
     }
   }
-
-  var _baseAssignValue = baseAssignValue
 
   /** Used for built-in method references. */
   var objectProto$c = Object.prototype
@@ -14975,14 +17330,12 @@
   function assignValue(object, key, value) {
     var objValue = object[key]
     if (
-      !(hasOwnProperty$a.call(object, key) && eq_1(objValue, value)) ||
+      !(hasOwnProperty$a.call(object, key) && eq$1(objValue, value)) ||
       (value === undefined && !(key in object))
     ) {
-      _baseAssignValue(object, key, value)
+      baseAssignValue(object, key, value)
     }
   }
-
-  var _assignValue = assignValue
 
   /**
    * Copies properties of `source` to `object`.
@@ -15012,15 +17365,13 @@
         newValue = source[key]
       }
       if (isNew) {
-        _baseAssignValue(object, key, newValue)
+        baseAssignValue(object, key, newValue)
       } else {
-        _assignValue(object, key, newValue)
+        assignValue(object, key, newValue)
       }
     }
     return object
   }
-
-  var _copyObject = copyObject
 
   /**
    * The base implementation of `_.assign` without support for multiple sources
@@ -15032,10 +17383,8 @@
    * @returns {Object} Returns `object`.
    */
   function baseAssign(object, source) {
-    return object && _copyObject(source, keys_1(source), object)
+    return object && copyObject(source, keys(source), object)
   }
-
-  var _baseAssign = baseAssign
 
   /**
    * This function is like
@@ -15056,8 +17405,6 @@
     return result
   }
 
-  var _nativeKeysIn = nativeKeysIn
-
   /** Used for built-in method references. */
   var objectProto$d = Object.prototype
 
@@ -15072,10 +17419,10 @@
    * @returns {Array} Returns the array of property names.
    */
   function baseKeysIn(object) {
-    if (!isObject_1(object)) {
-      return _nativeKeysIn(object)
+    if (!isObject(object)) {
+      return nativeKeysIn(object)
     }
-    var isProto = _isPrototype(object),
+    var isProto = isPrototype(object),
       result = []
 
     for (var key in object) {
@@ -15090,8 +17437,6 @@
     }
     return result
   }
-
-  var _baseKeysIn = baseKeysIn
 
   /**
    * Creates an array of the own and inherited enumerable property names of `object`.
@@ -15117,12 +17462,10 @@
    * // => ['a', 'b', 'c'] (iteration order is not guaranteed)
    */
   function keysIn$1(object) {
-    return isArrayLike_1(object)
-      ? _arrayLikeKeys(object, true)
-      : _baseKeysIn(object)
+    return isArrayLike(object)
+      ? arrayLikeKeys(object, true)
+      : baseKeysIn(object)
   }
-
-  var keysIn_1 = keysIn$1
 
   /**
    * The base implementation of `_.assignIn` without support for multiple sources
@@ -15134,53 +17477,48 @@
    * @returns {Object} Returns `object`.
    */
   function baseAssignIn(object, source) {
-    return object && _copyObject(source, keysIn_1(source), object)
+    return object && copyObject(source, keysIn$1(source), object)
   }
 
-  var _baseAssignIn = baseAssignIn
+  /** Detect free variable `exports`. */
+  var freeExports$2 =
+    typeof exports == 'object' && exports && !exports.nodeType && exports
 
-  var _cloneBuffer = createCommonjsModule(function(module, exports) {
-    /** Detect free variable `exports`. */
-    var freeExports = exports && !exports.nodeType && exports
+  /** Detect free variable `module`. */
+  var freeModule$2 =
+    freeExports$2 &&
+    typeof module == 'object' &&
+    module &&
+    !module.nodeType &&
+    module
 
-    /** Detect free variable `module`. */
-    var freeModule =
-      freeExports &&
-      'object' == 'object' &&
-      module &&
-      !module.nodeType &&
-      module
+  /** Detect the popular CommonJS extension `module.exports`. */
+  var moduleExports$2 = freeModule$2 && freeModule$2.exports === freeExports$2
 
-    /** Detect the popular CommonJS extension `module.exports`. */
-    var moduleExports = freeModule && freeModule.exports === freeExports
+  /** Built-in value references. */
+  var Buffer$1 = moduleExports$2 ? root.Buffer : undefined,
+    allocUnsafe = Buffer$1 ? Buffer$1.allocUnsafe : undefined
 
-    /** Built-in value references. */
-    var Buffer = moduleExports ? _root.Buffer : undefined,
-      allocUnsafe = Buffer ? Buffer.allocUnsafe : undefined
-
-    /**
-     * Creates a clone of  `buffer`.
-     *
-     * @private
-     * @param {Buffer} buffer The buffer to clone.
-     * @param {boolean} [isDeep] Specify a deep clone.
-     * @returns {Buffer} Returns the cloned buffer.
-     */
-    function cloneBuffer(buffer, isDeep) {
-      if (isDeep) {
-        return buffer.slice()
-      }
-      var length = buffer.length,
-        result = allocUnsafe
-          ? allocUnsafe(length)
-          : new buffer.constructor(length)
-
-      buffer.copy(result)
-      return result
+  /**
+   * Creates a clone of  `buffer`.
+   *
+   * @private
+   * @param {Buffer} buffer The buffer to clone.
+   * @param {boolean} [isDeep] Specify a deep clone.
+   * @returns {Buffer} Returns the cloned buffer.
+   */
+  function cloneBuffer(buffer, isDeep) {
+    if (isDeep) {
+      return buffer.slice()
     }
+    var length = buffer.length,
+      result = allocUnsafe
+        ? allocUnsafe(length)
+        : new buffer.constructor(length)
 
-    module.exports = cloneBuffer
-  })
+    buffer.copy(result)
+    return result
+  }
 
   /**
    * Copies the values of `source` to `array`.
@@ -15201,8 +17539,6 @@
     return array
   }
 
-  var _copyArray = copyArray
-
   /**
    * Copies own symbols of `source` to `object`.
    *
@@ -15212,15 +17548,11 @@
    * @returns {Object} Returns `object`.
    */
   function copySymbols(source, object) {
-    return _copyObject(source, _getSymbols(source), object)
+    return copyObject(source, getSymbols(source), object)
   }
 
-  var _copySymbols = copySymbols
-
   /** Built-in value references. */
-  var getPrototype = _overArg(Object.getPrototypeOf, Object)
-
-  var _getPrototype = getPrototype
+  var getPrototype = overArg(Object.getPrototypeOf, Object)
 
   /* Built-in method references for those with the same name as other `lodash` methods. */
   var nativeGetSymbols$1 = Object.getOwnPropertySymbols
@@ -15233,17 +17565,15 @@
    * @returns {Array} Returns the array of symbols.
    */
   var getSymbolsIn = !nativeGetSymbols$1
-    ? stubArray_1
+    ? stubArray
     : function(object) {
         var result = []
         while (object) {
-          _arrayPush(result, _getSymbols(object))
-          object = _getPrototype(object)
+          arrayPush(result, getSymbols(object))
+          object = getPrototype(object)
         }
         return result
       }
-
-  var _getSymbolsIn = getSymbolsIn
 
   /**
    * Copies own and inherited symbols of `source` to `object`.
@@ -15254,10 +17584,8 @@
    * @returns {Object} Returns `object`.
    */
   function copySymbolsIn(source, object) {
-    return _copyObject(source, _getSymbolsIn(source), object)
+    return copyObject(source, getSymbolsIn(source), object)
   }
-
-  var _copySymbolsIn = copySymbolsIn
 
   /**
    * Creates an array of own and inherited enumerable property names and
@@ -15268,10 +17596,8 @@
    * @returns {Array} Returns the array of property names and symbols.
    */
   function getAllKeysIn(object) {
-    return _baseGetAllKeys(object, keysIn_1, _getSymbolsIn)
+    return baseGetAllKeys(object, keysIn$1, getSymbolsIn)
   }
-
-  var _getAllKeysIn = getAllKeysIn
 
   /** Used for built-in method references. */
   var objectProto$e = Object.prototype
@@ -15302,8 +17628,6 @@
     return result
   }
 
-  var _initCloneArray = initCloneArray
-
   /**
    * Creates a clone of `arrayBuffer`.
    *
@@ -15313,11 +17637,9 @@
    */
   function cloneArrayBuffer(arrayBuffer) {
     var result = new arrayBuffer.constructor(arrayBuffer.byteLength)
-    new _Uint8Array(result).set(new _Uint8Array(arrayBuffer))
+    new Uint8Array(result).set(new Uint8Array(arrayBuffer))
     return result
   }
-
-  var _cloneArrayBuffer = cloneArrayBuffer
 
   /**
    * Creates a clone of `dataView`.
@@ -15328,15 +17650,13 @@
    * @returns {Object} Returns the cloned data view.
    */
   function cloneDataView(dataView, isDeep) {
-    var buffer = isDeep ? _cloneArrayBuffer(dataView.buffer) : dataView.buffer
+    var buffer = isDeep ? cloneArrayBuffer(dataView.buffer) : dataView.buffer
     return new dataView.constructor(
       buffer,
       dataView.byteOffset,
       dataView.byteLength
     )
   }
-
-  var _cloneDataView = cloneDataView
 
   /** Used to match `RegExp` flags from their coerced string values. */
   var reFlags = /\w*$/
@@ -15354,10 +17674,8 @@
     return result
   }
 
-  var _cloneRegExp = cloneRegExp
-
   /** Used to convert symbols to primitives and strings. */
-  var symbolProto$2 = _Symbol ? _Symbol.prototype : undefined,
+  var symbolProto$2 = Symbol$1 ? Symbol$1.prototype : undefined,
     symbolValueOf$1 = symbolProto$2 ? symbolProto$2.valueOf : undefined
 
   /**
@@ -15371,8 +17689,6 @@
     return symbolValueOf$1 ? Object(symbolValueOf$1.call(symbol)) : {}
   }
 
-  var _cloneSymbol = cloneSymbol
-
   /**
    * Creates a clone of `typedArray`.
    *
@@ -15383,7 +17699,7 @@
    */
   function cloneTypedArray(typedArray, isDeep) {
     var buffer = isDeep
-      ? _cloneArrayBuffer(typedArray.buffer)
+      ? cloneArrayBuffer(typedArray.buffer)
       : typedArray.buffer
     return new typedArray.constructor(
       buffer,
@@ -15391,8 +17707,6 @@
       typedArray.length
     )
   }
-
-  var _cloneTypedArray = cloneTypedArray
 
   /** `Object#toString` result references. */
   var boolTag$2 = '[object Boolean]',
@@ -15432,14 +17746,14 @@
     var Ctor = object.constructor
     switch (tag) {
       case arrayBufferTag$2:
-        return _cloneArrayBuffer(object)
+        return cloneArrayBuffer(object)
 
       case boolTag$2:
       case dateTag$2:
         return new Ctor(+object)
 
       case dataViewTag$3:
-        return _cloneDataView(object, isDeep)
+        return cloneDataView(object, isDeep)
 
       case float32Tag$1:
       case float64Tag$1:
@@ -15450,7 +17764,7 @@
       case uint8ClampedTag$1:
       case uint16Tag$1:
       case uint32Tag$1:
-        return _cloneTypedArray(object, isDeep)
+        return cloneTypedArray(object, isDeep)
 
       case mapTag$3:
         return new Ctor()
@@ -15460,17 +17774,15 @@
         return new Ctor(object)
 
       case regexpTag$2:
-        return _cloneRegExp(object)
+        return cloneRegExp(object)
 
       case setTag$3:
         return new Ctor()
 
       case symbolTag$2:
-        return _cloneSymbol(object)
+        return cloneSymbol(object)
     }
   }
-
-  var _initCloneByTag = initCloneByTag
 
   /** Built-in value references. */
   var objectCreate = Object.create
@@ -15486,7 +17798,7 @@
   var baseCreate = (function() {
     function object() {}
     return function(proto) {
-      if (!isObject_1(proto)) {
+      if (!isObject(proto)) {
         return {}
       }
       if (objectCreate) {
@@ -15499,8 +17811,6 @@
     }
   })()
 
-  var _baseCreate = baseCreate
-
   /**
    * Initializes an object clone.
    *
@@ -15509,12 +17819,10 @@
    * @returns {Object} Returns the initialized clone.
    */
   function initCloneObject(object) {
-    return typeof object.constructor == 'function' && !_isPrototype(object)
-      ? _baseCreate(_getPrototype(object))
+    return typeof object.constructor == 'function' && !isPrototype(object)
+      ? baseCreate(getPrototype(object))
       : {}
   }
-
-  var _initCloneObject = initCloneObject
 
   /** `Object#toString` result references. */
   var mapTag$4 = '[object Map]'
@@ -15527,13 +17835,11 @@
    * @returns {boolean} Returns `true` if `value` is a map, else `false`.
    */
   function baseIsMap(value) {
-    return isObjectLike_1(value) && _getTag(value) == mapTag$4
+    return isObjectLike(value) && getTag$1(value) == mapTag$4
   }
 
-  var _baseIsMap = baseIsMap
-
   /* Node.js helper references. */
-  var nodeIsMap = _nodeUtil && _nodeUtil.isMap
+  var nodeIsMap = nodeUtil && nodeUtil.isMap
 
   /**
    * Checks if `value` is classified as a `Map` object.
@@ -15552,9 +17858,7 @@
    * _.isMap(new WeakMap);
    * // => false
    */
-  var isMap = nodeIsMap ? _baseUnary(nodeIsMap) : _baseIsMap
-
-  var isMap_1 = isMap
+  var isMap = nodeIsMap ? baseUnary(nodeIsMap) : baseIsMap
 
   /** `Object#toString` result references. */
   var setTag$4 = '[object Set]'
@@ -15567,13 +17871,11 @@
    * @returns {boolean} Returns `true` if `value` is a set, else `false`.
    */
   function baseIsSet(value) {
-    return isObjectLike_1(value) && _getTag(value) == setTag$4
+    return isObjectLike(value) && getTag$1(value) == setTag$4
   }
 
-  var _baseIsSet = baseIsSet
-
   /* Node.js helper references. */
-  var nodeIsSet = _nodeUtil && _nodeUtil.isSet
+  var nodeIsSet = nodeUtil && nodeUtil.isSet
 
   /**
    * Checks if `value` is classified as a `Set` object.
@@ -15592,9 +17894,7 @@
    * _.isSet(new WeakSet);
    * // => false
    */
-  var isSet = nodeIsSet ? _baseUnary(nodeIsSet) : _baseIsSet
-
-  var isSet_1 = isSet
+  var isSet = nodeIsSet ? baseUnary(nodeIsSet) : baseIsSet
 
   /** Used to compose bitmasks for cloning. */
   var CLONE_DEEP_FLAG = 1,
@@ -15681,45 +17981,45 @@
     if (result !== undefined) {
       return result
     }
-    if (!isObject_1(value)) {
+    if (!isObject(value)) {
       return value
     }
-    var isArr = isArray_1(value)
+    var isArr = isArray(value)
     if (isArr) {
-      result = _initCloneArray(value)
+      result = initCloneArray(value)
       if (!isDeep) {
-        return _copyArray(value, result)
+        return copyArray(value, result)
       }
     } else {
-      var tag = _getTag(value),
+      var tag = getTag$1(value),
         isFunc = tag == funcTag$2 || tag == genTag$1
 
-      if (isBuffer_1(value)) {
-        return _cloneBuffer(value, isDeep)
+      if (isBuffer(value)) {
+        return cloneBuffer(value, isDeep)
       }
       if (tag == objectTag$3 || tag == argsTag$3 || (isFunc && !object)) {
-        result = isFlat || isFunc ? {} : _initCloneObject(value)
+        result = isFlat || isFunc ? {} : initCloneObject(value)
         if (!isDeep) {
           return isFlat
-            ? _copySymbolsIn(value, _baseAssignIn(result, value))
-            : _copySymbols(value, _baseAssign(result, value))
+            ? copySymbolsIn(value, baseAssignIn(result, value))
+            : copySymbols(value, baseAssign(result, value))
         }
       } else {
         if (!cloneableTags[tag]) {
           return object ? value : {}
         }
-        result = _initCloneByTag(value, tag, isDeep)
+        result = initCloneByTag(value, tag, isDeep)
       }
     }
     // Check for circular references and return its corresponding clone.
-    stack || (stack = new _Stack())
+    stack || (stack = new Stack())
     var stacked = stack.get(value)
     if (stacked) {
       return stacked
     }
     stack.set(value, result)
 
-    if (isSet_1(value)) {
+    if (isSet(value)) {
       value.forEach(function(subValue) {
         result.add(
           baseClone(subValue, bitmask, customizer, subValue, value, stack)
@@ -15729,7 +18029,7 @@
       return result
     }
 
-    if (isMap_1(value)) {
+    if (isMap(value)) {
       value.forEach(function(subValue, key) {
         result.set(
           key,
@@ -15742,20 +18042,20 @@
 
     var keysFunc = isFull
       ? isFlat
-        ? _getAllKeysIn
-        : _getAllKeys
+        ? getAllKeysIn
+        : getAllKeys
       : isFlat
       ? keysIn
-      : keys_1
+      : keys
 
     var props = isArr ? undefined : keysFunc(value)
-    _arrayEach(props || value, function(subValue, key) {
+    arrayEach(props || value, function(subValue, key) {
       if (props) {
         key = subValue
         subValue = value[key]
       }
       // Recursively populate clone (susceptible to call stack limits).
-      _assignValue(
+      assignValue(
         result,
         key,
         baseClone(subValue, bitmask, customizer, key, value, stack)
@@ -15763,8 +18063,6 @@
     })
     return result
   }
-
-  var _baseClone = baseClone
 
   /**
    * Gets the last element of `array`.
@@ -15785,8 +18083,6 @@
     return length ? array[length - 1] : undefined
   }
 
-  var last_1 = last
-
   /**
    * Gets the parent value at `path` of `object`.
    *
@@ -15796,10 +18092,8 @@
    * @returns {*} Returns the parent value.
    */
   function parent(object, path) {
-    return path.length < 2 ? object : _baseGet(object, _baseSlice(path, 0, -1))
+    return path.length < 2 ? object : baseGet(object, baseSlice(path, 0, -1))
   }
-
-  var _parent = parent
 
   /**
    * The base implementation of `_.unset`.
@@ -15810,12 +18104,10 @@
    * @returns {boolean} Returns `true` if the property is deleted, else `false`.
    */
   function baseUnset(object, path) {
-    path = _castPath(path, object)
-    object = _parent(object, path)
-    return object == null || delete object[_toKey(last_1(path))]
+    path = castPath(path, object)
+    object = parent(object, path)
+    return object == null || delete object[toKey(last(path))]
   }
-
-  var _baseUnset = baseUnset
 
   /** `Object#toString` result references. */
   var objectTag$4 = '[object Object]'
@@ -15862,10 +18154,10 @@
    * // => true
    */
   function isPlainObject(value) {
-    if (!isObjectLike_1(value) || _baseGetTag(value) != objectTag$4) {
+    if (!isObjectLike(value) || baseGetTag(value) != objectTag$4) {
       return false
     }
-    var proto = _getPrototype(value)
+    var proto = getPrototype(value)
     if (proto === null) {
       return true
     }
@@ -15877,8 +18169,6 @@
     )
   }
 
-  var isPlainObject_1 = isPlainObject
-
   /**
    * Used by `_.omit` to customize its `_.cloneDeep` use to only clone plain
    * objects.
@@ -15889,10 +18179,8 @@
    * @returns {*} Returns the uncloned value or `undefined` to defer cloning to `_.cloneDeep`.
    */
   function customOmitClone(value) {
-    return isPlainObject_1(value) ? undefined : value
+    return isPlainObject(value) ? undefined : value
   }
-
-  var _customOmitClone = customOmitClone
 
   /**
    * Flattens `array` a single level deep.
@@ -15910,10 +18198,8 @@
    */
   function flatten(array) {
     var length = array == null ? 0 : array.length
-    return length ? _baseFlatten(array, 1) : []
+    return length ? baseFlatten(array, 1) : []
   }
-
-  var flatten_1 = flatten
 
   /**
    * A specialized version of `baseRest` which flattens the rest array.
@@ -15923,10 +18209,8 @@
    * @returns {Function} Returns the new function.
    */
   function flatRest(func) {
-    return _setToString(_overRest(func, undefined, flatten_1), func + '')
+    return setToString(overRest(func, undefined, flatten), func + '')
   }
-
-  var _flatRest = flatRest
 
   /** Used to compose bitmasks for cloning. */
   var CLONE_DEEP_FLAG$1 = 1,
@@ -15953,33 +18237,31 @@
    * _.omit(object, ['a', 'c']);
    * // => { 'b': '2' }
    */
-  var omit = _flatRest(function(object, paths) {
+  var omit = flatRest(function(object, paths) {
     var result = {}
     if (object == null) {
       return result
     }
     var isDeep = false
-    paths = _arrayMap(paths, function(path) {
-      path = _castPath(path, object)
+    paths = arrayMap(paths, function(path) {
+      path = castPath(path, object)
       isDeep || (isDeep = path.length > 1)
       return path
     })
-    _copyObject(object, _getAllKeysIn(object), result)
+    copyObject(object, getAllKeysIn(object), result)
     if (isDeep) {
-      result = _baseClone(
+      result = baseClone(
         result,
         CLONE_DEEP_FLAG$1 | CLONE_FLAT_FLAG$1 | CLONE_SYMBOLS_FLAG$1,
-        _customOmitClone
+        customOmitClone
       )
     }
     var length = paths.length
     while (length--) {
-      _baseUnset(result, paths[length])
+      baseUnset(result, paths[length])
     }
     return result
   })
-
-  var omit_1 = omit
 
   /** Used for built-in method references. */
   var objectProto$g = Object.prototype
@@ -16008,20 +18290,20 @@
    * _.defaults({ 'a': 1 }, { 'b': 2 }, { 'a': 3 });
    * // => { 'a': 1, 'b': 2 }
    */
-  var defaults = _baseRest(function(object, sources) {
+  var defaults = baseRest(function(object, sources) {
     object = Object(object)
 
     var index = -1
     var length = sources.length
     var guard = length > 2 ? sources[2] : undefined
 
-    if (guard && _isIterateeCall(sources[0], sources[1], guard)) {
+    if (guard && isIterateeCall(sources[0], sources[1], guard)) {
       length = 1
     }
 
     while (++index < length) {
       var source = sources[index]
-      var props = keysIn_1(source)
+      var props = keysIn$1(source)
       var propsIndex = -1
       var propsLength = props.length
 
@@ -16031,7 +18313,7 @@
 
         if (
           value === undefined ||
-          (eq_1(value, objectProto$g[key]) &&
+          (eq$1(value, objectProto$g[key]) &&
             !hasOwnProperty$e.call(object, key))
         ) {
           object[key] = source[key]
@@ -16041,8 +18323,6 @@
 
     return object
   })
-
-  var defaults_1 = defaults
 
   /**
    * An alternative to `_.reduce`; this method transforms `object` to a new
@@ -16075,31 +18355,27 @@
    * // => { '1': ['a', 'c'], '2': ['b'] }
    */
   function transform(object, iteratee, accumulator) {
-    var isArr = isArray_1(object),
-      isArrLike = isArr || isBuffer_1(object) || isTypedArray_1(object)
+    var isArr = isArray(object),
+      isArrLike = isArr || isBuffer(object) || isTypedArray(object)
 
-    iteratee = _baseIteratee(iteratee, 4)
+    iteratee = baseIteratee(iteratee, 4)
     if (accumulator == null) {
       var Ctor = object && object.constructor
       if (isArrLike) {
         accumulator = isArr ? new Ctor() : []
-      } else if (isObject_1(object)) {
-        accumulator = isFunction_1(Ctor)
-          ? _baseCreate(_getPrototype(object))
-          : {}
+      } else if (isObject(object)) {
+        accumulator = isFunction(Ctor) ? baseCreate(getPrototype(object)) : {}
       } else {
         accumulator = {}
       }
     }
     ;(isArrLike
-      ? _arrayEach
-      : _baseForOwn)(object, function(value, index, object) {
+      ? arrayEach
+      : baseForOwn)(object, function(value, index, object) {
       return iteratee(accumulator, value, index, object)
     })
     return accumulator
   }
-
-  var transform_1 = transform
 
   /**
    * Creates an object with the same keys as `object` and values generated
@@ -16131,15 +18407,13 @@
    */
   function mapValues(object, iteratee) {
     var result = {}
-    iteratee = _baseIteratee(iteratee, 3)
+    iteratee = baseIteratee(iteratee, 3)
 
-    _baseForOwn(object, function(value, key, object) {
-      _baseAssignValue(result, key, iteratee(value, key, object))
+    baseForOwn(object, function(value, key, object) {
+      baseAssignValue(result, key, iteratee(value, key, object))
     })
     return result
   }
-
-  var mapValues_1 = mapValues
 
   /**
    * Retrieve via an accessor-like property
@@ -16214,11 +18488,11 @@
           this
 
         _this.getViews = function() {
-          var views$$1 = _this.props.views
+          var views = _this.props.views
 
-          if (Array.isArray(views$$1)) {
-            return transform_1(
-              views$$1,
+          if (Array.isArray(views)) {
+            return transform(
+              views,
               function(obj, name) {
                 return (obj[name] = VIEWS[name])
               },
@@ -16226,8 +18500,8 @@
             )
           }
 
-          if (typeof views$$1 === 'object') {
-            return mapValues_1(views$$1, function(value, key) {
+          if (typeof views === 'object') {
+            return mapValues(views, function(value, key) {
               if (value === true) {
                 return VIEWS[key]
               }
@@ -16240,9 +18514,9 @@
         }
 
         _this.getView = function() {
-          var views$$1 = _this.getViews()
+          var views = _this.getViews()
 
-          return views$$1[_this.props.view]
+          return views[_this.props.view]
         }
 
         _this.getDrilldownView = function(date) {
@@ -16307,11 +18581,11 @@
             _this.props.onView(view)
           }
 
-          var views$$1 = _this.getViews()
+          var views = _this.getViews()
 
           _this.handleRangeChange(
             _this.props.date || _this.props.getNow(),
-            views$$1[view],
+            views[view],
             view
           )
         }
@@ -16386,17 +18660,17 @@
           slotPropGetter = _ref2.slotPropGetter,
           dayPropGetter = _ref2.dayPropGetter,
           view = _ref2.view,
-          views$$1 = _ref2.views,
+          views = _ref2.views,
           localizer = _ref2.localizer,
           culture = _ref2.culture,
           _ref2$messages = _ref2.messages,
-          messages$$1 = _ref2$messages === void 0 ? {} : _ref2$messages,
+          messages$1 = _ref2$messages === void 0 ? {} : _ref2$messages,
           _ref2$components = _ref2.components,
           components = _ref2$components === void 0 ? {} : _ref2$components,
           _ref2$formats = _ref2.formats,
           formats = _ref2$formats === void 0 ? {} : _ref2$formats
-        var names = viewNames$1(views$$1)
-        var msgs = messages(messages$$1)
+        var names = viewNames$1(views)
+        var msgs = messages(messages$1)
         return {
           viewNames: names,
           localizer: mergeWithDefaults(localizer, culture, formats, msgs),
@@ -16419,13 +18693,12 @@
               )
             },
           },
-          components: defaults_1(
+          components: defaults(
             components[view] || {},
-            omit_1(components, names),
+            omit(components, names),
             {
               eventWrapper: NoopWrapper,
               eventContainerWrapper: NoopWrapper,
-              dayWrapper: NoopWrapper,
               dateCellWrapper: NoopWrapper,
               weekWrapper: NoopWrapper,
               timeSlotWrapper: NoopWrapper,
@@ -16498,7 +18771,7 @@
             className: classnames(
               className,
               'rbc-calendar',
-              props.rtl && 'rbc-is-rtl'
+              props.rtl && 'rbc-rtl'
             ),
             style: style,
           }),
@@ -16514,30 +18787,24 @@
             }),
           React__default.createElement(
             View,
-            _extends(
-              {
-                ref: 'view',
-              },
-              props,
-              {
-                events: events,
-                date: current,
-                getNow: getNow,
-                length: length,
-                localizer: localizer,
-                getters: getters,
-                components: components,
-                accessors: accessors,
-                showMultiDayTimes: showMultiDayTimes,
-                getDrilldownView: this.getDrilldownView,
-                onNavigate: this.handleNavigate,
-                onDrillDown: this.handleDrillDown,
-                onSelectEvent: this.handleSelectEvent,
-                onDoubleClickEvent: this.handleDoubleClickEvent,
-                onSelectSlot: this.handleSelectSlot,
-                onShowMore: onShowMore,
-              }
-            )
+            _extends({}, props, {
+              events: events,
+              date: current,
+              getNow: getNow,
+              length: length,
+              localizer: localizer,
+              getters: getters,
+              components: components,
+              accessors: accessors,
+              showMultiDayTimes: showMultiDayTimes,
+              getDrilldownView: this.getDrilldownView,
+              onNavigate: this.handleNavigate,
+              onDrillDown: this.handleDrillDown,
+              onSelectEvent: this.handleSelectEvent,
+              onDoubleClickEvent: this.handleDoubleClickEvent,
+              onSelectSlot: this.handleSelectSlot,
+              onShowMore: onShowMore,
+            })
           )
         )
       }
@@ -16887,7 +19154,7 @@
      * }
      * ```
      *
-     * @type Calendar.Views ('month'|'week'|'work_week'|'day'|'agenda')
+     * @type Views ('month'|'week'|'work_week'|'day'|'agenda')
      * @View
      ['month', 'week', 'day', 'agenda']
      */
@@ -16901,7 +19168,7 @@
      * Set to `null` to disable drill-down actions.
      *
      * ```js
-     * <BigCalendar
+     * <Calendar
      *   drilldownView="agenda"
      * />
      * ```
@@ -16916,7 +19183,7 @@
      * Return `null` to disable drill-down actions.
      *
      * ```js
-     * <BigCalendar
+     * <Calendar
      *   getDrilldownView={(targetDate, currentViewName, configuredViewNames) =>
      *     if (currentViewName === 'month' && configuredViewNames.includes('week'))
      *       return 'week'
@@ -16948,8 +19215,8 @@
      * Distance in pixels, from the edges of the viewport, the "show more" overlay should be positioned.
      *
      * ```jsx
-     * <BigCalendar popupOffset={30}/>
-     * <BigCalendar popupOffset={{x: 30, y: 20}}/>
+     * <Calendar popupOffset={30}/>
+     * <Calendar popupOffset={{x: 30, y: 20}}/>
      * ```
      */
     popupOffset: propTypes.oneOfType([
@@ -17173,7 +19440,6 @@
      *   event: MyEvent, // used by each view (Month, Day, Week)
      *   eventWrapper: MyEventWrapper,
      *   eventContainerWrapper: MyEventContainerWrapper,
-     *   dayWrapper: MyDayWrapper,
      *   dateCellWrapper: MyDateCellWrapper,
      *   timeSlotWrapper: MyTimeSlotWrapper,
      *   timeGutterHeader: MyTimeGutterWrapper,
@@ -17201,32 +19467,31 @@
      * ```
      */
     components: propTypes.shape({
-      event: elementType,
-      eventWrapper: elementType,
-      eventContainerWrapper: elementType,
-      dayWrapper: elementType,
-      dateCellWrapper: elementType,
-      timeSlotWrapper: elementType,
-      timeGutterHeader: elementType,
-      resourceHeader: elementType,
-      toolbar: elementType,
+      event: propTypes.elementType,
+      eventWrapper: propTypes.elementType,
+      eventContainerWrapper: propTypes.elementType,
+      dateCellWrapper: propTypes.elementType,
+      timeSlotWrapper: propTypes.elementType,
+      timeGutterHeader: propTypes.elementType,
+      resourceHeader: propTypes.elementType,
+      toolbar: propTypes.elementType,
       agenda: propTypes.shape({
-        date: elementType,
-        time: elementType,
-        event: elementType,
+        date: propTypes.elementType,
+        time: propTypes.elementType,
+        event: propTypes.elementType,
       }),
       day: propTypes.shape({
-        header: elementType,
-        event: elementType,
+        header: propTypes.elementType,
+        event: propTypes.elementType,
       }),
       week: propTypes.shape({
-        header: elementType,
-        event: elementType,
+        header: propTypes.elementType,
+        event: propTypes.elementType,
       }),
       month: propTypes.shape({
-        header: elementType,
-        dateHeader: elementType,
-        event: elementType,
+        header: propTypes.elementType,
+        dateHeader: propTypes.elementType,
+        event: propTypes.elementType,
       }),
     }),
 
@@ -17295,11 +19560,7 @@
     return (
       local.format(start, 'MMMM DD', culture) +
       ' - ' +
-      local.format(
-        end,
-        dates.eq(start, end, 'month') ? 'DD' : 'MMMM DD',
-        culture
-      )
+      local.format(end, eq(start, end, 'month') ? 'DD' : 'MMMM DD', culture)
     )
   }
 
@@ -17320,7 +19581,7 @@
     agendaTimeFormat: 'LT',
     agendaTimeRangeFormat: timeRangeFormat,
   }
-  function momentLocalizer(moment) {
+  function moment(moment) {
     var locale = function locale(m, c) {
       return c ? m.locale(c) : m
     }
@@ -17381,11 +19642,7 @@
     return (
       local.format(start, 'MMM dd', culture) +
       ' - ' +
-      local.format(
-        end,
-        dates.eq(start, end, 'month') ? 'dd' : 'MMM dd',
-        culture
-      )
+      local.format(end, eq(start, end, 'month') ? 'dd' : 'MMM dd', culture)
     )
   }
 
@@ -17512,11 +19769,7 @@
     return (
       local.format(start, 'MMM dd', culture) +
       ' — ' +
-      local.format(
-        end,
-        dates.eq(start, end, 'month') ? 'dd' : 'MMM dd',
-        culture
-      )
+      local.format(end, eq(start, end, 'month') ? 'dd' : 'MMM dd', culture)
     )
   }
 
@@ -17541,7 +19794,7 @@
     },
     agendaTimeRangeFormat: timeRangeFormat$2,
   }
-  function globalizeLocalizer(globalize) {
+  function globalize(globalize) {
     var locale = function locale(culture) {
       return culture ? globalize(culture) : globalize
     } // return the first day of the week from the locale data. Defaults to 'world'
@@ -17594,18 +19847,20 @@
     })
   }
 
-  _extends(Calendar$1, {
-    globalizeLocalizer: globalizeLocalizer,
-    momentLocalizer: momentLocalizer,
-    Views: views,
-    Navigate: navigate,
-    move: moveDate,
-    components: {
-      eventWrapper: NoopWrapper,
-      dayWrapper: NoopWrapper,
-      dateCellWrapper: NoopWrapper,
-    },
-  })
+  var components = {
+    eventWrapper: NoopWrapper,
+    timeSlotWrapper: NoopWrapper,
+    dateCellWrapper: NoopWrapper,
+  }
 
-  return Calendar$1
+  exports.Calendar = Calendar$1
+  exports.DateLocalizer = DateLocalizer
+  exports.Navigate = navigate
+  exports.Views = views
+  exports.components = components
+  exports.globalizeLocalizer = globalize
+  exports.momentLocalizer = moment
+  exports.move = moveDate
+
+  Object.defineProperty(exports, '__esModule', { value: true })
 })
